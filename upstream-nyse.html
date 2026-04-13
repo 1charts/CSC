@@ -10,14 +10,16 @@
       const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzLviZIIEegXIs7k4mmHHxv1guIIP8J68Mw70vCGz6jv9NQ7kF6viXaDtb35Q4Zsx8RCQ/exec';
       const KEY = 'v3K8pQ2n';
       
-      // Query fissa sulle 3 colonne richieste (A = Data, B = sinistra, Q e S = destra)
       const query = encodeURIComponent('select A, B, Q, S');
-      
       const url = `${PROXY_URL}?key=${KEY}&gid=0&q=${query}`;
+
+      console.log('Tentativo di caricamento da URL:', url);   // per debug
 
       new google.visualization.Query(url).send(function(response) {
         if (response.isError()) {
-          console.error('Errore nel caricamento del grafico:', response.getMessage());
+          console.error('Errore Query:', response.getMessage());
+          document.getElementById('chart_div').innerHTML = 
+            '<p style="color:#ff6b6b; text-align:center; padding:50px;">Errore nel caricamento dei dati.<br>Controlla la console (F12)</p>';
           return;
         }
 
@@ -26,48 +28,25 @@
 
         const options = {
           title: 'Upstream companies NYSE',
-          titleTextStyle: { 
-            color: '#f8fafc', 
-            fontSize: 21, 
-            bold: true 
-          },
+          titleTextStyle: { color: '#f8fafc', fontSize: 21, bold: true },
           width: '100%',
           height: 620,
           backgroundColor: '#0f172a',
           chartArea: { width: '84%', height: '73%' },
-          legend: { 
-            position: 'bottom', 
-            textStyle: { color: '#e2e8f0', fontSize: 13 } 
-          },
+          legend: { position: 'bottom', textStyle: { color: '#e2e8f0', fontSize: 13 } },
           curveType: 'function',
-          tooltip: { trigger: 'none' },           // tooltip disattivato
-          
+          tooltip: { trigger: 'none' },
+
           vAxes: {
-            0: { 
-              title: 'Scala SINISTRA', 
-              titleTextStyle: textStyle, 
-              textStyle: textStyle, 
-              gridlines: { color: '#334155' },
-              baselineColor: '#334155'
-            },
-            1: { 
-              title: 'Scala DESTRA', 
-              titleTextStyle: textStyle, 
-              textStyle: textStyle, 
-              gridlines: { color: '#334155' },
-              baselineColor: '#334155'
-            }
+            0: { title: 'Scala SINISTRA', titleTextStyle: textStyle, textStyle: textStyle, gridlines: { color: '#334155' } },
+            1: { title: 'Scala DESTRA',   titleTextStyle: textStyle, textStyle: textStyle, gridlines: { color: '#334155' } }
           },
           series: {
-            0: { targetAxisIndex: 0, color: '#22d3ee', lineWidth: 5 },   // Colonna B - evidenziata
-            1: { targetAxisIndex: 1, color: '#c084fc', lineWidth: 2.5 }, // Colonna Q
-            2: { targetAxisIndex: 1, color: '#4ade80', lineWidth: 2.5 }  // Colonna S
+            0: { targetAxisIndex: 0, color: '#22d3ee', lineWidth: 5 },
+            1: { targetAxisIndex: 1, color: '#c084fc', lineWidth: 2.5 },
+            2: { targetAxisIndex: 1, color: '#4ade80', lineWidth: 2.5 }
           },
-          hAxis: { 
-            textStyle: textStyle, 
-            gridlines: { color: '#334155' },
-            baselineColor: '#334155'
-          }
+          hAxis: { textStyle: textStyle, gridlines: { color: '#334155' } }
         };
 
         new google.visualization.ComboChart(document.getElementById('chart_div')).draw(data, options);
@@ -75,14 +54,11 @@
     }
   </script>
 </head>
-<body style="margin:0; padding:0; background:#0f172a; font-family:sans-serif;">
+<body style="margin:0; padding:0; background:#0f172a;">
   <div id="chart_div" style="width:100%; height:620px;"></div>
   
   <div style="text-align:center; font-size:13px; color:#94a3b8; margin-top:12px;">
-    Source: <a href="https://commoditysupercycle.com/" target="_blank" 
-               style="color:#67e8f9; text-decoration:none; font-weight:bold;">
-      commoditysupercycle.com
-    </a>
+    Source: <a href="https://commoditysupercycle.com/" target="_blank" style="color:#67e8f9; text-decoration:none; font-weight:bold;">commoditysupercycle.com</a>
   </div>
 </body>
 </html>
