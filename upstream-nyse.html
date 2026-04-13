@@ -6,20 +6,21 @@
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+    async function drawChart() {
       const PROXY = 'https://script.google.com/macros/s/AKfycbyJS90lq09gg5pbIyRw_67-Pg_z9sxW4KZPt8gr6BBZKr2GObsxwqQ9n7vDHn-qEIXiJQ/exec'; 
       const KEY = 'v3K8pQ2n'; 
       const q = encodeURIComponent('select A, B, Q, S');
       const url = `${PROXY}?key=${KEY}&gid=0&q=${q}`;
 
-      new google.visualization.Query(url).send(res => {
-        if (res.isError()) {
-          console.error('Errore:', res.getMessage());
-          return;
-        }
-        const data = res.getDataTable();
-        const style = { color: '#cbd5e1' };
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
         
+        // Google Sheets API restituisce un formato leggermente diverso, lo puliamo qui
+        const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1]);
+        const data = new google.visualization.DataTable(json.table);
+
+        const style = { color: '#cbd5e1' };
         const options = {
           title: 'Upstream companies NYSE',
           titleTextStyle: { color: '#f8fafc', fontSize: 20, bold: true },
@@ -42,7 +43,9 @@
         };
 
         new google.visualization.ComboChart(document.getElementById('c')).draw(data, options);
-      });
+      } catch (err) {
+        console.error("Errore nel caricamento dati:", err);
+      }
     }
   </script>
 </head>
