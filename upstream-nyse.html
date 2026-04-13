@@ -7,13 +7,16 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      const PROXY = 'TUO_URL_EXEC_QUI'; 
+      const PROXY = 'https://script.google.com/macros/s/AKfycbyJS90lq09gg5pbIyRw_67-Pg_z9sxW4KZPt8gr6BBZKr2GObsxwqQ9n7vDHn-qEIXiJQ/exec'; 
       const KEY = 'v3K8pQ2n'; 
       const q = encodeURIComponent('select A, B, Q, S');
       const url = `${PROXY}?key=${KEY}&gid=0&q=${q}`;
 
       new google.visualization.Query(url).send(res => {
-        if (res.isError()) return;
+        if (res.isError()) {
+          console.error('Errore:', res.getMessage());
+          return;
+        }
         const data = res.getDataTable();
         const style = { color: '#cbd5e1' };
         
