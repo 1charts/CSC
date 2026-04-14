@@ -12,12 +12,13 @@
     .container { max-width: 1250px; margin: 0 auto; padding: 10px; }
     canvas { width: 100% !important; height: auto !important; max-height: 85vh; }
     .source { text-align:center; margin-top:15px; color:#94a3b8; font-size:14px; }
-    .error { color:#ff6b6b; text-align:center; padding:40px; background:#1e2937; border-radius:8px; }
+    .debug { color:#ff6b6b; text-align:center; margin:10px; font-size:13px; }
   </style>
 </head>
 <body>
-  <div class="container" id="main">
+  <div class="container">
     <canvas id="myChart"></canvas>
+    <div id="debug" class="debug"></div>
   </div>
 
   <div class="source">
@@ -31,8 +32,8 @@
       sourceText: "U.S. Energy Information Administration, Crude Oil Prices: Brent retrieved from FRED",
       sourceUrl: "https://fred.stlouisfed.org/series/DCOILBRENTEU",
 
-      yLeft:  { min: 500, max: 5000 },
-      yRight: { min: 0, max: 10000 },
+      yLeft:  { min: 0, max: 5000 },
+      yRight: { min: 1000, max: 4000 },
 
       xColumn: "Data",
 
@@ -44,27 +45,20 @@
       ]
     };
 
-    // URL CORRETTO del tuo CSV
     const csvUrl = 'https://raw.githubusercontent.com/1charts/CSC/main-root/all-data.csv';
 
     fetch(csvUrl)
-      .then(r => {
-        if (!r.ok) throw new Error(`CSV non trovato (404). Controlla il percorso.`);
-        return r.text();
-      })
+      .then(r => r.text())
       .then(text => {
         Papa.parse(text, {
           header: true,
           skipEmptyLines: true,
           complete: function(results) {
-            console.log("Intestazioni trovate:", Object.keys(results.data[0] || {}));
-            console.log("Prime 5 righe:", results.data.slice(0,5));
-
             const data = results.data.filter(row => row && !String(row[0] || '').startsWith("==="));
 
-            if (data.length === 0) {
-              throw new Error("Nessun dato valido trovato nel CSV");
-            }
+            console.log("Intestazioni CSV trovate:", Object.keys(results.data[0] || {}));
+            document.getElementById('debug').innerHTML = 
+              "Intestazioni CSV: " + Object.keys(results.data[0] || {}).join(", ");
 
             const labels = data.map(row => row[CONFIG.xColumn] || row[0] || "");
             const yearLabels = labels.map(l => String(l).substring(0,4));
@@ -94,23 +88,29 @@
                 maintainAspectRatio: false,
                 plugins: {
                   title: { display: true, text: CONFIG.title, color: '#f8fafc', font: { size: 21, weight: 'bold' } },
-                  legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } },
-                  tooltip: { mode: 'index', intersect: false }
+                  legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } }
                 },
                 scales: {
                   x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
-                  yLeft: { type: 'linear', position: 'left', min: CONFIG.yLeft.min, max: CONFIG.yLeft.max, grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
-                  yRight: { type: 'linear', position: 'right', min: CONFIG.yRight.min, max: CONFIG.yRight.max, grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } }
+                  yLeft: { 
+                    type: 'linear', position: 'left', 
+                    min: CONFIG.yLeft.min, max: CONFIG.yLeft.max,
+                    grid: { color: '#334155' }, ticks: { color: '#cbd5e1' },
+                    title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' }
+                  },
+                  yRight: { 
+                    type: 'linear', position: 'right', 
+                    min: CONFIG.yRight.min, max: CONFIG.yRight.max,
+                    grid: { color: '#334155' }, ticks: { color: '#cbd5e1' },
+                    title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' }
+                  }
                 }
               }
             });
           }
         });
       })
-      .catch(err => {
-        console.error(err);
-        document.getElementById('main').innerHTML = `<div class="error">Errore: ${err.message}<br><br>Controlla che il file all-data.csv esista nella cartella main-root.</div>`;
-      });
+      .catch(err => console.error("Errore:", err));
   </script>
 </body>
 </html>
