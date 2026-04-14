@@ -20,58 +20,61 @@
   </div>
 
   <div class="source">
-    Source: Google Sheets (aggiornato automaticamente)<br>
+    <span id="sourceText"></span><br>
     <a href="https://commoditysupercycle.com/" target="_blank" style="color:#67e8f9; font-weight:bold;">commoditysupercycle.com</a>
   </div>
 
   <script>
     // ================== CONFIGURAZIONE GRAFICO ==================
-    // Cambia solo questa parte per ogni grafico (01, 02, 03...)
     const CONFIG = {
-      title: "Upstream companies NYSE",           // Titolo del grafico
+      title: "Upstream companies NYSE",                    // ← Titolo grande in alto
 
-      // Asse X → sempre la prima colonna (Data)
-      xColumn: "Data",                            // Nome della colonna Data nel CSV
+      // Source personalizzabile con link
+      sourceText: "U.S. Energy Information Administration, Crude Oil Prices: Brent retrieved from FRED",
+      sourceUrl: "https://fred.stlouisfed.org/series/DCOILBRENTEU",
 
-      // Curva 1 (Sinistra)
-      curve1: {
-        enabled: true,
-        column: "B",                              // Cambia con la colonna che vuoi (es. "C", "Q", "BC"...)
-        label: "Capitalizzazione aziende oro",
-        color: "#22d3ee",
-        width: 5,
-        yAxis: "left"                             // "left" o "right"
-      },
+      // Range delle scale (lascia null per automatico)
+      yLeft:  { min: 1000, max: 6000 },     // Scala sinistra
+      yRight: { min: 0, max: 5000 },     // Scala destra
 
-      // Curva 2 (Destra)
-      curve2: {
-        enabled: true,
-        column: "Q",
-        label: "Curva 2 - Nome",
-        color: "#c084fc",
-        width: 2.5,
-        yAxis: "right"
-      },
+      // Asse X = sempre colonna A (Data)
+      xColumn: "Data",
 
-      // Curva 3 (Destra)
-      curve3: {
-        enabled: true,
-        column: "S",
-        label: "Curva 3 - Nome",
-        color: "#4ade80",
-        width: 2.5,
-        yAxis: "right"
-      },
-
-      // Curva 4 (opzionale)
-      curve4: {
-        enabled: false,                           // metti true se vuoi usarla
-        column: "",
-        label: "",
-        color: "#ff6b6b",
-        width: 2.5,
-        yAxis: "right"
-      }
+      // === CURVE (fino a 4) ===
+      curves: [
+        {
+          enabled: true,
+          column: "B",                          // Colonna del CSV
+          label: "Capitalizzazione aziende oro",
+          color: "#22d3ee",
+          width: 5,
+          yAxis: "left"                         // "left" o "right"
+        },
+        {
+          enabled: true,
+          column: "Q",
+          label: "Argento",
+          color: "#c084fc",
+          width: 2.5,
+          yAxis: "right"
+        },
+        {
+          enabled: true,
+          column: "S",
+          label: "Alluminio",
+          color: "#4ade80",
+          width: 1,
+          yAxis: "right"
+        },
+        {
+          enabled: false,                       // metti true se vuoi usarla
+          column: "",
+          label: "",
+          color: "#ff6b6b",
+          width: 1,
+          yAxis: "right"
+        }
+      ]
     };
     // ===========================================================
 
@@ -85,73 +88,63 @@
           skipEmptyLines: true,
           complete: function(results) {
             const data = results.data;
-
             const labels = data.map(row => row[CONFIG.xColumn] || row[0]);
+
+            // Mostra solo l'anno sull'asse X
+            const yearLabels = labels.map(label => {
+              if (typeof label === 'string' && label.length >= 4) return label.substring(0, 4);
+              return label;
+            });
 
             const datasets = [];
 
-            // Curva 1
-            if (CONFIG.curve1.enabled) {
+            CONFIG.curves.forEach(curve => {
+              if (!curve.enabled) return;
               datasets.push({
-                label: CONFIG.curve1.label,
-                data: data.map(row => parseFloat(row[CONFIG.curve1.column]) || null),
-                borderColor: CONFIG.curve1.color,
-                borderWidth: CONFIG.curve1.width,
+                label: curve.label,
+                data: data.map(row => parseFloat(row[curve.column]) || null),
+                borderColor: curve.color,
+                borderWidth: curve.width,
                 tension: 0.3,
-                yAxisID: CONFIG.curve1.yAxis
+                yAxisID: curve.yAxis
               });
-            }
+            });
 
-            // Curva 2
-            if (CONFIG.curve2.enabled) {
-              datasets.push({
-                label: CONFIG.curve2.label,
-                data: data.map(row => parseFloat(row[CONFIG.curve2.column]) || null),
-                borderColor: CONFIG.curve2.color,
-                borderWidth: CONFIG.curve2.width,
-                tension: 0.3,
-                yAxisID: CONFIG.curve2.yAxis
-              });
-            }
-
-            // Curva 3
-            if (CONFIG.curve3.enabled) {
-              datasets.push({
-                label: CONFIG.curve3.label,
-                data: data.map(row => parseFloat(row[CONFIG.curve3.column]) || null),
-                borderColor: CONFIG.curve3.color,
-                borderWidth: CONFIG.curve3.width,
-                tension: 0.3,
-                yAxisID: CONFIG.curve3.yAxis
-              });
-            }
-
-            // Curva 4
-            if (CONFIG.curve4.enabled) {
-              datasets.push({
-                label: CONFIG.curve4.label,
-                data: data.map(row => parseFloat(row[CONFIG.curve4.column]) || null),
-                borderColor: CONFIG.curve4.color,
-                borderWidth: CONFIG.curve4.width,
-                tension: 0.3,
-                yAxisID: CONFIG.curve4.yAxis
-              });
-            }
+            // Aggiorna la source con link
+            document.getElementById('sourceText').innerHTML = 
+              `<a href="${CONFIG.sourceUrl}" target="_blank" style="color:#94a3b8;">${CONFIG.sourceText}</a>`;
 
             new Chart(document.getElementById('myChart'), {
               type: 'line',
-              data: { labels: labels, datasets: datasets },
+              data: { labels: yearLabels, datasets: datasets },
               options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
+                  title: { display: true, text: CONFIG.title, color: '#f8fafc', font: { size: 21, weight: 'bold' } },
                   legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } },
                   tooltip: { mode: 'index', intersect: false }
                 },
                 scales: {
                   x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
-                  yLeft: { type: 'linear', position: 'left', grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }, title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' } },
-                  yRight: { type: 'linear', position: 'right', grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }, title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' } }
+                  yLeft: {
+                    type: 'linear',
+                    position: 'left',
+                    min: CONFIG.yLeft.min,
+                    max: CONFIG.yLeft.max,
+                    grid: { color: '#334155' },
+                    ticks: { color: '#cbd5e1' },
+                    title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' }
+                  },
+                  yRight: {
+                    type: 'linear',
+                    position: 'right',
+                    min: CONFIG.yRight.min,
+                    max: CONFIG.yRight.max,
+                    grid: { color: '#334155' },
+                    ticks: { color: '#cbd5e1' },
+                    title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' }
+                  }
                 }
               }
             });
