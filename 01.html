@@ -1,97 +1,125 @@
-<script>
-  const CONFIG = {
-    title: "Upstream companies NYSE",
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafico 01</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-    sourceText: "U.S. Energy Information Administration, Crude Oil Prices: Brent retrieved from FRED",
-    sourceUrl: "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+  <style>
+    body { margin:0; padding:0; background:#0f172a; font-family: Arial, sans-serif; }
+    .container { max-width: 1250px; margin: 0 auto; padding: 10px; }
+    canvas { width: 100% !important; height: auto !important; max-height: 85vh; }
+    .source { text-align:center; margin-top:15px; color:#94a3b8; font-size:14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
 
-    yLeft:  { min: 0, max: 5000 },
-    yRight: { min: 0, max: 7000 },
+  <div class="source">
+    <span id="sourceText"></span><br>
+    <a href="https://commoditysupercycle.com/" target="_blank" style="color:#67e8f9; font-weight:bold;">commoditysupercycle.com</a>
+  </div>
 
-    // ❗ FIX 1: usa nome reale colonna data
-    xColumn: "Data",
+  <script>
+    const CONFIG = {
+      title: "Upstream companies NYSE",
 
-    curves: [
-      // ❗ FIX 2: usa nomi REALI colonne CSV
-      { enabled: true, column: "B", label: "Capitalizzazione aziende oro", color: "#22d3ee", width: 5, yAxis: "yLeft" },
-      { enabled: true, column: "Q", label: "Curva 2", color: "#c084fc", width: 2.5, yAxis: "yRight" },
-      { enabled: true, column: "S", label: "Curva 3", color: "#4ade80", width: 2.5, yAxis: "yRight" }
-    ]
-  };
+      sourceText: "U.S. Energy Information Administration, Crude Oil Prices: Brent retrieved from FRED",
+      sourceUrl: "https://fred.stlouisfed.org/series/DCOILBRENTEU",
 
-  const csvUrl = 'https://raw.githubusercontent.com/1charts/CSC/main-root/all-data.csv';
+      yLeft:  { min: 0, max: 5000 },
+      yRight: { min: 0, max: 7000 },
 
-  fetch(csvUrl)
-    .then(r => r.text())
-    .then(text => {
-      Papa.parse(text, {
-        header: true,
-        skipEmptyLines: true,
-        complete: function(results) {
+      xColumn: "A",
 
-          // ❗ FIX 3: rimuovi righe completamente vuote
-          const data = results.data.filter(row => row && Object.keys(row).length > 0);
+      curves: [
+        { enabled: true, column: "B", label: "Capitalizzazione aziende oro", color: "#22d3ee", width: 5, yAxis: "yLeft" },
+        { enabled: true, column: "Q", label: "Curva 2", color: "#c084fc", width: 2.5, yAxis: "yRight" },
+        { enabled: true, column: "S", label: "Curva 3", color: "#4ade80", width: 2.5, yAxis: "yRight" },
+        { enabled: false, column: "", label: "", color: "#ff6b6b", width: 2.5, yAxis: "yRight" }
+      ]
+    };
 
-          // ❗ DEBUG (fondamentale)
-          console.log("HEADER CSV:", Object.keys(data[0]));
+    const csvUrl = 'https://raw.githubusercontent.com/1charts/CSC/main-root/all-data.csv';
 
-          const labels = data.map(row => row[CONFIG.xColumn] || "");
-          const yearLabels = labels.map(l => String(l).substring(0,4));
+    // ✅ FUNZIONE PER CONVERTIRE A,B,C → 0,1,2
+    function colToIndex(col) {
+      return col.toUpperCase().charCodeAt(0) - 65;
+    }
 
-          const datasets = [];
+    fetch(csvUrl)
+      .then(r => r.text())
+      .then(text => {
+        Papa.parse(text, {
+          header: false, // ✅ FIX PRINCIPALE
+          skipEmptyLines: true,
+          complete: function(results) {
 
-          CONFIG.curves.forEach(curve => {
-            if (!curve.enabled) return;
+            // ✅ Rimuove header CSV
+            const data = results.data.slice(1);
 
-            // ❗ FIX 4: gestione fallback se nome colonna non esiste
-            const cleanedData = data.map(row => {
-              let val = row[curve.column];
+            const labels = data.map(row => row[colToIndex(CONFIG.xColumn)] || "");
+            const yearLabels = labels.map(l => String(l).substring(0,4));
 
-              if (val === undefined) return null;
+            const datasets = [];
 
-              return parseFloat(String(val).replace(/[^0-9.-]/g, '')) || null;
+            CONFIG.curves.forEach(curve => {
+              if (!curve.enabled) return;
+
+              const cleanedData = data.map(row => {
+                let val = row[colToIndex(curve.column)];
+
+                if (val === undefined || val === "") return null;
+
+                return parseFloat(String(val).replace(/[^0-9.-]/g, '')) || null;
+              });
+
+              datasets.push({
+                label: curve.label,
+                data: cleanedData,
+                borderColor: curve.color,
+                borderWidth: curve.width,
+                tension: 0.3,
+                yAxisID: curve.yAxis
+              });
             });
 
-            datasets.push({
-              label: curve.label,
-              data: cleanedData,
-              borderColor: curve.color,
-              borderWidth: curve.width,
-              tension: 0.3,
-              yAxisID: curve.yAxis
-            });
-          });
+            document.getElementById('sourceText').innerHTML = 
+              `<a href="${CONFIG.sourceUrl}" target="_blank" style="color:#94a3b8;">${CONFIG.sourceText}</a>`;
 
-          document.getElementById('sourceText').innerHTML = 
-            `<a href="${CONFIG.sourceUrl}" target="_blank" style="color:#94a3b8;">${CONFIG.sourceText}</a>`;
-
-          new Chart(document.getElementById('myChart'), {
-            type: 'line',
-            data: { labels: yearLabels, datasets: datasets },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                title: { display: true, text: CONFIG.title, color: '#f8fafc', font: { size: 21, weight: 'bold' } },
-                legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } }
-              },
-              scales: {
-                x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
-                yLeft: { 
-                  type: 'linear', position: 'left', 
-                  min: CONFIG.yLeft.min, max: CONFIG.yLeft.max,
-                  grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }
+            new Chart(document.getElementById('myChart'), {
+              type: 'line',
+              data: { labels: yearLabels, datasets: datasets },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  title: { display: true, text: CONFIG.title, color: '#f8fafc', font: { size: 21, weight: 'bold' } },
+                  legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } }
                 },
-                yRight: { 
-                  type: 'linear', position: 'right', 
-                  min: CONFIG.yRight.min, max: CONFIG.yRight.max,
-                  grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }
+                scales: {
+                  x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
+                  yLeft: { 
+                    type: 'linear', position: 'left', 
+                    min: CONFIG.yLeft.min, max: CONFIG.yLeft.max,
+                    grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }
+                  },
+                  yRight: { 
+                    type: 'linear', position: 'right', 
+                    min: CONFIG.yRight.min, max: CONFIG.yRight.max,
+                    grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }
+                  }
                 }
               }
-            }
-          });
-        }
-      });
-    })
-    .catch(err => console.error("Errore:", err));
-</script>
+            });
+          }
+        });
+      })
+      .catch(err => console.error("Errore:", err));
+  </script>
+</body>
+</html>
