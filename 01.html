@@ -12,13 +12,11 @@
     .container { max-width: 1250px; margin: 0 auto; padding: 10px; }
     canvas { width: 100% !important; height: auto !important; max-height: 85vh; }
     .source { text-align:center; margin-top:15px; color:#94a3b8; font-size:14px; }
-    .debug { color:#ff6b6b; text-align:center; margin:10px; font-size:13px; }
   </style>
 </head>
 <body>
   <div class="container">
     <canvas id="myChart"></canvas>
-    <div id="debug" class="debug"></div>
   </div>
 
   <div class="source">
@@ -29,17 +27,19 @@
   <script>
     const CONFIG = {
       title: "Upstream companies NYSE",
+
       sourceText: "U.S. Energy Information Administration, Crude Oil Prices: Brent retrieved from FRED",
       sourceUrl: "https://fred.stlouisfed.org/series/DCOILBRENTEU",
 
       yLeft:  { min: 0, max: 5000 },
-      yRight: { min: 1000, max: 4000 },
+      yRight: { min: 1000, max: 3000 },
 
+      // Colonne del CSV (usa i nomi esatti della prima riga)
       xColumn: "Data",
 
       curves: [
         { enabled: true, column: "B", label: "Capitalizzazione aziende oro", color: "#22d3ee", width: 5, yAxis: "left" },
-        { enabled: true, column: "Q", label: "Curva 2", color: "#c084fc", width: 2.5, yAxis: "right" },
+        { enabled: true, column: "Q", label: "Curva xxx", color: "#c084fc", width: 2.5, yAxis: "right" },
         { enabled: true, column: "S", label: "Curva 3", color: "#4ade80", width: 2.5, yAxis: "right" },
         { enabled: false, column: "", label: "", color: "#ff6b6b", width: 2.5, yAxis: "right" }
       ]
@@ -51,16 +51,12 @@
       .then(r => r.text())
       .then(text => {
         Papa.parse(text, {
-          header: true,
+          header: true,           // Ora funziona grazie alla prima riga con i nomi
           skipEmptyLines: true,
           complete: function(results) {
             const data = results.data.filter(row => row && !String(row[0] || '').startsWith("==="));
 
-            console.log("Intestazioni CSV trovate:", Object.keys(results.data[0] || {}));
-            document.getElementById('debug').innerHTML = 
-              "Intestazioni CSV: " + Object.keys(results.data[0] || {}).join(", ");
-
-            const labels = data.map(row => row[CONFIG.xColumn] || row[0] || "");
+            const labels = data.map(row => row[CONFIG.xColumn] || "");
             const yearLabels = labels.map(l => String(l).substring(0,4));
 
             const datasets = [];
@@ -77,6 +73,7 @@
               });
             });
 
+            // Aggiorna la source
             document.getElementById('sourceText').innerHTML = 
               `<a href="${CONFIG.sourceUrl}" target="_blank" style="color:#94a3b8;">${CONFIG.sourceText}</a>`;
 
@@ -87,22 +84,37 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                  title: { display: true, text: CONFIG.title, color: '#f8fafc', font: { size: 21, weight: 'bold' } },
-                  legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } }
+                  title: { 
+                    display: true, 
+                    text: CONFIG.title, 
+                    color: '#f8fafc', 
+                    font: { size: 21, weight: 'bold' } 
+                  },
+                  legend: { 
+                    position: 'bottom', 
+                    labels: { color: '#e2e8f0', font: { size: 13 } } 
+                  }
                 },
                 scales: {
-                  x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
+                  x: { 
+                    grid: { color: '#334155' }, 
+                    ticks: { color: '#cbd5e1' } 
+                  },
                   yLeft: { 
-                    type: 'linear', position: 'left', 
-                    min: CONFIG.yLeft.min, max: CONFIG.yLeft.max,
-                    grid: { color: '#334155' }, ticks: { color: '#cbd5e1' },
-                    title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' }
+                    type: 'linear', 
+                    position: 'left', 
+                    min: CONFIG.yLeft.min, 
+                    max: CONFIG.yLeft.max,
+                    grid: { color: '#334155' }, 
+                    ticks: { color: '#cbd5e1' } 
                   },
                   yRight: { 
-                    type: 'linear', position: 'right', 
-                    min: CONFIG.yRight.min, max: CONFIG.yRight.max,
-                    grid: { color: '#334155' }, ticks: { color: '#cbd5e1' },
-                    title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' }
+                    type: 'linear', 
+                    position: 'right', 
+                    min: CONFIG.yRight.min, 
+                    max: CONFIG.yRight.max,
+                    grid: { color: '#334155' }, 
+                    ticks: { color: '#cbd5e1' } 
                   }
                 }
               }
@@ -110,7 +122,7 @@
           }
         });
       })
-      .catch(err => console.error("Errore:", err));
+      .catch(err => console.error("Errore fetch CSV:", err));
   </script>
 </body>
 </html>
