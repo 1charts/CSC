@@ -3,42 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grafico 01 - Upstream companies NYSE</title>
-  
-  <!-- Chart.js -->
+  <title>Grafico 01</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  
-  <!-- PapaParse per leggere il CSV -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #0f172a;
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      max-width: 1250px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-    canvas {
-      width: 100% !important;
-      height: auto !important;
-      max-height: 85vh;
-    }
-    .source {
-      text-align: center;
-      margin-top: 15px;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-    .source a {
-      color: #67e8f9;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    body { margin:0; padding:0; background:#0f172a; font-family: Arial, sans-serif; }
+    .container { max-width: 1250px; margin: 0 auto; padding: 10px; }
+    canvas { width: 100% !important; height: auto !important; max-height: 85vh; }
+    .source { text-align:center; margin-top:15px; color:#94a3b8; font-size:14px; }
   </style>
 </head>
 <body>
@@ -48,96 +21,142 @@
 
   <div class="source">
     Source: Google Sheets (aggiornato automaticamente)<br>
-    <a href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
+    <a href="https://commoditysupercycle.com/" target="_blank" style="color:#67e8f9; font-weight:bold;">commoditysupercycle.com</a>
   </div>
 
   <script>
+    // ================== CONFIGURAZIONE GRAFICO ==================
+    // Cambia solo questa parte per ogni grafico (01, 02, 03...)
+    const CONFIG = {
+      title: "Upstream companies NYSE",           // Titolo del grafico
+
+      // Asse X → sempre la prima colonna (Data)
+      xColumn: "Data",                            // Nome della colonna Data nel CSV
+
+      // Curva 1 (Sinistra)
+      curve1: {
+        enabled: true,
+        column: "B",                              // Cambia con la colonna che vuoi (es. "C", "Q", "BC"...)
+        label: "Capitalizzazione aziende oro",
+        color: "#22d3ee",
+        width: 5,
+        yAxis: "left"                             // "left" o "right"
+      },
+
+      // Curva 2 (Destra)
+      curve2: {
+        enabled: true,
+        column: "Q",
+        label: "Curva 2 - Nome",
+        color: "#c084fc",
+        width: 2.5,
+        yAxis: "right"
+      },
+
+      // Curva 3 (Destra)
+      curve3: {
+        enabled: true,
+        column: "S",
+        label: "Curva 3 - Nome",
+        color: "#4ade80",
+        width: 2.5,
+        yAxis: "right"
+      },
+
+      // Curva 4 (opzionale)
+      curve4: {
+        enabled: false,                           // metti true se vuoi usarla
+        column: "",
+        label: "",
+        color: "#ff6b6b",
+        width: 2.5,
+        yAxis: "right"
+      }
+    };
+    // ===========================================================
+
     const csvUrl = 'https://raw.githubusercontent.com/1charts/CSC/main/all-data.csv';
 
     fetch(csvUrl)
-      .then(response => response.text())
-      .then(csvText => {
-        Papa.parse(csvText, {
+      .then(r => r.text())
+      .then(text => {
+        Papa.parse(text, {
           header: true,
           skipEmptyLines: true,
           complete: function(results) {
             const data = results.data;
 
-            // Per ora prendiamo tutti i dati (dopo ti aiuto a filtrare per scheda)
-            const labels = data.map(row => row['Data'] || row[0] || '');
-            const leftScale = data.map(row => parseFloat(row['B'] || row[1]) || null);
-            const right1 = data.map(row => parseFloat(row['Q'] || row[2]) || null);
-            const right2 = data.map(row => parseFloat(row['S'] || row[3]) || null);
+            const labels = data.map(row => row[CONFIG.xColumn] || row[0]);
+
+            const datasets = [];
+
+            // Curva 1
+            if (CONFIG.curve1.enabled) {
+              datasets.push({
+                label: CONFIG.curve1.label,
+                data: data.map(row => parseFloat(row[CONFIG.curve1.column]) || null),
+                borderColor: CONFIG.curve1.color,
+                borderWidth: CONFIG.curve1.width,
+                tension: 0.3,
+                yAxisID: CONFIG.curve1.yAxis
+              });
+            }
+
+            // Curva 2
+            if (CONFIG.curve2.enabled) {
+              datasets.push({
+                label: CONFIG.curve2.label,
+                data: data.map(row => parseFloat(row[CONFIG.curve2.column]) || null),
+                borderColor: CONFIG.curve2.color,
+                borderWidth: CONFIG.curve2.width,
+                tension: 0.3,
+                yAxisID: CONFIG.curve2.yAxis
+              });
+            }
+
+            // Curva 3
+            if (CONFIG.curve3.enabled) {
+              datasets.push({
+                label: CONFIG.curve3.label,
+                data: data.map(row => parseFloat(row[CONFIG.curve3.column]) || null),
+                borderColor: CONFIG.curve3.color,
+                borderWidth: CONFIG.curve3.width,
+                tension: 0.3,
+                yAxisID: CONFIG.curve3.yAxis
+              });
+            }
+
+            // Curva 4
+            if (CONFIG.curve4.enabled) {
+              datasets.push({
+                label: CONFIG.curve4.label,
+                data: data.map(row => parseFloat(row[CONFIG.curve4.column]) || null),
+                borderColor: CONFIG.curve4.color,
+                borderWidth: CONFIG.curve4.width,
+                tension: 0.3,
+                yAxisID: CONFIG.curve4.yAxis
+              });
+            }
 
             new Chart(document.getElementById('myChart'), {
               type: 'line',
-              data: {
-                labels: labels,
-                datasets: [
-                  {
-                    label: 'Scala Sinistra',
-                    data: leftScale,
-                    borderColor: '#22d3ee',
-                    borderWidth: 4,
-                    tension: 0.3,
-                    yAxisID: 'yLeft'
-                  },
-                  {
-                    label: 'Destra 1',
-                    data: right1,
-                    borderColor: '#c084fc',
-                    borderWidth: 2.5,
-                    tension: 0.3,
-                    yAxisID: 'yRight'
-                  },
-                  {
-                    label: 'Destra 2',
-                    data: right2,
-                    borderColor: '#4ade80',
-                    borderWidth: 2.5,
-                    tension: 0.3,
-                    yAxisID: 'yRight'
-                  }
-                ]
-              },
+              data: { labels: labels, datasets: datasets },
               options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                  legend: { 
-                    position: 'bottom',
-                    labels: { color: '#e2e8f0', font: { size: 13 } }
-                  },
+                  legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 13 } } },
                   tooltip: { mode: 'index', intersect: false }
                 },
                 scales: {
-                  x: {
-                    grid: { color: '#334155' },
-                    ticks: { color: '#cbd5e1' }
-                  },
-                  yLeft: {
-                    type: 'linear',
-                    position: 'left',
-                    grid: { color: '#334155' },
-                    ticks: { color: '#cbd5e1' },
-                    title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' }
-                  },
-                  yRight: {
-                    type: 'linear',
-                    position: 'right',
-                    grid: { color: '#334155' },
-                    ticks: { color: '#cbd5e1' },
-                    title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' }
-                  }
+                  x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
+                  yLeft: { type: 'linear', position: 'left', grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }, title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' } },
+                  yRight: { type: 'linear', position: 'right', grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }, title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' } }
                 }
               }
             });
           }
         });
-      })
-      .catch(err => {
-        console.error('Errore caricamento CSV:', err);
-        document.querySelector('.container').innerHTML += '<p style="color:#ff6b6b; text-align:center;">Errore nel caricamento dei dati.</p>';
       });
   </script>
 </body>
