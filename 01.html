@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafico 01</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    body { margin:0; padding:0; background:#0f172a; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 10px; }
+    canvas { width: 100% !important; height: auto !important; }
+    .source { text-align:center; margin-top:15px; color:#94a3b8; font-size:14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div class="source">
+    Source: Google Sheets (aggiornato automaticamente)<br>
+    <a href="https://commoditysupercycle.com/" target="_blank" style="color:#67e8f9; font-weight:bold;">commoditysupercycle.com</a>
+  </div>
+
+  <script>
+    const csvUrl = 'https://raw.githubusercontent.com/1charts/CSC/main/all-data.csv';
+
+    fetch(csvUrl)
+      .then(r => r.text())
+      .then(text => {
+        // Qui puoi filtrare i dati per questa pagina (es. cerca la sezione della scheda)
+        // Per ora mostriamo tutto - dopo ti aiuto a filtrare
+        Papa.parse(text, {
+          header: true,
+          skipEmptyLines: true,
+          complete: function(results) {
+            // TODO: filtra solo i dati di questo grafico
+            const labels = results.data.map(row => row['Data'] || row[0]);
+            const left = results.data.map(row => parseFloat(row['B'] || row[1]));
+            const right1 = results.data.map(row => parseFloat(row['Q'] || row[2]));
+            const right2 = results.data.map(row => parseFloat(row['S'] || row[3]));
+
+            new Chart(document.getElementById('chart'), {
+              type: 'line',
+              data: {
+                labels: labels,
+                datasets: [
+                  { label: 'Scala Sinistra', data: left, borderColor: '#22d3ee', borderWidth: 4, yAxisID: 'yLeft' },
+                  { label: 'Destra 1', data: right1, borderColor: '#c084fc', borderWidth: 2.5, yAxisID: 'yRight' },
+                  { label: 'Destra 2', data: right2, borderColor: '#4ade80', borderWidth: 2.5, yAxisID: 'yRight' }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' }, tooltip: { mode: 'index' } },
+                scales: {
+                  yLeft: { type: 'linear', position: 'left', grid: { color: '#334155' } },
+                  yRight: { type: 'linear', position: 'right', grid: { color: '#334155' } }
+                }
+              }
+            });
+          }
+        });
+      });
+  </script>
+</body>
+</html>
