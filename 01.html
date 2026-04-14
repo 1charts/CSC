@@ -25,58 +25,23 @@
   </div>
 
   <script>
-    // ================== CONFIGURAZIONE GRAFICO ==================
     const CONFIG = {
-      title: "Upstream companies NYSE",                    // ← Titolo grande in alto
-
-      // Source personalizzabile con link
+      title: "Upstream companies NYSE",
       sourceText: "U.S. Energy Information Administration, Crude Oil Prices: Brent retrieved from FRED",
       sourceUrl: "https://fred.stlouisfed.org/series/DCOILBRENTEU",
 
-      // Range delle scale (lascia null per automatico)
-      yLeft:  { min: 1000, max: 6000 },     // Scala sinistra
-      yRight: { min: 0, max: 5000 },     // Scala destra
+      yLeft:  { min: 1000, max: 6000 },
+      yRight: { min: 0, max: 5000 },
 
-      // Asse X = sempre colonna A (Data)
-      xColumn: "Data",
+      xColumn: "Data",                    // Cambia se la colonna Data ha un nome diverso
 
-      // === CURVE (fino a 4) ===
       curves: [
-        {
-          enabled: true,
-          column: "B",                          // Colonna del CSV
-          label: "Capitalizzazione aziende oro",
-          color: "#22d3ee",
-          width: 5,
-          yAxis: "left"                         // "left" o "right"
-        },
-        {
-          enabled: true,
-          column: "Q",
-          label: "Argento",
-          color: "#c084fc",
-          width: 2.5,
-          yAxis: "right"
-        },
-        {
-          enabled: true,
-          column: "S",
-          label: "Alluminio",
-          color: "#4ade80",
-          width: 1,
-          yAxis: "right"
-        },
-        {
-          enabled: false,                       // metti true se vuoi usarla
-          column: "",
-          label: "",
-          color: "#ff6b6b",
-          width: 1,
-          yAxis: "right"
-        }
+        { enabled: true, column: "B", label: "Capitalizzazione aziende oro", color: "#22d3ee", width: 5, yAxis: "left" },
+        { enabled: true, column: "Q", label: "Curva 2", color: "#c084fc", width: 2.5, yAxis: "right" },
+        { enabled: true, column: "S", label: "Curva 3", color: "#4ade80", width: 2.5, yAxis: "right" },
+        { enabled: false, column: "", label: "", color: "#ff6b6b", width: 2.5, yAxis: "right" }
       ]
     };
-    // ===========================================================
 
     const csvUrl = 'https://raw.githubusercontent.com/1charts/CSC/main/all-data.csv';
 
@@ -87,14 +52,15 @@
           header: true,
           skipEmptyLines: true,
           complete: function(results) {
-            const data = results.data;
-            const labels = data.map(row => row[CONFIG.xColumn] || row[0]);
+            console.log("✅ CSV caricato - Prime 5 righe:", results.data.slice(0,5));
+            console.log("Intestazioni trovate:", Object.keys(results.data[0] || {}));
 
-            // Mostra solo l'anno sull'asse X
-            const yearLabels = labels.map(label => {
-              if (typeof label === 'string' && label.length >= 4) return label.substring(0, 4);
-              return label;
-            });
+            const data = results.data.filter(row => row && !row[0]?.startsWith("===")); // salta righe di separazione
+
+            const labels = data.map(row => row[CONFIG.xColumn] || row[0] || "");
+
+            // Mostra solo l'anno
+            const yearLabels = labels.map(l => String(l).substring(0,4));
 
             const datasets = [];
 
@@ -110,7 +76,6 @@
               });
             });
 
-            // Aggiorna la source con link
             document.getElementById('sourceText').innerHTML = 
               `<a href="${CONFIG.sourceUrl}" target="_blank" style="color:#94a3b8;">${CONFIG.sourceText}</a>`;
 
@@ -127,30 +92,15 @@
                 },
                 scales: {
                   x: { grid: { color: '#334155' }, ticks: { color: '#cbd5e1' } },
-                  yLeft: {
-                    type: 'linear',
-                    position: 'left',
-                    min: CONFIG.yLeft.min,
-                    max: CONFIG.yLeft.max,
-                    grid: { color: '#334155' },
-                    ticks: { color: '#cbd5e1' },
-                    title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' }
-                  },
-                  yRight: {
-                    type: 'linear',
-                    position: 'right',
-                    min: CONFIG.yRight.min,
-                    max: CONFIG.yRight.max,
-                    grid: { color: '#334155' },
-                    ticks: { color: '#cbd5e1' },
-                    title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' }
-                  }
+                  yLeft: { type: 'linear', position: 'left', min: CONFIG.yLeft.min, max: CONFIG.yLeft.max, grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }, title: { display: true, text: 'Scala SINISTRA', color: '#cbd5e1' } },
+                  yRight: { type: 'linear', position: 'right', min: CONFIG.yRight.min, max: CONFIG.yRight.max, grid: { color: '#334155' }, ticks: { color: '#cbd5e1' }, title: { display: true, text: 'Scala DESTRA', color: '#cbd5e1' } }
                 }
               }
             });
           }
         });
-      });
+      })
+      .catch(err => console.error("Errore fetch CSV", err));
   </script>
 </body>
 </html>
