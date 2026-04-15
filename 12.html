@@ -1,58 +1,136 @@
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LNG</title>
+<title>LNG | CommoditySuperCycle</title>
 
 <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 <link rel="apple-touch-icon" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
-body { margin:0; background:#0f172a; font-family:Arial; color:#e2e8f0; }
-.container { max-width:1100px; margin:auto; padding:20px; }
-.title { font-size:22px; margin-bottom:10px; color:#f8fafc; }
-img { width:100%; height:auto; border-radius:8px; }
-.source { margin-top:10px; font-size:14px; color:#94a3b8; }
-a { color:#67e8f9; text-decoration:none; }
+body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; }
+.container { max-width:1100px; margin:auto; padding:20px; position: relative; }
 
-.nav {
-  display:flex;
-  justify-content:space-between;
-  margin-top:20px;
+/* Header e Titoli */
+.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.title-group { flex: 1; }
+.title { font-size:26px; font-weight: bold; color:#f8fafc; margin: 0; }
+.subtitle { font-size:16px; margin-top:5px; }
+.subtitle a { color:#67e8f9; text-decoration:none; opacity: 0.8; }
+.subtitle a:hover { opacity: 1; }
+
+/* Pulsanti Azione (Top Right) */
+.actions { display: flex; gap: 10px; align-items: center; }
+.action-btn { 
+    background: #1e293b; border: none; color: #f8fafc; padding: 8px; 
+    border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; text-decoration: none;
+}
+.action-btn:hover { background: #334155; }
+.action-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* Area Grafico e Navigazione */
+#capture-area { background: #0f172a; padding: 10px; border-radius: 8px; }
+.chart-wrapper { position: relative; width: 100%; }
+img { width:100%; height:auto; border-radius:8px; display: block; }
+
+.nav-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
 }
 
-.btn {
-  padding:10px 15px;
-  background:#1e293b;
-  border-radius:6px;
-  color: #67e8f9;
-  font-weight: bold;
+.nav-btn {
+    background: rgba(30, 41, 59, 0.7);
+    color: #67e8f9;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    text-decoration: none;
 }
+.nav-btn:hover { background: rgba(51, 65, 85, 0.9); transform: scale(1.1); }
+.nav-btn svg { width: 24px; height: 24px; stroke-width: 2.5; }
 
-.btn:hover {
-  background:#334155;
-}
+.source { margin-top:15px; font-size:14px; color:#94a3b8; }
+.source a { color:#67e8f9; text-decoration:none; }
 </style>
 </head>
 
 <body>
 <div class="container">
 
-  <div class="title">LNG</div>
-
-  <img src="charts/12.png">
-
-  <div class="source">
-    Fonte: <a href="#" target="_blank">Dati Finanziari</a>
+  <div class="header-row">
+    <div class="title-group">
+      <div class="title">LNG</div>
+      <div class="subtitle"><a href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a></div>
+    </div>
+    
+    <div class="actions">
+      <button class="action-btn" onclick="takeScreenshot()" title="Download Chart">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      </button>
+      <a class="action-btn" href="https://twitter.com/intent/tweet?url=https://1charts.github.io/CSC/12.html&text=LNG" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
+      </a>
+      <a class="action-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://1charts.github.io/CSC/12.html" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
   </div>
 
-  <div class="nav">
-    <a class="btn" href="11.html">← Precedente</a>
-    <a class="btn" href="13.html">Successivo →</a>
+  <div id="capture-area">
+    <div class="chart-wrapper">
+      <img src="charts/12.png">
+      
+      <div class="nav-overlay">
+        <a class="nav-btn" href="11.html" title="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg></a>
+        <a class="nav-btn" href="13.html" title="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="source">
+      Source: <a href="#" target="_blank">Dati Finanziari</a>
+    </div>
   </div>
 
 </div>
+
+<script>
+function takeScreenshot() {
+    const area = document.getElementById('capture-area');
+    const nav = document.querySelector('.nav-overlay');
+    
+    // Nascondi frecce per lo screenshot
+    nav.style.display = 'none';
+
+    html2canvas(area, {
+        backgroundColor: "#0f172a",
+        scale: 2, // Alta qualità
+        logging: false,
+        useCORS: true
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = '12_chart.png';
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        
+        // Mostra di nuovo le frecce
+        nav.style.display = 'flex';
+    });
+}
+</script>
+
 </body>
 </html>
