@@ -1,0 +1,90 @@
+const fs = require('fs');
+const path = require('path');
+
+const chartsDir = path.join(__dirname, 'charts');
+const configPath = path.join(__dirname, 'config.json');
+
+let config = {};
+if (fs.existsSync(configPath)) {
+  config = JSON.parse(fs.readFileSync(configPath));
+}
+
+const files = fs.readdirSync(chartsDir)
+  .filter(f => f.endsWith('.png'))
+  .sort();
+
+function createPage(file, index) {
+  const name = file.replace('.png', '');
+
+  const prev = files[index - 1] ? files[index - 1].replace('.png','') : null;
+  const next = files[index + 1] ? files[index + 1].replace('.png','') : null;
+
+  const cfg = config[name] || {};
+
+  const title = cfg.title || `Grafico ${name}`;
+  const sourceText = cfg.sourceText || "Fonte dati";
+  const sourceLink = cfg.sourceLink || "#";
+
+  return `
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+
+<style>
+body { margin:0; background:#0f172a; font-family:Arial; color:#e2e8f0; }
+.container { max-width:1100px; margin:auto; padding:20px; }
+.title { font-size:22px; margin-bottom:10px; color:#f8fafc; }
+img { width:100%; height:auto; border-radius:8px; }
+.source { margin-top:10px; font-size:14px; color:#94a3b8; }
+a { color:#67e8f9; text-decoration:none; }
+
+.nav {
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+.btn {
+  padding:10px 15px;
+  background:#1e293b;
+  border-radius:6px;
+}
+
+.btn:hover {
+  background:#334155;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="title">${title}</div>
+
+  <img src="charts/${file}">
+
+  <div class="source">
+    Fonte: <a href="${sourceLink}" target="_blank">${sourceText}</a>
+  </div>
+
+  <div class="nav">
+    ${prev ? `<a class="btn" href="${prev}.html">← Precedente</a>` : `<div></div>`}
+    ${next ? `<a class="btn" href="${next}.html">Successivo →</a>` : `<div></div>`}
+  </div>
+
+</div>
+</body>
+</html>
+`;
+}
+
+files.forEach((file, i) => {
+  const html = createPage(file, i);
+  const name = file.replace('.png','');
+
+  fs.writeFileSync(`${name}.html`, html);
+  console.log("✔ creato:", `${name}.html`);
+});
