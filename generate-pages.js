@@ -20,17 +20,20 @@ function createPage(file, index) {
 
   const cfg = config[name] || {};
   const title = cfg.title || `Chart ${name}`;
-  const sourceText = cfg.sourceText || "Data Source";
+  const sourceText = cfg.sourceText || ""; // Default vuoto
   const sourceLink = cfg.sourceLink || "#";
   
-  // URL ASSOLUTI PER I SOCIAL
   const currentUrl = `https://1charts.github.io/CSC/${name}.html`;
   const chartImageUrl = `https://1charts.github.io/CSC/charts/${file}`;
   const logoUrl = "https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png";
   
-  // Testi pre-compilati per la condivisione
   const shareTextX = encodeURIComponent(`${title} - via @CommodityCSC`);
   const fbUrl = encodeURIComponent(currentUrl);
+
+  // Logica per nascondere la source se vuota
+  const sourceHtml = sourceText 
+    ? `<div class="source">Source: <a href="${sourceLink}" target="_blank">${sourceText}</a></div>` 
+    : "";
 
   return `
 <!DOCTYPE html>
@@ -60,9 +63,9 @@ function createPage(file, index) {
 
 <style>
 body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; line-height: 1.4; }
-.container { max-width:1050px; margin:auto; padding:5px 20px; }
+.container { max-width:1050px; margin:auto; padding: 20px 20px 10px 20px; }
 #full-capture-area { background: #0f172a; padding: 5px 10px; border-radius: 8px; }
-.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; }
+.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
 .title-group { flex: 1; }
 .title { font-size:24px; font-weight: bold; color:#f8fafc; margin: 0; }
 .subtitle { font-size:14px; margin-top:2px; }
@@ -87,7 +90,7 @@ img { width:100%; height:auto; border-radius:4px; display: block; }
 }
 .nav-link:hover { background: #334155; }
 .nav-link svg { width: 26px; height: 26px; stroke-width: 3; }
-.source { margin-top:35px; font-size:12px; color:#94a3b8; padding-bottom: 10px; }
+.source { margin-top: 10px; font-size:12px; color:#94a3b8; padding-bottom: 10px; }
 .source a { color:#67e8f9; text-decoration:none; }
 </style>
 </head>
@@ -124,9 +127,7 @@ img { width:100%; height:auto; border-radius:4px; display: block; }
         ${prev ? `<a class="nav-link" href="${prev}.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg></a>` : ''}
         ${next ? `<a class="nav-link" href="${next}.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg></a>` : ''}
     </div>
-    <div class="source">
-      Source: <a href="${sourceLink}" target="_blank">${sourceText}</a>
-    </div>
+    ${sourceHtml}
   </div>
 </div>
 
