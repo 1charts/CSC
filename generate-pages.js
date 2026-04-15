@@ -33,8 +33,8 @@ function createPage(file, index) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 
-<link rel="icon" type="image/png" href="https://commoditysupercycle.com/favicon.png">
-<link rel="apple-touch-icon" href="https://commoditysupercycle.com/favicon.png">
+<link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
+<link rel="apple-touch-icon" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 
 <style>
 body { margin:0; background:#0f172a; font-family:Arial; color:#e2e8f0; }
