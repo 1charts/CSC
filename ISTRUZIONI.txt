@@ -1,0 +1,4 @@
+node generate-pages.js
+git add .
+git commit -m "UI update with screenshot and social"
+git push

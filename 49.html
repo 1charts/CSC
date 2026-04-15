@@ -13,57 +13,56 @@
 
 <style>
 body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; }
-.container { max-width:1100px; margin:auto; padding:20px; position: relative; }
+.container { max-width:1100px; margin:auto; padding:20px; }
 
-/* Header e Titoli */
-.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+/* Area Cattura: include tutto tranne i bottoni in alto a destra */
+#full-capture-area { background: #0f172a; padding: 15px; border-radius: 8px; }
+
+.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
 .title-group { flex: 1; }
 .title { font-size:26px; font-weight: bold; color:#f8fafc; margin: 0; }
 .subtitle { font-size:16px; margin-top:5px; }
 .subtitle a { color:#67e8f9; text-decoration:none; opacity: 0.8; }
-.subtitle a:hover { opacity: 1; }
 
-/* Pulsanti Azione (Top Right) */
-.actions { display: flex; gap: 10px; align-items: center; }
+/* Bottoni Social e Screenshot (Esclusi dalla cattura) */
+.actions { display: flex; gap: 10px; }
 .action-btn { 
     background: #1e293b; border: none; color: #f8fafc; padding: 8px; 
-    border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    border-radius: 6px; cursor: pointer; display: flex; align-items: center; 
     transition: background 0.2s; text-decoration: none;
 }
 .action-btn:hover { background: #334155; }
 .action-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
-/* Area Grafico e Navigazione */
-#capture-area { background: #0f172a; padding: 10px; border-radius: 8px; }
-.chart-wrapper { position: relative; width: 100%; }
-img { width:100%; height:auto; border-radius:8px; display: block; }
+/* Wrapper Grafico */
+.chart-container { position: relative; width: 100%; margin-top: 10px; }
+img { width:100%; height:auto; border-radius:4px; display: block; }
 
-.nav-overlay {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+/* Navigazione: Sotto l'asse X a destra */
+.nav-bottom {
     display: flex;
-    gap: 8px;
-    z-index: 10;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: -35px; /* Sovrappone leggermente lo spazio vuoto sotto l'asse X */
+    padding-right: 10px;
+    position: relative;
+    z-index: 20;
 }
 
-.nav-btn {
-    background: rgba(30, 41, 59, 0.7);
+.nav-link {
+    background: rgba(30, 41, 59, 0.9);
     color: #67e8f9;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-    text-decoration: none;
+    transition: 0.2s;
+    border: 1px solid #334155;
 }
-.nav-btn:hover { background: rgba(51, 65, 85, 0.9); transform: scale(1.1); }
-.nav-btn svg { width: 24px; height: 24px; stroke-width: 2.5; }
+.nav-link:hover { background: #334155; transform: translateY(-2px); }
+.nav-link svg { width: 28px; height: 28px; stroke-width: 3; }
 
-.source { margin-top:15px; font-size:14px; color:#94a3b8; }
+.source { margin-top:40px; font-size:13px; color:#94a3b8; }
 .source a { color:#67e8f9; text-decoration:none; }
 </style>
 </head>
@@ -72,32 +71,37 @@ img { width:100%; height:auto; border-radius:8px; display: block; }
 <div class="container">
 
   <div class="header-row">
-    <div class="title-group">
+    <div id="capture-header" class="title-group">
       <div class="title">Diamonds & Gems</div>
       <div class="subtitle"><a href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a></div>
     </div>
     
     <div class="actions">
-      <button class="action-btn" onclick="takeScreenshot()" title="Download Chart">
+      <button class="action-btn" onclick="takeScreenshot()" title="Save Image">
         <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
       </button>
-      <a class="action-btn" href="https://twitter.com/intent/tweet?url=https://1charts.github.io/CSC/49.html&text=Diamonds & Gems" target="_blank">
+      <a class="action-btn" href="https://twitter.com/intent/tweet?url=https://1charts.github.io/CSC/49.html&text=Diamonds%20%26%20Gems%20-%20via%20%40CommodityCSC" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
       </a>
-      <a class="action-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://1charts.github.io/CSC/49.html" target="_blank">
+      <a class="action-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F1charts.github.io%2FCSC%2F49.html" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
     </div>
   </div>
 
-  <div id="capture-area">
-    <div class="chart-wrapper">
+  <div id="full-capture-area">
+    <div id="screenshot-title-box" style="display:none; margin-bottom:15px;">
+        <div style="font-size:26px; font-weight:bold; color:#f8fafc;">Diamonds & Gems</div>
+        <div style="font-size:16px; color:#67e8f9;">commoditysupercycle.com</div>
+    </div>
+
+    <div class="chart-container">
       <img src="charts/49.png">
-      
-      <div class="nav-overlay">
-        <a class="nav-btn" href="48.html" title="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg></a>
-        <a class="nav-btn" href="50.html" title="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg></a>
-      </div>
+    </div>
+
+    <div class="nav-bottom" id="nav-arrows">
+        <a class="nav-link" href="48.html" title="Prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg></a>
+        <a class="nav-link" href="50.html" title="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg></a>
     </div>
 
     <div class="source">
@@ -109,25 +113,27 @@ img { width:100%; height:auto; border-radius:8px; display: block; }
 
 <script>
 function takeScreenshot() {
-    const area = document.getElementById('capture-area');
-    const nav = document.querySelector('.nav-overlay');
+    const area = document.getElementById('full-capture-area');
+    const arrows = document.getElementById('nav-arrows');
+    const screenshotBox = document.getElementById('screenshot-title-box');
     
-    // Nascondi frecce per lo screenshot
-    nav.style.display = 'none';
+    // Mostra titolo interno per cattura, nascondi frecce
+    screenshotBox.style.display = 'block';
+    arrows.style.visibility = 'hidden';
 
     html2canvas(area, {
         backgroundColor: "#0f172a",
-        scale: 2, // Alta qualità
-        logging: false,
+        scale: 2,
         useCORS: true
     }).then(canvas => {
         const link = document.createElement('a');
-        link.download = '49_chart.png';
+        link.download = '49_CSC.png';
         link.href = canvas.toDataURL("image/png");
         link.click();
         
-        // Mostra di nuovo le frecce
-        nav.style.display = 'flex';
+        // Ripristina
+        screenshotBox.style.display = 'none';
+        arrows.style.visibility = 'visible';
     });
 }
 </script>
