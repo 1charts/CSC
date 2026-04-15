@@ -3,83 +3,106 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>LNG | CommoditySuperCycle</title>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://1charts.github.io/CSC/12.html">
-<meta property="og:title" content="LNG">
-<meta property="og:description" content="Updated market data from CommoditySuperCycle.com">
 <meta property="og:image" content="https://1charts.github.io/CSC/charts/12.png">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@CommodityCSC">
-<meta name="twitter:creator" content="@CommodityCSC">
-<meta name="twitter:title" content="LNG">
-<meta name="twitter:description" content="Daily Commodity Market Updates">
 <meta name="twitter:image" content="https://1charts.github.io/CSC/charts/12.png">
 
 <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
-<link rel="apple-touch-icon" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
-body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; line-height: 1.4; }
-.container { max-width:1050px; margin:auto; padding: 20px 20px 10px 20px; }
-#full-capture-area { background: #0f172a; padding: 5px 10px; border-radius: 8px; }
-.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-.title-group { flex: 1; }
-.title { font-size:24px; font-weight: bold; color:#f8fafc; margin: 0; }
-.subtitle { font-size:14px; margin-top:2px; }
-.subtitle a { color:#67e8f9; text-decoration:none; opacity: 0.8; }
-.actions { display: flex; gap: 8px; margin-top: 5px; }
+* { box-sizing: border-box; }
+body { 
+    margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; 
+    overflow: hidden; /* Evita lo scroll indesiderato */
+    height: 100vh; width: 100vw;
+}
+
+/* Messaggio Rotazione */
+#rotate-message {
+    display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+    background:#0f172a; z-index: 999; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center; padding: 20px;
+}
+
+@media (orientation: portrait) {
+    #rotate-message { display: flex; }
+}
+
+.container { 
+    width: 100%; height: 100vh; display: flex; flex-direction: column;
+    padding: 10px 15px;
+}
+
+.header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; }
+.title { font-size: 20px; font-weight: bold; color:#f8fafc; margin: 0; }
+.subtitle { font-size: 13px; color:#67e8f9; text-decoration: none; }
+
+.actions { display: flex; gap: 8px; }
 .action-btn { 
     background: #1e293b; border: none; color: #f8fafc; padding: 6px; 
-    border-radius: 6px; cursor: pointer; display: flex; align-items: center; 
-    transition: 0.2s; text-decoration: none;
+    border-radius: 6px; cursor: pointer; display: flex; align-items: center;
 }
-.action-btn:hover { background: #334155; transform: scale(1.05); }
-.action-btn svg { width: 18px; height: 18px; fill: currentColor; }
-.chart-container { position: relative; width: 100%; margin-top: 5px; }
-img { width:100%; height:auto; border-radius:4px; display: block; }
+
+/* Grafico Adattivo */
+#full-capture-area { 
+    flex-grow: 1; display: flex; flex-direction: column; 
+    justify-content: center; position: relative; overflow: hidden;
+}
+
+.chart-container { width: 100%; height: auto; max-height: 80vh; display: flex; justify-content: center; }
+img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; }
+
+/* Navigazione */
 .nav-bottom {
-    display: flex; justify-content: flex-end; gap: 12px;
-    margin-top: -38px; padding-right: 5px; position: relative; z-index: 20;
+    position: absolute; bottom: 20%; right: 10px;
+    display: flex; gap: 10px; z-index: 20;
 }
 .nav-link {
-    background: rgba(30, 41, 59, 0.85); color: #67e8f9; padding: 6px;
-    border-radius: 5px; display: flex; align-items: center; transition: 0.2s; border: 1px solid #334155;
+    background: rgba(30, 41, 59, 0.9); color: #67e8f9; padding: 8px;
+    border-radius: 50%; border: 1px solid #334155;
 }
-.nav-link:hover { background: #334155; }
-.nav-link svg { width: 26px; height: 26px; stroke-width: 3; }
-.source { margin-top: 10px; font-size:12px; color:#94a3b8; padding-bottom: 10px; }
-.source a { color:#67e8f9; text-decoration:none; }
+.nav-link svg { width: 30px; height: 30px; stroke-width: 3; }
+
+.source { font-size:11px; color:#94a3b8; margin-top: 5px; flex-shrink: 0; }
+
+/* Stile per lo screenshot (nascosto) */
+#screenshot-title-box { display: none; }
 </style>
 </head>
 
 <body>
+
+<div id="rotate-message">
+    <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h2C24 4.96 19.1 0 13 0l-1.65 1.65 1.41 1.41 3.72-3.54zM7.52 21.48C4.25 19.93 1.91 16.76 1.55 13h-2C-.45 19.04 4.45 24 10.55 24l1.65-1.65-1.41-1.41-3.27 3.54zM21 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H3V7h18v10z"/></svg>
+    <h2 style="margin-top:20px">Please rotate your device</h2>
+    <p>This chart is best viewed in landscape mode.</p>
+</div>
+
 <div class="container">
   <div class="header-row">
     <div class="title-group">
       <div class="title">LNG</div>
-      <div class="subtitle"><a href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a></div>
+      <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
     </div>
     <div class="actions">
-      <button class="action-btn" onclick="takeScreenshot()" title="Download PNG">
-        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      <button class="action-btn" onclick="toggleFullScreen()" title="Full Screen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </button>
+      <button class="action-btn" onclick="takeScreenshot()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
       </button>
       <a class="action-btn" href="https://twitter.com/intent/tweet?url=https://1charts.github.io/CSC/12.html&text=LNG%20-%20via%20%40CommodityCSC" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
-      </a>
-      <a class="action-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F1charts.github.io%2FCSC%2F12.html" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
       </a>
     </div>
   </div>
 
   <div id="full-capture-area">
-    <div id="screenshot-title-box" style="display:none; margin-bottom:10px;">
+    <div id="screenshot-title-box" style="margin-bottom:10px;">
         <div style="font-size:24px; font-weight:bold; color:#f8fafc;">LNG</div>
         <div style="font-size:14px; color:#67e8f9;">commoditysupercycle.com</div>
     </div>
@@ -95,19 +118,31 @@ img { width:100%; height:auto; border-radius:4px; display: block; }
 </div>
 
 <script>
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            alert(`Error: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
 function takeScreenshot() {
     const area = document.getElementById('full-capture-area');
-    const arrows = document.getElementById('nav-arrows');
     const screenshotBox = document.getElementById('screenshot-title-box');
+    const nav = document.getElementById('nav-arrows');
+    
     screenshotBox.style.display = 'block';
-    arrows.style.visibility = 'hidden';
+    nav.style.visibility = 'hidden';
+
     html2canvas(area, { backgroundColor: "#0f172a", scale: 2, useCORS: true }).then(canvas => {
         const link = document.createElement('a');
         link.download = '12_CSC.png';
         link.href = canvas.toDataURL("image/png");
         link.click();
         screenshotBox.style.display = 'none';
-        arrows.style.visibility = 'visible';
+        nav.style.visibility = 'visible';
     });
 }
 </script>
