@@ -33,6 +33,9 @@ function createPage(file, index) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 
+<link rel="icon" type="image/png" href="https://commoditysupercycle.com/favicon.png">
+<link rel="apple-touch-icon" href="https://commoditysupercycle.com/favicon.png">
+
 <style>
 body { margin:0; background:#0f172a; font-family:Arial; color:#e2e8f0; }
 .container { max-width:1100px; margin:auto; padding:20px; }
@@ -51,6 +54,8 @@ a { color:#67e8f9; text-decoration:none; }
   padding:10px 15px;
   background:#1e293b;
   border-radius:6px;
+  color: #67e8f9;
+  font-weight: bold;
 }
 
 .btn:hover {
