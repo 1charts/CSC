@@ -6,78 +6,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gold LSE | CommoditySuperCycle</title>
 
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1charts.github.io/CSC/17.html">
+<meta property="og:title" content="Gold LSE">
+<meta property="og:description" content="Updated market data from CommoditySuperCycle.com">
+<meta property="og:image" content="https://1charts.github.io/CSC/charts/17.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CommodityCSC">
+<meta name="twitter:creator" content="@CommodityCSC">
+<meta name="twitter:title" content="Gold LSE">
+<meta name="twitter:description" content="Daily Commodity Market Updates">
+<meta name="twitter:image" content="https://1charts.github.io/CSC/charts/17.png">
+
 <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 <link rel="apple-touch-icon" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
-body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; }
-.container { max-width:1100px; margin:auto; padding:20px; }
-
-/* Area Cattura: include tutto tranne i bottoni in alto a destra */
-#full-capture-area { background: #0f172a; padding: 15px; border-radius: 8px; }
-
-.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; line-height: 1.4; }
+.container { max-width:1050px; margin:auto; padding:5px 20px; }
+#full-capture-area { background: #0f172a; padding: 5px 10px; border-radius: 8px; }
+.header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; }
 .title-group { flex: 1; }
-.title { font-size:26px; font-weight: bold; color:#f8fafc; margin: 0; }
-.subtitle { font-size:16px; margin-top:5px; }
+.title { font-size:24px; font-weight: bold; color:#f8fafc; margin: 0; }
+.subtitle { font-size:14px; margin-top:2px; }
 .subtitle a { color:#67e8f9; text-decoration:none; opacity: 0.8; }
-
-/* Bottoni Social e Screenshot (Esclusi dalla cattura) */
-.actions { display: flex; gap: 10px; }
+.actions { display: flex; gap: 8px; margin-top: 5px; }
 .action-btn { 
-    background: #1e293b; border: none; color: #f8fafc; padding: 8px; 
+    background: #1e293b; border: none; color: #f8fafc; padding: 6px; 
     border-radius: 6px; cursor: pointer; display: flex; align-items: center; 
-    transition: background 0.2s; text-decoration: none;
+    transition: 0.2s; text-decoration: none;
 }
-.action-btn:hover { background: #334155; }
-.action-btn svg { width: 20px; height: 20px; fill: currentColor; }
-
-/* Wrapper Grafico */
-.chart-container { position: relative; width: 100%; margin-top: 10px; }
+.action-btn:hover { background: #334155; transform: scale(1.05); }
+.action-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.chart-container { position: relative; width: 100%; margin-top: 5px; }
 img { width:100%; height:auto; border-radius:4px; display: block; }
-
-/* Navigazione: Sotto l'asse X a destra */
 .nav-bottom {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: -35px; /* Sovrappone leggermente lo spazio vuoto sotto l'asse X */
-    padding-right: 10px;
-    position: relative;
-    z-index: 20;
+    display: flex; justify-content: flex-end; gap: 12px;
+    margin-top: -38px; padding-right: 5px; position: relative; z-index: 20;
 }
-
 .nav-link {
-    background: rgba(30, 41, 59, 0.9);
-    color: #67e8f9;
-    padding: 8px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    transition: 0.2s;
-    border: 1px solid #334155;
+    background: rgba(30, 41, 59, 0.85); color: #67e8f9; padding: 6px;
+    border-radius: 5px; display: flex; align-items: center; transition: 0.2s; border: 1px solid #334155;
 }
-.nav-link:hover { background: #334155; transform: translateY(-2px); }
-.nav-link svg { width: 28px; height: 28px; stroke-width: 3; }
-
-.source { margin-top:40px; font-size:13px; color:#94a3b8; }
+.nav-link:hover { background: #334155; }
+.nav-link svg { width: 26px; height: 26px; stroke-width: 3; }
+.source { margin-top:35px; font-size:12px; color:#94a3b8; padding-bottom: 10px; }
 .source a { color:#67e8f9; text-decoration:none; }
 </style>
 </head>
 
 <body>
 <div class="container">
-
   <div class="header-row">
-    <div id="capture-header" class="title-group">
+    <div class="title-group">
       <div class="title">Gold LSE</div>
       <div class="subtitle"><a href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a></div>
     </div>
-    
     <div class="actions">
-      <button class="action-btn" onclick="takeScreenshot()" title="Save Image">
+      <button class="action-btn" onclick="takeScreenshot()" title="Download PNG">
         <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
       </button>
       <a class="action-btn" href="https://twitter.com/intent/tweet?url=https://1charts.github.io/CSC/17.html&text=Gold%20LSE%20-%20via%20%40CommodityCSC" target="_blank">
@@ -90,25 +79,21 @@ img { width:100%; height:auto; border-radius:4px; display: block; }
   </div>
 
   <div id="full-capture-area">
-    <div id="screenshot-title-box" style="display:none; margin-bottom:15px;">
-        <div style="font-size:26px; font-weight:bold; color:#f8fafc;">Gold LSE</div>
-        <div style="font-size:16px; color:#67e8f9;">commoditysupercycle.com</div>
+    <div id="screenshot-title-box" style="display:none; margin-bottom:10px;">
+        <div style="font-size:24px; font-weight:bold; color:#f8fafc;">Gold LSE</div>
+        <div style="font-size:14px; color:#67e8f9;">commoditysupercycle.com</div>
     </div>
-
     <div class="chart-container">
       <img src="charts/17.png">
     </div>
-
     <div class="nav-bottom" id="nav-arrows">
-        <a class="nav-link" href="16.html" title="Prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg></a>
-        <a class="nav-link" href="18.html" title="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a class="nav-link" href="16.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg></a>
+        <a class="nav-link" href="18.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg></a>
     </div>
-
     <div class="source">
       Source: <a href="#" target="_blank">Dati Finanziari</a>
     </div>
   </div>
-
 </div>
 
 <script>
@@ -116,27 +101,17 @@ function takeScreenshot() {
     const area = document.getElementById('full-capture-area');
     const arrows = document.getElementById('nav-arrows');
     const screenshotBox = document.getElementById('screenshot-title-box');
-    
-    // Mostra titolo interno per cattura, nascondi frecce
     screenshotBox.style.display = 'block';
     arrows.style.visibility = 'hidden';
-
-    html2canvas(area, {
-        backgroundColor: "#0f172a",
-        scale: 2,
-        useCORS: true
-    }).then(canvas => {
+    html2canvas(area, { backgroundColor: "#0f172a", scale: 2, useCORS: true }).then(canvas => {
         const link = document.createElement('a');
         link.download = '17_CSC.png';
         link.href = canvas.toDataURL("image/png");
         link.click();
-        
-        // Ripristina
         screenshotBox.style.display = 'none';
         arrows.style.visibility = 'visible';
     });
 }
 </script>
-
 </body>
 </html>
