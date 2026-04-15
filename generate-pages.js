@@ -1,3 +1,50 @@
+const fs = require('fs');
+const path = require('path');
+
+const chartsDir = path.join(__dirname, 'charts');
+const configPath = path.join(__dirname, 'config.json');
+
+let config = {};
+if (fs.existsSync(configPath)) {
+  config = JSON.parse(fs.readFileSync(configPath));
+}
+
+const files = fs.readdirSync(chartsDir)
+  .filter(f => f.endsWith('.png'))
+  .sort();
+
+// === GENERIAMO chartsData una sola volta ===
+const chartsData = files.map(file => {
+  const name = file.replace('.png', '');
+  const cfg = config[name] || {};
+  return {
+    name: name,
+    file: file,
+    title: cfg.title || `Chart ${name}`,
+    sourceText: cfg.sourceText || "",
+    sourceLink: cfg.sourceLink || "#"
+  };
+});
+
+function createPage(file, index) {
+  const name = file.replace('.png', '');
+  const cfg = config[name] || {};
+  const title = cfg.title || `Chart ${name}`;
+  const sourceText = cfg.sourceText || "";
+  const sourceLink = cfg.sourceLink || "#";
+  
+  const currentUrl = `https://1charts.github.io/CSC/${name}.html`;
+  const chartImageUrl = `https://1charts.github.io/CSC/charts/${file}`;
+  const logoUrl = "https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png";
+  
+  const shareTextX = encodeURIComponent(`${title} - via @CommodityCSC`);
+
+  // Source INLINE (ora con id corretto)
+  const sourceHtmlInline = sourceText 
+    ? `<span id="source-inline" class="source-inline"></span>` 
+    : '<span id="source-inline" class="source-inline"></span>';
+
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +82,6 @@ body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif;
 .chart-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
 img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-/* Box screenshot: nascosto di default */
 #screenshot-title-box { display: none; margin-bottom: 15px; text-align: left; }
 </style>
 </head>
@@ -52,7 +98,7 @@ img { max-width: 100%; max-height: 100%; object-fit: contain; }
     <div class="title-group">
       <div class="title" id="page-title">${title}</div>
       <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
-      <span id="source-inline" class="source-inline"></span>
+      ${sourceHtmlInline}
     </div>
     
     <div class="actions">
@@ -85,7 +131,7 @@ img { max-width: 100%; max-height: 100%; object-fit: contain; }
 </div>
 
 <script>
-// === DATI DI TUTTI I GRAFICI (embeddati in OGNI pagina) ===
+// === DATI DI TUTTI I GRAFICI ===
 const chartsData = ${JSON.stringify(chartsData)};
 
 function getCurrentName() {
@@ -99,37 +145,30 @@ if (currentIndex === -1) currentIndex = 0;
 function updatePage() {
   const chart = chartsData[currentIndex];
 
-  // Aggiorna titolo e source (header) - SOLO questa parte è stata corretta
   document.getElementById('page-title').textContent = chart.title;
+  
   const sourceInlineEl = document.getElementById('source-inline');
   if (chart.sourceText) {
-    sourceInlineEl.innerHTML = ` — Source: <a href="${chart.sourceLink}" target="_blank">${chart.sourceText}</a>`;
+    sourceInlineEl.innerHTML = \` — Source: <a href="\${chart.sourceLink}" target="_blank">\${chart.sourceText}</a>\`;
   } else {
     sourceInlineEl.innerHTML = '';
   }
 
-  // Aggiorna immagine
-  document.querySelector('img').src = `charts/${chart.file}`;
+  document.querySelector('img').src = \`charts/\${chart.file}\`;
 
-  // Aggiorna elementi screenshot
   document.getElementById('ss-title').textContent = chart.title;
   const ssSourceTextEl = document.getElementById('ss-source-text');
   if (ssSourceTextEl) ssSourceTextEl.textContent = chart.sourceText || '';
 
-  // Aggiorna link condivisione
-  const currentUrl = `https://1charts.github.io/CSC/${chart.name}.html`;
-  const shareTextX = encodeURIComponent(`${chart.title} - via @CommodityCSC`);
-  document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareTextX}`;
-  document.getElementById('fb-share').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+  const currentUrl = \`https://1charts.github.io/CSC/\${chart.name}.html\`;
+  const shareTextX = encodeURIComponent(\`\${chart.title} - via @CommodityCSC\`);
+  document.getElementById('twitter-share').href = \`https://twitter.com/intent/tweet?url=\${currentUrl}&text=\${shareTextX}\`;
+  document.getElementById('fb-share').href = \`https://www.facebook.com/sharer/sharer.php?u=\${currentUrl}\`;
 
-  // Visibilità pulsanti nav
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  if (prevBtn) prevBtn.style.display = currentIndex > 0 ? 'flex' : 'none';
-  if (nextBtn) nextBtn.style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
+  document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
+  document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
 
-  // Aggiorna <title> della pagina
-  document.title = `${chart.title} | CSC`;
+  document.title = \`\${chart.title} | CSC\`;
 }
 
 function navigateTo(newIndex) {
@@ -137,19 +176,13 @@ function navigateTo(newIndex) {
   currentIndex = newIndex;
   updatePage();
   const chart = chartsData[currentIndex];
-  const newUrl = `${chart.name}.html`;
-  history.pushState({index: currentIndex}, '', newUrl);
+  history.pushState({index: currentIndex}, '', \`\${chart.name}.html\`);
 }
 
-function navigatePrev() {
-  navigateTo(currentIndex - 1);
-}
+function navigatePrev() { navigateTo(currentIndex - 1); }
+function navigateNext() { navigateTo(currentIndex + 1); }
 
-function navigateNext() {
-  navigateTo(currentIndex + 1);
-}
-
-// Tastiera (Space / frecce) → navigazione SENZA uscire dallo schermo intero
+// Tastiera
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space' || e.key === 'ArrowRight') {
         e.preventDefault();
@@ -160,25 +193,21 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// === SWIPE MOBILE (nuova funzionalità richiesta) ===
+// Swipe mobile
 let touchStartX = 0;
 let touchEndX = 0;
-
-function handleSwipe() {
-  if (touchEndX < touchStartX - 50) navigateNext();      // swipe sinistra → prossimo
-  if (touchEndX > touchStartX + 50) navigatePrev();      // swipe destra → precedente
-}
-
 const captureArea = document.getElementById('full-capture-area');
+
 captureArea.addEventListener('touchstart', e => {
   touchStartX = e.changedTouches[0].screenX;
 });
 captureArea.addEventListener('touchend', e => {
   touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
+  if (touchEndX < touchStartX - 50) navigateNext();
+  if (touchEndX > touchStartX + 50) navigatePrev();
 });
 
-// Gestione back/forward del browser
+// Back/Forward browser
 window.addEventListener('popstate', (event) => {
     if (event.state && typeof event.state.index === 'number') {
         currentIndex = event.state.index;
@@ -189,7 +218,6 @@ window.addEventListener('popstate', (event) => {
     updatePage();
 });
 
-// Al caricamento
 window.addEventListener('load', () => {
     updatePage();
 });
@@ -209,7 +237,7 @@ function takeScreenshot() {
 
     html2canvas(area, { backgroundColor: "#0f172a", scale: 2, useCORS: true }).then(canvas => {
         const link = document.createElement('a');
-        link.download = `${chartsData[currentIndex].name}_CSC.png`;
+        link.download = \`\${chartsData[currentIndex].name}_CSC.png\`;
         link.href = canvas.toDataURL();
         link.click();
         titleBox.style.display = 'none';
