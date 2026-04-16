@@ -49,7 +49,7 @@ function createPage(file) {
   .title-group { 
     flex: 1; 
     min-width: 0; 
-    padding-left: 120px;     /* <-- Rientro maggiore per allinearsi con l'immagine */
+    padding-left: 150px;     /* <-- Rientro maggiore per allinearsi con l'immagine */
   }
   
   .title { 
@@ -174,7 +174,7 @@ function createPage(file) {
     <div id="screenshot-title-box">
       <div id="ss-title">${title}</div>
       <div id="ss-subtitle">commoditysupercycle.com</div>
-      <div id="ss-source-bottom" style="display:none; margin-top:8px;">
+      <div id="ss-source-bottom" style="display:none; margin-top:30px;">
         <span class="source-label">Sources:</span> 
         <span id="ss-source-text"></span>
       </div>
