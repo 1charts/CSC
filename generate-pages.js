@@ -3,12 +3,12 @@
 3  | const files = fs.readdirSync(chartsDir).filter(f => f.endsWith('.png')).sort();
 4  | 
 5  | const chartsData = files.map(file => {
-6  |   const name = file.replace('.png', ''), cfg = config[name] || {};
+6 |   const name = file.replace('.png', ''), key = name.padStart(2, '0'), cfg = config[key] || {};
 7  |   return { name, file, title: cfg.title || `Chart ${name}`, sources: cfg.sources || [] };
 8  | });
 9  | 
 10 | function createPage(file, index) {
-11 |   const name = file.replace('.png', ''), cfg = config[name] || {}, title = cfg.title || `Chart ${name}`, logoUrl = "https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png";
+11 |   const name = file.replace('.png', ''), key = name.padStart(2, '0'), cfg = config[key] || {}, title = cfg.title || `Chart ${name}`, logoUrl = "https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png";
 12 |   const currentUrl = `https://1charts.github.io/CSC/${name}.html`, shareTextX = encodeURIComponent(`${title} - via @CommodityCSC`), sourceHtmlInline = `<span id="source-inline" class="source-inline"></span>`;
 13 |   
 14 |   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -63,7 +63,7 @@
 63 |     <div id="screenshot-title-box">
 64 |       <div id="ss-title" style="font-size:24px; font-weight:bold; color:#f8fafc;">${title}</div>
 65 |       <div style="font-size:14px; color:#67e8f9;">commoditysupercycle.com</div>
-66 |       <div id="ss-source-bottom" style="display:none; color:#94a3b8; font-size:12px; margin-top:10px;">Source: <span id="ss-source-text"></span></div>
+66 |       <div id="ss-source-bottom" style="display:none; color:#94a3b8; font-size:12px; margin-top:10px;"><span id="ss-source-text"></span></div>
 67 |     </div>
 68 |     <div class="chart-container"><img src="charts/${file}"></div>
 69 |   </div>
@@ -77,7 +77,7 @@
 77 |   const c = chartsData[currentIndex], sInline = document.getElementById('source-inline'), ssEl = document.getElementById('ss-source-text');
 78 |   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 79 |   document.getElementById('page-title').textContent = c.title;
-80 |   sInline.innerHTML = validSources.length ? ` — Source: ` + validSources.map(s => `<a href="${s.link}" target="_blank">${s.text}</a>`).join(' · ') : '';
+80 |   sInline.innerHTML = validSources.length ? ` — ` + validSources.map(s => `<a href="${s.link}" target="_blank">${s.text}</a>`).join(' · ') : '';
 81 |   document.querySelector('img').src = `charts/${c.file}`;
 82 |   document.getElementById('ss-title').textContent = c.title;
 83 |   if (ssEl) ssEl.textContent = validSources.map(s => s.text).join(' · ');
@@ -131,3 +131,6 @@
 131 |   fs.writeFileSync(`${file.replace('.png','')}.html`, createPage(file, i));
 132 | });
 133 | console.log("🎉 Pagine HTML generate con successo!");
+
+
+
