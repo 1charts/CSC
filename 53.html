@@ -19,10 +19,55 @@
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
   .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
-  #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; background: #0f172a; padding: 10px; }
-  .chart-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
-  img { max-width: 100%; max-height: 100%; object-fit: contain; }
-  #screenshot-title-box { display: none; margin-bottom: 15px; text-align: left; }
+
+  #full-capture-area { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    position: relative; 
+    overflow: hidden; 
+    background: #0f172a; 
+    padding: 15px; 
+  }
+  .chart-container { 
+    width: 100%; 
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 0;
+  }
+  img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; 
+    image-rendering: crisp-edges;
+  }
+
+  #screenshot-title-box { 
+    display: none; 
+    margin-bottom: 20px; 
+    text-align: left; 
+    padding: 0 10px;
+  }
+  #ss-title { 
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #f8fafc; 
+    margin-bottom: 6px;
+  }
+  #ss-subtitle { 
+    font-size: 15px; 
+    color: #67e8f9; 
+    margin-bottom: 8px;
+  }
+  #ss-source-bottom { 
+    color: #f8fafc; 
+    font-size: 14px; 
+    font-weight: 500;
+  }
+  .source-label { color: #f8fafc; font-weight: bold; }
 </style></head>
 <body>
 <div id="rotate-message">
@@ -48,9 +93,12 @@
   </div>
   <div id="full-capture-area">
     <div id="screenshot-title-box">
-      <div id="ss-title" style="font-size:24px; font-weight:bold; color:#f8fafc;">Diversified Companies</div>
-      <div style="font-size:14px; color:#67e8f9;">commoditysupercycle.com</div>
-      <div id="ss-source-bottom" style="display:none; color:#94a3b8; font-size:12px; margin-top:10px;"><span id="ss-source-text"></span></div>
+      <div id="ss-title" style="font-size:28px; font-weight:bold; color:#f8fafc;">Diversified Companies</div>
+      <div id="ss-subtitle" style="font-size:15px; color:#67e8f9;">commoditysupercycle.com</div>
+      <div id="ss-source-bottom" style="display:none; margin-top:8px;">
+        <span class="source-label">Sources:</span> 
+        <span id="ss-source-text"></span>
+      </div>
     </div>
     <div class="chart-container"><img src="charts/53.png"></div>
   </div>
@@ -71,7 +119,7 @@ function updatePage() {
   sInline.innerHTML = validSources.length ? ' — ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
-  if (ssEl) ssEl.innerHTML = validSources.length ? 'Source: ' + validSources.map(s => s.text).join(' · ') : '';
+  if (ssEl) ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
 
   const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
   const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
@@ -119,12 +167,19 @@ function takeScreenshot() {
   const tBox = document.getElementById('screenshot-title-box');
   const ssS = document.getElementById('ss-source-bottom');
   const validSources = (chartsData[currentIndex].sources || []).filter(s => s.text && s.text.trim() !== '');
+
   tBox.style.display = 'block'; 
   if (ssS) ssS.style.display = validSources.length ? 'block' : 'none';
-  html2canvas(area, { backgroundColor: "#0f172a", scale: 2, useCORS: true }).then(canvas => {
+
+  html2canvas(document.getElementById('full-capture-area'), { 
+    backgroundColor: "#0f172a", 
+    scale: 2, 
+    useCORS: true,
+    logging: false
+  }).then(canvas => {
     const link = document.createElement('a'); 
     link.download = chartsData[currentIndex].name + '_CSC.png';
-    link.href = canvas.toDataURL(); 
+    link.href = canvas.toDataURL('image/png'); 
     link.click();
     tBox.style.display = 'none'; 
     if (ssS) ssS.style.display = 'none';
