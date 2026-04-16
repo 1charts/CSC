@@ -4,124 +4,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Antimony | CSC</title>
-
+<title>Antimony Companies | CSC</title>
 <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 <style>
 * { box-sizing: border-box; }
 body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100vh; width: 100vw; }
-
 #rotate-message { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; z-index: 999; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 @media (orientation: portrait) { #rotate-message { display: flex; } }
-
 .container { width: 100%; height: 100vh; display: flex; flex-direction: column; padding: 5px 15px; }
-
 .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
 .title-group { flex: 1; min-width: 0; }
 .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; }
 .source-inline { font-size: 11px; color: #94a3b8; font-weight: normal; }
 .source-inline a { color: #67e8f9; text-decoration: none; }
-
 .actions { display: flex; gap: 6px; align-items: center; }
 .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
 .btn:hover { background: #334155; }
 .btn svg { width: 18px; height: 18px; fill: currentColor; }
 .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
 .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
-
 #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; background: #0f172a; padding: 10px; }
 .chart-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
 img { max-width: 100%; max-height: 100%; object-fit: contain; }
-
 #screenshot-title-box { display: none; margin-bottom: 15px; text-align: left; }
 </style>
 </head>
-
 <body>
-
 <div id="rotate-message">
     <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h2C24 4.96 19.1 0 13 0l-1.65 1.65 1.41 1.41 3.72-3.54zM7.52 21.48C4.25 19.93 1.91 16.76 1.55 13h-2C-.45 19.04 4.45 24 10.55 24l1.65-1.65-1.41-1.41-3.27 3.54zM21 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H3V7h18v10z"/></svg>
     <h2 style="margin-top:20px">Ruota il dispositivo</h2>
 </div>
-
 <div class="container">
   <div class="header-row">
     <div class="title-group">
-      <div class="title" id="page-title">Antimony</div>
+      <div class="title" id="page-title">Antimony Companies</div>
       <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
       <span id="source-inline" class="source-inline"></span>
     </div>
-    
     <div class="actions">
       <button class="btn" onclick="toggleFullScreen()" title="Full Screen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <button class="btn" onclick="takeScreenshot()" title="Screenshot"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></button>
-      <a id="twitter-share" class="btn" href="https://twitter.com/intent/tweet?url=https://1charts.github.io/CSC/34.html&text=Antimony%20-%20via%20%40CommodityCSC" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg></a>
-      <a id="fb-share" class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://1charts.github.io/CSC/34.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      
+      <a id="twitter-share" class="btn" href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg></a>
+      <a id="fb-share" class="btn" href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
       <div style="width: 1px; height: 20px; background: #334155; margin: 0 4px;"></div>
-
-      <button id="prev-btn" class="btn nav-btn" onclick="navigatePrev()">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button id="next-btn" class="btn nav-btn" onclick="navigateNext()">
-        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
+      <button id="prev-btn" class="btn nav-btn" onclick="navigatePrev()"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button id="next-btn" class="btn nav-btn" onclick="navigateNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
-
   <div id="full-capture-area">
     <div id="screenshot-title-box">
-        <div id="ss-title" style="font-size:24px; font-weight:bold; color:#f8fafc;">Antimony</div>
+        <div id="ss-title" style="font-size:24px; font-weight:bold; color:#f8fafc;">Antimony Companies</div>
         <div style="font-size:14px; color:#67e8f9;">commoditysupercycle.com</div>
-        <div id="ss-source-bottom" style="display:none; color:#94a3b8; font-size:12px; margin-top:10px; text-align:left;">Source: <span id="ss-source-text"></span></div>
+        <div id="ss-source-container" style="display:none; color:#94a3b8; font-size:12px; margin-top:10px; text-align:left;">
+            Source: <span id="ss-source-text"></span>
+        </div>
     </div>
-    <div class="chart-container">
-      <img src="charts/34.png">
-    </div>
+    <div class="chart-container"><img src="charts/34.png"></div>
   </div>
 </div>
-
 <script>
-// === DATI DI TUTTI I GRAFICI ===
-const chartsData = [{"name":"01","file":"01.png","title":"Upstream - NYSE","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"02","file":"02.png","title":"Upstream - LSE","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"03","file":"03.png","title":"Upstream - TSX","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"04","file":"04.png","title":"Upstream - TSXV","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"05","file":"05.png","title":"Upstream - ASX","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"06","file":"06.png","title":"Upstream Global","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"07","file":"07.png","title":"Midstream","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"08","file":"08.png","title":"Downstream","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"09","file":"09.png","title":"O&G Equipment & Services","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"10","file":"10.png","title":"Drilling Contractors","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"11","file":"11.png","title":"Tankers","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"12","file":"12.png","title":"LNG","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"13","file":"13.png","title":"Royalties & Trusts","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"14","file":"14.png","title":"Biofuels & Biogas","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"15","file":"15.png","title":"Oil & Gas","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"16","file":"16.png","title":"Gold NYSE","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"17","file":"17.png","title":"Gold LSE","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"18","file":"18.png","title":"Gold TSX","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"19","file":"19.png","title":"Gold TSXV","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"20","file":"20.png","title":"Gold ASX","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"21","file":"21.png","title":"Gold & Copper","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"22","file":"22.png","title":"Gold & Silver","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"23","file":"23.png","title":"Silver","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"24","file":"24.png","title":"PGM","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"25","file":"25.png","title":"Precious Metals","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"26","file":"26.png","title":"Aluminum","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"27","file":"27.png","title":"Copper","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"28","file":"28.png","title":"Lead & Zinc","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"29","file":"29.png","title":"Lithium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"30","file":"30.png","title":"Iron & Steel","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"31","file":"31.png","title":"Nickel","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"32","file":"32.png","title":"Rare Earths","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"33","file":"33.png","title":"Uranium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"34","file":"34.png","title":"Antimony","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"35","file":"35.png","title":"Beryllium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"36","file":"36.png","title":"Cobalt","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"37","file":"37.png","title":"Magnesium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"38","file":"38.png","title":"Manganese","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"39","file":"39.png","title":"Molybdenum Tungsten","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"40","file":"40.png","title":"Niobium Tantalum","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"41","file":"41.png","title":"Tin","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"42","file":"42.png","title":"Titanium Zirconium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"43","file":"43.png","title":"Silicon","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"44","file":"44.png","title":"Vanadium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"45","file":"45.png","title":"Metals","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"46","file":"46.png","title":"Hydrogen","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"47","file":"47.png","title":"Helium","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"48","file":"48.png","title":"Graphite & Graphene","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"49","file":"49.png","title":"Diamonds & Gems","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"50","file":"50.png","title":"Coal","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"51","file":"51.png","title":"Building materials","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"52","file":"52.png","title":"Fertilizers & Salt","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"53","file":"53.png","title":"Diversified","sourceText":"Dati Finanziari","sourceLink":"#"},{"name":"54","file":"54.png","title":"Mining Equipment & Services","sourceText":"Dati Finanziari","sourceLink":"#"}];
-
+const chartsData = [{"name":"01","file":"01.png","title":"O&G Upstream Companies Listed on NYSE","sources":[{"text":"Sources: WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"02","file":"02.png","title":"O&G Upstream Companies Listed on LSE","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"03","file":"03.png","title":"O&G Upstream Companies Listed on TSX","sources":[{"text":"Sources: WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"04","file":"04.png","title":"O&G Upstream Companies Listed on TSXV","sources":[{"text":"Sources: WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"05","file":"05.png","title":"O&G Upstream Companies Listed on ASX","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"06","file":"06.png","title":"O&G Upstream Companies Listed Globally","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"07","file":"07.png","title":"O&G Midstream Companies","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"08","file":"08.png","title":"O&G Downstream Companies","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: RBOB Gasoline & Brent Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DGASUSG"},{"text":"","link":"#"}]},{"name":"09","file":"09.png","title":"O&G Equipment & Services Companies","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"10","file":"10.png","title":"O&G Drilling Contractors","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"11","file":"11.png","title":"Tankers Companies","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"12","file":"12.png","title":"LNG Companies","sources":[{"text":"Sources: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"13","file":"13.png","title":"O&G Royalties & Trusts","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"14","file":"14.png","title":"Biofuels & Biogas Companies","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"15","file":"15.png","title":"Total O&G Companies - Global","sources":[{"text":"Sources: Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Source: Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"16","file":"16.png","title":"Gold Companies Listed on NYSE","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"17","file":"17.png","title":"Gold Companies Listed on LSE","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"18","file":"18.png","title":"Gold Companies Listed on TSX","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"19","file":"19.png","title":"Gold Companies Listed on TSXV","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"20","file":"20.png","title":"Gold Companies Listed on ASX","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"21","file":"21.png","title":"Gold & Copper Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"22","file":"22.png","title":"Gold & Silver Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"23","file":"23.png","title":"Silver Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"24","file":"24.png","title":"PGM Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"25","file":"25.png","title":"Precious Metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"26","file":"26.png","title":"Aluminum Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"27","file":"27.png","title":"Copper Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"28","file":"28.png","title":"Lead & Zinc Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"29","file":"29.png","title":"Lithium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"30","file":"30.png","title":"Iron & Steel Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"31","file":"31.png","title":"Nickel Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"32","file":"32.png","title":"Rare Earths Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"33","file":"33.png","title":"Uranium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"34","file":"34.png","title":"Antimony Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"35","file":"35.png","title":"Beryllium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"36","file":"36.png","title":"Cobalt Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"37","file":"37.png","title":"Magnesium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"38","file":"38.png","title":"Manganese Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"39","file":"39.png","title":"Molybdenum & Tungsten Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"40","file":"40.png","title":"Niobium & Tantalum Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"41","file":"41.png","title":"Tin Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"42","file":"42.png","title":"Titanium & Zirconium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"43","file":"43.png","title":"Silicon Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"44","file":"44.png","title":"Vanadium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"45","file":"45.png","title":"Metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"46","file":"46.png","title":"Hydrogen Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"47","file":"47.png","title":"Helium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"48","file":"48.png","title":"Graphite & Graphene Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"49","file":"49.png","title":"Diamonds & Gems Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"50","file":"50.png","title":"Coal Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"51","file":"51.png","title":"Industrial Minerals Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"52","file":"52.png","title":"Fertilizers & Salt Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"53","file":"53.png","title":"Diversified Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"54","file":"54.png","title":"Mining Equipment & Services Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]}];
 function getCurrentName() {
   const path = window.location.pathname.split('/').pop().replace('.html', '');
   return path || chartsData[0].name;
 }
-
 let currentIndex = chartsData.findIndex(c => c.name === getCurrentName());
 if (currentIndex === -1) currentIndex = 0;
 
 function updatePage() {
   const chart = chartsData[currentIndex];
-
   document.getElementById('page-title').textContent = chart.title;
   
+  // Gestione Multi-Source
+  const validSources = chart.sources.filter(s => s.text && s.text.trim() !== "");
   const sourceInlineEl = document.getElementById('source-inline');
-  if (chart.sourceText) {
-    sourceInlineEl.innerHTML = ` — Source: <a href="${chart.sourceLink}" target="_blank">${chart.sourceText}</a>`;
+  const ssSourceContainer = document.getElementById('ss-source-container');
+  const ssSourceTextEl = document.getElementById('ss-source-text');
+  
+  if (validSources.length > 0) {
+    const htmlLinks = validSources.map(s => `<a href="${s.link}" target="_blank">${s.text}</a>`).join(' | ');
+    const plainText = validSources.map(s => s.text).join(' | ');
+    sourceInlineEl.innerHTML = ` — Source: ${htmlLinks}`;
+    ssSourceTextEl.textContent = plainText;
+    ssSourceContainer.dataset.hasSource = "true";
   } else {
     sourceInlineEl.innerHTML = '';
+    ssSourceTextEl.textContent = '';
+    ssSourceContainer.dataset.hasSource = "false";
   }
 
   document.querySelector('img').src = `charts/${chart.file}`;
-
   document.getElementById('ss-title').textContent = chart.title;
-  const ssSourceTextEl = document.getElementById('ss-source-text');
-  if (ssSourceTextEl) ssSourceTextEl.textContent = chart.sourceText || '';
-
   const currentUrl = `https://1charts.github.io/CSC/${chart.name}.html`;
   const shareTextX = encodeURIComponent(`${chart.title} - via @CommodityCSC`);
   document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareTextX}`;
   document.getElementById('fb-share').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-
-  document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
-  document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
-
+  document.getElementById('prev-btn').style.visibility = currentIndex > 0 ? 'visible' : 'hidden';
+  document.getElementById('next-btn').style.visibility = currentIndex < chartsData.length - 1 ? 'visible' : 'hidden';
   document.title = `${chart.title} | CSC`;
 }
 
@@ -129,52 +110,32 @@ function navigateTo(newIndex) {
   if (newIndex < 0 || newIndex >= chartsData.length) return;
   currentIndex = newIndex;
   updatePage();
-  const chart = chartsData[currentIndex];
-  history.pushState({index: currentIndex}, '', `${chart.name}.html`);
+  history.pushState({index: currentIndex}, '', `${chartsData[currentIndex].name}.html`);
 }
-
 function navigatePrev() { navigateTo(currentIndex - 1); }
 function navigateNext() { navigateTo(currentIndex + 1); }
 
-// Tastiera
 document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' || e.key === 'ArrowRight') {
-        e.preventDefault();
-        navigateNext();
-    } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        navigatePrev();
-    }
+    if (e.code === 'Space' || e.key === 'ArrowRight') { e.preventDefault(); navigateNext(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
 });
 
-// Swipe mobile
-let touchStartX = 0;
-let touchEndX = 0;
 const captureArea = document.getElementById('full-capture-area');
-
-captureArea.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
+let touchStartX = 0;
+captureArea.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
 captureArea.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
+  let touchEndX = e.changedTouches[0].screenX;
   if (touchEndX < touchStartX - 50) navigateNext();
   if (touchEndX > touchStartX + 50) navigatePrev();
 });
 
-// Back/Forward browser
 window.addEventListener('popstate', (event) => {
-    if (event.state && typeof event.state.index === 'number') {
-        currentIndex = event.state.index;
-    } else {
-        currentIndex = chartsData.findIndex(c => c.name === getCurrentName());
-        if (currentIndex === -1) currentIndex = 0;
-    }
+    if (event.state && typeof event.state.index === 'number') currentIndex = event.state.index;
+    else currentIndex = chartsData.findIndex(c => c.name === getCurrentName());
     updatePage();
 });
 
-window.addEventListener('load', () => {
-    updatePage();
-});
+window.addEventListener('load', () => { updatePage(); });
 
 function toggleFullScreen() {
     if (!document.fullscreenElement) document.documentElement.requestFullscreen();
@@ -184,10 +145,10 @@ function toggleFullScreen() {
 function takeScreenshot() {
     const area = document.getElementById('full-capture-area');
     const titleBox = document.getElementById('screenshot-title-box');
-    const ssSource = document.getElementById('ss-source-bottom');
+    const ssSourceContainer = document.getElementById('ss-source-container');
     
     titleBox.style.display = 'block';
-    if (ssSource) ssSource.style.display = chartsData[currentIndex].sourceText ? 'block' : 'none';
+    if (ssSourceContainer.dataset.hasSource === "true") ssSourceContainer.style.display = 'block';
 
     html2canvas(area, { backgroundColor: "#0f172a", scale: 2, useCORS: true }).then(canvas => {
         const link = document.createElement('a');
@@ -195,7 +156,7 @@ function takeScreenshot() {
         link.href = canvas.toDataURL();
         link.click();
         titleBox.style.display = 'none';
-        if (ssSource) ssSource.style.display = 'none';
+        ssSourceContainer.style.display = 'none';
     });
 }
 </script>
