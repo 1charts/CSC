@@ -87,29 +87,37 @@ function createPage(file) {
 </div>
 <script>
 const chartsData = ${JSON.stringify(chartsData)};
+
 const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
 let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
 
 function updatePage() {
-  const c = chartsData[currentIndex], sInline = document.getElementById('source-inline'), ssEl = document.getElementById('ss-source-text');
+  const c = chartsData[currentIndex];
+  const sInline = document.getElementById('source-inline');
+  const ssEl = document.getElementById('ss-source-text');
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+
   document.getElementById('page-title').textContent = c.title;
-  sInline.innerHTML = validSources.length ? \` — \` + validSources.map(s => \`<a href="\${s.link}" target="_blank">\${s.text}</a>\`).join(' · ') : '';
-  document.querySelector('img').src = \`charts/\${c.file}\`;
+  sInline.innerHTML = validSources.length ? ' — ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
+  document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
   if (ssEl) ssEl.innerHTML = validSources.length ? 'Source: ' + validSources.map(s => s.text).join(' · ') : '';
-  const url = \`https://1charts.github.io/CSC/\${c.name}.html\`, txt = encodeURIComponent(\`\${c.title} - via @CommodityCSC\`);
-  document.getElementById('twitter-share').href = \`https://twitter.com/intent/tweet?url=\${url}&text=\${txt}\`;
-  document.getElementById('fb-share').href = \`https://www.facebook.com/sharer/sharer.php?u=\${url}\`;
+
+  const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
+  const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
+  document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
+  document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+
   document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
   document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
-  document.title = \`\${c.title} | CSC\`;
+  document.title = c.title + ' | CSC';
 }
 
 function navigateTo(idx) {
   if (idx < 0 || idx >= chartsData.length) return;
-  currentIndex = idx; updatePage();
-  history.pushState({index: currentIndex}, '', \`\${chartsData[currentIndex].name}.html\`);
+  currentIndex = idx;
+  updatePage();
+  history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html');
 }
 
 const navigatePrev = () => navigateTo(currentIndex - 1);
@@ -138,24 +146,25 @@ window.onload = updatePage;
 const toggleFullScreen = () => !document.fullscreenElement ? document.documentElement.requestFullscreen() : document.exitFullscreen();
 
 function takeScreenshot() {
-  const tBox = document.getElementById('screenshot-title-box'), ssS = document.getElementById('ss-source-bottom');
+  const tBox = document.getElementById('screenshot-title-box');
+  const ssS = document.getElementById('ss-source-bottom');
   const validSources = (chartsData[currentIndex].sources || []).filter(s => s.text && s.text.trim() !== '');
   tBox.style.display = 'block'; 
   if (ssS) ssS.style.display = validSources.length ? 'block' : 'none';
   html2canvas(area, { backgroundColor: "#0f172a", scale: 2, useCORS: true }).then(canvas => {
     const link = document.createElement('a'); 
-    link.download = \`\${chartsData[currentIndex].name}_CSC.png\`;
+    link.download = chartsData[currentIndex].name + '_CSC.png';
     link.href = canvas.toDataURL(); 
     link.click();
     tBox.style.display = 'none'; 
     if (ssS) ssS.style.display = 'none';
   });
 }
-</script></body></html>\`;
+</script></body></html>`;
 }
 
 files.forEach((file) => {
-  fs.writeFileSync(\`\${file.replace('.png','')}.html\`, createPage(file));
+  fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
 });
 
 console.log("🎉 Pagine HTML generate con successo!");
