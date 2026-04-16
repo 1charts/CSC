@@ -49,7 +49,7 @@ function createPage(file) {
   .title-group { 
     flex: 1; 
     min-width: 0; 
-    padding-left: 40px;     /* <-- Rientro maggiore per allinearsi con l'immagine */
+    padding-left: 120px;     /* <-- Rientro maggiore per allinearsi con l'immagine */
   }
   
   .title { 
