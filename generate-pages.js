@@ -71,7 +71,7 @@ function createPage(file) {
     .title-group { padding-left: 150px; }
   }
 
-  /* ====================== MOBILE / SMARTPHONE (SOLO QUI HO MODIFICATO) ====================== */
+  /* ====================== MOBILE / SMARTPHONE ====================== */
   @media (max-width: 767px) {
     .title { font-size: 16.5px; }
     .subtitle { font-size: 11.5px; }
@@ -86,25 +86,35 @@ function createPage(file) {
     /* Pulsanti verticali a destra */
     .actions { 
       flex-direction: column; 
+      justify-content: flex-start; 
       align-items: flex-end; 
-      gap: 8px; 
+      gap: 6px; 
     }
 
-    /* Immagine attaccata a sinistra e che tocca il fondo schermo */
+    /* Immagine attaccata a sinistra e in basso */
     #full-capture-area { 
-      padding: 15px 15px 0 0 !important; 
+      padding-left: 0; 
+      padding-right: 0; 
+      padding-bottom: 0; 
     }
     .chart-container { 
-      padding: 0 !important; 
-      margin: 0 !important; 
-    }
-    img { 
-      margin: 0 !important; 
-      padding: 0 !important; 
-      width: 100% !important; 
+      padding: 0; 
     }
 
     .header-row { height: 46px; margin-bottom: 8px; }
+  }
+
+  /* Backup robusto per tutti i dispositivi touch */
+  @media (hover: none) and (pointer: coarse) {
+    #prev-btn, #next-btn { display: none !important; }
+    .actions { 
+      flex-direction: column; 
+      justify-content: flex-start; 
+      align-items: flex-end; 
+      gap: 6px; 
+    }
+    #full-capture-area { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+    .chart-container { padding: 0; }
   }
 </style></head>
 <body>
