@@ -5,30 +5,15 @@
   * { box-sizing: border-box; }
   body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100vh; width: 100vw; }
 
-  /* ====================== VARIABILI CSS - MODIFICA QUI ====================== */
-  :root {
-    /* Desktop / Laptop */
-    --title-size: 19px;
-    --subtitle-size: 13.5px;
-    --sources-size: 12.5px;
-    --title-group-padding: 40px;     /* quanto spostare a destra titolo + sources */
-
-    /* Mobile / Smartphone */
-    --title-size-mobile: 17px;
-    --subtitle-size-mobile: 12px;
-    --sources-size-mobile: 11px;
-    --title-group-padding-mobile: 12px;
-  }
-
   #rotate-message { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; z-index: 999; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
   @media (orientation: portrait) { #rotate-message { display: flex; } }
 
   .container { width: 100%; height: 100vh; display: flex; flex-direction: column; padding: 5px 15px; }
   .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
   .title-group { flex: 1; min-width: 0; }
-  .title { font-size: var(--title-size); font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { font-size: var(--subtitle-size); color:#67e8f9; text-decoration: none; font-weight: bold; }
-  .source-inline { font-size: var(--sources-size); color: #94a3b8; }
+  .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
+  .source-inline { font-size: 11px; color: #94a3b8; }
   .source-inline a { color: #67e8f9; text-decoration: none; }
   .actions { display: flex; gap: 6px; align-items: center; }
 
@@ -48,21 +33,27 @@
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-  /* ====================== DESKTOP / LAPTOP ====================== */
+  /* ====================== LAPTOP / DESKTOP ====================== */
   @media (min-width: 768px) {
-    .title { font-size: var(--title-size); }
-    .subtitle { font-size: var(--subtitle-size); }
-    .source-inline { font-size: var(--sources-size); }
-    .title-group { padding-left: var(--title-group-padding); }   /* <-- qui sposti a destra */
+    .title { font-size: 21px; }                    /* 1 - titolo un po' più grande */
+    .subtitle { font-size: 13.5px; }
+    .source-inline { font-size: 12.5px; }
+    .title-group { padding-left: 150px; }          /* 2 - spostato a destra come volevi (150px) */
   }
 
   /* ====================== MOBILE / SMARTPHONE ====================== */
   @media (max-width: 767px) {
-    .title { font-size: var(--title-size-mobile); }
-    .subtitle { font-size: var(--subtitle-size-mobile); }
-    .source-inline { font-size: var(--sources-size-mobile); }
-    .title-group { padding-left: var(--title-group-padding-mobile); }
-    .header-row { height: 48px; margin-bottom: 8px; }
+    .title { font-size: 16.5px; }                  /* 1 - titolo ridotto */
+    .subtitle { font-size: 11.5px; }
+    .source-inline { font-size: 10.5px; }
+    .title-group { padding-left: 8px; }            /* 2 - quasi al margine sinistro */
+    
+    /* 3 - nascondi solo le frecce prev/next su mobile */
+    #prev-btn, #next-btn { display: none !important; }
+    
+    /* pulsanti rimanenti (fullscreen, screenshot, social) tutti a destra */
+    .actions { justify-content: flex-end; gap: 4px; }
+    .header-row { height: 46px; }
   }
 </style></head>
 <body>
@@ -136,8 +127,13 @@ function updatePage() {
   document.title = c.title + ' | CSC';
 }
 
-// Il resto dello script rimane identico (navigazione, screenshot, ecc.)
-function navigateTo(idx) { if (idx < 0 || idx >= chartsData.length) return; currentIndex = idx; updatePage(); history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html'); }
+function navigateTo(idx) {
+  if (idx < 0 || idx >= chartsData.length) return;
+  currentIndex = idx;
+  updatePage();
+  history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html');
+}
+
 const navigatePrev = () => navigateTo(currentIndex - 1);
 const navigateNext = () => navigateTo(currentIndex + 1);
 
@@ -165,20 +161,19 @@ const toggleFullScreen = () => !document.fullscreenElement ? document.documentEl
 
 function takeScreenshot() {
   const tBox = document.getElementById('screenshot-title-box');
-  const ssS = document.getElementById('ss-source-bottom');
-  const validSources = (chartsData[currentIndex].sources || []).filter(s => s.text && s.text.trim() !== '');
+  tBox.style.display = 'block';
 
-  tBox.style.display = 'block'; 
-  if (ssS) ssS.style.display = validSources.length ? 'block' : 'none';
-
-  html2canvas(document.getElementById('full-capture-area'), { backgroundColor: "#0f172a", scale: 2, useCORS: true, logging: false })
-    .then(canvas => {
-      const link = document.createElement('a'); 
-      link.download = chartsData[currentIndex].name + '_CSC.png';
-      link.href = canvas.toDataURL('image/png'); 
-      link.click();
-      tBox.style.display = 'none'; 
-      if (ssS) ssS.style.display = 'none';
-    });
+  html2canvas(document.getElementById('full-capture-area'), { 
+    backgroundColor: "#0f172a", 
+    scale: 2, 
+    useCORS: true,
+    logging: false
+  }).then(canvas => {
+    const link = document.createElement('a'); 
+    link.download = chartsData[currentIndex].name + '_CSC.png';
+    link.href = canvas.toDataURL('image/png'); 
+    link.click();
+    tBox.style.display = 'none';
+  });
 }
 </script></body></html>
