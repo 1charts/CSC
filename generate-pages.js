@@ -71,7 +71,7 @@ function createPage(file) {
     .title-group { padding-left: 150px; }
   }
 
-  /* ====================== MOBILE / SMARTPHONE ====================== */
+  /* ====================== MOBILE / SMARTPHONE (SOLO QUI HO MODIFICATO) ====================== */
   @media (max-width: 767px) {
     .title { font-size: 16.5px; }
     .subtitle { font-size: 11.5px; }
@@ -90,18 +90,18 @@ function createPage(file) {
       gap: 8px; 
     }
 
-    /* Immagine 100% attaccata a sinistra e in basso */
+    /* Immagine attaccata a sinistra e che tocca il fondo schermo */
     #full-capture-area { 
-      padding: 15px 15px 0 0; 
+      padding: 15px 15px 0 0 !important; 
     }
     .chart-container { 
-      padding: 0; 
-      margin: 0; 
+      padding: 0 !important; 
+      margin: 0 !important; 
     }
     img { 
-      margin: 0; 
-      padding: 0; 
-      width: 100%; 
+      margin: 0 !important; 
+      padding: 0 !important; 
+      width: 100% !important; 
     }
 
     .header-row { height: 46px; margin-bottom: 8px; }
