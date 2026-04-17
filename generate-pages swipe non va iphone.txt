@@ -233,39 +233,12 @@ document.addEventListener('keydown', e => {
 });
 
 let tsX = 0;
-let tsY = 0;
 const area = document.getElementById('full-capture-area');
-
-// Touch Start
-area.addEventListener('touchstart', e => {
-  if (e.touches.length === 1) {
-    tsX = e.touches[0].screenX;
-    tsY = e.touches[0].screenY;
-  }
-}, { passive: true });
-
-// Touch Move - importante per bloccare lo scroll del browser quando si swipa orizzontalmente
-area.addEventListener('touchmove', e => {
-  if (e.touches.length === 1) {
-    const dx = Math.abs(e.touches[0].screenX - tsX);
-    const dy = Math.abs(e.touches[0].screenY - tsY);
-    
-    // Se il movimento è più orizzontale che verticale, blocchiamo lo scroll verticale
-    if (dx > dy + 10 && dx > 15) {
-      e.preventDefault();
-    }
-  }
-}, { passive: false });
-
-// Touch End - esegue lo swipe
-area.addEventListener('touchend', e => {
-  if (e.changedTouches.length === 1) {
-    const dx = e.changedTouches[0].screenX - tsX;
-    if (Math.abs(dx) > 60) {           // soglia un po' più alta per maggiore affidabilità
-      if (dx < -60) navigateNext();
-      else if (dx > 60) navigatePrev();
-    }
-  }
+area.addEventListener('touchstart', e => tsX = e.changedTouches[0].screenX);
+area.addEventListener('touchend', e => { 
+  const dx = e.changedTouches[0].screenX - tsX;
+  if (dx < -50) navigateNext(); 
+  if (dx > 50) navigatePrev();
 });
 
 window.onpopstate = e => { 
