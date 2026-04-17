@@ -92,10 +92,10 @@ function createPage(file) {
     .header-row { 
       height: auto; 
       align-items: flex-start; 
-      margin-bottom: 4px; 
+      margin-bottom: 2px;   /* ridotto al minimo per avere l'immagine "appena sotto" le scritte */
     }
 
-    /* IMMAGINE MASSIMA POSSIBILE IN MOBILE */
+    /* === IMMAGINE MASSIMA POSSIBILE SU MOBILE (CORREZIONE) === */
     .container { 
       padding: 0; 
     }
@@ -109,8 +109,9 @@ function createPage(file) {
     }
     img { 
       margin: 0; 
-      width: 100%; 
-      height: 100%; 
+      width: 100%;           /* tocca sinistro e destro */
+      height: auto;          /* altezza calcolata dall'aspect ratio del PNG */
+      max-height: 100%;      /* non supera mai lo spazio disponibile */
     }
   }
 
@@ -125,11 +126,11 @@ function createPage(file) {
     .header-row { 
       height: auto; 
       align-items: flex-start; 
-      margin-bottom: 4px; 
+      margin-bottom: 2px; 
     }
     .title-group { padding-left: 8px; }
 
-    /* IMMAGINE MASSIMA POSSIBILE IN MOBILE (anche su touch) */
+    /* === IMMAGINE MASSIMA POSSIBILE SU TOUCH (stessa correzione) === */
     .container { 
       padding: 0; 
     }
@@ -144,7 +145,8 @@ function createPage(file) {
     img { 
       margin: 0; 
       width: 100%; 
-      height: 100%; 
+      height: auto; 
+      max-height: 100%; 
     }
   }
 </style></head>
