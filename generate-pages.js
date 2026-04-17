@@ -83,17 +83,38 @@ function createPage(file) {
     /* Nascondi frecce prev/next */
     #prev-btn, #next-btn { display: none !important; }
 
-    /* Pulsanti rimanenti tutti a destra */
-    .actions { justify-content: flex-end; gap: 5px; }
+    /* Pulsanti verticali a destra */
+    .actions { 
+      flex-direction: column; 
+      justify-content: flex-start; 
+      align-items: flex-end; 
+      gap: 6px; 
+    }
+
+    /* Immagine attaccata a sinistra e in basso */
+    #full-capture-area { 
+      padding-left: 0; 
+      padding-right: 0; 
+      padding-bottom: 0; 
+    }
+    .chart-container { 
+      padding: 0; 
+    }
 
     .header-row { height: 46px; margin-bottom: 8px; }
   }
 
-  /* Backup robusto per tutti i dispositivi touch (smartphone/tablet) */
+  /* Backup robusto per tutti i dispositivi touch */
   @media (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn { display: none !important; }
-    .actions { justify-content: flex-end; gap: 5px; }
-    .title-group { padding-left: 8px; }
+    .actions { 
+      flex-direction: column; 
+      justify-content: flex-start; 
+      align-items: flex-end; 
+      gap: 6px; 
+    }
+    #full-capture-area { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+    .chart-container { padding: 0; }
   }
 </style></head>
 <body>
