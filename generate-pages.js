@@ -6,7 +6,7 @@ const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath
 
 const files = fs.readdirSync(chartsDir)
   .filter(f => f.endsWith('.png'))
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));   // ← correzione robusta
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
 const chartsData = files.map(file => {
   const name = path.basename(file, '.png');
@@ -63,7 +63,7 @@ function createPage(file) {
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-  /* ====================== LAPTOP / DESKTOP ====================== */
+  /* ====================== LAPTOP / DESKTOP (NON TOCCATO) ====================== */
   @media (min-width: 768px) {
     .title { font-size: 21px; }
     .subtitle { font-size: 13.5px; }
@@ -88,9 +88,15 @@ function createPage(file) {
 
     .header-row { height: 46px; margin-bottom: 8px; }
   }
+
+  /* Backup robusto per tutti i dispositivi touch (smartphone/tablet) */
+  @media (hover: none) and (pointer: coarse) {
+    #prev-btn, #next-btn { display: none !important; }
+    .actions { justify-content: flex-end; gap: 5px; }
+    .title-group { padding-left: 8px; }
+  }
 </style></head>
 <body>
-<!-- resto del body identico a prima -->
 <div id="rotate-message">
   <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h2C24 4.96 19.1 0 13 0l-1.65 1.65 1.41 1.41 3.72-3.54zM7.52 21.48C4.25 19.93 1.91 16.76 1.55 13h-2C-.45 19.04 4.45 24 10.55 24l1.65-1.65-1.41-1.41-3.27 3.54zM21 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H3V7h18v10z"/></svg>
   <h2 style="margin-top:20px">Ruota il dispositivo</h2>
