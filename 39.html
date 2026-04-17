@@ -1,114 +1,99 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Molybdenum & Tungsten Companies | CSC</title><link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100dvh; width: 100vw; }
+* { box-sizing: border-box; }
+body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100dvh; width: 100vw; }
 
-  #rotate-message { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; z-index: 999; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  @media (orientation: portrait) { #rotate-message { display: flex; } }
+.container { width: 100%; height: 100dvh; display: flex; flex-direction: column; padding: 5px 15px; }
+.header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
 
-  .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; padding: 5px 15px; }
-  .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; position: relative; }
-  .title-group { flex: 1; min-width: 0; }
-  .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
-  .source-inline { font-size: 11px; color: #94a3b8; }
-  .source-inline a { color: #67e8f9; text-decoration: none; }
-  .actions { display: flex; gap: 6px; align-items: center; }
+.title-group { flex: 1; min-width: 0; }
+.title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
 
-  .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
-  .btn:hover { background: #334155; }
-  .btn svg { width: 18px; height: 18px; fill: currentColor; }
-  .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
-  .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+.source-inline { font-size: 11px; color: #94a3b8; }
 
-  #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; background: #0f172a; padding: 15px; }
-  .chart-container { width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center; min-height: 0; }
-  img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: crisp-edges; }
+.actions { display: flex; gap: 6px; align-items: center; }
 
-  #screenshot-title-box { display: none; margin-bottom: 20px; text-align: left; padding: 0 10px; }
-  #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
-  #ss-subtitle { font-size: 15px; color: #67e8f9; margin-bottom: 8px; font-weight: bold; }
-  #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
-  .source-label { color: #f8fafc; }
+.btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; }
 
-  /* DESKTOP */
-  @media (min-width: 768px) {
-    .title { font-size: 21px; }
-    .subtitle { font-size: 13.5px; }
-    .source-inline { font-size: 12.5px; }
-    .title-group { padding-left: 150px; }
+#full-capture-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; background: #0f172a; padding: 15px; }
+
+.chart-container { width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center; min-height: 0; }
+
+img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* ================= DESKTOP ================= */
+@media (min-width: 768px) {
+  .title { font-size: 21px; }
+  .subtitle { font-size: 13.5px; }
+  .source-inline { font-size: 12.5px; }
+  .title-group { padding-left: 150px; }
+}
+
+/* ================= MOBILE PRO ================= */
+@media (max-width: 767px) {
+
+  .title { font-size: 16.5px; }
+  .subtitle { font-size: 11.5px; }
+  .source-inline { font-size: 10.5px; }
+
+  .title-group { padding-left: 8px; }
+
+  #prev-btn, #next-btn { display: none !important; }
+
+  .header-row { height: 46px; margin-bottom: 4px; }
+
+  /* 🔥 BOTTONI FLOATING (PRO) */
+  .actions {
+    position: fixed;
+    top: 70px;
+    right: 8px;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 50;
   }
 
-  /* MOBILE */
-  @media (max-width: 767px) {
-    .title { font-size: 16.5px; }
-    .subtitle { font-size: 11.5px; }
-    .source-inline { font-size: 10.5px; }
-
-    .title-group { padding-left: 8px; }
-
-    #prev-btn, #next-btn { display: none !important; }
-
-    .header-row { height: 46px; margin-bottom: 0; }
-
-    /* ✅ BOTTONI VERTICALI */
-    .actions {
-      position: absolute;
-      top: 6px;
-      right: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: center;
-    }
-
-    /* ✅ FULL EDGE */
-    .container { padding: 0; }
-    #full-capture-area { padding: 0; }
-
-    .chart-container {
-      justify-content: flex-start;
-      align-items: flex-end;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      margin: 0;
-    }
+  /* 🔥 FULL EDGE IMMAGINE */
+  #full-capture-area {
+    padding: 0;
   }
 
-  /* TOUCH DEVICES BACKUP */
-  @media (hover: none) and (pointer: coarse) {
-    #prev-btn, #next-btn { display: none !important; }
-    .title-group { padding-left: 8px; }
+  .chart-container {
+    justify-content: flex-start;
+    align-items: flex-end;
   }
-</style></head>
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+</style>
+
+</head>
+
 <body>
 
 <div class="container">
+
   <div class="header-row">
     <div class="title-group">
-      <div class="title" id="page-title">Molybdenum & Tungsten Companies</div>
+      <div class="title">Molybdenum & Tungsten Companies</div>
       <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
       <span id="source-inline" class="source-inline"></span>
     </div>
 
-    <!-- ✅ ORDINE CORRETTO -->
     <div class="actions">
-      <button class="btn" onclick="toggleFullScreen()">...</button>
-      <button class="btn" onclick="takeScreenshot()">...</button>
-      <a id="twitter-share" class="btn" href="" target="_blank">...</a>
-      <a id="fb-share" class="btn" href="" target="_blank">...</a>
-
-      <div style="width:1px; height:20px; background:#334155; margin:0 4px;"></div>
-
-      <button id="prev-btn" class="btn nav-btn">...</button>
-      <button id="next-btn" class="btn nav-btn">...</button>
+      <button class="btn" onclick="toggleFullScreen()">⛶</button>
+      <button class="btn" onclick="takeScreenshot()">📸</button>
+      <a class="btn">X</a>
+      <a class="btn">f</a>
     </div>
+
   </div>
 
   <div id="full-capture-area">
@@ -116,6 +101,7 @@
       <img src="charts/39.png">
     </div>
   </div>
+
 </div>
 
 </body></html>
