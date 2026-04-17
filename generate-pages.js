@@ -69,6 +69,10 @@ function createPage(file) {
     .subtitle { font-size: 13.5px; }
     .source-inline { font-size: 12.5px; }
     .title-group { padding-left: 150px; }
+    .chart-container img {
+    max-width: 80%;
+    max-height: 80%;
+  }
   }
 
   /* ====================== MOBILE / SMARTPHONE ====================== */
