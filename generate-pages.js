@@ -66,6 +66,8 @@ function createPage(file) {
   /* ====================== LAPTOP / DESKTOP (NON TOCCATO) ====================== */
   @media (min-width: 768px) {
     .title { font-size: 21px; }
+    .subtitle { font-size: 13.5px; }
+    .source-inline { font-size: 12.5px; }
     .title-group { padding-left: 150px; }
   }
 
@@ -75,16 +77,16 @@ function createPage(file) {
     .subtitle { font-size: 11.5px; }
     .source-inline { font-size: 10.5px; }
     
-    /* 2 - Scritte spostate quasi completamente a sinistra */
+    /* Scritte spostate quasi al margine sinistro */
     .title-group { padding-left: 8px; }
 
-    /* 3 - Nascondi completamente le frecce prev/next su mobile */
+    /* Nascondi completamente le frecce prev/next */
     #prev-btn, #next-btn { display: none !important; }
 
-    /* 3 - Sposta tutti gli altri pulsanti (fullscreen, screenshot, social) a destra */
+    /* Sposta tutti gli altri pulsanti a destra */
     .actions { justify-content: flex-end; gap: 5px; }
-    
-    /* Piccolo ritocco per dare più spazio sui telefoni */
+
+    /* Header più compatto su mobile */
     .header-row { height: 46px; margin-bottom: 8px; }
   }
 </style></head>
