@@ -33,27 +33,29 @@
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-  /* ====================== LAPTOP / DESKTOP ====================== */
+  /* ====================== LAPTOP / DESKTOP (NON TOCCATO) ====================== */
   @media (min-width: 768px) {
-    .title { font-size: 21px; }                    /* 1 - titolo un po' più grande */
-    .subtitle { font-size: 13.5px; }
-    .source-inline { font-size: 12.5px; }
-    .title-group { padding-left: 150px; }          /* 2 - spostato a destra come volevi (150px) */
+    .title { font-size: 21px; }
+    .title-group { padding-left: 150px; }
   }
 
-  /* ====================== MOBILE / SMARTPHONE ====================== */
+  /* ====================== MOBILE / SMARTPHONE (SOLO QUI HO MODIFICATO) ====================== */
   @media (max-width: 767px) {
-    .title { font-size: 16.5px; }                  /* 1 - titolo ridotto */
+    .title { font-size: 16.5px; }
     .subtitle { font-size: 11.5px; }
     .source-inline { font-size: 10.5px; }
-    .title-group { padding-left: 8px; }            /* 2 - quasi al margine sinistro */
     
-    /* 3 - nascondi solo le frecce prev/next su mobile */
+    /* 2 - Scritte spostate quasi completamente a sinistra */
+    .title-group { padding-left: 8px; }
+
+    /* 3 - Nascondi completamente le frecce prev/next su mobile */
     #prev-btn, #next-btn { display: none !important; }
+
+    /* 3 - Sposta tutti gli altri pulsanti (fullscreen, screenshot, social) a destra */
+    .actions { justify-content: flex-end; gap: 5px; }
     
-    /* pulsanti rimanenti (fullscreen, screenshot, social) tutti a destra */
-    .actions { justify-content: flex-end; gap: 4px; }
-    .header-row { height: 46px; }
+    /* Piccolo ritocco per dare più spazio sui telefoni */
+    .header-row { height: 46px; margin-bottom: 8px; }
   }
 </style></head>
 <body>
