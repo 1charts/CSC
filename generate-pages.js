@@ -40,7 +40,7 @@ function createPage(file) {
   .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
   .title-group { flex: 1; min-width: 0; }
   .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; }
+  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
   .source-inline { font-size: 11px; color: #94a3b8; font-weight: normal; }
   .source-inline a { color: #67e8f9; text-decoration: none; }
   .actions { display: flex; gap: 6px; align-items: center; }
@@ -91,13 +91,16 @@ function createPage(file) {
     font-size: 15px; 
     color: #67e8f9; 
     margin-bottom: 8px;
+    font-weight: bold;
   }
   #ss-source-bottom { 
     color: #f8fafc; 
     font-size: 14px; 
     font-weight: 500;
   }
-  .source-label { color: #f8fafc; font-weight: bold; }
+  .source-label { 
+    color: #f8fafc; 
+  }
 </style></head>
 <body>
 <div id="rotate-message">
@@ -146,10 +149,20 @@ function updatePage() {
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
   document.getElementById('page-title').textContent = c.title;
-  sInline.innerHTML = validSources.length ? ' — ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
+
+  // Sources nella pagina (con "Sources:" visibile)
+  sInline.innerHTML = validSources.length 
+    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
+    : '';
+
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
-  if (ssEl) ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
+
+  // Sources nello screenshot
+  if (ssEl) {
+    ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
+    document.getElementById('ss-source-bottom').style.display = validSources.length ? 'block' : 'none';
+  }
 
   const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
   const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
