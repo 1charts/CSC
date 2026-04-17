@@ -36,79 +36,15 @@ function createPage(file) {
   body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100vh; width: 100vw; }
   #rotate-message { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; z-index: 999; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
   @media (orientation: portrait) { #rotate-message { display: flex; } }
-  .container { width: 100%; height: 100vh; display: flex; flex-direction: column; padding: 8px 15px; }
-
-  .header-row { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: flex-start; 
-    margin-bottom: 10px; 
-    flex-shrink: 0; 
-  }
-  
-  .title-group { 
-    flex: 1; 
-    min-width: 0; 
-    padding-left: 150px;     /* <-- Rientro maggiore per allinearsi con l'immagine */
-  }
-  
-  .title { 
-    font-size: 19px; 
-    font-weight: bold; 
-    color:#f8fafc; 
-    margin: 0 0 5px 0; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-  }
-  
-  .info-line { 
-    display: flex; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    font-size: 13.5px; 
-  }
-  
-  .subtitle { 
-    font-size: 13.5px; 
-    font-weight: bold; 
-    color:#67e8f9; 
-    margin-right: 10px; 
-  }
-  
-  .source-inline { 
-    font-size: 13px; 
-    color: #94a3b8; 
-  }
-  
-  .source-inline a { 
-    color: #67e8f9; 
-    text-decoration: none; 
-  }
-  
-  .source-label { 
-    color: #94a3b8; 
-    margin-right: 6px; 
-  }
-
-  .actions { 
-    display: flex; 
-    gap: 6px; 
-    align-items: center; 
-    flex-shrink: 0; 
-  }
-
-  .btn { 
-    background: #1e293b; 
-    border: 1px solid #334155; 
-    color: #f8fafc; 
-    padding: 6px; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    display: flex; 
-    align-items: center; 
-    text-decoration: none; 
-  }
+  .container { width: 100%; height: 100vh; display: flex; flex-direction: column; padding: 5px 15px; }
+  .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
+  .title-group { flex: 1; min-width: 0; }
+  .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; }
+  .source-inline { font-size: 11px; color: #94a3b8; font-weight: normal; }
+  .source-inline a { color: #67e8f9; text-decoration: none; }
+  .actions { display: flex; gap: 6px; align-items: center; }
+  .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
   .btn:hover { background: #334155; }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
@@ -118,11 +54,14 @@ function createPage(file) {
     flex-grow: 1; 
     display: flex; 
     flex-direction: column; 
+    justify-content: center; 
+    position: relative; 
+    overflow: hidden; 
     background: #0f172a; 
     padding: 15px; 
-    border-radius: 8px;
   }
   .chart-container { 
+    width: 100%; 
     flex-grow: 1; 
     display: flex; 
     justify-content: center; 
@@ -133,6 +72,7 @@ function createPage(file) {
     max-width: 100%; 
     max-height: 100%; 
     object-fit: contain; 
+    image-rendering: crisp-edges;
   }
 
   #screenshot-title-box { 
@@ -141,9 +81,23 @@ function createPage(file) {
     text-align: left; 
     padding: 0 10px;
   }
-  #ss-title { font-size: 28px; font-weight: bold; color:#f8fafc; margin-bottom: 6px; }
-  #ss-subtitle { font-size: 15px; font-weight: bold; color:#67e8f9; margin-bottom: 8px; }
-  #ss-source-bottom { color: #f8fafc; font-size: 14px; }
+  #ss-title { 
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #f8fafc; 
+    margin-bottom: 6px;
+  }
+  #ss-subtitle { 
+    font-size: 15px; 
+    color: #67e8f9; 
+    margin-bottom: 8px;
+  }
+  #ss-source-bottom { 
+    color: #f8fafc; 
+    font-size: 14px; 
+    font-weight: 500;
+  }
+  .source-label { color: #f8fafc; font-weight: bold; }
 </style></head>
 <body>
 <div id="rotate-message">
@@ -154,10 +108,8 @@ function createPage(file) {
   <div class="header-row">
     <div class="title-group">
       <div class="title" id="page-title">${title}</div>
-      <div class="info-line">
-        <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
-        <span id="source-inline" class="source-inline"></span>
-      </div>
+      <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
+      ${sourceHtmlInline}
     </div>
     <div class="actions">
       <button class="btn" onclick="toggleFullScreen()"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
@@ -169,11 +121,10 @@ function createPage(file) {
       <button id="next-btn" class="btn nav-btn" onclick="navigateNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
-
   <div id="full-capture-area">
     <div id="screenshot-title-box">
-      <div id="ss-title">${title}</div>
-      <div id="ss-subtitle">commoditysupercycle.com</div>
+      <div id="ss-title" style="font-size:28px; font-weight:bold; color:#f8fafc;">${title}</div>
+      <div id="ss-subtitle" style="font-size:15px; color:#67e8f9;">commoditysupercycle.com</div>
       <div id="ss-source-bottom" style="display:none; margin-top:8px;">
         <span class="source-label">Sources:</span> 
         <span id="ss-source-text"></span>
@@ -182,7 +133,6 @@ function createPage(file) {
     <div class="chart-container"><img src="charts/${file}"></div>
   </div>
 </div>
-
 <script>
 const chartsData = ${JSON.stringify(chartsData)};
 
@@ -196,21 +146,10 @@ function updatePage() {
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
   document.getElementById('page-title').textContent = c.title;
-
-  if (validSources.length) {
-    sInline.innerHTML = '<span class="source-label">Sources:</span> ' + 
-                        validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ');
-  } else {
-    sInline.innerHTML = '';
-  }
-
+  sInline.innerHTML = validSources.length ? ' — ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
-
-  if (ssEl) {
-    ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
-    document.getElementById('ss-source-bottom').style.display = validSources.length ? 'block' : 'none';
-  }
+  if (ssEl) ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
 
   const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
   const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
@@ -256,18 +195,24 @@ const toggleFullScreen = () => !document.fullscreenElement ? document.documentEl
 
 function takeScreenshot() {
   const tBox = document.getElementById('screenshot-title-box');
-  tBox.style.display = 'block';
+  const ssS = document.getElementById('ss-source-bottom');
+  const validSources = (chartsData[currentIndex].sources || []).filter(s => s.text && s.text.trim() !== '');
+
+  tBox.style.display = 'block'; 
+  if (ssS) ssS.style.display = validSources.length ? 'block' : 'none';
 
   html2canvas(document.getElementById('full-capture-area'), { 
     backgroundColor: "#0f172a", 
     scale: 2, 
-    useCORS: true 
+    useCORS: true,
+    logging: false
   }).then(canvas => {
     const link = document.createElement('a'); 
     link.download = chartsData[currentIndex].name + '_CSC.png';
     link.href = canvas.toDataURL('image/png'); 
     link.click();
-    tBox.style.display = 'none';
+    tBox.style.display = 'none'; 
+    if (ssS) ssS.style.display = 'none';
   });
 }
 </script></body></html>`;
