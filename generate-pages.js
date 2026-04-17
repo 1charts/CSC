@@ -63,7 +63,7 @@ function createPage(file) {
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-  /* ====================== LAPTOP / DESKTOP (INTATTO) ====================== */
+  /* ====================== LAPTOP / DESKTOP (NON TOCCATO) ====================== */
   @media (min-width: 768px) {
     .title { font-size: 21px; }
     .subtitle { font-size: 13.5px; }
@@ -88,23 +88,24 @@ function createPage(file) {
 
     .title-group { 
       padding-left: 8px; 
-      padding-right: 65px;   /* spazio per i bottoni assoluti */
+      padding-right: 70px; 
     }
 
-    /* Bottoni verticali fluttuanti sul bordo destro */
+    /* Bottoni verticali fissi sul bordo destro */
     .actions { 
       position: absolute;
-      right: 10px;
+      right: 8px;
       top: 8px;
       flex-direction: column; 
       gap: 6px; 
       align-items: flex-end;
+      z-index: 20;
     }
 
-    /* Nascondi frecce e divider */
+    /* Nascondi solo frecce e divider */
     #prev-btn, #next-btn, .actions > div { display: none !important; }
 
-    /* Immagine edge-to-edge */
+    /* Immagine attaccata a SINISTRA + massima dimensione */
     #full-capture-area { 
       padding: 0; 
       margin: 0; 
@@ -112,6 +113,7 @@ function createPage(file) {
     .chart-container { 
       width: 100%; 
       height: 100%; 
+      justify-content: flex-start;   /* <--- questo risolve il centraggio */
       align-items: flex-start; 
       padding: 0;
     }
@@ -120,24 +122,28 @@ function createPage(file) {
       height: auto; 
       max-height: 100%; 
       margin: 0; 
-      object-fit: contain; 
-      image-rendering: crisp-edges;
+      display: block;
     }
   }
 
-  /* Backup touch */
+  /* Backup per dispositivi touch */
   @media (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
       position: absolute;
-      right: 10px;
+      right: 8px;
       top: 8px;
       flex-direction: column; 
       gap: 6px; 
       align-items: flex-end;
+      z-index: 20;
     }
     .header-row { margin-bottom: 0; padding: 8px 10px; }
-    .title-group { padding-left: 8px; padding-right: 65px; }
+    .title-group { padding-left: 8px; padding-right: 70px; }
+    .chart-container { 
+      justify-content: flex-start; 
+      align-items: flex-start; 
+    }
   }
 </style></head>
 <body>
@@ -267,4 +273,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
 });
 
-console.log("🎉 Pagine HTML generate con successo (mobile edge-to-edge)!");
+console.log("🎉 Pagine HTML generate con successo!");
