@@ -2,16 +2,13 @@
 <title>Beryllium Companies | CSC</title><link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
-  /* RESET PROFESSIONALE */
-  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  * { box-sizing: border-box; }
   body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100dvh; width: 100vw; }
 
   #rotate-message { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; z-index: 999; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  @media (orientation: portrait) and (max-width: 1024px) { #rotate-message { display: flex; } }
+  @media (orientation: portrait) { #rotate-message { display: flex; } }
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
-  
-  /* ELEMENTI BASE */
   .header-row { display: flex; align-items: center; flex-shrink: 0; }
   .title-group { flex: 1; min-width: 0; }
   .title { font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -20,17 +17,16 @@
   .source-inline a { color: #67e8f9; text-decoration: none; }
   .actions { display: flex; align-items: center; }
 
-  .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; transition: background 0.2s; }
-  .btn:hover { background: #334155; }
+  .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
   .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
 
   #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; position: relative; overflow: hidden; background: #0f172a; }
   .chart-container { width: 100%; flex-grow: 1; display: flex; min-height: 0; }
-  img { object-fit: contain; image-rendering: auto; }
+  img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-  /* SCREENSHOT BOX (Invisibile a schermo) */
+  /* Screenshot Box */
   #screenshot-title-box { display: none; margin-bottom: 20px; text-align: left; padding: 0 10px; }
   #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
   #ss-subtitle { font-size: 15px; color: #67e8f9; margin-bottom: 8px; font-weight: bold; }
@@ -39,48 +35,57 @@
   /* ====================== LAPTOP / DESKTOP (>= 768px) ====================== */
   @media (min-width: 768px) {
     .header-row { 
-      min-height: 100px;
-      padding: 30px 10% 10px 10%; /* CONTROLLO MANIACALE POSIZIONE */
+      justify-content: space-between;
+      height: auto;
+      min-height: 110px;      /* <--- REGOLA ALTEZZA */
+      padding-top: 40px;      /* <--- ABBASSA DAL BORDO */
+      padding-left: 8%;       /* <--- SPOSTA AL CENTRO */
+      padding-right: 8%;      /* <--- SPOSTA AL CENTRO */
+      margin-bottom: 10px;
     }
     .title { font-size: 24px; }
     .subtitle { font-size: 14px; }
     .source-inline { font-size: 13px; display: block; margin-top: 4px; }
     .actions { gap: 12px; }
-    
-    #full-capture-area { padding: 20px; justify-content: center; }
+    #full-capture-area { padding: 15px; justify-content: center; }
     .chart-container { justify-content: center; align-items: center; }
-    img { max-width: 90%; max-height: 90%; }
-    
-    /* Assicurati che i tasti nav siano visibili */
-    #prev-btn, #next-btn { display: flex !important; }
+    img { max-width: 85%; max-height: 85%; }
   }
 
-  /* ====================== MOBILE ( < 768px) ====================== */
+  /* ====================== MOBILE / SMARTPHONE ( < 768px ) ====================== */
   @media (max-width: 767px) {
     .header-row { 
+      margin-bottom: 0; 
       padding: 8px 10px; 
       position: relative; 
-      height: 60px;
+      z-index: 10;
+      height: 55px; /* Altezza fissa mobile */
     }
-    .title { font-size: 16px; width: 80%; }
+    .title { font-size: 16px; }
     .subtitle { font-size: 11px; }
     .source-inline { font-size: 10px; }
-    
-    /* Bottoni sovrapposti a destra per risparmiare spazio */
+    .title-group { padding-left: 0; padding-right: 70px; }
+
+    /* Bottoni verticali a destra (Ripristinati come volevi) */
     .actions { 
       position: absolute; 
       right: 8px; 
       top: 8px; 
       flex-direction: column; 
       gap: 6px; 
+      align-items: flex-end; 
       z-index: 20;
     }
-    /* Nascondi frecce su mobile (usa lo swipe) */
     #prev-btn, #next-btn, .actions > div { display: none !important; }
 
-    #full-capture-area { padding: 0; }
-    .chart-container { justify-content: flex-start; align-items: flex-start; }
-    img { width: 100%; height: auto; max-height: 100%; }
+    /* Immagine attaccata a sinistra e in alto */
+    #full-capture-area { padding: 0; margin: 0; }
+    .chart-container { 
+      justify-content: flex-start; 
+      align-items: flex-start; 
+      padding: 0; 
+    }
+    img { width: 100%; height: auto; display: block; }
   }
 </style></head>
 <body>
@@ -96,8 +101,8 @@
       <span id="source-inline" class="source-inline"></span>
     </div>
     <div class="actions">
-      <button class="btn" title="Fullscreen" onclick="toggleFullScreen()"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
-      <button class="btn" title="Screenshot" onclick="takeScreenshot()"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></button>
+      <button class="btn" onclick="toggleFullScreen()"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
+      <button class="btn" onclick="takeScreenshot()"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></button>
       <a id="twitter-share" class="btn" href="" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg></a>
       <a id="fb-share" class="btn" href="" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
       <div style="width:1px; height:20px; background:#334155; margin:0 4px;"></div>
@@ -107,10 +112,10 @@
   </div>
   <div id="full-capture-area">
     <div id="screenshot-title-box">
-      <div id="ss-title">Beryllium Companies</div>
-      <div id="ss-subtitle">commoditysupercycle.com</div>
+      <div id="ss-title" style="font-size:28px; font-weight:bold; color:#f8fafc;">Beryllium Companies</div>
+      <div id="ss-subtitle" style="font-size:15px; color:#67e8f9;">commoditysupercycle.com</div>
       <div id="ss-source-bottom" style="display:none; margin-top:8px;">
-        <span style="color:#f8fafc">Sources:</span> <span id="ss-source-text"></span>
+        <span class="source-label">Sources:</span> <span id="ss-source-text"></span>
       </div>
     </div>
     <div class="chart-container"><img src="charts/35.png"></div>
@@ -129,9 +134,8 @@ function updatePage() {
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
   document.getElementById('page-title').textContent = c.title;
-
   sInline.innerHTML = validSources.length 
-    ? '<span style="color:#f8fafc">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
+    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
     : '';
 
   document.querySelector('img').src = 'charts/' + c.file;
@@ -147,8 +151,8 @@ function updatePage() {
   document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
   document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
 
-  document.getElementById('prev-btn').style.visibility = currentIndex > 0 ? 'visible' : 'hidden';
-  document.getElementById('next-btn').style.visibility = currentIndex < chartsData.length - 1 ? 'visible' : 'hidden';
+  document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
+  document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
   document.title = c.title + ' | CSC';
 }
 
@@ -163,18 +167,20 @@ const navigatePrev = () => navigateTo(currentIndex - 1);
 const navigateNext = () => navigateTo(currentIndex + 1);
 
 document.addEventListener('keydown', e => {
-  if (e.code === 'ArrowRight' || e.code === 'Space') { e.preventDefault(); navigateNext(); }
-  if (e.code === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
+  if (['Space', 'ArrowRight'].includes(e.code)) { e.preventDefault(); navigateNext(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
 });
 
-// Swipe Logic Professionale
 let tsX = 0;
 const area = document.getElementById('full-capture-area');
-area.addEventListener('touchstart', e => { tsX = e.touches[0].screenX; }, { passive: true });
+area.addEventListener('touchstart', e => { if (e.touches.length === 1) tsX = e.touches[0].screenX; }, { passive: true });
 area.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].screenX - tsX;
-  if (Math.abs(dx) > 70) {
-    if (dx < 0) navigateNext(); else navigatePrev();
+  if (e.changedTouches.length === 1) {
+    const dx = e.changedTouches[0].screenX - tsX;
+    if (Math.abs(dx) > 60) {
+      if (dx < -60) navigateNext();
+      else if (dx > 60) navigatePrev();
+    }
   }
 });
 
@@ -192,9 +198,9 @@ function takeScreenshot() {
   html2canvas(document.getElementById('full-capture-area'), { 
     backgroundColor: "#0f172a", scale: 2, useCORS: true 
   }).then(canvas => {
-    const link = document.createElement('a');
+    const link = document.createElement('a'); 
     link.download = chartsData[currentIndex].name + '_CSC.png';
-    link.href = canvas.toDataURL('image/png');
+    link.href = canvas.toDataURL('image/png'); 
     link.click();
     tBox.style.display = 'none';
   });
