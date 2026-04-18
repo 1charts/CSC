@@ -40,7 +40,7 @@ function createPage(file) {
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
   
-  /* ====================== BASE = MOBILE COMPACT (portrait + landscape su smartphone) ====================== */
+  /* ====================== BASE = MOBILE COMPACT ====================== */
   .header-row { 
     display: flex; 
     justify-content: space-between; 
@@ -134,12 +134,13 @@ function createPage(file) {
     }
     .actions {
       position: static !important;
-      flex-direction: row;
-      gap: 12px;
-      align-items: center;
-      top: auto;
-      right: auto;
-      z-index: auto;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 12px !important;
+      align-items: center !important;
+      top: auto !important;
+      right: auto !important;
+      z-index: auto !important;
     }
     #prev-btn, #next-btn, .actions > div { 
       display: flex !important; 
@@ -305,4 +306,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
 });
 
-console.log("🎉 Pagine HTML generate con successo! (frecce visibili su laptop)");
+console.log("🎉 Pagine HTML generate con successo! (pulsanti orizzontali su laptop)");
