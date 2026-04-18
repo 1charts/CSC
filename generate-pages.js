@@ -117,7 +117,7 @@ function createPage(file) {
       padding-top: 60px;      
       padding-left: 10%;      
       padding-right: 10%;     
-      margin-bottom: 60px;    
+      margin-bottom: 20px;    
       position: static;
       z-index: auto;
     }
@@ -149,9 +149,10 @@ function createPage(file) {
       padding: 15px;
     }
     .chart-container {
-      justify-content: center;
-      align-items: center;
-    }
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+  }
     .chart-container img {
       max-width: 85%;
       max-height: 90%;
