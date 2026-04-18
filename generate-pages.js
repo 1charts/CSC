@@ -117,7 +117,7 @@ function createPage(file) {
       padding-top: 60px;      
       padding-left: 10%;      
       padding-right: 10%;     
-      margin-bottom: 20px;    
+      margin-bottom: 60px;    
       position: static;
       z-index: auto;
     }
