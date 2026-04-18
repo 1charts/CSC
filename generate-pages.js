@@ -24,6 +24,16 @@ function createPage(file) {
   const name = path.basename(file, '.png');
   const key = name;
   const cfg = config[key] || {};
+
+  // === NUOVA SEZIONE: libertà totale sul posizionamento desktop ===
+  const desktopHeader = cfg.desktopHeader || {
+    titleLeft: '150px',      // default originale
+    titleTop: '12px',
+    actionsRight: '20px',
+    actionsTop: '12px',
+    headerHeight: '50px'
+  };
+
   const title = cfg.title || `Chart ${name}`;
   const logoUrl = "https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png";
   const sourceHtmlInline = `<span id="source-inline" class="source-inline"></span>`;
@@ -32,6 +42,14 @@ function createPage(file) {
 <title>${title} | CSC</title><link rel="icon" type="image/png" href="${logoUrl}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
+  :root {
+    --title-left: ${desktopHeader.titleLeft};
+    --title-top: ${desktopHeader.titleTop};
+    --actions-right: ${desktopHeader.actionsRight};
+    --actions-top: ${desktopHeader.actionsTop};
+    --header-height: ${desktopHeader.headerHeight};
+  }
+
   * { box-sizing: border-box; }
   body { margin:0; background:#0f172a; font-family: 'Segoe UI', Arial, sans-serif; color:#e2e8f0; overflow: hidden; height: 100dvh; width: 100vw; }
 
@@ -39,7 +57,7 @@ function createPage(file) {
   @media (orientation: portrait) { #rotate-message { display: flex; } }
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
-  .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
+  .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: var(--header-height, 50px); }
   .title-group { flex: 1; min-width: 0; }
   .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
@@ -68,11 +86,27 @@ function createPage(file) {
     .title { font-size: 21px; }
     .subtitle { font-size: 13.5px; }
     .source-inline { font-size: 12.5px; }
-    .title-group { padding-left: 150px; }
+
+    .header-row {
+      position: relative;
+    }
+
+    .title-group {
+      position: absolute;
+      left: var(--title-left, 150px);
+      top: var(--title-top, 12px);
+    }
+
+    .actions {
+      position: absolute;
+      right: var(--actions-right, 20px);
+      top: var(--actions-top, 12px);
+    }
+
     .chart-container img {
-    max-width: 80%;
-    max-height: 80%;
-  }
+      max-width: 80%;
+      max-height: 80%;
+    }
   }
 
   /* ====================== MOBILE / SMARTPHONE ====================== */
@@ -95,7 +129,6 @@ function createPage(file) {
       padding-right: 70px; 
     }
 
-    /* Bottoni verticali fissi sul bordo destro */
     .actions { 
       position: absolute;
       right: 8px;
@@ -106,10 +139,8 @@ function createPage(file) {
       z-index: 20;
     }
 
-    /* Nascondi solo frecce e divider */
     #prev-btn, #next-btn, .actions > div { display: none !important; }
 
-    /* Immagine attaccata a SINISTRA + massima dimensione */
     #full-capture-area { 
       padding: 0; 
       margin: 0; 
@@ -117,7 +148,7 @@ function createPage(file) {
     .chart-container { 
       width: 100%; 
       height: 100%; 
-      justify-content: flex-start;   /* <--- questo risolve il centraggio */
+      justify-content: flex-start; 
       align-items: flex-start; 
       padding: 0;
     }
@@ -130,7 +161,6 @@ function createPage(file) {
     }
   }
 
-  /* Backup per dispositivi touch */
   @media (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
@@ -164,7 +194,7 @@ function createPage(file) {
     </div>
     <div class="actions">
       <button class="btn" onclick="toggleFullScreen()"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
-      <button class="btn" onclick="takeScreenshot()"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></button>
+      <button class="btn" onclick="takeScreenshot()"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9 2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></button>
       <a id="twitter-share" class="btn" href="" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg></a>
       <a id="fb-share" class="btn" href="" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
       <div style="width:1px; height:20px; background:#334155; margin:0 4px;"></div>
@@ -240,7 +270,6 @@ let tsX = 0;
 let tsY = 0;
 const area = document.getElementById('full-capture-area');
 
-// Touch Start
 area.addEventListener('touchstart', e => {
   if (e.touches.length === 1) {
     tsX = e.touches[0].screenX;
@@ -248,24 +277,20 @@ area.addEventListener('touchstart', e => {
   }
 }, { passive: true });
 
-// Touch Move - importante per bloccare lo scroll del browser quando si swipa orizzontalmente
 area.addEventListener('touchmove', e => {
   if (e.touches.length === 1) {
     const dx = Math.abs(e.touches[0].screenX - tsX);
     const dy = Math.abs(e.touches[0].screenY - tsY);
-    
-    // Se il movimento è più orizzontale che verticale, blocchiamo lo scroll verticale
     if (dx > dy + 10 && dx > 15) {
       e.preventDefault();
     }
   }
 }, { passive: false });
 
-// Touch End - esegue lo swipe
 area.addEventListener('touchend', e => {
   if (e.changedTouches.length === 1) {
     const dx = e.changedTouches[0].screenX - tsX;
-    if (Math.abs(dx) > 60) {           // soglia un po' più alta per maggiore affidabilità
+    if (Math.abs(dx) > 60) {
       if (dx < -60) navigateNext();
       else if (dx > 60) navigatePrev();
     }
