@@ -151,11 +151,11 @@ function createPage(file) {
     .chart-container {
     justify-content: center;
     align-items: flex-start;
-    padding-bottom: 90px;
+    padding-bottom: 60px;
   }
     .chart-container img {
-      max-width: 90%;
-      max-height: 100%;
+      max-width: 110%;
+      max-height: 120%;
     }
   }
 
