@@ -63,55 +63,17 @@ function createPage(file) {
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-/* ====================== LAPTOP / DESKTOP ====================== */
-@media (min-width: 768px) {
-  .title { font-size: 21px; }
-  .subtitle { font-size: 13.5px; }
-  .source-inline { font-size: 12.5px; }
-
-  /* 🔽 base per posizionamento assoluto */
-  .container {
-    position: relative;
-  }
-
-  /* 🔽 header diventa overlay */
-  .header-row {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    height: auto;
-  }
-
-  /* 🔽 BLOCCO TESTO (libero) */
-  .title-group {
-    position: absolute;
-    pointer-events: auto;
-
-    /* 👉 DEFAULT: destra + basso */
-    bottom: 100px;
-    right: 50px;
-
-    text-align: right;
-  }
-
-  /* 🔽 BLOCCO BOTTONI (libero) */
-  .actions {
-    position: absolute;
-    pointer-events: auto;
-
-    /* 👉 DEFAULT: sinistra + basso */
-    bottom: 100px;
-    left: 50px;
-
-    flex-direction: row;
-  }
-
-  /* 🔽 immagine ridotta */
-  .chart-container img {
+  /* ====================== LAPTOP / DESKTOP ====================== */
+  @media (min-width: 768px) {
+    .title { font-size: 21px; }
+    .subtitle { font-size: 13.5px; }
+    .source-inline { font-size: 12.5px; }
+    .title-group { padding-left: 150px; }
+    .chart-container img {
     max-width: 80%;
     max-height: 80%;
   }
-}
+  }
 
   /* ====================== MOBILE / SMARTPHONE ====================== */
   @media (max-width: 767px) {
