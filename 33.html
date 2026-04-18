@@ -25,8 +25,8 @@
   .title-group { flex: 1; min-width: 0; padding-left: 8px; padding-right: 70px; }
   .title { font-size: 16px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .subtitle { font-size: 11px; color:#67e8f9; text-decoration: none; font-weight: bold; }
-  .source-inline { font-size: 10px; color: #94a3b8; }
-  .source-inline a { color: #67e8f9; text-decoration: none; }
+  .sources { font-size: 10px; color: #94a3b8; }
+  .sources a { color: #67e8f9; text-decoration: none; }
   
   .actions { 
     position: absolute !important;
@@ -79,11 +79,11 @@
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-  /* ====================== LAPTOP / DESKTOP (larghezza reale >= 1280px) ====================== */
+  /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
   @media (min-width: 1280px) {
     .header-row { 
       height: auto;           
-      min-height: 80px;       
+      min-height: 100px;       
       padding-top: 90px;      
       padding-left: 10%;      
       padding-right: 10%;     
@@ -91,38 +91,63 @@
       position: static;
       z-index: auto;
     }
-    .title { font-size: 24px; }
-    .subtitle { font-size: 14px; }
-    .source-inline { 
-      font-size: 13px; 
-      display: block; 
-      margin-top: 4px;
+
+    /* 1. TITOLO */
+    .title { 
+      font-size: 28px;           
+      font-weight: 700;          
+      color: #f8fafc;            
+      margin: 0 0 8px 0;
+      line-height: 1.1;
     }
+
+    /* 2. SOTTOTITOLO (commoditysupercycle.com) - più grande */
+    .subtitle { 
+      font-size: 17px;           
+      color: #67e8f9; 
+      text-decoration: none; 
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .subtitle:hover { color: #a5f3fc; }
+
+    /* 3. SOURCES */
+    .sources {
+      font-size: 13.5px;         
+      color: #94a3b8;
+      display: block;
+    }
+    .sources a { 
+      color: #67e8f9; 
+      text-decoration: none; 
+    }
+    .sources a:hover { 
+      color: #a5f3fc; 
+      text-decoration: underline; 
+    }
+
     .title-group { 
       padding-left: 0; 
       padding-right: 0;
     }
+
     .actions {
       position: static !important;
       display: flex !important;
       flex-direction: row !important;
       gap: 12px !important;
       align-items: center !important;
-      top: auto !important;
-      right: auto !important;
-      z-index: auto !important;
     }
-    #prev-btn, #next-btn, .actions > div { 
-      display: flex !important; 
-    }
+
     #full-capture-area {
       padding: 15px;
     }
     .chart-container {
-    justify-content: center;
-    align-items: flex-start;
-    padding-bottom: 60px;
-  }
+      justify-content: center;
+      align-items: flex-start;
+      padding-bottom: 60px;
+    }
     .chart-container img {
       max-width: 90%;
       max-height: 100%;
@@ -159,7 +184,7 @@
     <div class="title-group">
       <div class="title" id="page-title">Uranium Companies</div>
       <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
-      <span id="source-inline" class="source-inline"></span>
+      <span id="source-inline" class="sources"></span>
     </div>
     <div class="actions">
       <button class="btn" onclick="toggleFullScreen()"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
