@@ -123,7 +123,7 @@ function createPage(file) {
 
     /* 1. TITOLO */
     .title { 
-      font-size: 28px;           
+      font-size: 36px;           
       font-weight: 700;          
       color: #f8fafc;            
       margin: 0 0 8px 0;
@@ -132,7 +132,7 @@ function createPage(file) {
 
     /* 2. SOTTOTITOLO (commoditysupercycle.com) - più grande */
     .subtitle { 
-      font-size: 17px;           
+      font-size: 24px;           
       color: #67e8f9; 
       text-decoration: none; 
       font-weight: 600;
@@ -143,7 +143,7 @@ function createPage(file) {
 
     /* 3. SOURCES */
     .sources {
-      font-size: 13.5px;         
+      font-size: 15px;         
       color: #94a3b8;
       display: block;
     }
