@@ -1,25 +1,3 @@
-const fs = require('fs'), path = require('path');
-
-const chartsDir = path.join(__dirname, 'charts');
-const configPath = path.join(__dirname, 'config.json');
-const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath)) : {};
-
-const files = fs.readdirSync(chartsDir)
-  .filter(f => f.endsWith('.png'))
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
-
-const chartsData = files.map(file => {
-  const name = path.basename(file, '.png');
-  const key = name;
-  const cfg = config[key] || {};
-  return {
-    name,
-    file,
-    title: cfg.title || `Chart ${name}`,
-    sources: Array.isArray(cfg.sources) ? cfg.sources : []
-  };
-});
-
 function createPage(file) {
   const name = path.basename(file, '.png');
   const key = name;
@@ -39,64 +17,52 @@ function createPage(file) {
   @media (orientation: portrait) { #rotate-message { display: flex; } }
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
-  
-  /* BASE HEADER (Default Desktop) */
-  .header-row { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+  .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
   .title-group { flex: 1; min-width: 0; }
-  .title { font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { color:#67e8f9; text-decoration: none; font-weight: bold; }
-  .source-inline { color: #94a3b8; }
+  .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
+  .source-inline { font-size: 11px; color: #94a3b8; }
   .source-inline a { color: #67e8f9; text-decoration: none; }
-  
-  .actions { display: flex; align-items: center; }
+  .actions { display: flex; gap: 6px; align-items: center; }
+
   .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
   .btn:hover { background: #334155; }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
   .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
 
-  #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; position: relative; overflow: hidden; background: #0f172a; }
-  .chart-container { width: 100%; flex-grow: 1; display: flex; min-height: 0; }
-  img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: auto; }
+  #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; background: #0f172a; padding: 15px; }
+  .chart-container { width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center; min-height: 0; }
+  img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: crisp-edges; }
 
   #screenshot-title-box { display: none; margin-bottom: 20px; text-align: left; padding: 0 10px; }
   #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
   #ss-subtitle { font-size: 15px; color: #67e8f9; margin-bottom: 8px; font-weight: bold; }
+  #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
+  .source-label { color: #f8fafc; }
 
-  /* ====================== LAPTOP / DESKTOP ( >= 768px ) ====================== */
-  @media (min-width: 768px) {
-    .header-row { 
-      height: 130px;          /* Altezza generosa per desktop */
-      padding-top: 50px;      /* Spazio dal bordo superiore */
-      padding-left: 10%;      /* Rientro a sinistra */
-      padding-right: 10%;     /* Rientro a destra */
-    }
-    .title { font-size: 24px; }
-    .subtitle { font-size: 14px; }
-    .source-inline { font-size: 13px; display: block; margin-top: 4px; }
-    .actions { gap: 12px; position: static !important; }
-    
-    #full-capture-area { padding: 20px; justify-content: center; }
-    .chart-container { justify-content: center; align-items: center; }
-    img { max-width: 85%; max-height: 85%; }
-  }
+  /* ====================== MOBILE / SMARTPHONE (portrait + landscape) ====================== */
+  @media (max-device-width: 1023px) {
+    .container { padding: 0; }
 
-  /* ====================== MOBILE ( < 768px ) ====================== */
-  @media (max-width: 767px) {
     .header-row { 
-      height: 55px; 
+      margin-bottom: 0; 
       padding: 8px 10px; 
-      margin-bottom: 0;
-      position: relative;
+      position: relative; 
+      z-index: 10;
     }
+
     .title { font-size: 16px; }
     .subtitle { font-size: 11px; }
     .source-inline { font-size: 10px; }
-    .title-group { padding-left: 8px; padding-right: 75px; }
 
-    /* Bottoni verticali a destra ESATTAMENTE come li avevi impostati */
+    .title-group { 
+      padding-left: 8px; 
+      padding-right: 70px; 
+    }
+
     .actions { 
-      position: absolute !important;
+      position: absolute;
       right: 8px;
       top: 8px;
       flex-direction: column; 
@@ -104,14 +70,84 @@ function createPage(file) {
       align-items: flex-end;
       z-index: 20;
     }
+
     #prev-btn, #next-btn, .actions > div { display: none !important; }
 
-    #full-capture-area { padding: 0; margin: 0; }
+    #full-capture-area { 
+      padding: 0; 
+      margin: 0; 
+    }
+    .chart-container { 
+      width: 100%; 
+      height: 100%; 
+      justify-content: flex-start;
+      align-items: flex-start; 
+      padding: 0;
+    }
+    img { 
+      width: 100%; 
+      height: auto; 
+      max-height: 100%; 
+      margin: 0; 
+      display: block;
+    }
+  }
+
+  /* ====================== LAPTOP / DESKTOP ====================== */
+  @media (min-device-width: 1024px) {
+    .header-row { 
+      height: auto;           
+      min-height: 80px;       
+      padding-top: 30px;      
+      padding-left: 10%;      
+      padding-right: 10%;     
+      margin-bottom: 20px;    
+    }
+
+    .title { 
+      font-size: 24px;        
+    }
+    .subtitle { 
+      font-size: 14px; 
+    }
+    .source-inline { 
+      font-size: 13px; 
+      display: block;         
+      margin-top: 4px;
+    }
+
+    .title-group { 
+      padding-left: 0;        
+    }
+
+    .chart-container img {
+      max-width: 85%;
+      max-height: 85%;
+    }
+    
+    .actions {
+      gap: 12px;
+    }
+  }
+
+  /* Backup per dispositivi touch */
+  @media (hover: none) and (pointer: coarse) {
+    #prev-btn, #next-btn, .actions > div { display: none !important; }
+    .actions { 
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      flex-direction: column; 
+      gap: 6px; 
+      align-items: flex-end;
+      z-index: 20;
+    }
+    .header-row { margin-bottom: 0; padding: 8px 10px; }
+    .title-group { padding-left: 8px; padding-right: 70px; }
     .chart-container { 
       justify-content: flex-start; 
       align-items: flex-start; 
     }
-    img { width: 100%; height: auto; max-height: 100%; display: block; }
   }
 </style></head>
 <body>
@@ -141,7 +177,8 @@ function createPage(file) {
       <div id="ss-title" style="font-size:28px; font-weight:bold; color:#f8fafc;">${title}</div>
       <div id="ss-subtitle" style="font-size:15px; color:#67e8f9;">commoditysupercycle.com</div>
       <div id="ss-source-bottom" style="display:none; margin-top:8px;">
-        <span class="source-label">Sources:</span> <span id="ss-source-text"></span>
+        <span class="source-label">Sources:</span> 
+        <span id="ss-source-text"></span>
       </div>
     </div>
     <div class="chart-container"><img src="charts/${file}"></div>
@@ -149,7 +186,6 @@ function createPage(file) {
 </div>
 
 <script>
-// Logica JavaScript invariata
 const chartsData = ${JSON.stringify(chartsData)};
 const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
 let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
@@ -160,7 +196,9 @@ function updatePage() {
   const ssEl = document.getElementById('ss-source-text');
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
   document.getElementById('page-title').textContent = c.title;
-  sInline.innerHTML = validSources.length ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
+  sInline.innerHTML = validSources.length 
+    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') 
+    : '';
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
   if (ssEl) {
@@ -226,8 +264,3 @@ function takeScreenshot() {
 }
 </script></body></html>`;
 }
-
-files.forEach((file) => {
-  fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
-});
-console.log("✅ RISOLTO: Laptop e Mobile ora sono separati correttamente.");
