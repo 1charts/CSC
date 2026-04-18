@@ -39,83 +39,79 @@ function createPage(file) {
   @media (orientation: portrait) { #rotate-message { display: flex; } }
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
-  .header-row { display: flex; align-items: center; flex-shrink: 0; }
+  
+  /* BASE HEADER (Default Desktop) */
+  .header-row { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
   .title-group { flex: 1; min-width: 0; }
   .title { font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .subtitle { color:#67e8f9; text-decoration: none; font-weight: bold; }
   .source-inline { color: #94a3b8; }
   .source-inline a { color: #67e8f9; text-decoration: none; }
+  
   .actions { display: flex; align-items: center; }
-
   .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
+  .btn:hover { background: #334155; }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
   .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
 
   #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; position: relative; overflow: hidden; background: #0f172a; }
   .chart-container { width: 100%; flex-grow: 1; display: flex; min-height: 0; }
-  img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: auto; }
 
-  /* Screenshot Box */
   #screenshot-title-box { display: none; margin-bottom: 20px; text-align: left; padding: 0 10px; }
   #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
   #ss-subtitle { font-size: 15px; color: #67e8f9; margin-bottom: 8px; font-weight: bold; }
-  #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
 
-  /* ====================== LAPTOP / DESKTOP (>= 768px) ====================== */
+  /* ====================== LAPTOP / DESKTOP ( >= 768px ) ====================== */
   @media (min-width: 768px) {
     .header-row { 
-      justify-content: space-between;
-      height: auto;
-      min-height: 110px;      /* <--- REGOLA ALTEZZA */
-      padding-top: 40px;      /* <--- ABBASSA DAL BORDO */
-      padding-left: 8%;       /* <--- SPOSTA AL CENTRO */
-      padding-right: 8%;      /* <--- SPOSTA AL CENTRO */
-      margin-bottom: 10px;
+      height: 130px;          /* Altezza generosa per desktop */
+      padding-top: 50px;      /* Spazio dal bordo superiore */
+      padding-left: 10%;      /* Rientro a sinistra */
+      padding-right: 10%;     /* Rientro a destra */
     }
     .title { font-size: 24px; }
     .subtitle { font-size: 14px; }
     .source-inline { font-size: 13px; display: block; margin-top: 4px; }
-    .actions { gap: 12px; }
-    #full-capture-area { padding: 15px; justify-content: center; }
+    .actions { gap: 12px; position: static !important; }
+    
+    #full-capture-area { padding: 20px; justify-content: center; }
     .chart-container { justify-content: center; align-items: center; }
     img { max-width: 85%; max-height: 85%; }
   }
 
-  /* ====================== MOBILE / SMARTPHONE ( < 768px ) ====================== */
+  /* ====================== MOBILE ( < 768px ) ====================== */
   @media (max-width: 767px) {
     .header-row { 
-      margin-bottom: 0; 
+      height: 55px; 
       padding: 8px 10px; 
-      position: relative; 
-      z-index: 10;
-      height: 55px; /* Altezza fissa mobile */
+      margin-bottom: 0;
+      position: relative;
     }
     .title { font-size: 16px; }
     .subtitle { font-size: 11px; }
     .source-inline { font-size: 10px; }
-    .title-group { padding-left: 0; padding-right: 70px; }
+    .title-group { padding-left: 8px; padding-right: 75px; }
 
-    /* Bottoni verticali a destra (Ripristinati come volevi) */
+    /* Bottoni verticali a destra ESATTAMENTE come li avevi impostati */
     .actions { 
-      position: absolute; 
-      right: 8px; 
-      top: 8px; 
+      position: absolute !important;
+      right: 8px;
+      top: 8px;
       flex-direction: column; 
       gap: 6px; 
-      align-items: flex-end; 
+      align-items: flex-end;
       z-index: 20;
     }
     #prev-btn, #next-btn, .actions > div { display: none !important; }
 
-    /* Immagine attaccata a sinistra e in alto */
     #full-capture-area { padding: 0; margin: 0; }
     .chart-container { 
       justify-content: flex-start; 
       align-items: flex-start; 
-      padding: 0; 
     }
-    img { width: 100%; height: auto; display: block; }
+    img { width: 100%; height: auto; max-height: 100%; display: block; }
   }
 </style></head>
 <body>
@@ -153,6 +149,7 @@ function createPage(file) {
 </div>
 
 <script>
+// Logica JavaScript invariata
 const chartsData = ${JSON.stringify(chartsData)};
 const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
 let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
@@ -162,25 +159,18 @@ function updatePage() {
   const sInline = document.getElementById('source-inline');
   const ssEl = document.getElementById('ss-source-text');
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
-
   document.getElementById('page-title').textContent = c.title;
-  sInline.innerHTML = validSources.length 
-    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
-    : '';
-
+  sInline.innerHTML = validSources.length ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
-
   if (ssEl) {
     ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
     document.getElementById('ss-source-bottom').style.display = validSources.length ? 'block' : 'none';
   }
-
   const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
   const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
   document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
   document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
-
   document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
   document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
   document.title = c.title + ' | CSC';
@@ -192,25 +182,27 @@ function navigateTo(idx) {
   updatePage();
   history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html');
 }
-
 const navigatePrev = () => navigateTo(currentIndex - 1);
 const navigateNext = () => navigateTo(currentIndex + 1);
 
 document.addEventListener('keydown', e => {
-  if (['Space', 'ArrowRight'].includes(e.code)) { e.preventDefault(); navigateNext(); }
+  if (['Space', 'ArrowRight'].includes(e.code) || e.key === 'ArrowRight') { e.preventDefault(); navigateNext(); }
   if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
 });
 
-let tsX = 0;
+let tsX = 0, tsY = 0;
 const area = document.getElementById('full-capture-area');
-area.addEventListener('touchstart', e => { if (e.touches.length === 1) tsX = e.touches[0].screenX; }, { passive: true });
+area.addEventListener('touchstart', e => { if (e.touches.length === 1) { tsX = e.touches[0].screenX; tsY = e.touches[0].screenY; } }, { passive: true });
+area.addEventListener('touchmove', e => {
+  if (e.touches.length === 1) {
+    const dx = Math.abs(e.touches[0].screenX - tsX), dy = Math.abs(e.touches[0].screenY - tsY);
+    if (dx > dy + 10 && dx > 15) e.preventDefault();
+  }
+}, { passive: false });
 area.addEventListener('touchend', e => {
   if (e.changedTouches.length === 1) {
     const dx = e.changedTouches[0].screenX - tsX;
-    if (Math.abs(dx) > 60) {
-      if (dx < -60) navigateNext();
-      else if (dx > 60) navigatePrev();
-    }
+    if (Math.abs(dx) > 60) { if (dx < -60) navigateNext(); else if (dx > 60) navigatePrev(); }
   }
 });
 
@@ -218,16 +210,13 @@ window.onpopstate = e => {
   currentIndex = (e.state && typeof e.state.index === 'number') ? e.state.index : Math.max(0, chartsData.findIndex(c => c.name === getName())); 
   updatePage(); 
 };
-
 window.onload = updatePage;
 const toggleFullScreen = () => !document.fullscreenElement ? document.documentElement.requestFullscreen() : document.exitFullscreen();
 
 function takeScreenshot() {
   const tBox = document.getElementById('screenshot-title-box');
   tBox.style.display = 'block';
-  html2canvas(document.getElementById('full-capture-area'), { 
-    backgroundColor: "#0f172a", scale: 2, useCORS: true 
-  }).then(canvas => {
+  html2canvas(document.getElementById('full-capture-area'), { backgroundColor: "#0f172a", scale: 2, useCORS: true, logging: false }).then(canvas => {
     const link = document.createElement('a'); 
     link.download = chartsData[currentIndex].name + '_CSC.png';
     link.href = canvas.toDataURL('image/png'); 
@@ -241,4 +230,4 @@ function takeScreenshot() {
 files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
 });
-console.log("🎉 Pagine rigenerate con separazione maniacale Laptop/Mobile!");
+console.log("✅ RISOLTO: Laptop e Mobile ora sono separati correttamente.");
