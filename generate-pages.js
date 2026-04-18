@@ -1,3 +1,25 @@
+const fs = require('fs'), path = require('path');
+
+const chartsDir = path.join(__dirname, 'charts');
+const configPath = path.join(__dirname, 'config.json');
+const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath)) : {};
+
+const files = fs.readdirSync(chartsDir)
+  .filter(f => f.endsWith('.png'))
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+const chartsData = files.map(file => {
+  const name = path.basename(file, '.png');
+  const key = name;
+  const cfg = config[key] || {};
+  return {
+    name,
+    file,
+    title: cfg.title || `Chart ${name}`,
+    sources: Array.isArray(cfg.sources) ? cfg.sources : []
+  };
+});
+
 function createPage(file) {
   const name = path.basename(file, '.png');
   const key = name;
@@ -17,23 +39,69 @@ function createPage(file) {
   @media (orientation: portrait) { #rotate-message { display: flex; } }
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
-  .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-shrink: 0; height: 50px; }
-  .title-group { flex: 1; min-width: 0; }
-  .title { font-size: 18px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { font-size: 12px; color:#67e8f9; text-decoration: none; font-weight: bold; }
-  .source-inline { font-size: 11px; color: #94a3b8; }
+  
+  /* ====================== BASE = MOBILE COMPACT (portrait + landscape su smartphone) ====================== */
+  .header-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 0; 
+    flex-shrink: 0; 
+    height: 55px; 
+    padding: 8px 10px; 
+    position: relative; 
+    z-index: 10;
+  }
+  .title-group { flex: 1; min-width: 0; padding-left: 8px; padding-right: 70px; }
+  .title { font-size: 16px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .subtitle { font-size: 11px; color:#67e8f9; text-decoration: none; font-weight: bold; }
+  .source-inline { font-size: 10px; color: #94a3b8; }
   .source-inline a { color: #67e8f9; text-decoration: none; }
-  .actions { display: flex; gap: 6px; align-items: center; }
-
+  
+  .actions { 
+    position: absolute !important;
+    right: 8px;
+    top: 8px;
+    flex-direction: column; 
+    gap: 6px; 
+    align-items: flex-end;
+    z-index: 20;
+  }
+  
   .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
   .btn:hover { background: #334155; }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
   .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
 
-  #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; background: #0f172a; padding: 15px; }
-  .chart-container { width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center; min-height: 0; }
-  img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: crisp-edges; }
+  #full-capture-area { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    overflow: hidden; 
+    background: #0f172a; 
+    padding: 0; 
+    margin: 0;
+  }
+  .chart-container { 
+    width: 100%; 
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    min-height: 0; 
+    padding: 0;
+  }
+  img { 
+    width: 100%; 
+    height: auto; 
+    max-height: 100%; 
+    margin: 0; 
+    display: block;
+    object-fit: contain; 
+    image-rendering: crisp-edges; 
+  }
 
   #screenshot-title-box { display: none; margin-bottom: 20px; text-align: left; padding: 0 10px; }
   #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
@@ -41,60 +109,8 @@ function createPage(file) {
   #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
   .source-label { color: #f8fafc; }
 
-  /* ====================== MOBILE / SMARTPHONE (portrait + landscape) ====================== */
-  @media (max-device-width: 1023px) {
-    .container { padding: 0; }
-
-    .header-row { 
-      margin-bottom: 0; 
-      padding: 8px 10px; 
-      position: relative; 
-      z-index: 10;
-    }
-
-    .title { font-size: 16px; }
-    .subtitle { font-size: 11px; }
-    .source-inline { font-size: 10px; }
-
-    .title-group { 
-      padding-left: 8px; 
-      padding-right: 70px; 
-    }
-
-    .actions { 
-      position: absolute;
-      right: 8px;
-      top: 8px;
-      flex-direction: column; 
-      gap: 6px; 
-      align-items: flex-end;
-      z-index: 20;
-    }
-
-    #prev-btn, #next-btn, .actions > div { display: none !important; }
-
-    #full-capture-area { 
-      padding: 0; 
-      margin: 0; 
-    }
-    .chart-container { 
-      width: 100%; 
-      height: 100%; 
-      justify-content: flex-start;
-      align-items: flex-start; 
-      padding: 0;
-    }
-    img { 
-      width: 100%; 
-      height: auto; 
-      max-height: 100%; 
-      margin: 0; 
-      display: block;
-    }
-  }
-
-  /* ====================== LAPTOP / DESKTOP ====================== */
-  @media (min-device-width: 1024px) {
+  /* ====================== LAPTOP / DESKTOP (larghezza reale >= 1024px) ====================== */
+  @media (min-width: 1024px) {
     .header-row { 
       height: auto;           
       min-height: 80px;       
@@ -102,35 +118,46 @@ function createPage(file) {
       padding-left: 10%;      
       padding-right: 10%;     
       margin-bottom: 20px;    
+      position: static;
+      z-index: auto;
     }
-
-    .title { 
-      font-size: 24px;        
-    }
-    .subtitle { 
-      font-size: 14px; 
-    }
+    .title { font-size: 24px; }
+    .subtitle { font-size: 14px; }
     .source-inline { 
       font-size: 13px; 
-      display: block;         
+      display: block; 
       margin-top: 4px;
     }
-
     .title-group { 
-      padding-left: 0;        
+      padding-left: 0; 
+      padding-right: 0;
     }
-
+    .actions {
+      position: static !important;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      top: auto;
+      right: auto;
+      z-index: auto;
+    }
+    #prev-btn, #next-btn, .actions > div { 
+      display: flex !important; 
+    }
+    #full-capture-area {
+      padding: 15px;
+    }
+    .chart-container {
+      justify-content: center;
+      align-items: center;
+    }
     .chart-container img {
       max-width: 85%;
       max-height: 85%;
     }
-    
-    .actions {
-      gap: 12px;
-    }
   }
 
-  /* Backup per dispositivi touch */
+  /* Backup per dispositivi touch (rinforza lo stile mobile su tutti i telefoni) */
   @media (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
@@ -187,6 +214,7 @@ function createPage(file) {
 
 <script>
 const chartsData = ${JSON.stringify(chartsData)};
+
 const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
 let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
 
@@ -195,20 +223,26 @@ function updatePage() {
   const sInline = document.getElementById('source-inline');
   const ssEl = document.getElementById('ss-source-text');
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+
   document.getElementById('page-title').textContent = c.title;
+
   sInline.innerHTML = validSources.length 
-    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') 
+    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
     : '';
+
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
+
   if (ssEl) {
     ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
     document.getElementById('ss-source-bottom').style.display = validSources.length ? 'block' : 'none';
   }
+
   const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
   const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
   document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
   document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+
   document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
   document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
   document.title = c.title + ' | CSC';
@@ -220,6 +254,7 @@ function navigateTo(idx) {
   updatePage();
   history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html');
 }
+
 const navigatePrev = () => navigateTo(currentIndex - 1);
 const navigateNext = () => navigateTo(currentIndex + 1);
 
@@ -248,6 +283,7 @@ window.onpopstate = e => {
   currentIndex = (e.state && typeof e.state.index === 'number') ? e.state.index : Math.max(0, chartsData.findIndex(c => c.name === getName())); 
   updatePage(); 
 };
+
 window.onload = updatePage;
 const toggleFullScreen = () => !document.fullscreenElement ? document.documentElement.requestFullscreen() : document.exitFullscreen();
 
@@ -264,3 +300,9 @@ function takeScreenshot() {
 }
 </script></body></html>`;
 }
+
+files.forEach((file) => {
+  fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
+});
+
+console.log("🎉 Pagine HTML generate con successo! (Opzione 3 applicata)");

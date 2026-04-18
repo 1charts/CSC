@@ -10,63 +10,128 @@
 
   .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
   
-  /* BASE HEADER (Default Desktop) */
-  .header-row { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
-  .title-group { flex: 1; min-width: 0; }
-  .title { font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .subtitle { color:#67e8f9; text-decoration: none; font-weight: bold; }
-  .source-inline { color: #94a3b8; }
+  /* ====================== BASE = MOBILE COMPACT (portrait + landscape su smartphone) ====================== */
+  .header-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 0; 
+    flex-shrink: 0; 
+    height: 55px; 
+    padding: 8px 10px; 
+    position: relative; 
+    z-index: 10;
+  }
+  .title-group { flex: 1; min-width: 0; padding-left: 8px; padding-right: 70px; }
+  .title { font-size: 16px; font-weight: bold; color:#f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .subtitle { font-size: 11px; color:#67e8f9; text-decoration: none; font-weight: bold; }
+  .source-inline { font-size: 10px; color: #94a3b8; }
   .source-inline a { color: #67e8f9; text-decoration: none; }
   
-  .actions { display: flex; align-items: center; }
+  .actions { 
+    position: absolute !important;
+    right: 8px;
+    top: 8px;
+    flex-direction: column; 
+    gap: 6px; 
+    align-items: flex-end;
+    z-index: 20;
+  }
+  
   .btn { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 6px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
   .btn:hover { background: #334155; }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
   .btn.nav-btn { color: #67e8f9; padding: 4px 8px; }
   .btn.nav-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.5; fill: none; }
 
-  #full-capture-area { flex-grow: 1; display: flex; flex-direction: column; position: relative; overflow: hidden; background: #0f172a; }
-  .chart-container { width: 100%; flex-grow: 1; display: flex; min-height: 0; }
-  img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: auto; }
+  #full-capture-area { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    overflow: hidden; 
+    background: #0f172a; 
+    padding: 0; 
+    margin: 0;
+  }
+  .chart-container { 
+    width: 100%; 
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    min-height: 0; 
+    padding: 0;
+  }
+  img { 
+    width: 100%; 
+    height: auto; 
+    max-height: 100%; 
+    margin: 0; 
+    display: block;
+    object-fit: contain; 
+    image-rendering: crisp-edges; 
+  }
 
   #screenshot-title-box { display: none; margin-bottom: 20px; text-align: left; padding: 0 10px; }
   #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
   #ss-subtitle { font-size: 15px; color: #67e8f9; margin-bottom: 8px; font-weight: bold; }
+  #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
+  .source-label { color: #f8fafc; }
 
-  /* ====================== LAPTOP / DESKTOP ( >= 768px ) ====================== */
-  @media (min-width: 768px) {
+  /* ====================== LAPTOP / DESKTOP (larghezza reale >= 1024px) ====================== */
+  @media (min-width: 1024px) {
     .header-row { 
-      height: 130px;          /* Altezza generosa per desktop */
-      padding-top: 50px;      /* Spazio dal bordo superiore */
-      padding-left: 10%;      /* Rientro a sinistra */
-      padding-right: 10%;     /* Rientro a destra */
+      height: auto;           
+      min-height: 80px;       
+      padding-top: 30px;      
+      padding-left: 10%;      
+      padding-right: 10%;     
+      margin-bottom: 20px;    
+      position: static;
+      z-index: auto;
     }
     .title { font-size: 24px; }
     .subtitle { font-size: 14px; }
-    .source-inline { font-size: 13px; display: block; margin-top: 4px; }
-    .actions { gap: 12px; position: static !important; }
-    
-    #full-capture-area { padding: 20px; justify-content: center; }
-    .chart-container { justify-content: center; align-items: center; }
-    img { max-width: 85%; max-height: 85%; }
+    .source-inline { 
+      font-size: 13px; 
+      display: block; 
+      margin-top: 4px;
+    }
+    .title-group { 
+      padding-left: 0; 
+      padding-right: 0;
+    }
+    .actions {
+      position: static !important;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      top: auto;
+      right: auto;
+      z-index: auto;
+    }
+    #prev-btn, #next-btn, .actions > div { 
+      display: flex !important; 
+    }
+    #full-capture-area {
+      padding: 15px;
+    }
+    .chart-container {
+      justify-content: center;
+      align-items: center;
+    }
+    .chart-container img {
+      max-width: 85%;
+      max-height: 85%;
+    }
   }
 
-  /* ====================== MOBILE ( < 768px ) ====================== */
-  @media (max-width: 767px) {
-    .header-row { 
-      height: 55px; 
-      padding: 8px 10px; 
-      margin-bottom: 0;
-      position: relative;
-    }
-    .title { font-size: 16px; }
-    .subtitle { font-size: 11px; }
-    .source-inline { font-size: 10px; }
-    .title-group { padding-left: 8px; padding-right: 75px; }
-
-    /* Bottoni verticali a destra ESATTAMENTE come li avevi impostati */
+  /* Backup per dispositivi touch (rinforza lo stile mobile su tutti i telefoni) */
+  @media (hover: none) and (pointer: coarse) {
+    #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
-      position: absolute !important;
+      position: absolute;
       right: 8px;
       top: 8px;
       flex-direction: column; 
@@ -74,14 +139,12 @@
       align-items: flex-end;
       z-index: 20;
     }
-    #prev-btn, #next-btn, .actions > div { display: none !important; }
-
-    #full-capture-area { padding: 0; margin: 0; }
+    .header-row { margin-bottom: 0; padding: 8px 10px; }
+    .title-group { padding-left: 8px; padding-right: 70px; }
     .chart-container { 
       justify-content: flex-start; 
       align-items: flex-start; 
     }
-    img { width: 100%; height: auto; max-height: 100%; display: block; }
   }
 </style></head>
 <body>
@@ -111,7 +174,8 @@
       <div id="ss-title" style="font-size:28px; font-weight:bold; color:#f8fafc;">Fertilizers & Salt Companies</div>
       <div id="ss-subtitle" style="font-size:15px; color:#67e8f9;">commoditysupercycle.com</div>
       <div id="ss-source-bottom" style="display:none; margin-top:8px;">
-        <span class="source-label">Sources:</span> <span id="ss-source-text"></span>
+        <span class="source-label">Sources:</span> 
+        <span id="ss-source-text"></span>
       </div>
     </div>
     <div class="chart-container"><img src="charts/52.png"></div>
@@ -119,8 +183,8 @@
 </div>
 
 <script>
-// Logica JavaScript invariata
 const chartsData = [{"name":"01","file":"01.png","title":"O&G Upstream Companies Listed on NYSE","sources":[{"text":"WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"02","file":"02.png","title":"O&G Upstream Companies Listed on LSE","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"03","file":"03.png","title":"O&G Upstream Companies Listed on TSX","sources":[{"text":"WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"04","file":"04.png","title":"O&G Upstream Companies Listed on TSXV","sources":[{"text":"WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"05","file":"05.png","title":"O&G Upstream Companies Listed on ASX","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"06","file":"06.png","title":"O&G Upstream Companies Listed Globally","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"07","file":"07.png","title":"O&G Midstream Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"08","file":"08.png","title":"O&G Downstream Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"RBOB Gasoline & Brent Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DGASUSG"},{"text":"","link":"#"}]},{"name":"09","file":"09.png","title":"O&G Equipment & Services Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"10","file":"10.png","title":"O&G Drilling Contractors","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"11","file":"11.png","title":"Tankers Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"12","file":"12.png","title":"LNG Companies","sources":[{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"13","file":"13.png","title":"O&G Royalties & Trusts","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"14","file":"14.png","title":"Biofuels & Biogas Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"15","file":"15.png","title":"Total O&G Companies - Global","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"16","file":"16.png","title":"Gold Companies Listed on NYSE","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"17","file":"17.png","title":"Gold Companies Listed on LSE","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"18","file":"18.png","title":"Gold Companies Listed on TSX","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"19","file":"19.png","title":"Gold Companies Listed on TSXV","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"20","file":"20.png","title":"Gold Companies Listed on ASX","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"21","file":"21.png","title":"Gold & Copper Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"22","file":"22.png","title":"Gold & Silver Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"23","file":"23.png","title":"Silver Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"24","file":"24.png","title":"PGM Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"25","file":"25.png","title":"Precious Metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"26","file":"26.png","title":"Aluminum Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"27","file":"27.png","title":"Copper Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"28","file":"28.png","title":"Lead & Zinc Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"29","file":"29.png","title":"Lithium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"30","file":"30.png","title":"Iron & Steel Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"31","file":"31.png","title":"Nickel Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"32","file":"32.png","title":"Rare Earths Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"33","file":"33.png","title":"Uranium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"34","file":"34.png","title":"Antimony Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"35","file":"35.png","title":"Beryllium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"36","file":"36.png","title":"Cobalt Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"37","file":"37.png","title":"Magnesium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"38","file":"38.png","title":"Manganese Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"39","file":"39.png","title":"Molybdenum & Tungsten Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"40","file":"40.png","title":"Niobium & Tantalum Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"41","file":"41.png","title":"Tin Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"42","file":"42.png","title":"Titanium & Zirconium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"43","file":"43.png","title":"Silicon Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"44","file":"44.png","title":"Vanadium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"45","file":"45.png","title":"Metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"46","file":"46.png","title":"Hydrogen Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"47","file":"47.png","title":"Helium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"48","file":"48.png","title":"Graphite & Graphene Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"49","file":"49.png","title":"Diamonds & Gems Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"50","file":"50.png","title":"Coal Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"51","file":"51.png","title":"Industrial Minerals Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"52","file":"52.png","title":"Fertilizers & Salt Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"53","file":"53.png","title":"Diversified Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"54","file":"54.png","title":"Mining Equipment & Services Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]}];
+
 const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
 let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
 
@@ -129,18 +193,26 @@ function updatePage() {
   const sInline = document.getElementById('source-inline');
   const ssEl = document.getElementById('ss-source-text');
   const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+
   document.getElementById('page-title').textContent = c.title;
-  sInline.innerHTML = validSources.length ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ') : '';
+
+  sInline.innerHTML = validSources.length 
+    ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
+    : '';
+
   document.querySelector('img').src = 'charts/' + c.file;
   document.getElementById('ss-title').textContent = c.title;
+
   if (ssEl) {
     ssEl.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
     document.getElementById('ss-source-bottom').style.display = validSources.length ? 'block' : 'none';
   }
+
   const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
   const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
   document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
   document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+
   document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
   document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
   document.title = c.title + ' | CSC';
@@ -152,6 +224,7 @@ function navigateTo(idx) {
   updatePage();
   history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html');
 }
+
 const navigatePrev = () => navigateTo(currentIndex - 1);
 const navigateNext = () => navigateTo(currentIndex + 1);
 
@@ -180,6 +253,7 @@ window.onpopstate = e => {
   currentIndex = (e.state && typeof e.state.index === 'number') ? e.state.index : Math.max(0, chartsData.findIndex(c => c.name === getName())); 
   updatePage(); 
 };
+
 window.onload = updatePage;
 const toggleFullScreen = () => !document.fullscreenElement ? document.documentElement.requestFullscreen() : document.exitFullscreen();
 
