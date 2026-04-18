@@ -154,8 +154,8 @@ function createPage(file) {
     padding-bottom: 60px;
   }
     .chart-container img {
-      max-width: 110%;
-      max-height: 120%;
+      max-width: 90%;
+      max-height: 100%;
     }
   }
 
