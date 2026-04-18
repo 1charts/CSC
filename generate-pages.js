@@ -29,7 +29,7 @@ function createPage(file) {
   const key = name;
   const cfg = config[key] || {};
 
-  // === CONFIGURAZIONE POSIZIONAMENTO LAPTOP/DESKTOP (solo qui puoi cambiare) ===
+  // === CONFIGURAZIONE POSIZIONAMENTO SOLO LAPTOP/DESKTOP ===
   const desktopHeader = {
     titleLeft:     safe(cfg.desktopHeader?.titleLeft,     '150px'),
     titleTop:      safe(cfg.desktopHeader?.titleTop,      '12px'),
@@ -117,7 +117,6 @@ function createPage(file) {
   /* ====================== MOBILE / SMARTPHONE ====================== */
   @media (max-width: 767px) {
     .container { padding: 0; }
-
     .header-row { 
       margin-bottom: 0; 
       padding: 8px 10px; 
@@ -134,6 +133,7 @@ function createPage(file) {
       padding-right: 70px; 
     }
 
+    /* Bottoni verticali fissi sul bordo destro */
     .actions { 
       position: absolute;
       right: 8px;
@@ -144,8 +144,10 @@ function createPage(file) {
       z-index: 20;
     }
 
+    /* Nascondi solo frecce e divider */
     #prev-btn, #next-btn, .actions > div { display: none !important; }
 
+    /* Immagine attaccata a SINISTRA + massima dimensione */
     #full-capture-area { 
       padding: 0; 
       margin: 0; 
@@ -166,6 +168,7 @@ function createPage(file) {
     }
   }
 
+  /* Backup per dispositivi touch */
   @media (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
@@ -271,21 +274,30 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
 });
 
-let tsX = 0, tsY = 0;
+let tsX = 0;
+let tsY = 0;
 const area = document.getElementById('full-capture-area');
 
+// Touch Start
 area.addEventListener('touchstart', e => {
-  if (e.touches.length === 1) { tsX = e.touches[0].screenX; tsY = e.touches[0].screenY; }
+  if (e.touches.length === 1) {
+    tsX = e.touches[0].screenX;
+    tsY = e.touches[0].screenY;
+  }
 }, { passive: true });
 
+// Touch Move
 area.addEventListener('touchmove', e => {
   if (e.touches.length === 1) {
     const dx = Math.abs(e.touches[0].screenX - tsX);
     const dy = Math.abs(e.touches[0].screenY - tsY);
-    if (dx > dy + 10 && dx > 15) e.preventDefault();
+    if (dx > dy + 10 && dx > 15) {
+      e.preventDefault();
+    }
   }
 }, { passive: false });
 
+// Touch End
 area.addEventListener('touchend', e => {
   if (e.changedTouches.length === 1) {
     const dx = e.changedTouches[0].screenX - tsX;
@@ -307,6 +319,7 @@ const toggleFullScreen = () => !document.fullscreenElement ? document.documentEl
 function takeScreenshot() {
   const tBox = document.getElementById('screenshot-title-box');
   tBox.style.display = 'block';
+
   html2canvas(document.getElementById('full-capture-area'), { 
     backgroundColor: "#0f172a", 
     scale: 2, 
@@ -327,4 +340,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
 });
 
-console.log("🎉 Pagine HTML generate con successo! (mobile intatto + fix SVG + validazione config)");
+console.log("🎉 Pagine HTML generate con successo! (mobile identico all'originale)");
