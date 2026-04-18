@@ -157,8 +157,8 @@ function createPage(file) {
     }
   }
 
-  /* Backup per dispositivi touch (rinforza lo stile mobile su tutti i telefoni) */
-  @media (hover: none) and (pointer: coarse) {
+  /* Backup per dispositivi touch (SOLO su schermi piccoli ≤1023px) */
+  @media (max-width: 1023px) and (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
       position: absolute;
@@ -305,4 +305,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', createPage(file));
 });
 
-console.log("🎉 Pagine HTML generate con successo! (Opzione 3 applicata)");
+console.log("🎉 Pagine HTML generate con successo! (frecce visibili su laptop)");

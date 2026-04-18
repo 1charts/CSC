@@ -127,8 +127,8 @@
     }
   }
 
-  /* Backup per dispositivi touch (rinforza lo stile mobile su tutti i telefoni) */
-  @media (hover: none) and (pointer: coarse) {
+  /* Backup per dispositivi touch (SOLO su schermi piccoli ≤1023px) */
+  @media (max-width: 1023px) and (hover: none) and (pointer: coarse) {
     #prev-btn, #next-btn, .actions > div { display: none !important; }
     .actions { 
       position: absolute;
