@@ -151,7 +151,7 @@ function createPage(file) {
     .chart-container {
     justify-content: center;
     align-items: flex-start;
-    padding-top: 60px;
+    padding-bottom: 60px;
   }
     .chart-container img {
       max-width: 85%;
