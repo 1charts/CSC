@@ -114,7 +114,7 @@ function createPage(file) {
     .header-row { 
       height: auto;           
       min-height: 80px;       
-      padding-top: 60px;      
+      padding-top: 120px;      
       padding-left: 10%;      
       padding-right: 10%;     
       margin-bottom: 20px;    
@@ -151,7 +151,7 @@ function createPage(file) {
     .chart-container {
     justify-content: center;
     align-items: flex-start;
-    padding-bottom: 60px;
+    padding-bottom: 120px;
   }
     .chart-container img {
       max-width: 85%;
