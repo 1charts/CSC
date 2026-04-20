@@ -386,7 +386,7 @@ function createPage(file) {
     </div>
   </div>
 
-  <!-- ====================== CONTENITORE NASCOSTO SOLO PER SCREENSHOT ====================== -->
+  <!-- ====================== CONTENITORE NASCOSTO PER SCREENSHOT ====================== -->
   <div id="screenshot-container" style="display:none; position:absolute; left:-99999px; top:-99999px; background:#1E1E1E; padding:50px 60px; width:1450px;">
     <div id="ss-title-hidden" style="font-size:42px; font-weight:bold; color:#f8fafc; margin-bottom:12px; line-height:1.1;"></div>
     <div id="ss-subtitle-hidden" style="font-size:24px; color:#67e8f9; margin-bottom:35px; font-weight:bold;">commoditysupercycle.com</div>
@@ -484,29 +484,29 @@ function createPage(file) {
       }
     };
 
-    /* ====================== SCREENSHOT CON CONTENITORE NASCOSTO ====================== */
+    /* ====================== SCREENSHOT FINALE (corretto) ====================== */
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
-      // Popoliamo il contenitore nascosto
-      document.getElementById('ss-title-hidden').textContent = c.title;
-      document.getElementById('ss-subtitle-hidden').textContent = 'commoditysupercycle.com';
+      const hiddenTitle = document.getElementById('ss-title-hidden');
+      const hiddenSubtitle = document.getElementById('ss-subtitle-hidden');
       const hiddenImg = document.getElementById('ss-image-hidden');
+      const hiddenSource = document.getElementById('ss-source-hidden');
+      const container = document.getElementById('screenshot-container');
+
+      hiddenTitle.textContent = c.title;
+      hiddenSubtitle.textContent = 'commoditysupercycle.com';
       hiddenImg.src = 'charts/' + c.file;
 
-      const sourceHidden = document.getElementById('ss-source-hidden');
       if (validSources.length) {
-        sourceHidden.innerHTML = '<span class="source-label">Sources:</span> ' + validSources.map(s => s.text).join(' · ');
-        sourceHidden.style.display = 'block';
+        hiddenSource.innerHTML = '<span class="source-label">Sources:</span> ' + validSources.map(s => s.text).join(' · ');
+        hiddenSource.style.display = 'block';
       } else {
-        sourceHidden.style.display = 'none';
+        hiddenSource.style.display = 'none';
       }
 
-      // ASPETTIAMO che l'immagine sia completamente caricata prima di fare html2canvas
-      hiddenImg.onload = () => {
-        const container = document.getElementById('screenshot-container');
-
+      const doCapture = () => {
         html2canvas(container, { 
           backgroundColor: "#1E1E1E", 
           scale: 2, 
@@ -519,6 +519,13 @@ function createPage(file) {
           link.click();
         });
       };
+
+      // Se l'immagine è già caricata (cache) la usiamo subito, altrimenti aspettiamo onload
+      if (hiddenImg.complete && hiddenImg.naturalWidth !== 0) {
+        doCapture();
+      } else {
+        hiddenImg.onload = doCapture;
+      }
     }
   </script>
 </body>
