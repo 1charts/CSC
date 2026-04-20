@@ -114,7 +114,7 @@ function createPage(file) {
     }
 
     img { 
-      max-width: 100%; 
+      max-width: 90%; 
       max-height: 100%; 
       object-fit: contain; 
       image-rendering: crisp-edges; 
@@ -143,7 +143,23 @@ function createPage(file) {
 
       .actions { position: static !important; display: flex !important; flex-direction: row !important; gap: 12px !important; }
 
-      /* Layout screenshot */
+      #full-capture-area {
+        padding: 15px;
+      }
+
+      .chart-container {
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 60px;
+      }
+
+      /* Layout normale della pagina */
+      img {
+        max-width: 90% !important;
+        max-height: 100% !important;
+      }
+
+      /* ====================== FIX SOLO PER SCREENSHOT ====================== */
       #screenshot-title-box {
         width: 90%;
         margin-left: auto;
@@ -151,10 +167,11 @@ function createPage(file) {
         padding: 0;
       }
 
-      .chart-container img {
+      #full-capture-area.screenshot-mode .chart-container img {
         width: 90% !important;
         height: auto !important;
         max-height: none !important;
+        object-fit: none !important;
       }
     }
 
@@ -162,7 +179,7 @@ function createPage(file) {
     @media (max-width: 1279px) {
       #full-capture-area { padding: 0; }
       .chart-container { justify-content: flex-start; }
-      img { width: 100% !important; }
+      img { width: 100% !important; max-width: 100% !important; }
     }
 
     @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
@@ -276,6 +293,7 @@ function createPage(file) {
       const titleBox = document.getElementById('screenshot-title-box');
 
       titleBox.style.display = 'block';
+      captureArea.classList.add('screenshot-mode');   // Attiva il fix solo per screenshot
 
       html2canvas(captureArea, {
         backgroundColor: "#1E1E1E",
@@ -287,7 +305,10 @@ function createPage(file) {
         link.download = chartsData[currentIndex].name + '_CSC.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
+
+        // Ripristina tutto
         titleBox.style.display = 'none';
+        captureArea.classList.remove('screenshot-mode');
       });
     }
 
@@ -305,4 +326,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine generate! (Screenshot: immagine proporzionata + titolo allineato correttamente)");
+console.log("🎉 Pagine generate con successo! (Pagina normale invariata + Screenshot con proporzioni corrette)");
