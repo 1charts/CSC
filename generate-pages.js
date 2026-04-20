@@ -83,10 +83,10 @@ function createPage(file) {
     .header-row { 
       display: flex; 
       justify-content: space-between; 
-      align-items: center; 
+      align-items: flex-start;        /* cambiato per allineamento pulito */
       flex-shrink: 0; 
-      height: 55px; 
-      padding: 8px 10px; 
+      height: 230px;                  /* AUMENTATO per contenere i bottoni grandi */
+      padding: 15px 10px; 
       position: relative; 
       z-index: 10;
     }
@@ -95,7 +95,7 @@ function createPage(file) {
       flex: 1; 
       min-width: 0; 
       padding-left: 8px; 
-      padding-right: 70px; 
+      padding-right: 90px;            /* aumentato leggermente per sicurezza */
     }
 
     .title { 
@@ -128,7 +128,7 @@ function createPage(file) {
     .actions { 
       position: absolute !important;
       right: 8px;
-      top: 8px;
+      top: 15px;                      /* spostato un po' giù per simmetria */
       flex-direction: column; 
       gap: 6px; 
       align-items: flex-end;
@@ -140,8 +140,8 @@ function createPage(file) {
       background: #2a2a2a; 
       border: 1px solid #444; 
       color: #f8fafc; 
-      padding: 10px;           /* AUMENTATO da 6px */
-      border-radius: 8px;      /* AUMENTATO da 6px */
+      padding: 10px;           
+      border-radius: 8px;      
       cursor: pointer; 
       display: flex; 
       align-items: center; 
@@ -151,19 +151,19 @@ function createPage(file) {
     .btn:hover { background: #383838; }
 
     .btn svg { 
-      width: 24px;             /* AUMENTATO da 18px */
-      height: 24px;            /* AUMENTATO da 18px */
+      width: 24px;             
+      height: 24px;            
       fill: currentColor; 
     }
 
     .btn.nav-btn { 
       color: #67e8f9; 
-      padding: 7px 11px;       /* AUMENTATO da 4px 8px */
+      padding: 7px 11px;       
     }
 
     .btn.nav-btn svg { 
-      width: 28px;             /* AUMENTATO da 22px */
-      height: 28px;            /* AUMENTATO da 22px */
+      width: 28px;             
+      height: 28px;            
       stroke: currentColor; 
       stroke-width: 2.5; 
       fill: none; 
@@ -232,7 +232,7 @@ function createPage(file) {
     /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
 
-      /* ====================== RESET DIMENSIONI BOTTONI (invariate rispetto all'originale) ====================== */
+      /* RESET DIMENSIONI BOTTONI (invariate) */
       .btn { 
         padding: 6px; 
       }
@@ -251,7 +251,6 @@ function createPage(file) {
         height: 22px; 
       }
 
-      /* ====================== IL RESTO DELLA MEDIA QUERY RIMANE IDENTICO ====================== */
       .header-row { 
         height: auto;           
         min-height: 100px;       
@@ -261,6 +260,7 @@ function createPage(file) {
         margin-bottom: 0px;    
         position: static;
         z-index: auto;
+        align-items: center;    /* ripristinato per desktop */
       }
 
       .title { 
@@ -304,6 +304,7 @@ function createPage(file) {
         flex-direction: row !important;
         gap: 12px !important;
         align-items: center !important;
+        top: auto;
       }
 
       #full-capture-area {
@@ -332,6 +333,7 @@ function createPage(file) {
 </head>
 <body>
 
+  <!-- resto del body identico al tuo codice precedente -->
   <div id="rotate-message">
     <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9">
       <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h2C24 4.96 19.1 0 13 0l-1.65 1.65 1.41 1.41 3.72-3.54zM7.52 21.48C4.25 19.93 1.91 16.76 1.55 13h-2C-.45 19.04 4.45 24 10.55 24l1.65-1.65-1.41-1.41-3.27 3.54zM21 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H3V7h18v10z"/>
@@ -435,7 +437,6 @@ function createPage(file) {
     const navigatePrev = () => navigateTo(currentIndex - 1);
     const navigateNext = () => navigateTo(currentIndex + 1);
 
-    // Keyboard navigation
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight' || e.code === 'Space') {
         e.preventDefault();
@@ -447,7 +448,6 @@ function createPage(file) {
       }
     });
 
-    // Touch swipe navigation
     let tsX = 0;
     const area = document.getElementById('full-capture-area');
     area.addEventListener('touchstart', e => {
@@ -506,4 +506,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (bottoni più grandi su mobile, invariati su desktop ≥1280px)");
+console.log("🎉 Pagine HTML generate con successo! (bottoni grandi su mobile + immagine NON più coperta dai bottoni)");
