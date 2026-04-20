@@ -135,12 +135,13 @@ function createPage(file) {
       z-index: 20;
     }
 
+    /* ====================== BOTTONI PIÙ GRANDI SOLO SU SCHERMI PICCOLI ====================== */
     .btn { 
       background: #2a2a2a; 
       border: 1px solid #444; 
       color: #f8fafc; 
-      padding: 6px; 
-      border-radius: 6px; 
+      padding: 10px;           /* AUMENTATO da 6px */
+      border-radius: 8px;      /* AUMENTATO da 6px */
       cursor: pointer; 
       display: flex; 
       align-items: center; 
@@ -150,19 +151,19 @@ function createPage(file) {
     .btn:hover { background: #383838; }
 
     .btn svg { 
-      width: 18px; 
-      height: 18px; 
+      width: 24px;             /* AUMENTATO da 18px */
+      height: 24px;            /* AUMENTATO da 18px */
       fill: currentColor; 
     }
 
     .btn.nav-btn { 
       color: #67e8f9; 
-      padding: 4px 8px; 
+      padding: 7px 11px;       /* AUMENTATO da 4px 8px */
     }
 
     .btn.nav-btn svg { 
-      width: 22px; 
-      height: 22px; 
+      width: 28px;             /* AUMENTATO da 22px */
+      height: 28px;            /* AUMENTATO da 22px */
       stroke: currentColor; 
       stroke-width: 2.5; 
       fill: none; 
@@ -230,6 +231,27 @@ function createPage(file) {
 
     /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
+
+      /* ====================== RESET DIMENSIONI BOTTONI (invariate rispetto all'originale) ====================== */
+      .btn { 
+        padding: 6px; 
+      }
+
+      .btn svg { 
+        width: 18px; 
+        height: 18px; 
+      }
+
+      .btn.nav-btn { 
+        padding: 4px 8px; 
+      }
+
+      .btn.nav-btn svg { 
+        width: 22px; 
+        height: 22px; 
+      }
+
+      /* ====================== IL RESTO DELLA MEDIA QUERY RIMANE IDENTICO ====================== */
       .header-row { 
         height: auto;           
         min-height: 100px;       
@@ -484,4 +506,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (sfondo cambiato in #1E1E1E)");
+console.log("🎉 Pagine HTML generate con successo! (bottoni più grandi su mobile, invariati su desktop ≥1280px)");
