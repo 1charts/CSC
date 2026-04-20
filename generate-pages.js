@@ -135,7 +135,6 @@ function createPage(file) {
       z-index: 20;
     }
 
-    /* ====================== BOTTONI PIÙ GRANDI SOLO SU SCHERMI PICCOLI ====================== */
     .btn { 
       background: #2a2a2a; 
       border: 1px solid #444; 
@@ -232,26 +231,11 @@ function createPage(file) {
     /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
 
-      /* ====================== RESET DIMENSIONI BOTTONI (invariate rispetto all'originale) ====================== */
-      .btn { 
-        padding: 6px; 
-      }
+      .btn { padding: 6px; }
+      .btn svg { width: 18px; height: 18px; }
+      .btn.nav-btn { padding: 4px 8px; }
+      .btn.nav-btn svg { width: 22px; height: 22px; }
 
-      .btn svg { 
-        width: 18px; 
-        height: 18px; 
-      }
-
-      .btn.nav-btn { 
-        padding: 4px 8px; 
-      }
-
-      .btn.nav-btn svg { 
-        width: 22px; 
-        height: 22px; 
-      }
-
-      /* ====================== IL RESTO DELLA MEDIA QUERY RIMANE IDENTICO ====================== */
       .header-row { 
         height: auto;           
         min-height: 100px;       
@@ -321,13 +305,13 @@ function createPage(file) {
         max-height: 100%;
       }
 
-      /* ====================== FIX SOLO PER LO SCREENSHOT ====================== */
-      /* Testo parte esattamente dal bordo SINISTRO dell'immagine (non centrato) */
+      /* ====================== FIX SCREENSHOT - TESTO ALLINEATO A SINISTRA DELL'IMMAGINE ====================== */
       #screenshot-title-box {
+        width: 90%;                    /* FORZA la stessa larghezza dell'immagine */
         max-width: 90%;
         margin-left: auto;
         margin-right: auto;
-        padding: 0;               /* tolto il padding sinistro per allineamento perfetto */
+        padding: 0 !important;         /* nessun rientro a sinistra */
       }
     }
 
@@ -338,19 +322,11 @@ function createPage(file) {
       }
     }
 
-    /* ====================== SOLO MOBILE: MARGINE SINISTRO IMMAGINE = ZERO ====================== */
+    /* ====================== SOLO MOBILE ====================== */
     @media (max-width: 1279px) {
-      #full-capture-area {
-        padding-left: 0 !important;
-      }
-      .chart-container {
-        padding-left: 0 !important;
-        justify-content: flex-start;
-      }
-      img {
-        margin-left: 0 !important;
-        width: 100% !important;
-      }
+      #full-capture-area { padding-left: 0 !important; }
+      .chart-container { padding-left: 0 !important; justify-content: flex-start; }
+      img { margin-left: 0 !important; width: 100% !important; }
     }
   </style>
 </head>
@@ -528,4 +504,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (screenshot fixato: testo parte esattamente dal bordo SINISTRO dell'immagine)");
+console.log("🎉 Pagine HTML generate con successo! (screenshot: testo parte esattamente dal bordo SINISTRO dell'immagine)");
