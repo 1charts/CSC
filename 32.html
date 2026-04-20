@@ -45,7 +45,6 @@
       flex-direction: column; 
     }
 
-    /* ====================== MOBILE COMPACT ====================== */
     .header-row { 
       display: flex; 
       justify-content: space-between; 
@@ -149,15 +148,14 @@
       width: 100%; 
       flex-grow: 1; 
       display: flex; 
-      justify-content: flex-start; 
-      align-items: flex-start; 
+      justify-content: center; 
+      align-items: center; 
       min-height: 0; 
       padding: 0;
     }
 
     img { 
-      width: 100%; 
-      height: auto; 
+      max-width: 100%; 
       max-height: 100%; 
       margin: 0; 
       display: block;
@@ -194,7 +192,7 @@
 
     .source-label { color: #f8fafc; }
 
-    /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
+    /* ====================== DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
 
       .btn { padding: 6px; }
@@ -213,40 +211,12 @@
         z-index: auto;
       }
 
-      .title { 
-        font-size: 36px;           
-        font-weight: 700;          
-        color: #f8fafc;            
-        margin: 0 0 8px 0;
-        line-height: 1.1;
-      }
-
-      .subtitle { 
-        font-size: 24px;           
-        color: #67e8f9; 
-        text-decoration: none; 
-        font-weight: 600;
-        display: block;
-        margin-bottom: 6px;
-      }
-
+      .title { font-size: 36px; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0; line-height: 1.1; }
+      .subtitle { font-size: 24px; color: #67e8f9; font-weight: 600; display: block; margin-bottom: 6px; }
       .subtitle:hover { color: #a5f3fc; }
+      .sources { font-size: 15px; color: #94a3b8; display: block; }
 
-      .sources {
-        font-size: 15px;         
-        color: #94a3b8;
-        display: block;
-      }
-
-      .sources a:hover { 
-        color: #a5f3fc; 
-        text-decoration: underline; 
-      }
-
-      .title-group { 
-        padding-left: 0; 
-        padding-right: 0;
-      }
+      .title-group { padding-left: 0; padding-right: 0; }
 
       .actions {
         position: static !important;
@@ -262,20 +232,11 @@
 
       .chart-container {
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         padding-bottom: 60px;
       }
 
-      /* ====================== FIX IMMAGINE SCREENSHOT - PROPORZIONI CORRETTE ====================== */
-      /* L'immagine del grafico ora mantiene esattamente le proporzioni originali */
-      /* (width: 90% + height: auto + object-fit: contain) */
-      .chart-container img {
-        width: 90% !important;      /* stessa larghezza del titolo */
-        height: auto !important;    /* altezza proporzionale */
-        max-height: 100%;
-        object-fit: contain !important;
-      }
-
+      /* ====================== FIX PROPORZIONI IMMAGINE PER SCREENSHOT ====================== */
       #screenshot-title-box {
         width: 90% !important;
         max-width: 90%;
@@ -283,20 +244,27 @@
         margin-right: auto;
         padding: 0 !important;
       }
-    }
 
-    /* Nascondi pulsanti su dispositivi touch piccoli */
-    @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
-      #prev-btn, #next-btn, .actions > div { 
-        display: none !important; 
+      /* Immagine mantiene proporzioni reali solo durante lo screenshot */
+      #full-capture-area.screenshot-mode .chart-container img {
+        width: 90% !important;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: none !important;
       }
     }
 
-    /* ====================== SOLO MOBILE ====================== */
+    /* ====================== MOBILE ====================== */
     @media (max-width: 1279px) {
       #full-capture-area { padding-left: 0 !important; }
       .chart-container { padding-left: 0 !important; justify-content: flex-start; }
       img { margin-left: 0 !important; width: 100% !important; }
+    }
+
+    @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
+      #prev-btn, #next-btn, .actions > div { 
+        display: none !important; 
+      }
     }
   </style>
 </head>
@@ -406,21 +374,13 @@
     const navigateNext = () => navigateTo(currentIndex + 1);
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.code === 'Space') {
-        e.preventDefault();
-        navigateNext();
-      }
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        navigatePrev();
-      }
+      if (e.key === 'ArrowRight' || e.code === 'Space') navigateNext();
+      if (e.key === 'ArrowLeft') navigatePrev();
     });
 
     let tsX = 0;
     const area = document.getElementById('full-capture-area');
-    area.addEventListener('touchstart', e => {
-      if (e.touches.length === 1) tsX = e.touches[0].screenX;
-    }, { passive: true });
+    area.addEventListener('touchstart', e => { if (e.touches.length === 1) tsX = e.touches[0].screenX; }, { passive: true });
 
     area.addEventListener('touchend', e => {
       if (e.changedTouches.length === 1) {
@@ -440,18 +400,18 @@
     window.onload = updatePage;
 
     const toggleFullScreen = () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else {
-        document.exitFullscreen();
-      }
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
     };
 
     function takeScreenshot() {
+      const captureArea = document.getElementById('full-capture-area');
       const tBox = document.getElementById('screenshot-title-box');
+      
       tBox.style.display = 'block';
+      captureArea.classList.add('screenshot-mode');   // ← ATTIVA IL FIX PROPORZIONI
 
-      html2canvas(document.getElementById('full-capture-area'), { 
+      html2canvas(captureArea, { 
         backgroundColor: "#1E1E1E", 
         scale: 2, 
         useCORS: true, 
@@ -461,7 +421,10 @@
         link.download = chartsData[currentIndex].name + '_CSC.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
+
+        // Ripristina stato originale
         tBox.style.display = 'none';
+        captureArea.classList.remove('screenshot-mode');
       });
     }
   </script>
