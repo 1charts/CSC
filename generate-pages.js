@@ -234,8 +234,8 @@ function createPage(file) {
         height: auto;           
         min-height: 100px;       
         padding-top: 90px;      
-        padding-left: 20%;      
-        padding-right: 20%;     
+        padding-left: 12%;      
+        padding-right: 12%;     
         margin-bottom: 0px;    
         position: static;
         z-index: auto;
