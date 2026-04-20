@@ -288,12 +288,12 @@
       }
 
       /* ====================== FIX SOLO PER LO SCREENSHOT ====================== */
-      /* Il titolo era spostato a sinistra perché l'immagine è centrata al 90% */
-      /* Ora il box del titolo è centrato esattamente come l'immagine */
+      /* Testo parte esattamente dal bordo SINISTRO dell'immagine (non centrato) */
       #screenshot-title-box {
         max-width: 90%;
         margin-left: auto;
         margin-right: auto;
+        padding: 0;               /* tolto il padding sinistro per allineamento perfetto */
       }
     }
 

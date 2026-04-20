@@ -322,12 +322,12 @@ function createPage(file) {
       }
 
       /* ====================== FIX SOLO PER LO SCREENSHOT ====================== */
-      /* Il titolo era spostato a sinistra perché l'immagine è centrata al 90% */
-      /* Ora il box del titolo è centrato esattamente come l'immagine */
+      /* Testo parte esattamente dal bordo SINISTRO dell'immagine (non centrato) */
       #screenshot-title-box {
         max-width: 90%;
         margin-left: auto;
         margin-right: auto;
+        padding: 0;               /* tolto il padding sinistro per allineamento perfetto */
       }
     }
 
@@ -528,4 +528,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (screenshot fixato: titolo centrato come l'immagine)");
+console.log("🎉 Pagine HTML generate con successo! (screenshot fixato: testo parte esattamente dal bordo SINISTRO dell'immagine)");
