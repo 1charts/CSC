@@ -83,9 +83,9 @@ function createPage(file) {
     .header-row { 
       display: flex; 
       justify-content: space-between; 
-      align-items: flex-start; 
+      align-items: flex-start;        
       flex-shrink: 0; 
-      height: 230px; 
+      height: 230px;                  
       padding: 15px 10px; 
       position: relative; 
       z-index: 10;
@@ -95,7 +95,7 @@ function createPage(file) {
       flex: 1; 
       min-width: 0; 
       padding-left: 8px; 
-      padding-right: 90px; 
+      padding-right: 90px;            
     }
 
     .title { 
@@ -128,7 +128,7 @@ function createPage(file) {
     .actions { 
       position: absolute !important;
       right: 8px;
-      top: 15px; 
+      top: 15px;                      
       flex-direction: column; 
       gap: 6px; 
       align-items: flex-end;
@@ -169,6 +169,7 @@ function createPage(file) {
       fill: none; 
     }
 
+    /* ====================== IMMAGINE ATTACCATA A SINISTRA E IN BASSO (SOLO MOBILE) ====================== */
     #full-capture-area { 
       flex-grow: 1; 
       display: flex; 
@@ -184,9 +185,8 @@ function createPage(file) {
       width: 100%; 
       flex-grow: 1; 
       display: flex; 
-      flex-direction: column;           /* MODIFICATO: colonna per allineamento affidabile */
-      justify-content: flex-start; 
-      align-items: flex-start; 
+      justify-content: flex-start;   /* attaccata a sinistra */
+      align-items: flex-end;         /* attaccata in basso */
       min-height: 0; 
       padding: 0;
     }
@@ -195,9 +195,7 @@ function createPage(file) {
       width: 100%; 
       height: auto; 
       max-height: 100%; 
-      margin-top: auto;                 /* MODIFICATO: spinge l'immagine perfettamente in basso */
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0; 
       display: block;
       object-fit: contain; 
       image-rendering: crisp-edges; 
@@ -263,7 +261,7 @@ function createPage(file) {
         margin-bottom: 0px;    
         position: static;
         z-index: auto;
-        align-items: center;
+        align-items: center;    
       }
 
       .title { 
@@ -315,8 +313,7 @@ function createPage(file) {
       }
 
       .chart-container {
-        flex-direction: row;               /* ripristinato per desktop */
-        justify-content: center;
+        justify-content: center;      /* centrata su desktop (come prima) */
         align-items: flex-start;
         padding-bottom: 60px;
       }
@@ -324,7 +321,6 @@ function createPage(file) {
       .chart-container img {
         max-width: 90%;
         max-height: 100%;
-        margin-top: 0;
       }
     }
 
@@ -510,4 +506,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (immagine mobile attaccata perfettamente a sinistra + fondo - dimensione massima)");
+console.log("🎉 Pagine HTML generate con successo! (immagine attaccata a sinistra + basso SOLO su mobile)");
