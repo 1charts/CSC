@@ -45,7 +45,6 @@
       flex-direction: column; 
     }
 
-    /* ====================== MOBILE COMPACT ====================== */
     .header-row { 
       display: flex; 
       justify-content: space-between; 
@@ -272,14 +271,12 @@
       }
     }
 
-    /* Nascondi pulsanti su dispositivi touch piccoli */
     @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
       #prev-btn, #next-btn, .actions > div { 
         display: none !important; 
       }
     }
 
-    /* ====================== SOLO MOBILE ====================== */
     @media (max-width: 1279px) {
       #full-capture-area {
         padding-left: 0 !important;
@@ -450,48 +447,59 @@
       }
     };
 
-    /* ====================== SCREENSHOT FINALE (corretto) ====================== */
+    /* ====================== SCREENSHOT ROBUSTO (fix definitivo) ====================== */
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
-      const hiddenTitle = document.getElementById('ss-title-hidden');
-      const hiddenSubtitle = document.getElementById('ss-subtitle-hidden');
-      const hiddenImg = document.getElementById('ss-image-hidden');
-      const hiddenSource = document.getElementById('ss-source-hidden');
       const container = document.getElementById('screenshot-container');
+      const hiddenImg = document.getElementById('ss-image-hidden');
 
-      hiddenTitle.textContent = c.title;
-      hiddenSubtitle.textContent = 'commoditysupercycle.com';
+      document.getElementById('ss-title-hidden').textContent = c.title;
+      document.getElementById('ss-subtitle-hidden').textContent = 'commoditysupercycle.com';
       hiddenImg.src = 'charts/' + c.file;
 
+      const sourceHidden = document.getElementById('ss-source-hidden');
       if (validSources.length) {
-        hiddenSource.innerHTML = '<span class="source-label">Sources:</span> ' + validSources.map(s => s.text).join(' · ');
-        hiddenSource.style.display = 'block';
+        sourceHidden.innerHTML = '<span class="source-label">Sources:</span> ' + validSources.map(s => s.text).join(' · ');
+        sourceHidden.style.display = 'block';
       } else {
-        hiddenSource.style.display = 'none';
+        sourceHidden.style.display = 'none';
       }
 
-      const doCapture = () => {
-        html2canvas(container, { 
-          backgroundColor: "#1E1E1E", 
-          scale: 2, 
-          useCORS: true, 
-          logging: false 
-        }).then(canvas => {
-          const link = document.createElement('a');
-          link.download = c.name + '_CSC.png';
-          link.href = canvas.toDataURL('image/png');
-          link.click();
+      const preload = new Image();
+      preload.src = 'charts/' + c.file;
+
+      preload.onload = () => {
+        hiddenImg.src = preload.src;
+
+        // Doppio requestAnimationFrame per dare tempo al browser di renderizzare
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+
+            html2canvas(container, { 
+              backgroundColor: "#1E1E1E", 
+              scale: 2, 
+              useCORS: true, 
+              logging: false 
+            }).then(canvas => {
+              const dataUrl = canvas.toDataURL('image/png');
+
+              // Debug: se il dataURL è troppo corto → canvas vuoto
+              if (dataUrl.length < 1000) {
+                console.error('❌ Canvas vuoto o corrotto!');
+                alert('Errore: il canvas è vuoto. Prova ad aprire la pagina con un server locale (npx serve .)');
+                return;
+              }
+
+              const link = document.createElement('a');
+              link.download = c.name + '_CSC.png';
+              link.href = dataUrl;
+              link.click();
+            });
+          });
         });
       };
-
-      // Se l'immagine è già caricata (cache) la usiamo subito, altrimenti aspettiamo onload
-      if (hiddenImg.complete && hiddenImg.naturalWidth !== 0) {
-        doCapture();
-      } else {
-        hiddenImg.onload = doCapture;
-      }
     }
   </script>
 </body>
