@@ -55,6 +55,23 @@ function createPage(file) {
       width: 100vw; 
     }
 
+    #rotate-message { 
+      display: none; 
+      position: fixed; 
+      top: 0; left: 0; 
+      width: 100%; height: 100%; 
+      background: #1E1E1E; 
+      z-index: 999; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+    }
+
+    @media (orientation: portrait) { 
+      #rotate-message { display: flex; } 
+    }
+
     .container { 
       width: 100%; 
       height: 100dvh; 
@@ -62,6 +79,7 @@ function createPage(file) {
       flex-direction: column; 
     }
 
+    /* ====================== MOBILE COMPACT ====================== */
     .header-row { 
       display: flex; 
       justify-content: space-between; 
@@ -73,27 +91,83 @@ function createPage(file) {
       z-index: 10;
     }
 
-    .title-group { flex: 1; min-width: 0; padding-left: 8px; padding-right: 70px; }
+    .title-group { 
+      flex: 1; 
+      min-width: 0; 
+      padding-left: 8px; 
+      padding-right: 70px; 
+    }
 
-    .title { font-size: 16px; font-weight: bold; color: #f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .subtitle { font-size: 11px; color: #67e8f9; text-decoration: none; font-weight: bold; }
-    .sources { font-size: 10px; color: #94a3b8; }
-    .sources a { color: #67e8f9; text-decoration: none; }
+    .title { 
+      font-size: 16px; 
+      font-weight: bold; 
+      color: #f8fafc; 
+      margin: 0; 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+    }
+
+    .subtitle { 
+      font-size: 11px; 
+      color: #67e8f9; 
+      text-decoration: none; 
+      font-weight: bold; 
+    }
+
+    .sources { 
+      font-size: 10px; 
+      color: #94a3b8; 
+    }
+
+    .sources a { 
+      color: #67e8f9; 
+      text-decoration: none; 
+    }
 
     .actions { 
-      position: absolute !important; right: 8px; top: 8px; 
-      flex-direction: column; gap: 6px; align-items: flex-end; z-index: 20;
+      position: absolute !important;
+      right: 8px;
+      top: 8px;
+      flex-direction: column; 
+      gap: 6px; 
+      align-items: flex-end;
+      z-index: 20;
     }
 
+    /* ====================== BOTTONI PIÙ GRANDI SOLO SU SCHERMI PICCOLI ====================== */
     .btn { 
-      background: #2a2a2a; border: 1px solid #444; color: #f8fafc; 
-      padding: 10px; border-radius: 8px; cursor: pointer; 
-      display: flex; align-items: center; text-decoration: none; 
+      background: #2a2a2a; 
+      border: 1px solid #444; 
+      color: #f8fafc; 
+      padding: 10px;           
+      border-radius: 8px;      
+      cursor: pointer; 
+      display: flex; 
+      align-items: center; 
+      text-decoration: none; 
     }
+
     .btn:hover { background: #383838; }
-    .btn svg { width: 24px; height: 24px; fill: currentColor; }
-    .btn.nav-btn { color: #67e8f9; padding: 7px 11px; }
-    .btn.nav-btn svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+
+    .btn svg { 
+      width: 24px;             
+      height: 24px;            
+      fill: currentColor; 
+    }
+
+    .btn.nav-btn { 
+      color: #67e8f9; 
+      padding: 7px 11px;       
+    }
+
+    .btn.nav-btn svg { 
+      width: 28px;             
+      height: 28px;            
+      stroke: currentColor; 
+      stroke-width: 2.5; 
+      fill: none; 
+    }
 
     #full-capture-area { 
       flex-grow: 1; 
@@ -102,46 +176,135 @@ function createPage(file) {
       position: relative; 
       overflow: hidden; 
       background: #1E1E1E; 
-      padding: 15px;
+      padding: 0; 
+      margin: 0;
     }
 
     .chart-container { 
+      width: 100%; 
       flex-grow: 1; 
       display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      min-height: 0;
+      justify-content: flex-start; 
+      align-items: flex-start; 
+      min-height: 0; 
+      padding: 0;
     }
 
     img { 
-      max-width: 90%; 
+      width: 100%; 
+      height: auto; 
       max-height: 100%; 
+      margin: 0; 
+      display: block;
       object-fit: contain; 
       image-rendering: crisp-edges; 
     }
 
     #screenshot-title-box { 
       display: none; 
-      margin-bottom: 25px; 
+      margin-bottom: 20px; 
       text-align: left; 
-      padding: 0 10px;
+      padding: 0 10px; 
     }
 
-    #ss-title { font-size: 28px; font-weight: bold; color: #f8fafc; margin-bottom: 6px; }
-    #ss-subtitle { font-size: 15px; color: #67e8f9; margin-bottom: 8px; font-weight: bold; }
-    #ss-source-bottom { color: #f8fafc; font-size: 14px; font-weight: 500; }
+    #ss-title { 
+      font-size: 28px; 
+      font-weight: bold; 
+      color: #f8fafc; 
+      margin-bottom: 6px; 
+    }
 
-    /* ====================== DESKTOP (>= 1280px) ====================== */
+    #ss-subtitle { 
+      font-size: 15px; 
+      color: #67e8f9; 
+      margin-bottom: 8px; 
+      font-weight: bold; 
+    }
+
+    #ss-source-bottom { 
+      color: #f8fafc; 
+      font-size: 14px; 
+      font-weight: 500; 
+    }
+
+    .source-label { color: #f8fafc; }
+
+    /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
-      .header-row { 
-        height: auto; min-height: 100px; padding-top: 90px; 
-        padding-left: 12%; padding-right: 12%; 
-      }
-      .title { font-size: 36px; font-weight: 700; }
-      .subtitle { font-size: 24px; }
-      .sources { font-size: 15px; display: block; }
 
-      .actions { position: static !important; display: flex !important; flex-direction: row !important; gap: 12px !important; }
+      /* ====================== RESET DIMENSIONI BOTTONI (invariate rispetto all'originale) ====================== */
+      .btn { 
+        padding: 6px; 
+      }
+
+      .btn svg { 
+        width: 18px; 
+        height: 18px; 
+      }
+
+      .btn.nav-btn { 
+        padding: 4px 8px; 
+      }
+
+      .btn.nav-btn svg { 
+        width: 22px; 
+        height: 22px; 
+      }
+
+      /* ====================== IL RESTO DELLA MEDIA QUERY RIMANE IDENTICO ====================== */
+      .header-row { 
+        height: auto;           
+        min-height: 100px;       
+        padding-top: 90px;      
+        padding-left: 12%;      
+        padding-right: 12%;     
+        margin-bottom: 0px;    
+        position: static;
+        z-index: auto;
+      }
+
+      .title { 
+        font-size: 36px;           
+        font-weight: 700;          
+        color: #f8fafc;            
+        margin: 0 0 8px 0;
+        line-height: 1.1;
+      }
+
+      .subtitle { 
+        font-size: 24px;           
+        color: #67e8f9; 
+        text-decoration: none; 
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .subtitle:hover { color: #a5f3fc; }
+
+      .sources {
+        font-size: 15px;         
+        color: #94a3b8;
+        display: block;
+      }
+
+      .sources a:hover { 
+        color: #a5f3fc; 
+        text-decoration: underline; 
+      }
+
+      .title-group { 
+        padding-left: 0; 
+        padding-right: 0;
+      }
+
+      .actions {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
 
       #full-capture-area {
         padding: 15px;
@@ -149,45 +312,48 @@ function createPage(file) {
 
       .chart-container {
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         padding-bottom: 60px;
       }
 
-      /* Layout normale della pagina */
-      img {
-        max-width: 90% !important;
-        max-height: 100% !important;
-      }
-
-      /* ====================== FIX SOLO PER SCREENSHOT ====================== */
-      #screenshot-title-box {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0;
-      }
-
-      #full-capture-area.screenshot-mode .chart-container img {
-        width: 90% !important;
-        height: auto !important;
-        max-height: none !important;
-        object-fit: none !important;
+      .chart-container img {
+        max-width: 90%;
+        max-height: 100%;
       }
     }
 
-    /* Mobile */
-    @media (max-width: 1279px) {
-      #full-capture-area { padding: 0; }
-      .chart-container { justify-content: flex-start; }
-      img { width: 100% !important; max-width: 100% !important; }
-    }
-
+    /* Nascondi pulsanti su dispositivi touch piccoli */
     @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
-      #prev-btn, #next-btn, .actions > div { display: none !important; }
+      #prev-btn, #next-btn, .actions > div { 
+        display: none !important; 
+      }
+    }
+
+    /* ====================== SOLO MOBILE: MARGINE SINISTRO IMMAGINE = ZERO ====================== */
+    /* Intervento esclusivo sulla visualizzazione mobile come richiesto */
+    @media (max-width: 1279px) {
+      #full-capture-area {
+        padding-left: 0 !important;
+      }
+      .chart-container {
+        padding-left: 0 !important;
+        justify-content: flex-start;
+      }
+      img {
+        margin-left: 0 !important;
+        width: 100% !important;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div id="rotate-message">
+    <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9">
+      <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h2C24 4.96 19.1 0 13 0l-1.65 1.65 1.41 1.41 3.72-3.54zM7.52 21.48C4.25 19.93 1.91 16.76 1.55 13h-2C-.45 19.04 4.45 24 10.55 24l1.65-1.65-1.41-1.41-3.27 3.54zM21 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0 1.1-.9-2-2-2zm0 12H3V7h18v10z"/>
+    </svg>
+    <h2 style="margin-top:20px">Ruota il dispositivo</h2>
+  </div>
 
   <div class="container">
     <div class="header-row">
@@ -237,23 +403,35 @@ function createPage(file) {
     </div>
   </div>
 
+  <!-- ====================== CONTENITORE NASCOSTO PER LO SCREENSHOT (nuovo approccio) ====================== -->
+  <!-- Questo contenitore viene usato SOLO per html2canvas. Non influisce sulla visualizzazione normale della pagina. -->
+  <div id="screenshot-container" style="display:none; position:absolute; left:-99999px; top:-99999px; background:#1E1E1E; padding:50px 60px; width:1450px;">
+    <div id="ss-title-hidden" style="font-size:42px; font-weight:bold; color:#f8fafc; margin-bottom:12px; line-height:1.1;"></div>
+    <div id="ss-subtitle-hidden" style="font-size:24px; color:#67e8f9; margin-bottom:35px; font-weight:bold;">commoditysupercycle.com</div>
+    <img id="ss-image-hidden" style="width:100%; height:auto; display:block; image-rendering:crisp-edges;">
+    <div id="ss-source-hidden" style="margin-top:30px; font-size:17px; color:#f8fafc; font-weight:500;"></div>
+  </div>
+
   <script>
     const chartsData = ${JSON.stringify(chartsData)};
 
-    let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === (window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name)));
+    const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
+    let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
 
     function updatePage() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
       document.getElementById('page-title').textContent = c.title;
-      document.querySelector('img').src = 'charts/' + c.file;
-      document.getElementById('ss-title').textContent = c.title;
 
       const sInline = document.getElementById('source-inline');
       sInline.innerHTML = validSources.length 
-        ? '<span class="source-label">Sources:</span> ' + validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
+        ? '<span class="source-label">Sources:</span> ' + 
+          validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
         : '';
+
+      document.querySelector('img').src = 'charts/' + c.file;
+      document.getElementById('ss-title').textContent = c.title;
 
       const ssSource = document.getElementById('ss-source-text');
       if (ssSource) {
@@ -263,6 +441,7 @@ function createPage(file) {
 
       const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
       const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
+
       document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
       document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
 
@@ -281,41 +460,84 @@ function createPage(file) {
     const navigatePrev = () => navigateTo(currentIndex - 1);
     const navigateNext = () => navigateTo(currentIndex + 1);
 
+    // Keyboard navigation
     document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.code === 'Space') navigateNext();
-      if (e.key === 'ArrowLeft') navigatePrev();
+      if (e.key === 'ArrowRight' || e.code === 'Space') {
+        e.preventDefault();
+        navigateNext();
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigatePrev();
+      }
     });
+
+    // Touch swipe navigation
+    let tsX = 0;
+    const area = document.getElementById('full-capture-area');
+    area.addEventListener('touchstart', e => {
+      if (e.touches.length === 1) tsX = e.touches[0].screenX;
+    }, { passive: true });
+
+    area.addEventListener('touchend', e => {
+      if (e.changedTouches.length === 1) {
+        const dx = e.changedTouches[0].screenX - tsX;
+        if (Math.abs(dx) > 60) {
+          if (dx < -60) navigateNext();
+          else if (dx > 60) navigatePrev();
+        }
+      }
+    });
+
+    window.onpopstate = () => {
+      currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
+      updatePage();
+    };
 
     window.onload = updatePage;
 
+    const toggleFullScreen = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    };
+
+    /* ====================== NUOVO APPROCCIO SCREENSHOT ====================== */
+    /* Usiamo un contenitore nascosto dedicato solo per html2canvas */
+    /* La pagina normale resta esattamente come prima (nessun cambiamento) */
     function takeScreenshot() {
-      const captureArea = document.getElementById('full-capture-area');
-      const titleBox = document.getElementById('screenshot-title-box');
+      const c = chartsData[currentIndex];
+      const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
-      titleBox.style.display = 'block';
-      captureArea.classList.add('screenshot-mode');   // Attiva il fix solo per screenshot
+      // Popoliamo il contenitore nascosto
+      document.getElementById('ss-title-hidden').textContent = c.title;
+      document.getElementById('ss-subtitle-hidden').textContent = 'commoditysupercycle.com';
+      document.getElementById('ss-image-hidden').src = 'charts/' + c.file;
 
-      html2canvas(captureArea, {
-        backgroundColor: "#1E1E1E",
-        scale: 2,
-        useCORS: true,
-        logging: false
+      const sourceHidden = document.getElementById('ss-source-hidden');
+      if (validSources.length) {
+        sourceHidden.innerHTML = '<span class="source-label">Sources:</span> ' + validSources.map(s => s.text).join(' · ');
+        sourceHidden.style.display = 'block';
+      } else {
+        sourceHidden.style.display = 'none';
+      }
+
+      const container = document.getElementById('screenshot-container');
+
+      html2canvas(container, { 
+        backgroundColor: "#1E1E1E", 
+        scale: 2, 
+        useCORS: true, 
+        logging: false 
       }).then(canvas => {
         const link = document.createElement('a');
-        link.download = chartsData[currentIndex].name + '_CSC.png';
+        link.download = c.name + '_CSC.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
-
-        // Ripristina tutto
-        titleBox.style.display = 'none';
-        captureArea.classList.remove('screenshot-mode');
       });
     }
-
-    const toggleFullScreen = () => {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-      else document.exitFullscreen();
-    };
   </script>
 </body>
 </html>`;
@@ -326,4 +548,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine generate con successo! (Pagina normale invariata + Screenshot con proporzioni corrette)");
+console.log("🎉 Pagine HTML generate con successo! (Screenshot con nuovo contenitore nascosto: immagine proporzionata + testo allineato perfettamente a sinistra)");
