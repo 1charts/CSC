@@ -184,8 +184,9 @@ function createPage(file) {
       width: 100%; 
       flex-grow: 1; 
       display: flex; 
+      flex-direction: column;           /* MODIFICATO: colonna per allineamento affidabile */
       justify-content: flex-start; 
-      align-items: flex-end;        /* MODIFICATO: immagine attaccata in basso */
+      align-items: flex-start; 
       min-height: 0; 
       padding: 0;
     }
@@ -194,7 +195,9 @@ function createPage(file) {
       width: 100%; 
       height: auto; 
       max-height: 100%; 
-      margin: 0; 
+      margin-top: auto;                 /* MODIFICATO: spinge l'immagine perfettamente in basso */
+      margin-left: 0;
+      margin-right: 0;
       display: block;
       object-fit: contain; 
       image-rendering: crisp-edges; 
@@ -312,6 +315,7 @@ function createPage(file) {
       }
 
       .chart-container {
+        flex-direction: row;               /* ripristinato per desktop */
         justify-content: center;
         align-items: flex-start;
         padding-bottom: 60px;
@@ -320,6 +324,7 @@ function createPage(file) {
       .chart-container img {
         max-width: 90%;
         max-height: 100%;
+        margin-top: 0;
       }
     }
 
@@ -505,4 +510,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (immagine mobile attaccata a sinistra e fondo)");
+console.log("🎉 Pagine HTML generate con successo! (immagine mobile attaccata perfettamente a sinistra + fondo - dimensione massima)");
