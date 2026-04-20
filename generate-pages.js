@@ -140,8 +140,8 @@ function createPage(file) {
       background: #2a2a2a; 
       border: 1px solid #444; 
       color: #f8fafc; 
-      padding: 10px;           /* AUMENTATO da 6px */
-      border-radius: 8px;      /* AUMENTATO da 6px */
+      padding: 10px;           
+      border-radius: 8px;      
       cursor: pointer; 
       display: flex; 
       align-items: center; 
@@ -151,19 +151,19 @@ function createPage(file) {
     .btn:hover { background: #383838; }
 
     .btn svg { 
-      width: 24px;             /* AUMENTATO da 18px */
-      height: 24px;            /* AUMENTATO da 18px */
+      width: 24px;             
+      height: 24px;            
       fill: currentColor; 
     }
 
     .btn.nav-btn { 
       color: #67e8f9; 
-      padding: 7px 11px;       /* AUMENTATO da 4px 8px */
+      padding: 7px 11px;       
     }
 
     .btn.nav-btn svg { 
-      width: 28px;             /* AUMENTATO da 22px */
-      height: 28px;            /* AUMENTATO da 22px */
+      width: 28px;             
+      height: 28px;            
       stroke: currentColor; 
       stroke-width: 2.5; 
       fill: none; 
@@ -326,6 +326,22 @@ function createPage(file) {
     @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
       #prev-btn, #next-btn, .actions > div { 
         display: none !important; 
+      }
+    }
+
+    /* ====================== SOLO MOBILE: MARGINE SINISTRO IMMAGINE = ZERO ====================== */
+    /* Intervento esclusivo sulla visualizzazione mobile come richiesto */
+    @media (max-width: 1279px) {
+      #full-capture-area {
+        padding-left: 0 !important;
+      }
+      .chart-container {
+        padding-left: 0 !important;
+        justify-content: flex-start;
+      }
+      img {
+        margin-left: 0 !important;
+        width: 100% !important;
       }
     }
   </style>
@@ -506,4 +522,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (bottoni più grandi su mobile, invariati su desktop ≥1280px)");
+console.log("🎉 Pagine HTML generate con successo! (bottoni più grandi su mobile + margine sinistro immagine azzerato SOLO su mobile)");
