@@ -300,18 +300,22 @@ function createPage(file) {
         padding-bottom: 60px;
       }
 
+      /* ====================== FIX IMMAGINE SCREENSHOT - PROPORZIONI CORRETTE ====================== */
+      /* L'immagine del grafico ora mantiene esattamente le proporzioni originali */
+      /* (width: 90% + height: auto + object-fit: contain) */
       .chart-container img {
-        max-width: 90%;
+        width: 90% !important;      /* stessa larghezza del titolo */
+        height: auto !important;    /* altezza proporzionale */
         max-height: 100%;
+        object-fit: contain !important;
       }
 
-      /* ====================== FIX SCREENSHOT - TESTO ALLINEATO A SINISTRA DELL'IMMAGINE ====================== */
       #screenshot-title-box {
-        width: 90%;                    /* FORZA la stessa larghezza dell'immagine */
+        width: 90% !important;
         max-width: 90%;
         margin-left: auto;
         margin-right: auto;
-        padding: 0 !important;         /* nessun rientro a sinistra */
+        padding: 0 !important;
       }
     }
 
@@ -504,4 +508,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (screenshot: testo parte esattamente dal bordo SINISTRO dell'immagine)");
+console.log("🎉 Pagine HTML generate con successo! (screenshot: immagine grafico con proporzioni CORRETTE + testo allineato a sinistra)");
