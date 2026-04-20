@@ -135,7 +135,6 @@ function createPage(file) {
       z-index: 20;
     }
 
-    /* ====================== BOTTONI PIÙ GRANDI SOLO SU SCHERMI PICCOLI ====================== */
     .btn { 
       background: #2a2a2a; 
       border: 1px solid #444; 
@@ -232,26 +231,11 @@ function createPage(file) {
     /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
 
-      /* ====================== RESET DIMENSIONI BOTTONI (invariate rispetto all'originale) ====================== */
-      .btn { 
-        padding: 6px; 
-      }
+      .btn { padding: 6px; }
+      .btn svg { width: 18px; height: 18px; }
+      .btn.nav-btn { padding: 4px 8px; }
+      .btn.nav-btn svg { width: 22px; height: 22px; }
 
-      .btn svg { 
-        width: 18px; 
-        height: 18px; 
-      }
-
-      .btn.nav-btn { 
-        padding: 4px 8px; 
-      }
-
-      .btn.nav-btn svg { 
-        width: 22px; 
-        height: 22px; 
-      }
-
-      /* ====================== IL RESTO DELLA MEDIA QUERY RIMANE IDENTICO ====================== */
       .header-row { 
         height: auto;           
         min-height: 100px;       
@@ -329,8 +313,7 @@ function createPage(file) {
       }
     }
 
-    /* ====================== SOLO MOBILE: MARGINE SINISTRO IMMAGINE = ZERO ====================== */
-    /* Intervento esclusivo sulla visualizzazione mobile come richiesto */
+    /* ====================== SOLO MOBILE ====================== */
     @media (max-width: 1279px) {
       #full-capture-area {
         padding-left: 0 !important;
@@ -403,8 +386,7 @@ function createPage(file) {
     </div>
   </div>
 
-  <!-- ====================== CONTENITORE NASCOSTO PER LO SCREENSHOT (nuovo approccio) ====================== -->
-  <!-- Questo contenitore viene usato SOLO per html2canvas. Non influisce sulla visualizzazione normale della pagina. -->
+  <!-- ====================== CONTENITORE NASCOSTO SOLO PER SCREENSHOT ====================== -->
   <div id="screenshot-container" style="display:none; position:absolute; left:-99999px; top:-99999px; background:#1E1E1E; padding:50px 60px; width:1450px;">
     <div id="ss-title-hidden" style="font-size:42px; font-weight:bold; color:#f8fafc; margin-bottom:12px; line-height:1.1;"></div>
     <div id="ss-subtitle-hidden" style="font-size:24px; color:#67e8f9; margin-bottom:35px; font-weight:bold;">commoditysupercycle.com</div>
@@ -460,7 +442,6 @@ function createPage(file) {
     const navigatePrev = () => navigateTo(currentIndex - 1);
     const navigateNext = () => navigateTo(currentIndex + 1);
 
-    // Keyboard navigation
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight' || e.code === 'Space') {
         e.preventDefault();
@@ -472,7 +453,6 @@ function createPage(file) {
       }
     });
 
-    // Touch swipe navigation
     let tsX = 0;
     const area = document.getElementById('full-capture-area');
     area.addEventListener('touchstart', e => {
@@ -504,9 +484,7 @@ function createPage(file) {
       }
     };
 
-    /* ====================== NUOVO APPROCCIO SCREENSHOT ====================== */
-    /* Usiamo un contenitore nascosto dedicato solo per html2canvas */
-    /* La pagina normale resta esattamente come prima (nessun cambiamento) */
+    /* ====================== SCREENSHOT CON CONTENITORE NASCOSTO ====================== */
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
@@ -514,7 +492,8 @@ function createPage(file) {
       // Popoliamo il contenitore nascosto
       document.getElementById('ss-title-hidden').textContent = c.title;
       document.getElementById('ss-subtitle-hidden').textContent = 'commoditysupercycle.com';
-      document.getElementById('ss-image-hidden').src = 'charts/' + c.file;
+      const hiddenImg = document.getElementById('ss-image-hidden');
+      hiddenImg.src = 'charts/' + c.file;
 
       const sourceHidden = document.getElementById('ss-source-hidden');
       if (validSources.length) {
@@ -524,19 +503,22 @@ function createPage(file) {
         sourceHidden.style.display = 'none';
       }
 
-      const container = document.getElementById('screenshot-container');
+      // ASPETTIAMO che l'immagine sia completamente caricata prima di fare html2canvas
+      hiddenImg.onload = () => {
+        const container = document.getElementById('screenshot-container');
 
-      html2canvas(container, { 
-        backgroundColor: "#1E1E1E", 
-        scale: 2, 
-        useCORS: true, 
-        logging: false 
-      }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = c.name + '_CSC.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      });
+        html2canvas(container, { 
+          backgroundColor: "#1E1E1E", 
+          scale: 2, 
+          useCORS: true, 
+          logging: false 
+        }).then(canvas => {
+          const link = document.createElement('a');
+          link.download = c.name + '_CSC.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        });
+      };
     }
   </script>
 </body>
@@ -548,4 +530,4 @@ files.forEach((file) => {
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con successo! (Screenshot con nuovo contenitore nascosto: immagine proporzionata + testo allineato perfettamente a sinistra)");
+console.log("🎉 Pagine HTML generate con successo! (Screenshot con contenitore nascosto + attesa caricamento immagine)");
