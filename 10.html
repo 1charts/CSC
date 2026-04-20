@@ -6,8 +6,6 @@
   <title>O&G Drilling Contractors | CSC</title>
   <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
   <style>
     * { box-sizing: border-box; }
 
@@ -164,38 +162,7 @@
       image-rendering: crisp-edges; 
     }
 
-    #screenshot-title-box { 
-      display: none; 
-      margin-bottom: 20px; 
-      text-align: left; 
-      padding: 0 10px; 
-    }
-
-    #ss-title { 
-      font-size: 28px; 
-      font-weight: bold; 
-      color: #f8fafc; 
-      margin-bottom: 6px; 
-    }
-
-    #ss-subtitle { 
-      font-size: 15px; 
-      color: #67e8f9; 
-      margin-bottom: 8px; 
-      font-weight: bold; 
-    }
-
-    #ss-source-bottom { 
-      color: #f8fafc; 
-      font-size: 14px; 
-      font-weight: 500; 
-    }
-
-    .source-label { color: #f8fafc; }
-
-    /* ====================== LAPTOP / DESKTOP (>= 1280px) ====================== */
     @media (min-width: 1280px) {
-
       .btn { padding: 6px; }
       .btn svg { width: 18px; height: 18px; }
       .btn.nav-btn { padding: 4px 8px; }
@@ -223,23 +190,15 @@
       .subtitle { 
         font-size: 24px;           
         color: #67e8f9; 
-        text-decoration: none; 
         font-weight: 600;
         display: block;
         margin-bottom: 6px;
       }
 
-      .subtitle:hover { color: #a5f3fc; }
-
       .sources {
         font-size: 15px;         
         color: #94a3b8;
         display: block;
-      }
-
-      .sources a:hover { 
-        color: #a5f3fc; 
-        text-decoration: underline; 
       }
 
       .title-group { 
@@ -335,26 +294,10 @@
     </div>
 
     <div id="full-capture-area">
-      <div id="screenshot-title-box">
-        <div id="ss-title" style="font-size:28px; font-weight:bold; color:#f8fafc;">O&G Drilling Contractors</div>
-        <div id="ss-subtitle" style="font-size:15px; color:#67e8f9;">commoditysupercycle.com</div>
-        <div id="ss-source-bottom" style="display:none; margin-top:8px;">
-          <span class="source-label">Sources:</span> 
-          <span id="ss-source-text"></span>
-        </div>
-      </div>
       <div class="chart-container">
-        <img src="charts/10.png">
+        <img id="chart-image" src="charts/10.png">
       </div>
     </div>
-  </div>
-
-  <!-- ====================== CONTENITORE NASCOSTO PER SCREENSHOT ====================== -->
-  <div id="screenshot-container" style="display:none; position:absolute; left:-99999px; top:-99999px; background:#1E1E1E; padding:50px 60px; width:1450px;">
-    <div id="ss-title-hidden" style="font-size:42px; font-weight:bold; color:#f8fafc; margin-bottom:12px; line-height:1.1;"></div>
-    <div id="ss-subtitle-hidden" style="font-size:24px; color:#67e8f9; margin-bottom:35px; font-weight:bold;">commoditysupercycle.com</div>
-    <img id="ss-image-hidden" style="width:100%; height:auto; display:block; image-rendering:crisp-edges;">
-    <div id="ss-source-hidden" style="margin-top:30px; font-size:17px; color:#f8fafc; font-weight:500;"></div>
   </div>
 
   <script>
@@ -375,14 +318,7 @@
           validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
         : '';
 
-      document.querySelector('img').src = 'charts/' + c.file;
-      document.getElementById('ss-title').textContent = c.title;
-
-      const ssSource = document.getElementById('ss-source-text');
-      if (ssSource) {
-        ssSource.innerHTML = validSources.length ? validSources.map(s => s.text).join(' · ') : '';
-        document.getElementById('ss-source-bottom').style.display = validSources.length ? 'block' : 'none';
-      }
+      document.getElementById('chart-image').src = 'charts/' + c.file;
 
       const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
       const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
@@ -447,59 +383,81 @@
       }
     };
 
-    /* ====================== SCREENSHOT ROBUSTO (fix definitivo) ====================== */
+    /* ====================== SCREENSHOT CON CANVAS NATIVO (SUPER STABILE) ====================== */
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
-      const container = document.getElementById('screenshot-container');
-      const hiddenImg = document.getElementById('ss-image-hidden');
-
-      document.getElementById('ss-title-hidden').textContent = c.title;
-      document.getElementById('ss-subtitle-hidden').textContent = 'commoditysupercycle.com';
-      hiddenImg.src = 'charts/' + c.file;
-
-      const sourceHidden = document.getElementById('ss-source-hidden');
-      if (validSources.length) {
-        sourceHidden.innerHTML = '<span class="source-label">Sources:</span> ' + validSources.map(s => s.text).join(' · ');
-        sourceHidden.style.display = 'block';
-      } else {
-        sourceHidden.style.display = 'none';
-      }
-
+      const img = document.getElementById('chart-image');
+      
+      // Preload immagine per sicurezza
       const preload = new Image();
-      preload.src = 'charts/' + c.file;
+      preload.crossOrigin = "anonymous";
+      preload.src = img.src;
 
       preload.onload = () => {
-        hiddenImg.src = preload.src;
+        // Dimensioni canvas screenshot (alta risoluzione)
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const WIDTH = 1450;
+        const PADDING_X = 60;
+        const PADDING_TOP = 80;
+        const PADDING_BOTTOM = 100;
+        const TITLE_HEIGHT = 110;
+        const SUBTITLE_HEIGHT = 50;
+        const SOURCES_HEIGHT = validSources.length ? 60 : 0;
 
-        // Doppio requestAnimationFrame per dare tempo al browser di renderizzare
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
+        canvas.width = WIDTH;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + SOURCES_HEIGHT + PADDING_BOTTOM;
 
-            html2canvas(container, { 
-              backgroundColor: "#1E1E1E", 
-              scale: 2, 
-              useCORS: true, 
-              logging: false 
-            }).then(canvas => {
-              const dataUrl = canvas.toDataURL('image/png');
+        // Sfondo
+        ctx.fillStyle = '#1E1E1E';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-              // Debug: se il dataURL è troppo corto → canvas vuoto
-              if (dataUrl.length < 1000) {
-                console.error('❌ Canvas vuoto o corrotto!');
-                alert('Errore: il canvas è vuoto. Prova ad aprire la pagina con un server locale (npx serve .)');
-                return;
-              }
+        // Titolo
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '700 52px Segoe UI, Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 55);
 
-              const link = document.createElement('a');
-              link.download = c.name + '_CSC.png';
-              link.href = dataUrl;
-              link.click();
-            });
-          });
-        });
+        // Subtitle
+        ctx.fillStyle = '#67e8f9';
+        ctx.font = '600 32px Segoe UI, Arial';
+        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 35);
+
+        // Immagine del chart (centrata)
+        const imgX = PADDING_X;
+        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT;
+        const imgW = WIDTH - 2 * PADDING_X;
+        const imgH = preload.height * (imgW / preload.width);
+        
+        ctx.drawImage(preload, imgX, imgY, imgW, imgH);
+
+        // Sources (se presenti)
+        if (validSources.length) {
+          ctx.fillStyle = '#f8fafc';
+          ctx.font = '500 22px Segoe UI, Arial';
+          ctx.fillText('Sources:', PADDING_X, imgY + imgH + 55);
+
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = '500 22px Segoe UI, Arial';
+          const sourcesText = validSources.map(s => s.text).join(' · ');
+          ctx.fillText(sourcesText, PADDING_X + 100, imgY + imgH + 55);
+        }
+
+        // Download
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = c.name + '_CSC.png';
+        link.href = dataUrl;
+        link.click();
+
+        console.log('✅ Screenshot nativo generato con successo!');
       };
+
+      // Fallback se l'immagine non è ancora caricata
+      if (preload.complete) preload.onload();
     }
   </script>
 </body>
