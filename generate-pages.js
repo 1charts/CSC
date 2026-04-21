@@ -450,7 +450,7 @@ function createPage(file) {
 
         // Titolo
         ctx.fillStyle = '#f8fafc';
-        ctx.font = '700 52px Segoe UI, Arial';
+        ctx.font = '700 42px Segoe UI, Arial';
         ctx.textAlign = 'left';
         ctx.fillText(c.title, PADDING_X, PADDING_TOP + 55);
 
