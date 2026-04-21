@@ -37,8 +37,8 @@ function createPage(file) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>\${title} | CSC</title>
-  <link rel="icon" type="image/png" href="\${logoUrl}">
+  <title>${title} | CSC</title>
+  <link rel="icon" type="image/png" href="${logoUrl}">
 
   <style>
     * { box-sizing: border-box; }
@@ -297,7 +297,7 @@ function createPage(file) {
   <div class="container">
     <div class="header-row">
       <div class="title-group">
-        <div class="title" id="page-title">\${title}</div>
+        <div class="title" id="page-title">${title}</div>
         <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
         <span id="source-inline" class="sources"></span>
       </div>
@@ -329,13 +329,13 @@ function createPage(file) {
 
     <div id="full-capture-area">
       <div class="chart-container">
-        <img id="chart-image" src="charts/\${file}">
+        <img id="chart-image" src="charts/${file}">
       </div>
     </div>
   </div>
 
   <script>
-    const chartsData = \${JSON.stringify(chartsData)};
+    const chartsData = ${JSON.stringify(chartsData)};
 
     const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
     let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
@@ -443,7 +443,7 @@ function createPage(file) {
         const SOURCES_HEIGHT = validSources.length ? 60 : 0;
 
         canvas.width = WIDTH;
-        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + SOURCES_HEIGHT + PADDING_BOTTOM;
 
         // Sfondo
         ctx.fillStyle = '#1E1E1E';
@@ -460,25 +460,25 @@ function createPage(file) {
         ctx.font = '600 32px Segoe UI, Arial';
         ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 35);
 
-        // Sources (se presenti) - posizionate immediatamente sotto il sottotitolo
-        if (validSources.length) {
-          ctx.fillStyle = '#f8fafc';
-          ctx.font = '500 22px Segoe UI, Arial';
-          ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 35);
-
-          ctx.fillStyle = '#94a3b8';
-          ctx.font = '500 22px Segoe UI, Arial';
-          const sourcesText = validSources.map(s => s.text).join(' · ');
-          ctx.fillText(sourcesText, PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 35);
-        }
-
-        // Immagine del chart (spostata sotto Sources)
+        // Immagine del chart (centrata)
         const imgX = PADDING_X;
-        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT;
+        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT;
         const imgW = WIDTH - 2 * PADDING_X;
         const imgH = preload.height * (imgW / preload.width);
         
         ctx.drawImage(preload, imgX, imgY, imgW, imgH);
+
+        // Sources (se presenti)
+        if (validSources.length) {
+          ctx.fillStyle = '#f8fafc';
+          ctx.font = '500 22px Segoe UI, Arial';
+          ctx.fillText('Sources:', PADDING_X, imgY + imgH + 55);
+
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = '500 22px Segoe UI, Arial';
+          const sourcesText = validSources.map(s => s.text).join(' · ');
+          ctx.fillText(sourcesText, PADDING_X + 100, imgY + imgH + 55);
+        }
 
         // Download
         const dataUrl = canvas.toDataURL('image/png');

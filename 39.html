@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Molybdenum & Tungsten Companies | CSC</title>
-  <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
+  <title>${title} | CSC</title>
+  <link rel="icon" type="image/png" href="${logoUrl}">
 
   <style>
     * { box-sizing: border-box; }
@@ -263,7 +263,7 @@
   <div class="container">
     <div class="header-row">
       <div class="title-group">
-        <div class="title" id="page-title">Molybdenum & Tungsten Companies</div>
+        <div class="title" id="page-title">${title}</div>
         <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
         <span id="source-inline" class="sources"></span>
       </div>
@@ -295,13 +295,13 @@
 
     <div id="full-capture-area">
       <div class="chart-container">
-        <img id="chart-image" src="charts/39.png">
+        <img id="chart-image" src="charts/${file}">
       </div>
     </div>
   </div>
 
   <script>
-    const chartsData = [{"name":"01","file":"01.png","title":"O&G Upstream Companies Listed on NYSE","sources":[{"text":"WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"02","file":"02.png","title":"O&G Upstream Companies Listed on LSE","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"03","file":"03.png","title":"O&G Upstream Companies Listed on TSX","sources":[{"text":"WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"04","file":"04.png","title":"O&G Upstream Companies Listed on TSXV","sources":[{"text":"WTI Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"05","file":"05.png","title":"O&G Upstream Companies Listed on ASX","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"06","file":"06.png","title":"O&G Upstream Companies Listed Globally","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"07","file":"07.png","title":"O&G Midstream Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"08","file":"08.png","title":"O&G Downstream Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"RBOB Gasoline & Brent Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DGASUSG"},{"text":"","link":"#"}]},{"name":"09","file":"09.png","title":"O&G Equipment & Services Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"10","file":"10.png","title":"O&G Drilling Contractors","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"11","file":"11.png","title":"Tankers Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"12","file":"12.png","title":"LNG Companies","sources":[{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"13","file":"13.png","title":"O&G Royalties & Trusts","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"14","file":"14.png","title":"Biofuels & Biogas Companies","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"15","file":"15.png","title":"Total O&G Companies - Global","sources":[{"text":"Brent Oil Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas Prices (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}]},{"name":"16","file":"16.png","title":"Gold Companies Listed on NYSE","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"17","file":"17.png","title":"Gold Companies Listed on LSE","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"18","file":"18.png","title":"Gold Companies Listed on TSX","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"19","file":"19.png","title":"Gold Companies Listed on TSXV","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"20","file":"20.png","title":"Gold Companies Listed on ASX","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"21","file":"21.png","title":"Gold & Copper Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"22","file":"22.png","title":"Gold & Silver Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"23","file":"23.png","title":"Silver Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"24","file":"24.png","title":"PGM Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"25","file":"25.png","title":"Precious Metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"26","file":"26.png","title":"Aluminum Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"27","file":"27.png","title":"Copper Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"28","file":"28.png","title":"Lead & Zinc Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"29","file":"29.png","title":"Lithium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"30","file":"30.png","title":"Iron & Steel Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"31","file":"31.png","title":"Nickel Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"32","file":"32.png","title":"Rare Earths Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"33","file":"33.png","title":"Uranium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"34","file":"34.png","title":"Antimony Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"35","file":"35.png","title":"Beryllium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"36","file":"36.png","title":"Cobalt Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"37","file":"37.png","title":"Magnesium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"38","file":"38.png","title":"Manganese Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"39","file":"39.png","title":"Molybdenum & Tungsten Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"40","file":"40.png","title":"Niobium & Tantalum Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"41","file":"41.png","title":"Tin Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"42","file":"42.png","title":"Titanium & Zirconium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"43","file":"43.png","title":"Silicon Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"44","file":"44.png","title":"Vanadium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"45","file":"45.png","title":"Metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"46","file":"46.png","title":"Hydrogen Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"47","file":"47.png","title":"Helium Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"48","file":"48.png","title":"Graphite & Graphene Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"49","file":"49.png","title":"Diamonds & Gems Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"50","file":"50.png","title":"Coal Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"51","file":"51.png","title":"Industrial Minerals Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"52","file":"52.png","title":"Fertilizers & Salt Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"53","file":"53.png","title":"Diversified Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]},{"name":"54","file":"54.png","title":"Mining Equipment & Services Companies","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}]}];
+    const chartsData = ${JSON.stringify(chartsData)};
 
     const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
     let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
@@ -409,7 +409,7 @@
         const SOURCES_HEIGHT = validSources.length ? 60 : 0;
 
         canvas.width = WIDTH;
-        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + SOURCES_HEIGHT + PADDING_BOTTOM;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
 
         // Sfondo
         ctx.fillStyle = '#1E1E1E';
@@ -426,25 +426,25 @@
         ctx.font = '600 32px Segoe UI, Arial';
         ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 35);
 
-        // Immagine del chart (centrata)
-        const imgX = PADDING_X;
-        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT;
-        const imgW = WIDTH - 2 * PADDING_X;
-        const imgH = preload.height * (imgW / preload.width);
-        
-        ctx.drawImage(preload, imgX, imgY, imgW, imgH);
-
-        // Sources (se presenti)
+        // Sources (se presenti) - posizionate immediatamente sotto il sottotitolo
         if (validSources.length) {
           ctx.fillStyle = '#f8fafc';
           ctx.font = '500 22px Segoe UI, Arial';
-          ctx.fillText('Sources:', PADDING_X, imgY + imgH + 55);
+          ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 35);
 
           ctx.fillStyle = '#94a3b8';
           ctx.font = '500 22px Segoe UI, Arial';
           const sourcesText = validSources.map(s => s.text).join(' · ');
-          ctx.fillText(sourcesText, PADDING_X + 100, imgY + imgH + 55);
+          ctx.fillText(sourcesText, PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 35);
         }
+
+        // Immagine del chart (spostata sotto Sources)
+        const imgX = PADDING_X;
+        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT;
+        const imgW = WIDTH - 2 * PADDING_X;
+        const imgH = preload.height * (imgW / preload.width);
+        
+        ctx.drawImage(preload, imgX, imgY, imgW, imgH);
 
         // Download
         const dataUrl = canvas.toDataURL('image/png');
