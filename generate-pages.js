@@ -37,8 +37,8 @@ function createPage(file) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>\${title} | CSC</title>
-  <link rel="icon" type="image/png" href="\${logoUrl}">
+  <title>${title} | CSC</title>
+  <link rel="icon" type="image/png" href="${logoUrl}">
 
   <style>
     * { box-sizing: border-box; }
@@ -297,7 +297,7 @@ function createPage(file) {
   <div class="container">
     <div class="header-row">
       <div class="title-group">
-        <div class="title" id="page-title">\${title}</div>
+        <div class="title" id="page-title">${title}</div>
         <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
         <span id="source-inline" class="sources"></span>
       </div>
@@ -329,13 +329,13 @@ function createPage(file) {
 
     <div id="full-capture-area">
       <div class="chart-container">
-        <img id="chart-image" src="charts/\${file}">
+        <img id="chart-image" src="charts/${file}">
       </div>
     </div>
   </div>
 
   <script>
-    const chartsData = \${JSON.stringify(chartsData)};
+    const chartsData = ${JSON.stringify(chartsData)};
 
     const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
     let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
@@ -417,20 +417,18 @@ function createPage(file) {
       }
     };
 
-    /* ====================== SCREENSHOT CON CANVAS NATIVO (SUPER STABILE) ====================== */
+    /* ====================== SCREENSHOT CON CANVAS NATIVO ====================== */
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
 
       const img = document.getElementById('chart-image');
       
-      // Preload immagine per sicurezza
       const preload = new Image();
       preload.crossOrigin = "anonymous";
       preload.src = img.src;
 
       preload.onload = () => {
-        // Dimensioni canvas screenshot (alta risoluzione)
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         
@@ -443,7 +441,8 @@ function createPage(file) {
         const SOURCES_HEIGHT = validSources.length ? 60 : 0;
 
         canvas.width = WIDTH;
-        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + 
+                        preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
 
         // Sfondo
         ctx.fillStyle = '#1E1E1E';
@@ -460,7 +459,7 @@ function createPage(file) {
         ctx.font = '600 32px Segoe UI, Arial';
         ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 35);
 
-        // Sources (se presenti) - posizionate immediatamente sotto il sottotitolo
+        // Sources - subito sotto il sottotitolo
         if (validSources.length) {
           ctx.fillStyle = '#f8fafc';
           ctx.font = '500 22px Segoe UI, Arial';
@@ -472,7 +471,7 @@ function createPage(file) {
           ctx.fillText(sourcesText, PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 35);
         }
 
-        // Immagine del chart (spostata sotto Sources)
+        // Immagine del chart
         const imgX = PADDING_X;
         const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT;
         const imgW = WIDTH - 2 * PADDING_X;
@@ -487,10 +486,9 @@ function createPage(file) {
         link.href = dataUrl;
         link.click();
 
-        console.log('✅ Screenshot nativo generato con successo!');
+        console.log('✅ Screenshot generato con successo!');
       };
 
-      // Fallback se l'immagine non è ancora caricata
       if (preload.complete) preload.onload();
     }
   </script>
@@ -498,9 +496,10 @@ function createPage(file) {
 </html>`;
 }
 
+// Genera le pagine HTML
 files.forEach((file) => {
   const htmlContent = createPage(file);
   fs.writeFileSync(file.replace('.png', '') + '.html', htmlContent);
 });
 
-console.log("🎉 Pagine HTML generate con screenshot CANVAS NATIVO!");
+console.log("🎉 Pagine HTML regenerate correttamente!");
