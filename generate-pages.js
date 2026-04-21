@@ -452,7 +452,7 @@ function createPage(file) {
         ctx.fillStyle = '#f8fafc';
         ctx.font = '700 42px Segoe UI, Arial';
         ctx.textAlign = 'left';
-        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 55);
+        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 35);
 
         // Subtitle
         ctx.fillStyle = '#67e8f9';
