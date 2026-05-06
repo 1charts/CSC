@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Precious Metals | CSC</title>
   <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -15,101 +16,198 @@
       background: #1E1E1E; 
       font-family: 'Inter', sans-serif; 
       color: #e2e8f0; 
+      overflow: hidden; 
       height: 100dvh; 
       width: 100vw; 
-      overflow: hidden;
     }
 
     #rotate-message { 
       display: none; 
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-      background: #1E1E1E; z-index: 999; 
-      flex-direction: column; justify-content: center; align-items: center;
+      position: fixed; 
+      top: 0; left: 0; 
+      width: 100%; height: 100%; 
+      background: #1E1E1E; 
+      z-index: 999; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
     }
-    @media (orientation: portrait) { #rotate-message { display: flex; } }
 
-    .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
+    @media (orientation: portrait) { 
+      #rotate-message { display: flex; } 
+    }
 
-    /* ==================== FLOATING TITLE MOBILE ==================== */
-    #floating-title {
-      position: absolute;
-      top: 12px; left: 12px; right: 12px;
-      background: rgba(30, 30, 30, 0.95);
+    .container { 
+      width: 100%; 
+      height: 100dvh; 
+      display: flex; 
+      flex-direction: column; 
+    }
+
+    /* ==================== HEADER MOBILE ==================== */
+    .header-row { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      flex-shrink: 0; 
+      padding: 8px 10px; 
+      position: relative; 
+      z-index: 20;
+      background: #1E1E1E;
+    }
+
+    .title-box {
+      background: #2a2a2a;
       border: 1px solid #444;
-      border-radius: 12px;
-      padding: 12px 16px;
-      z-index: 100;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-      touch-action: none;
-      user-select: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      max-width: 75%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
-    #floating-title .title {
-      font-size: 17px;
-      font-weight: 700;
-      line-height: 1.3;
+
+    .title { 
+      font-size: 15px; 
+      font-weight: 700; 
+      color: #f8fafc; 
+      margin: 0; 
+      line-height: 1.2;
+    }
+
+    .subtitle, .sources {
+      display: none !important;
+    }
+
+    /* Bottoni sempre visibili a destra */
+    .actions { 
+      display: flex;
+      flex-direction: column; 
+      gap: 6px; 
+      align-items: flex-end;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      z-index: 30;
+    }
+
+    .btn { 
+      background: #2a2a2a; 
+      border: 1px solid #444; 
+      color: #f8fafc; 
+      padding: 9px;           
+      border-radius: 8px;      
+      cursor: pointer; 
+      display: flex; 
+      align-items: center; 
+    }
+
+    .btn:hover { background: #383838; }
+
+    .btn svg { 
+      width: 24px;             
+      height: 24px;            
+      fill: currentColor; 
+    }
+
+    .btn.nav-btn { 
+      color: #67e8f9; 
+      padding: 7px 10px;       
+    }
+
+    .btn.nav-btn svg { 
+      width: 26px;             
+      height: 26px;            
+      stroke: currentColor; 
+      stroke-width: 2.5; 
+      fill: none; 
+    }
+
+    /* ==================== AREA IMMAGINE ==================== */
+    #full-capture-area { 
+      flex-grow: 1; 
+      display: flex; 
+      flex-direction: column; 
+      position: relative; 
+      overflow: hidden; 
+      background: #1E1E1E; 
+      padding: 0; 
       margin: 0;
     }
 
-    .header-row { 
-      display: flex; justify-content: space-between; align-items: center; 
-      flex-shrink: 0; height: 55px; padding: 8px 10px; position: relative; z-index: 10;
-    }
-
-    .title-group { flex: 1; min-width: 0; padding-left: 8px; padding-right: 70px; }
-    .title { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-    .actions { position: absolute; right: 8px; top: 8px; z-index: 20; }
-
-    .btn { 
-      background: #2a2a2a; border: 1px solid #444; color: #f8fafc; 
-      padding: 10px; border-radius: 8px; cursor: pointer; 
-      display: flex; align-items: center; text-decoration: none;
-    }
-    .btn:hover { background: #383838; }
-    .btn svg { width: 24px; height: 24px; fill: currentColor; }
-
-    .btn.nav-btn { color: #67e8f9; padding: 7px 11px; }
-    .btn.nav-btn svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 2.5; fill: none; }
-
-    #full-capture-area { 
-      flex-grow: 1; 
-      position: relative; 
-      overflow: auto; 
-      -webkit-overflow-scrolling: touch;
-    }
-
     .chart-container { 
-      width: 100%; 
-      min-height: 100%; 
+      flex-grow: 1; 
       display: flex; 
       justify-content: center; 
       align-items: center; 
-      margin-top: 75px;
+      padding: 0;
+      margin-top: 0;
     }
 
-    #chart-image { 
-      width: 100% !important;
-      height: auto !important;
-      max-width: 100%;
-      object-fit: contain;
-      image-rendering: crisp-edges;
+    img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; 
+      image-rendering: crisp-edges; 
+      margin: 0;
     }
 
     /* ==================== DESKTOP ==================== */
     @media (min-width: 1280px) {
-      #floating-title { display: none !important; }
-      .header-row { 
-        height: auto; min-height: 100px; padding: 90px 12% 20px 12%; 
+      .title-box {
+        background: transparent;
+        border: none;
+        padding: 0;
+        max-width: none;
+        box-shadow: none;
       }
-      .title { font-size: 36px; }
-      .chart-container { margin-top: 0; padding: 15px; }
-      #chart-image { max-width: 90%; }
+
+      .subtitle, .sources {
+        display: block !important;
+      }
+
+      .title { 
+        font-size: 36px;           
+        font-weight: 700;          
+        color: #f8fafc;            
+        margin: 0 0 8px 0;
+      }
+
+      .header-row { 
+        height: auto;           
+        min-height: 100px;       
+        padding-top: 90px;      
+        padding-left: 12%;      
+        padding-right: 12%;     
+        margin-bottom: 0px;    
+        position: static;
+        background: transparent;
+      }
+
+      .actions {
+        position: static !important;
+        flex-direction: row !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+
+      #full-capture-area {
+        padding: 15px;
+      }
+
+      .chart-container {
+        padding-bottom: 60px;
+      }
+
+      .chart-container img {
+        max-width: 90%;
+        max-height: 100%;
+      }
     }
 
-    /* ==================== MOBILE ==================== */
-    @media (max-width: 1279px) {
-      .header-row { display: none !important; }
-      .chart-container { margin-top: 75px; padding: 0; }
+    @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
+      #prev-btn, #next-btn { 
+        display: none !important; 
+      }
     }
   </style>
 </head>
@@ -123,11 +221,11 @@
   </div>
 
   <div class="container">
-    <!-- Header Desktop -->
     <div class="header-row">
-      <div class="title-group">
-        <div class="title" id="page-title-desktop">Precious Metals</div>
+      <div class="title-box">
+        <div class="title" id="page-title">Precious Metals</div>
       </div>
+
       <div class="actions">
         <button class="btn" onclick="toggleFullScreen()">
           <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
@@ -153,11 +251,6 @@
       </div>
     </div>
 
-    <!-- Floating Title Mobile -->
-    <div id="floating-title">
-      <div class="title" id="page-title">Precious Metals</div>
-    </div>
-
     <div id="full-capture-area">
       <div class="chart-container">
         <img id="chart-image" src="charts/25.png">
@@ -174,8 +267,6 @@
     function updatePage() {
       const c = chartsData[currentIndex];
       document.getElementById('page-title').textContent = c.title;
-      if (document.getElementById('page-title-desktop')) document.getElementById('page-title-desktop').textContent = c.title;
-
       document.getElementById('chart-image').src = 'charts/' + c.file;
 
       const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
@@ -199,7 +290,6 @@
     const navigatePrev = () => navigateTo(currentIndex - 1);
     const navigateNext = () => navigateTo(currentIndex + 1);
 
-    // Swipe + Keyboard
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight' || e.code === 'Space') { e.preventDefault(); navigateNext(); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
@@ -221,53 +311,26 @@
       }
     });
 
-    // Drag floating title
-    function makeDraggable(el) {
-      let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-      el.addEventListener('touchstart', dragStart, { passive: false });
-      el.addEventListener('mousedown', dragStart);
-
-      function dragStart(e) {
-        pos3 = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
-        pos4 = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
-        document.addEventListener('touchmove', dragMove, { passive: false });
-        document.addEventListener('mousemove', dragMove);
-        document.addEventListener('touchend', dragEnd);
-        document.addEventListener('mouseup', dragEnd);
-      }
-
-      function dragMove(e) {
-        e.preventDefault();
-        const cx = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
-        const cy = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
-        pos1 = pos3 - cx;
-        pos2 = pos4 - cy;
-        pos3 = cx;
-        pos4 = cy;
-        el.style.top = (el.offsetTop - pos2) + "px";
-        el.style.left = (el.offsetLeft - pos1) + "px";
-        el.style.right = "auto";
-      }
-
-      function dragEnd() {
-        document.removeEventListener('touchmove', dragMove);
-        document.removeEventListener('mousemove', dragMove);
-      }
-    }
-
-    window.onload = () => {
+    window.onpopstate = () => {
+      currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
       updatePage();
-      makeDraggable(document.getElementById('floating-title'));
     };
 
+    window.onload = updatePage;
+
     const toggleFullScreen = () => {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-      else document.exitFullscreen();
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
     };
 
     function takeScreenshot() {
       const c = chartsData[currentIndex];
+      const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
       const img = document.getElementById('chart-image');
+      
       const preload = new Image();
       preload.crossOrigin = "anonymous";
       preload.src = img.src;
@@ -275,34 +338,52 @@
       preload.onload = () => {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
+        
         const WIDTH = 1450;
         const PADDING_X = 60;
         const PADDING_TOP = 80;
         const PADDING_BOTTOM = 100;
+        const TITLE_HEIGHT = 85;
+        const SUBTITLE_HEIGHT = 45;
+        const SOURCES_HEIGHT = validSources.length ? 55 : 0;
 
         canvas.width = WIDTH;
-        canvas.height = PADDING_TOP + 130 + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + 
+                        preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
 
         ctx.fillStyle = '#1E1E1E';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = '#f8fafc';
         ctx.font = '700 42px Inter';
+        ctx.textAlign = 'left';
         ctx.fillText(c.title, PADDING_X, PADDING_TOP + 52);
 
         ctx.fillStyle = '#67e8f9';
         ctx.font = '600 32px Inter';
-        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + 100);
+        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 28);
+
+        if (validSources.length) {
+          ctx.fillStyle = '#f8fafc';
+          ctx.font = '500 22px Inter';
+          ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = '500 22px Inter';
+          ctx.fillText(validSources.map(s => s.text).join(' · '), PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+        }
 
         const imgX = PADDING_X;
-        const imgY = PADDING_TOP + 150;
+        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT;
         const imgW = WIDTH - 2 * PADDING_X;
         const imgH = preload.height * (imgW / preload.width);
+        
         ctx.drawImage(preload, imgX, imgY, imgW, imgH);
 
+        const dataUrl = canvas.toDataURL('image/png');
         const link = document.createElement('a');
         link.download = c.name + '_CSC.png';
-        link.href = canvas.toDataURL('image/png');
+        link.href = dataUrl;
         link.click();
       };
     }
