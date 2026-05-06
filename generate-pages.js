@@ -77,18 +77,23 @@ function createPage(file) {
       height: 100dvh; 
       display: flex; 
       flex-direction: column; 
+      position: relative; 
     }
 
-    /* ==================== HEADER MOBILE ==================== */
+    /* ==================== HEADER MOBILE (SOVRAPPOSIZIONE) ==================== */
     .header-row { 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
       flex-shrink: 0; 
       padding: 8px 10px; 
-      position: relative; 
-      z-index: 20;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
       background: #1E1E1E;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
     .title-box {
@@ -96,8 +101,9 @@ function createPage(file) {
       border: 1px solid #444;
       border-radius: 8px;
       padding: 10px 14px;
-      max-width: 75%;
+      max-width: 70%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      flex-shrink: 1;
     }
 
     .title { 
@@ -106,13 +112,16 @@ function createPage(file) {
       color: #f8fafc; 
       margin: 0; 
       line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .subtitle, .sources {
       display: none !important;
     }
 
-    /* Bottoni sempre visibili a destra */
+    /* Bottoni sempre visibili a destra (sovrapposti all'immagine) */
     .actions { 
       display: flex;
       flex-direction: column; 
@@ -121,7 +130,7 @@ function createPage(file) {
       position: absolute;
       right: 8px;
       top: 8px;
-      z-index: 30;
+      z-index: 40;
     }
 
     .btn { 
@@ -156,7 +165,7 @@ function createPage(file) {
       fill: none; 
     }
 
-    /* ==================== AREA IMMAGINE ==================== */
+    /* ==================== AREA IMMAGINE (a tutto schermo, tocca il margine superiore) ==================== */
     #full-capture-area { 
       flex-grow: 1; 
       display: flex; 
@@ -166,6 +175,7 @@ function createPage(file) {
       background: #1E1E1E; 
       padding: 0; 
       margin: 0;
+      height: 100%;
     }
 
     .chart-container { 
@@ -175,6 +185,8 @@ function createPage(file) {
       align-items: center; 
       padding: 0;
       margin-top: 0;
+      width: 100%;
+      height: 100%;
     }
 
     img { 
@@ -183,10 +195,23 @@ function createPage(file) {
       object-fit: contain; 
       image-rendering: crisp-edges; 
       margin: 0;
+      display: block;
     }
 
-    /* ==================== DESKTOP ==================== */
+    /* ==================== DESKTOP (lasciato identico a prima) ==================== */
     @media (min-width: 1280px) {
+      .header-row {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        height: auto;           
+        min-height: 100px;       
+        padding-top: 90px;      
+        padding-left: 12%;      
+        padding-right: 12%;     
+        margin-bottom: 0px;    
+      }
+
       .title-box {
         background: transparent;
         border: none;
@@ -204,17 +229,6 @@ function createPage(file) {
         font-weight: 700;          
         color: #f8fafc;            
         margin: 0 0 8px 0;
-      }
-
-      .header-row { 
-        height: auto;           
-        min-height: 100px;       
-        padding-top: 90px;      
-        padding-left: 12%;      
-        padding-right: 12%;     
-        margin-bottom: 0px;    
-        position: static;
-        background: transparent;
       }
 
       .actions {
