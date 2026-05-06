@@ -80,7 +80,7 @@ function createPage(file) {
       position: relative; 
     }
 
-    /* ==================== HEADER MOBILE (SOVRAPPOSIZIONE) ==================== */
+    /* ==================== HEADER MOBILE (sovrapposto, trasparente, titolo sopra l'immagine) ==================== */
     .header-row { 
       display: flex; 
       justify-content: space-between; 
@@ -92,8 +92,8 @@ function createPage(file) {
       left: 0;
       width: 100%;
       z-index: 30;
-      background: #1E1E1E;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      background: transparent;   /* trasparente → immagine tocca il margine superiore */
+      pointer-events: none;      /* permette click sull'immagine sotto */
     }
 
     .title-box {
@@ -101,8 +101,9 @@ function createPage(file) {
       border: 1px solid #444;
       border-radius: 8px;
       padding: 10px 14px;
-      max-width: 70%;
+      max-width: 68%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      pointer-events: auto;      /* solo la box è cliccabile */
       flex-shrink: 1;
     }
 
@@ -121,7 +122,7 @@ function createPage(file) {
       display: none !important;
     }
 
-    /* Bottoni sempre visibili a destra (sovrapposti all'immagine) */
+    /* Bottoni a destra (sovrapposti, sempre visibili) */
     .actions { 
       display: flex;
       flex-direction: column; 
@@ -131,6 +132,7 @@ function createPage(file) {
       right: 8px;
       top: 8px;
       z-index: 40;
+      pointer-events: auto;
     }
 
     .btn { 
@@ -198,7 +200,7 @@ function createPage(file) {
       display: block;
     }
 
-    /* ==================== DESKTOP (lasciato identico a prima) ==================== */
+    /* ==================== DESKTOP (identico a prima) ==================== */
     @media (min-width: 1280px) {
       .header-row {
         position: static;
