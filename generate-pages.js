@@ -80,10 +80,10 @@ function createPage(file) {
       position: relative; 
     }
 
-    /* ==================== HEADER MOBILE (sovrapposto, trasparente, titolo sopra l'immagine) ==================== */
+    /* ==================== HEADER MOBILE (trasparente, solo per i bottoni) ==================== */
     .header-row { 
       display: flex; 
-      justify-content: space-between; 
+      justify-content: flex-end; 
       align-items: center; 
       flex-shrink: 0; 
       padding: 8px 10px; 
@@ -92,10 +92,11 @@ function createPage(file) {
       left: 0;
       width: 100%;
       z-index: 30;
-      background: transparent;   /* trasparente → immagine tocca il margine superiore */
-      pointer-events: none;      /* permette click sull'immagine sotto */
+      background: transparent;
+      pointer-events: none;
     }
 
+    /* ==================== TITLE BOX DRAGABLE (mobile) ==================== */
     .title-box {
       background: #2a2a2a;
       border: 1px solid #444;
@@ -103,8 +104,9 @@ function createPage(file) {
       padding: 10px 14px;
       max-width: 68%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      pointer-events: auto;      /* solo la box è cliccabile */
-      flex-shrink: 1;
+      pointer-events: auto;
+      cursor: grab;
+      user-select: none;
     }
 
     .title { 
@@ -122,7 +124,7 @@ function createPage(file) {
       display: none !important;
     }
 
-    /* Bottoni a destra (sovrapposti, sempre visibili) */
+    /* Bottoni a destra */
     .actions { 
       display: flex;
       flex-direction: column; 
@@ -167,7 +169,7 @@ function createPage(file) {
       fill: none; 
     }
 
-    /* ==================== AREA IMMAGINE (a tutto schermo, tocca il margine superiore) ==================== */
+    /* ==================== AREA IMMAGINE (tutto schermo) ==================== */
     #full-capture-area { 
       flex-grow: 1; 
       display: flex; 
@@ -200,7 +202,7 @@ function createPage(file) {
       display: block;
     }
 
-    /* ==================== DESKTOP (identico a prima) ==================== */
+    /* ==================== DESKTOP ==================== */
     @media (min-width: 1280px) {
       .header-row {
         position: static;
@@ -212,14 +214,18 @@ function createPage(file) {
         padding-left: 12%;      
         padding-right: 12%;     
         margin-bottom: 0px;    
+        justify-content: space-between;
+        pointer-events: auto;
       }
 
       .title-box {
+        position: static;
         background: transparent;
         border: none;
         padding: 0;
         max-width: none;
         box-shadow: none;
+        cursor: default;
       }
 
       .subtitle, .sources {
@@ -251,6 +257,15 @@ function createPage(file) {
       .chart-container img {
         max-width: 90%;
         max-height: 100%;
+      }
+    }
+
+    @media (max-width: 1279px) {
+      .title-box {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 50;
       }
     }
 
@@ -328,6 +343,9 @@ function createPage(file) {
       document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
       document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
       document.title = c.title + ' | CSC';
+
+      // Ri-applica il drag ogni volta che cambia pagina
+      makeTitleDraggable();
     }
 
     function navigateTo(idx) {
@@ -366,7 +384,65 @@ function createPage(file) {
       updatePage();
     };
 
-    window.onload = updatePage;
+    /* ==================== DRAG DEL TITOLO (solo su smartphone) ==================== */
+    function makeTitleDraggable() {
+      const titleBox = document.querySelector('.title-box');
+      if (!titleBox) return;
+
+      // Solo su mobile
+      if (window.innerWidth >= 1280) return;
+
+      let isDragging = false;
+      let startX, startY, initialLeft, initialTop;
+
+      // Assicurati che sia absolute e pronto al drag
+      titleBox.style.position = 'absolute';
+      titleBox.style.zIndex = '50';
+      titleBox.style.cursor = 'grab';
+
+      titleBox.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        const rect = titleBox.getBoundingClientRect();
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        initialLeft = rect.left;
+        initialTop = rect.top;
+        titleBox.style.transition = 'none';
+        titleBox.style.cursor = 'grabbing';
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+
+        let newLeft = initialLeft + dx;
+        let newTop = initialTop + dy;
+
+        // Limiti schermo
+        const maxLeft = window.innerWidth - titleBox.offsetWidth - 10;
+        const maxTop = window.innerHeight - titleBox.offsetHeight - 10;
+
+        newLeft = Math.max(10, Math.min(newLeft, maxLeft));
+        newTop = Math.max(10, Math.min(newTop, maxTop));
+
+        titleBox.style.left = newLeft + 'px';
+        titleBox.style.top = newTop + 'px';
+      }, { passive: true });
+
+      document.addEventListener('touchend', () => {
+        if (isDragging) {
+          isDragging = false;
+          titleBox.style.cursor = 'grab';
+          titleBox.style.transition = 'left 0.15s ease, top 0.15s ease';
+        }
+      });
+    }
+
+    window.onload = () => {
+      updatePage();
+    };
 
     const toggleFullScreen = () => {
       if (!document.fullscreenElement) {
