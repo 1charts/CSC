@@ -1,19 +1,64 @@
 {
-  "01": { "title": "O&G Upstream Companies Listed on NYSE", "sources": [{ "text": "WTI Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "02": { "title": "O&G Upstream Companies Listed on LSE", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "03": { "title": "O&G Upstream Companies Listed on TSX", "sources": [{ "text": "WTI Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "04": { "title": "O&G Upstream Companies Listed on TSXV", "sources": [{ "text": "WTI Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "05": { "title": "O&G Upstream Companies Listed on ASX", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "06": { "title": "O&G Upstream Companies Listed Globally", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "07": { "title": "O&G Midstream Companies", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "08": { "title": "O&G Downstream Companies", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "RBOB Gasoline & Brent Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DGASUSG" }, { "text": "", "link": "#" }] },
-  "09": { "title": "O&G Equipment & Services Companies", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "10": { "title": "O&G Drilling Contractors", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "11": { "title": "Tankers Companies", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "12": { "title": "LNG Companies", "sources": [{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "13": { "title": "O&G Royalties & Trusts", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "14": { "title": "Biofuels & Biogas Companies", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
-  "15": { "title": "Total O&G Companies - Global", "sources": [{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, { "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, { "text": "", "link": "#" }] },
+  "01": { "title": "O&G Upstream Companies Listed on NYSE", "sources": 
+[{ "text": "WTI Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "02": { "title": "O&G Upstream Companies Listed on LSE", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "03": { "title": "O&G Upstream Companies Listed on TSX", "sources": 
+[{ "text": "WTI Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "04": { "title": "O&G Upstream Companies Listed on TSXV", "sources": 
+[{ "text": "WTI Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "05": { "title": "O&G Upstream Companies Listed on ASX", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "06": { "title": "O&G Upstream Companies Listed Globally", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "07": { "title": "O&G Midstream Companies", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "08": { "title": "O&G Downstream Companies", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "RBOB Gasoline & Brent Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DGASUSG" }, 
+{ "text": "", "link": "#" }] },
+  "09": { "title": "O&G Equipment & Services Companies", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "10": { "title": "O&G Drilling Contractors", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "11": { "title": "Tankers Companies", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "", "link": "#" }, 
+{ "text": "", "link": "#" }] },
+  "12": { "title": "LNG Companies", "sources": 
+[{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }, 
+{ "text": "", "link": "#" }] },
+  "13": { "title": "O&G Royalties & Trusts", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "14": { "title": "Biofuels & Biogas Companies", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
+  "15": { "title": "Total O&G Companies - Global", "sources": 
+[{ "text": "Brent Oil Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
+{ "text": "Henry Hub Natural Gas Prices (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
+{ "text": "", "link": "#" }] },
   "16": { "title": "Gold Companies Listed on NYSE", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "17": { "title": "Gold Companies Listed on LSE", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "18": { "title": "Gold Companies Listed on TSX", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
@@ -44,14 +89,14 @@
   "43": { "title": "Silicon Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "44": { "title": "Vanadium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "45": { "title": "Metals", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "46": { "title": "Hydrogen Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "47": { "title": "Helium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "48": { "title": "Graphite & Graphene Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "49": { "title": "Diamonds & Gems Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "50": { "title": "Coal Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "51": { "title": "Industrial Minerals Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "46": { "title": "Diversified Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "47": { "title": "Hydrogen Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "48": { "title": "Helium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "49": { "title": "Coal Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "50": { "title": "Graphite & Graphene Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "51": { "title": "Diamonds & Gems Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "52": { "title": "Fertilizers & Salt Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "53": { "title": "Diversified Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "53": { "title": "Industrial Minerals Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "54": { "title": "Mining Equipment & Services Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] }
-}
+} 
 
