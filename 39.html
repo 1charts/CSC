@@ -6,13 +6,16 @@
   <title>Molybdenum & Tungsten Companies | CSC</title>
   <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; }
 
     body { 
       margin: 0; 
       background: #1E1E1E; 
-      font-family: 'Segoe UI', Arial, sans-serif; 
+      font-family: 'Inter', sans-serif; 
       color: #e2e8f0; 
       overflow: hidden; 
       height: 100dvh; 
@@ -63,7 +66,7 @@
 
     .title { 
       font-size: 16px; 
-      font-weight: bold; 
+      font-weight: 700; 
       color: #f8fafc; 
       margin: 0; 
       white-space: nowrap; 
@@ -75,7 +78,7 @@
       font-size: 11px; 
       color: #67e8f9; 
       text-decoration: none; 
-      font-weight: bold; 
+      font-weight: 600; 
     }
 
     .sources { 
@@ -402,8 +405,8 @@
         const PADDING_X = 60;
         const PADDING_TOP = 80;
         const PADDING_BOTTOM = 100;
-        const TITLE_HEIGHT = 85;           // ridotto
-        const SUBTITLE_HEIGHT = 45;        // ridotto
+        const TITLE_HEIGHT = 85;
+        const SUBTITLE_HEIGHT = 45;
         const SOURCES_HEIGHT = validSources.length ? 55 : 0;
 
         canvas.width = WIDTH;
@@ -416,23 +419,23 @@
 
         // Titolo
         ctx.fillStyle = '#f8fafc';
-        ctx.font = '700 42px Segoe UI, Arial';
+        ctx.font = '700 42px Inter';
         ctx.textAlign = 'left';
         ctx.fillText(c.title, PADDING_X, PADDING_TOP + 52);
 
         // Subtitle
         ctx.fillStyle = '#67e8f9';
-        ctx.font = '600 32px Segoe UI, Arial';
+        ctx.font = '600 32px Inter';
         ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 28);
 
         // Sources
         if (validSources.length) {
           ctx.fillStyle = '#f8fafc';
-          ctx.font = '500 22px Segoe UI, Arial';
+          ctx.font = '500 22px Inter';
           ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
 
           ctx.fillStyle = '#94a3b8';
-          ctx.font = '500 22px Segoe UI, Arial';
+          ctx.font = '500 22px Inter';
           const sourcesText = validSources.map(s => s.text).join(' · ');
           ctx.fillText(sourcesText, PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
         }
