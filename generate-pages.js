@@ -54,14 +54,15 @@ function createPage(file) {
 
     #rotate-message { 
       display: none; 
-      position: fixed; top: 0; left: 0; 
-      width: 100%; height: 100%; 
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
       background: #1E1E1E; z-index: 999; 
       flex-direction: column; justify-content: center; align-items: center;
     }
     @media (orientation: portrait) { #rotate-message { display: flex; } }
 
-    /* ==================== FLOATING TITLE (MOBILE) ==================== */
+    .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
+
+    /* ==================== FLOATING TITLE MOBILE ==================== */
     #floating-title {
       position: absolute;
       top: 12px; left: 12px; right: 12px;
@@ -81,18 +82,26 @@ function createPage(file) {
       margin: 0;
     }
 
-    .container { width: 100%; height: 100dvh; display: flex; flex-direction: column; }
-
-    .header-row { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; height: 55px; padding: 8px 10px; position: relative; z-index: 10; }
+    .header-row { 
+      display: flex; justify-content: space-between; align-items: center; 
+      flex-shrink: 0; height: 55px; padding: 8px 10px; position: relative; z-index: 10;
+    }
 
     .title-group { flex: 1; min-width: 0; padding-left: 8px; padding-right: 70px; }
     .title { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .actions { position: absolute; right: 8px; top: 8px; z-index: 20; }
 
-    .btn { background: #2a2a2a; border: 1px solid #444; color: #f8fafc; padding: 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; text-decoration: none; }
+    .btn { 
+      background: #2a2a2a; border: 1px solid #444; color: #f8fafc; 
+      padding: 10px; border-radius: 8px; cursor: pointer; 
+      display: flex; align-items: center; text-decoration: none;
+    }
     .btn:hover { background: #383838; }
     .btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+    .btn.nav-btn { color: #67e8f9; padding: 7px 11px; }
+    .btn.nav-btn svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 2.5; fill: none; }
 
     #full-capture-area { 
       flex-grow: 1; 
@@ -107,7 +116,6 @@ function createPage(file) {
       display: flex; 
       justify-content: center; 
       align-items: center; 
-      padding: 0;
       margin-top: 75px;
     }
 
@@ -122,12 +130,15 @@ function createPage(file) {
     /* ==================== DESKTOP ==================== */
     @media (min-width: 1280px) {
       #floating-title { display: none !important; }
-      .header-row { height: auto; min-height: 100px; padding: 90px 12% 20px 12%; }
+      .header-row { 
+        height: auto; min-height: 100px; padding: 90px 12% 20px 12%; 
+      }
       .title { font-size: 36px; }
       .chart-container { margin-top: 0; padding: 15px; }
       #chart-image { max-width: 90%; }
     }
 
+    /* ==================== MOBILE ==================== */
     @media (max-width: 1279px) {
       .header-row { display: none !important; }
       .chart-container { margin-top: 75px; padding: 0; }
@@ -144,20 +155,37 @@ function createPage(file) {
   </div>
 
   <div class="container">
-    <!-- Header solo Desktop -->
+    <!-- Header Desktop -->
     <div class="header-row">
       <div class="title-group">
         <div class="title" id="page-title-desktop">${title}</div>
       </div>
       <div class="actions">
-        <button class="btn" onclick="toggleFullScreen()">🔍</button>
-        <button class="btn" onclick="takeScreenshot()">📸</button>
-        <button id="prev-btn" class="btn nav-btn" onclick="navigatePrev()">←</button>
-        <button id="next-btn" class="btn nav-btn" onclick="navigateNext()">→</button>
+        <button class="btn" onclick="toggleFullScreen()">
+          <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+        <button class="btn" onclick="takeScreenshot()">
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9 2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        </button>
+        <a id="twitter-share" class="btn" href="" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
+        </a>
+        <a id="fb-share" class="btn" href="" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+
+        <div style="width:1px; height:20px; background:#444; margin:0 4px;"></div>
+
+        <button id="prev-btn" class="btn nav-btn" onclick="navigatePrev()">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button id="next-btn" class="btn nav-btn" onclick="navigateNext()">
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </div>
 
-    <!-- Title box mobile trascinabile -->
+    <!-- Floating Title Mobile -->
     <div id="floating-title">
       <div class="title" id="page-title">${title}</div>
     </div>
@@ -172,13 +200,24 @@ function createPage(file) {
   <script>
     const chartsData = ${JSON.stringify(chartsData)};
 
-    let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === (window.location.pathname.split('/').pop().replace('.html','') || chartsData[0].name)));
+    const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
+    let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
 
     function updatePage() {
       const c = chartsData[currentIndex];
       document.getElementById('page-title').textContent = c.title;
       if (document.getElementById('page-title-desktop')) document.getElementById('page-title-desktop').textContent = c.title;
+
       document.getElementById('chart-image').src = 'charts/' + c.file;
+
+      const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
+      const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
+
+      document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
+      document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+
+      document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
+      document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
       document.title = c.title + ' | CSC';
     }
 
@@ -192,15 +231,37 @@ function createPage(file) {
     const navigatePrev = () => navigateTo(currentIndex - 1);
     const navigateNext = () => navigateTo(currentIndex + 1);
 
-    // Drag per title box
+    // Swipe + Keyboard
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.code === 'Space') { e.preventDefault(); navigateNext(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
+    });
+
+    let tsX = 0;
+    const area = document.getElementById('full-capture-area');
+    area.addEventListener('touchstart', e => {
+      if (e.touches.length === 1) tsX = e.touches[0].screenX;
+    }, { passive: true });
+
+    area.addEventListener('touchend', e => {
+      if (e.changedTouches.length === 1) {
+        const dx = e.changedTouches[0].screenX - tsX;
+        if (Math.abs(dx) > 60) {
+          if (dx < -60) navigateNext();
+          else if (dx > 60) navigatePrev();
+        }
+      }
+    });
+
+    // Drag floating title
     function makeDraggable(el) {
       let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
       el.addEventListener('touchstart', dragStart, { passive: false });
       el.addEventListener('mousedown', dragStart);
 
       function dragStart(e) {
-        pos3 = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-        pos4 = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        pos3 = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
+        pos4 = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
         document.addEventListener('touchmove', dragMove, { passive: false });
         document.addEventListener('mousemove', dragMove);
         document.addEventListener('touchend', dragEnd);
@@ -209,12 +270,12 @@ function createPage(file) {
 
       function dragMove(e) {
         e.preventDefault();
-        const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-        const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
-        pos1 = pos3 - clientX;
-        pos2 = pos4 - clientY;
-        pos3 = clientX;
-        pos4 = clientY;
+        const cx = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
+        const cy = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
+        pos1 = pos3 - cx;
+        pos2 = pos4 - cy;
+        pos3 = cx;
+        pos4 = cy;
         el.style.top = (el.offsetTop - pos2) + "px";
         el.style.left = (el.offsetLeft - pos1) + "px";
         el.style.right = "auto";
@@ -237,18 +298,56 @@ function createPage(file) {
     };
 
     function takeScreenshot() {
-      alert("Screenshot in sviluppo - usa la funzione originale se vuoi");
+      const c = chartsData[currentIndex];
+      const img = document.getElementById('chart-image');
+      const preload = new Image();
+      preload.crossOrigin = "anonymous";
+      preload.src = img.src;
+
+      preload.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const WIDTH = 1450;
+        const PADDING_X = 60;
+        const PADDING_TOP = 80;
+        const PADDING_BOTTOM = 100;
+
+        canvas.width = WIDTH;
+        canvas.height = PADDING_TOP + 130 + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
+
+        ctx.fillStyle = '#1E1E1E';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '700 42px Inter';
+        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 52);
+
+        ctx.fillStyle = '#67e8f9';
+        ctx.font = '600 32px Inter';
+        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + 100);
+
+        const imgX = PADDING_X;
+        const imgY = PADDING_TOP + 150;
+        const imgW = WIDTH - 2 * PADDING_X;
+        const imgH = preload.height * (imgW / preload.width);
+        ctx.drawImage(preload, imgX, imgY, imgW, imgH);
+
+        const link = document.createElement('a');
+        link.download = c.name + '_CSC.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      };
     }
   </script>
 </body>
 </html>`;
 }
 
-// ====================== GENERAZIONE ======================
+// Generazione
 files.forEach((file) => {
   const htmlContent = createPage(file);
   fs.writeFileSync(file.replace('.png', '.html'), htmlContent);
   console.log(`✅ Generato: ${file.replace('.png', '.html')}`);
 });
 
-console.log(`\n🎉 FINITO! ${files.length} pagine HTML regenerate.`);
+console.log(`\n🎉 FINITO! ${files.length} pagine generate.`);
