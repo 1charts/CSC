@@ -295,15 +295,9 @@ function createPage(file) {
         <button class="btn" onclick="toggleFullScreen()">
           <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
         </button>
-        
-        <!-- ICONA SCREENSHOT SOSTITUITA CON MACCHINA FOTOGRAFICA (Bootstrap style) -->
         <button class="btn" onclick="takeScreenshot()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z"/>
-            <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9 2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
         </button>
-
         <a id="twitter-share" class="btn" href="" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
         </a>
@@ -350,6 +344,7 @@ function createPage(file) {
       document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
       document.title = c.title + ' | CSC';
 
+      // Ri-applica il drag ogni volta che cambia pagina
       makeTitleDraggable();
     }
 
@@ -394,11 +389,13 @@ function createPage(file) {
       const titleBox = document.querySelector('.title-box');
       if (!titleBox) return;
 
+      // Solo su mobile
       if (window.innerWidth >= 1280) return;
 
       let isDragging = false;
       let startX, startY, initialLeft, initialTop;
 
+      // Assicurati che sia absolute e pronto al drag
       titleBox.style.position = 'absolute';
       titleBox.style.zIndex = '50';
       titleBox.style.cursor = 'grab';
@@ -423,6 +420,7 @@ function createPage(file) {
         let newLeft = initialLeft + dx;
         let newTop = initialTop + dy;
 
+        // Limiti schermo
         const maxLeft = window.innerWidth - titleBox.offsetWidth - 10;
         const maxTop = window.innerHeight - titleBox.offsetHeight - 10;
 
