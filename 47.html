@@ -6,15 +6,13 @@
   <title>Hydrogen Companies | CSC</title>
   <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     * { box-sizing: border-box; }
 
     body { 
       margin: 0; 
       background: #1E1E1E; 
-      font-family: 'Inter', sans-serif; 
+      font-family: 'Segoe UI', Arial, sans-serif; 
       color: #e2e8f0; 
       overflow: hidden; 
       height: 100dvh; 
@@ -43,75 +41,73 @@
       height: 100dvh; 
       display: flex; 
       flex-direction: column; 
-      position: relative; 
     }
 
-    /* ==================== HEADER MOBILE (trasparente, solo per i bottoni) ==================== */
     .header-row { 
       display: flex; 
-      justify-content: flex-end; 
+      justify-content: space-between; 
       align-items: center; 
       flex-shrink: 0; 
+      height: 55px; 
       padding: 8px 10px; 
-      position: absolute; 
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 30;
-      background: transparent;
-      pointer-events: none;
+      position: relative; 
+      z-index: 10;
     }
 
-    /* ==================== TITLE BOX DRAGABLE (mobile) ==================== */
-    .title-box {
-      background: #2a2a2a;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 10px 14px;
-      max-width: 68%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      pointer-events: auto;
-      cursor: grab;
-      user-select: none;
+    .title-group { 
+      flex: 1; 
+      min-width: 0; 
+      padding-left: 8px; 
+      padding-right: 70px; 
     }
 
     .title { 
-      font-size: 15px; 
-      font-weight: 700; 
+      font-size: 16px; 
+      font-weight: bold; 
       color: #f8fafc; 
       margin: 0; 
-      line-height: 1.2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
     }
 
-    .subtitle, .sources {
-      display: none !important;
+    .subtitle { 
+      font-size: 11px; 
+      color: #67e8f9; 
+      text-decoration: none; 
+      font-weight: bold; 
     }
 
-    /* Bottoni a destra */
+    .sources { 
+      font-size: 10px; 
+      color: #94a3b8; 
+    }
+
+    .sources a { 
+      color: #67e8f9; 
+      text-decoration: none; 
+    }
+
     .actions { 
-      display: flex;
+      position: absolute !important;
+      right: 8px;
+      top: 8px;
       flex-direction: column; 
       gap: 6px; 
       align-items: flex-end;
-      position: absolute;
-      right: 8px;
-      top: 8px;
-      z-index: 40;
-      pointer-events: auto;
+      z-index: 20;
     }
 
     .btn { 
       background: #2a2a2a; 
       border: 1px solid #444; 
       color: #f8fafc; 
-      padding: 9px;           
+      padding: 10px;           
       border-radius: 8px;      
       cursor: pointer; 
       display: flex; 
       align-items: center; 
+      text-decoration: none; 
     }
 
     .btn:hover { background: #383838; }
@@ -124,18 +120,17 @@
 
     .btn.nav-btn { 
       color: #67e8f9; 
-      padding: 7px 10px;       
+      padding: 7px 11px;       
     }
 
     .btn.nav-btn svg { 
-      width: 26px;             
-      height: 26px;            
+      width: 28px;             
+      height: 28px;            
       stroke: currentColor; 
       stroke-width: 2.5; 
       fill: none; 
     }
 
-    /* ==================== AREA IMMAGINE (tutto schermo) ==================== */
     #full-capture-area { 
       flex-grow: 1; 
       display: flex; 
@@ -145,57 +140,43 @@
       background: #1E1E1E; 
       padding: 0; 
       margin: 0;
-      height: 100%;
     }
 
     .chart-container { 
+      width: 100%; 
       flex-grow: 1; 
       display: flex; 
-      justify-content: center; 
-      align-items: center; 
+      justify-content: flex-start; 
+      align-items: flex-start; 
+      min-height: 0; 
       padding: 0;
-      margin-top: 0;
-      width: 100%;
-      height: 100%;
     }
 
     img { 
       width: 100%; 
-      height: 100%; 
+      height: auto; 
+      max-height: 100%; 
+      margin: 0; 
+      display: block;
       object-fit: contain; 
       image-rendering: crisp-edges; 
-      margin: 0;
-      display: block;
     }
 
-    /* ==================== DESKTOP ==================== */
     @media (min-width: 1280px) {
-      .header-row {
-        position: static;
-        background: transparent;
-        box-shadow: none;
+      .btn { padding: 6px; }
+      .btn svg { width: 18px; height: 18px; }
+      .btn.nav-btn { padding: 4px 8px; }
+      .btn.nav-btn svg { width: 22px; height: 22px; }
+
+      .header-row { 
         height: auto;           
         min-height: 100px;       
         padding-top: 90px;      
         padding-left: 12%;      
         padding-right: 12%;     
         margin-bottom: 0px;    
-        justify-content: space-between;
-        pointer-events: auto;
-      }
-
-      .title-box {
         position: static;
-        background: transparent;
-        border: none;
-        padding: 0;
-        max-width: none;
-        box-shadow: none;
-        cursor: default;
-      }
-
-      .subtitle, .sources {
-        display: block !important;
+        z-index: auto;
       }
 
       .title { 
@@ -203,10 +184,31 @@
         font-weight: 700;          
         color: #f8fafc;            
         margin: 0 0 8px 0;
+        line-height: 1.1;
+      }
+
+      .subtitle { 
+        font-size: 24px;           
+        color: #67e8f9; 
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .sources {
+        font-size: 15px;         
+        color: #94a3b8;
+        display: block;
+      }
+
+      .title-group { 
+        padding-left: 0; 
+        padding-right: 0;
       }
 
       .actions {
         position: static !important;
+        display: flex !important;
         flex-direction: row !important;
         gap: 12px !important;
         align-items: center !important;
@@ -217,6 +219,8 @@
       }
 
       .chart-container {
+        justify-content: center;
+        align-items: flex-start;
         padding-bottom: 60px;
       }
 
@@ -226,18 +230,23 @@
       }
     }
 
-    @media (max-width: 1279px) {
-      .title-box {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        z-index: 50;
+    @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
+      #prev-btn, #next-btn, .actions > div { 
+        display: none !important; 
       }
     }
 
-    @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
-      #prev-btn, #next-btn { 
-        display: none !important; 
+    @media (max-width: 1279px) {
+      #full-capture-area {
+        padding-left: 0 !important;
+      }
+      .chart-container {
+        padding-left: 0 !important;
+        justify-content: flex-start;
+      }
+      img {
+        margin-left: 0 !important;
+        width: 100% !important;
       }
     }
   </style>
@@ -253,8 +262,10 @@
 
   <div class="container">
     <div class="header-row">
-      <div class="title-box">
+      <div class="title-group">
         <div class="title" id="page-title">Hydrogen Companies</div>
+        <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
+        <span id="source-inline" class="sources"></span>
       </div>
 
       <div class="actions">
@@ -297,7 +308,16 @@
 
     function updatePage() {
       const c = chartsData[currentIndex];
+      const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+
       document.getElementById('page-title').textContent = c.title;
+
+      const sInline = document.getElementById('source-inline');
+      sInline.innerHTML = validSources.length 
+        ? '<span class="source-label">Sources:</span> ' + 
+          validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
+        : '';
+
       document.getElementById('chart-image').src = 'charts/' + c.file;
 
       const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
@@ -309,9 +329,6 @@
       document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
       document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
       document.title = c.title + ' | CSC';
-
-      // Ri-applica il drag ogni volta che cambia pagina
-      makeTitleDraggable();
     }
 
     function navigateTo(idx) {
@@ -325,8 +342,14 @@
     const navigateNext = () => navigateTo(currentIndex + 1);
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.code === 'Space') { e.preventDefault(); navigateNext(); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
+      if (e.key === 'ArrowRight' || e.code === 'Space') {
+        e.preventDefault();
+        navigateNext();
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigatePrev();
+      }
     });
 
     let tsX = 0;
@@ -350,65 +373,7 @@
       updatePage();
     };
 
-    /* ==================== DRAG DEL TITOLO (solo su smartphone) ==================== */
-    function makeTitleDraggable() {
-      const titleBox = document.querySelector('.title-box');
-      if (!titleBox) return;
-
-      // Solo su mobile
-      if (window.innerWidth >= 1280) return;
-
-      let isDragging = false;
-      let startX, startY, initialLeft, initialTop;
-
-      // Assicurati che sia absolute e pronto al drag
-      titleBox.style.position = 'absolute';
-      titleBox.style.zIndex = '50';
-      titleBox.style.cursor = 'grab';
-
-      titleBox.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        const rect = titleBox.getBoundingClientRect();
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        initialLeft = rect.left;
-        initialTop = rect.top;
-        titleBox.style.transition = 'none';
-        titleBox.style.cursor = 'grabbing';
-      }, { passive: true });
-
-      document.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-
-        const dx = e.touches[0].clientX - startX;
-        const dy = e.touches[0].clientY - startY;
-
-        let newLeft = initialLeft + dx;
-        let newTop = initialTop + dy;
-
-        // Limiti schermo
-        const maxLeft = window.innerWidth - titleBox.offsetWidth - 10;
-        const maxTop = window.innerHeight - titleBox.offsetHeight - 10;
-
-        newLeft = Math.max(10, Math.min(newLeft, maxLeft));
-        newTop = Math.max(10, Math.min(newTop, maxTop));
-
-        titleBox.style.left = newLeft + 'px';
-        titleBox.style.top = newTop + 'px';
-      }, { passive: true });
-
-      document.addEventListener('touchend', () => {
-        if (isDragging) {
-          isDragging = false;
-          titleBox.style.cursor = 'grab';
-          titleBox.style.transition = 'left 0.15s ease, top 0.15s ease';
-        }
-      });
-    }
-
-    window.onload = () => {
-      updatePage();
-    };
+    window.onload = updatePage;
 
     const toggleFullScreen = () => {
       if (!document.fullscreenElement) {
@@ -418,9 +383,11 @@
       }
     };
 
+    /* ====================== SCREENSHOT CON CANVAS NATIVO ====================== */
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+
       const img = document.getElementById('chart-image');
       
       const preload = new Image();
@@ -435,36 +402,42 @@
         const PADDING_X = 60;
         const PADDING_TOP = 80;
         const PADDING_BOTTOM = 100;
-        const TITLE_HEIGHT = 85;
-        const SUBTITLE_HEIGHT = 45;
+        const TITLE_HEIGHT = 85;           // ridotto
+        const SUBTITLE_HEIGHT = 45;        // ridotto
         const SOURCES_HEIGHT = validSources.length ? 55 : 0;
 
         canvas.width = WIDTH;
         canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + 
                         preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
 
+        // Sfondo
         ctx.fillStyle = '#1E1E1E';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+        // Titolo
         ctx.fillStyle = '#f8fafc';
-        ctx.font = '700 42px Inter';
+        ctx.font = '700 42px Segoe UI, Arial';
         ctx.textAlign = 'left';
         ctx.fillText(c.title, PADDING_X, PADDING_TOP + 52);
 
+        // Subtitle
         ctx.fillStyle = '#67e8f9';
-        ctx.font = '600 32px Inter';
+        ctx.font = '600 32px Segoe UI, Arial';
         ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 28);
 
+        // Sources
         if (validSources.length) {
           ctx.fillStyle = '#f8fafc';
-          ctx.font = '500 22px Inter';
+          ctx.font = '500 22px Segoe UI, Arial';
           ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
 
           ctx.fillStyle = '#94a3b8';
-          ctx.font = '500 22px Inter';
-          ctx.fillText(validSources.map(s => s.text).join(' · '), PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+          ctx.font = '500 22px Segoe UI, Arial';
+          const sourcesText = validSources.map(s => s.text).join(' · ');
+          ctx.fillText(sourcesText, PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
         }
 
+        // Immagine del chart
         const imgX = PADDING_X;
         const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT;
         const imgW = WIDTH - 2 * PADDING_X;
@@ -472,12 +445,17 @@
         
         ctx.drawImage(preload, imgX, imgY, imgW, imgH);
 
+        // Download
         const dataUrl = canvas.toDataURL('image/png');
         const link = document.createElement('a');
         link.download = c.name + '_CSC.png';
         link.href = dataUrl;
         link.click();
+
+        console.log('✅ Screenshot generato con successo!');
       };
+
+      if (preload.complete) preload.onload();
     }
   </script>
 </body>
