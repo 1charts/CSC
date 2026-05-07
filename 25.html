@@ -259,9 +259,9 @@
 
       body {
         background:
-          radial-gradient(circle at top left, rgba(59,130,246,0.10), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(16,185,129,0.08), transparent 30%),
-          linear-gradient(180deg, #061018 0%, #0a1622 45%, #08121b 100%);
+          radial-gradient(circle at top left, rgba(14,165,233,0.10), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(56,189,248,0.08), transparent 34%),
+          linear-gradient(180deg, #050b12 0%, #08111a 42%, #060d15 100%);
       }
 
       .container {
@@ -286,13 +286,13 @@
 
         background:
           linear-gradient(180deg,
-            rgba(10,18,28,0.96),
-            rgba(7,14,22,0.94));
+            rgba(8,15,24,0.96),
+            rgba(5,11,18,0.94));
 
-        border: 1px solid rgba(59,130,246,0.10);
+        border: 1px solid rgba(56,189,248,0.08);
 
         box-shadow:
-          0 12px 40px rgba(0,0,0,0.46),
+          0 18px 50px rgba(0,0,0,0.55),
           inset 0 1px 0 rgba(255,255,255,0.025);
 
         overflow: hidden;
@@ -314,10 +314,10 @@
 
         background:
           linear-gradient(90deg,
-            rgba(59,130,246,0.06),
-            transparent 35%,
-            transparent 65%,
-            rgba(16,185,129,0.04));
+            rgba(14,165,233,0.06),
+            transparent 36%,
+            transparent 64%,
+            rgba(34,211,238,0.04));
 
         pointer-events: none;
       }
@@ -344,7 +344,7 @@
         font-weight: 800;
         letter-spacing: -0.035em;
 
-        color: #f8fbff;
+        color: #f3f8fc;
 
         margin: 0 0 14px 0;
 
@@ -352,7 +352,7 @@
         overflow: visible;
         text-overflow: unset;
 
-        text-shadow: 0 2px 18px rgba(0,0,0,0.42);
+        text-shadow: 0 2px 22px rgba(0,0,0,0.45);
       }
 
       .subtitle {
@@ -365,7 +365,7 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
 
-        color: #3b82f6;
+        color: #38bdf8;
 
         margin-bottom: 10px;
 
@@ -373,7 +373,7 @@
       }
 
       .subtitle:hover {
-        opacity: 0.88;
+        opacity: 0.85;
       }
 
       .subtitle::before {
@@ -384,9 +384,9 @@
 
         border-radius: 999px;
 
-        background: #10b981;
+        background: #38bdf8;
 
-        box-shadow: 0 0 12px rgba(16,185,129,0.75);
+        box-shadow: 0 0 12px rgba(56,189,248,0.85);
       }
 
       .sources {
@@ -395,13 +395,13 @@
         font-size: 13px;
         line-height: 1.7;
 
-        color: #8ea1b5;
+        color: #7f93a8;
 
         max-width: 1000px;
       }
 
       .sources a {
-        color: #d7e3f0;
+        color: #d6e3ee;
         text-decoration: none;
 
         transition:
@@ -410,7 +410,7 @@
       }
 
       .sources a:hover {
-        color: #60a5fa;
+        color: #38bdf8;
       }
 
       /* ================= ACTIONS ================= */
@@ -427,9 +427,13 @@
 
         border-radius: 20px;
 
-        background: rgba(255,255,255,0.022);
+        background: rgba(8,15,24,0.72);
 
-        border: 1px solid rgba(59,130,246,0.08);
+        border: 1px solid rgba(56,189,248,0.08);
+
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.02),
+          0 8px 24px rgba(0,0,0,0.28);
       }
 
       .btn {
@@ -440,14 +444,14 @@
 
         border-radius: 15px;
 
-        border: 1px solid rgba(255,255,255,0.05);
+        border: 1px solid rgba(56,189,248,0.08);
 
         background:
           linear-gradient(180deg,
-            rgba(255,255,255,0.04),
-            rgba(255,255,255,0.018));
+            rgba(15,23,35,0.98),
+            rgba(8,15,24,0.96));
 
-        color: #f8fbff;
+        color: #f3f8fc;
 
         display: flex;
         align-items: center;
@@ -465,16 +469,16 @@
       .btn:hover {
         transform: translateY(-2px);
 
-        border-color: rgba(59,130,246,0.24);
+        border-color: rgba(56,189,248,0.28);
 
         background:
           linear-gradient(180deg,
-            rgba(59,130,246,0.16),
-            rgba(16,185,129,0.05));
+            rgba(14,165,233,0.16),
+            rgba(8,15,24,0.98));
 
         box-shadow:
-          0 10px 26px rgba(0,0,0,0.34),
-          0 0 20px rgba(59,130,246,0.14);
+          0 12px 28px rgba(0,0,0,0.38),
+          0 0 24px rgba(56,189,248,0.16);
       }
 
       .btn:active {
@@ -488,7 +492,7 @@
       }
 
       .btn.nav-btn {
-        color: #60a5fa;
+        color: #38bdf8;
       }
 
       .btn.nav-btn svg {
@@ -502,7 +506,7 @@
       .actions div[style*='width:1px'] {
         width: 1px !important;
         height: 30px !important;
-        background: rgba(255,255,255,0.07) !important;
+        background: rgba(56,189,248,0.12) !important;
         margin: 0 2px !important;
       }
 
@@ -517,13 +521,13 @@
 
         background:
           linear-gradient(180deg,
-            rgba(9,17,27,0.98),
-            rgba(6,13,21,0.98));
+            rgba(8,15,24,0.98),
+            rgba(5,11,18,0.98));
 
-        border: 1px solid rgba(59,130,246,0.08);
+        border: 1px solid rgba(56,189,248,0.08);
 
         box-shadow:
-          0 25px 60px rgba(0,0,0,0.50),
+          0 30px 70px rgba(0,0,0,0.58),
           inset 0 1px 0 rgba(255,255,255,0.02);
       }
 
@@ -535,7 +539,7 @@
 
         background:
           linear-gradient(180deg,
-            rgba(255,255,255,0.022),
+            rgba(255,255,255,0.018),
             transparent 18%);
 
         pointer-events: none;
@@ -566,8 +570,8 @@
         border-radius: 16px;
 
         box-shadow:
-          0 24px 70px rgba(0,0,0,0.58),
-          0 0 0 1px rgba(255,255,255,0.025);
+          0 26px 80px rgba(0,0,0,0.62),
+          0 0 0 1px rgba(56,189,248,0.04);
 
         transition:
           transform 0.3s ease,
@@ -578,8 +582,8 @@
         transform: scale(1.006);
 
         box-shadow:
-          0 34px 90px rgba(0,0,0,0.68),
-          0 0 0 1px rgba(59,130,246,0.10);
+          0 38px 100px rgba(0,0,0,0.72),
+          0 0 0 1px rgba(56,189,248,0.10);
       }
 
       /* ================= SCROLLBAR ================= */
@@ -590,12 +594,12 @@
       }
 
       ::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,0.10);
+        background: rgba(56,189,248,0.12);
         border-radius: 999px;
       }
 
       ::-webkit-scrollbar-thumb:hover {
-        background: rgba(59,130,246,0.24);
+        background: rgba(56,189,248,0.26);
       }
     }
   </style>
