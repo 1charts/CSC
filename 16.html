@@ -210,7 +210,7 @@
       }
     }
 
-    /* ==================== DESKTOP (≥ 1280px) - RIPRISTINATO ESATTAMENTE COME PRIMA ==================== */
+    /* ==================== DESKTOP (≥ 1280px) - PULSANTI IDENTICI A MOBILE ==================== */
     @media (min-width: 1280px) {
       .header-row {
         position: static;
@@ -257,7 +257,7 @@
         display: block;
       }
 
-      /* Pulsanti orizzontali + dimensioni originali desktop */
+      /* Pulsanti identici a mobile (stesso stile, stesse icone) */
       .actions {
         position: static !important;
         display: flex !important;
@@ -266,19 +266,24 @@
         align-items: center !important;
       }
 
+      /* Nessuna riduzione di dimensione - esattamente come mobile */
       .btn { 
-        padding: 6px; 
+        padding: 9px;           
       }
       .btn svg { 
-        width: 18px; 
-        height: 18px; 
+        width: 24px;             
+        height: 24px;            
       }
       .btn.nav-btn { 
-        padding: 4px 8px; 
+        color: #67e8f9; 
+        padding: 7px 10px;       
       }
       .btn.nav-btn svg { 
-        width: 22px; 
-        height: 22px; 
+        width: 26px;             
+        height: 26px;            
+        stroke: currentColor; 
+        stroke-width: 2.5; 
+        fill: none; 
       }
 
       #full-capture-area {
