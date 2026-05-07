@@ -1,0 +1,5 @@
+{
+  "logoUrl": "https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png",
+  
+  "htmlTemplate": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n  <title>{{TITLE}} | CSC</title>\n  <link rel=\"icon\" type=\"image/png\" href=\"{{LOGO_URL}}\">\n\n  <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n\n  <style>\n{{FULL_CSS}}\n  </style>\n</head>\n<body>\n\n{{BODY_HTML}}\n\n  <script>\n    const chartsData = {{CHARTS_DATA}};\n{{JAVASCRIPT}}\n  </script>\n</body>\n</html>"
+}
