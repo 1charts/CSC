@@ -259,17 +259,15 @@
 
       body {
         background:
-          radial-gradient(circle at top left, rgba(14,165,233,0.10), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(56,189,248,0.08), transparent 34%),
-          linear-gradient(180deg, #050b12 0%, #08111a 42%, #060d15 100%);
+          radial-gradient(circle at top left, rgba(255,255,255,0.025), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(255,255,255,0.018), transparent 30%),
+          linear-gradient(180deg, #050505 0%, #0a0a0a 38%, #121212 100%);
       }
 
       .container {
         padding: 30px;
         gap: 22px;
       }
-
-      /* ================= HEADER ================= */
 
       .header-row {
         position: relative;
@@ -286,13 +284,13 @@
 
         background:
           linear-gradient(180deg,
-            rgba(8,15,24,0.96),
-            rgba(5,11,18,0.94));
+            rgba(20,20,20,0.96),
+            rgba(10,10,10,0.94));
 
-        border: 1px solid rgba(56,189,248,0.08);
+        border: 1px solid rgba(255,255,255,0.05);
 
         box-shadow:
-          0 18px 50px rgba(0,0,0,0.55),
+          0 18px 50px rgba(0,0,0,0.62),
           inset 0 1px 0 rgba(255,255,255,0.025);
 
         overflow: hidden;
@@ -314,15 +312,13 @@
 
         background:
           linear-gradient(90deg,
-            rgba(14,165,233,0.06),
+            rgba(255,255,255,0.02),
             transparent 36%,
             transparent 64%,
-            rgba(34,211,238,0.04));
+            rgba(255,255,255,0.015));
 
         pointer-events: none;
       }
-
-      /* ================= TITLE ================= */
 
       .title-group {
         position: relative;
@@ -344,7 +340,7 @@
         font-weight: 800;
         letter-spacing: -0.035em;
 
-        color: #f3f8fc;
+        color: #f5f5f5;
 
         margin: 0 0 14px 0;
 
@@ -352,7 +348,7 @@
         overflow: visible;
         text-overflow: unset;
 
-        text-shadow: 0 2px 22px rgba(0,0,0,0.45);
+        text-shadow: 0 2px 22px rgba(0,0,0,0.55);
       }
 
       .subtitle {
@@ -365,7 +361,7 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
 
-        color: #38bdf8;
+        color: #d6d6d6;
 
         margin-bottom: 10px;
 
@@ -373,7 +369,7 @@
       }
 
       .subtitle:hover {
-        opacity: 0.85;
+        opacity: 0.82;
       }
 
       .subtitle::before {
@@ -384,9 +380,9 @@
 
         border-radius: 999px;
 
-        background: #38bdf8;
+        background: #ffffff;
 
-        box-shadow: 0 0 12px rgba(56,189,248,0.85);
+        box-shadow: 0 0 10px rgba(255,255,255,0.45);
       }
 
       .sources {
@@ -395,13 +391,13 @@
         font-size: 13px;
         line-height: 1.7;
 
-        color: #7f93a8;
+        color: #8b8b8b;
 
         max-width: 1000px;
       }
 
       .sources a {
-        color: #d6e3ee;
+        color: #dcdcdc;
         text-decoration: none;
 
         transition:
@@ -410,10 +406,8 @@
       }
 
       .sources a:hover {
-        color: #38bdf8;
+        color: #ffffff;
       }
-
-      /* ================= ACTIONS ================= */
 
       .actions {
         position: relative;
@@ -427,13 +421,13 @@
 
         border-radius: 20px;
 
-        background: rgba(8,15,24,0.72);
+        background: rgba(255,255,255,0.025);
 
-        border: 1px solid rgba(56,189,248,0.08);
+        border: 1px solid rgba(255,255,255,0.05);
 
         box-shadow:
           inset 0 1px 0 rgba(255,255,255,0.02),
-          0 8px 24px rgba(0,0,0,0.28);
+          0 8px 24px rgba(0,0,0,0.35);
       }
 
       .btn {
@@ -444,14 +438,14 @@
 
         border-radius: 15px;
 
-        border: 1px solid rgba(56,189,248,0.08);
+        border: 1px solid rgba(255,255,255,0.06);
 
         background:
           linear-gradient(180deg,
-            rgba(15,23,35,0.98),
-            rgba(8,15,24,0.96));
+            rgba(36,36,36,0.96),
+            rgba(18,18,18,0.96));
 
-        color: #f3f8fc;
+        color: #f5f5f5;
 
         display: flex;
         align-items: center;
@@ -469,16 +463,16 @@
       .btn:hover {
         transform: translateY(-2px);
 
-        border-color: rgba(56,189,248,0.28);
+        border-color: rgba(255,255,255,0.14);
 
         background:
           linear-gradient(180deg,
-            rgba(14,165,233,0.16),
-            rgba(8,15,24,0.98));
+            rgba(52,52,52,0.98),
+            rgba(22,22,22,0.98));
 
         box-shadow:
-          0 12px 28px rgba(0,0,0,0.38),
-          0 0 24px rgba(56,189,248,0.16);
+          0 12px 28px rgba(0,0,0,0.45),
+          0 0 22px rgba(255,255,255,0.04);
       }
 
       .btn:active {
@@ -492,7 +486,7 @@
       }
 
       .btn.nav-btn {
-        color: #38bdf8;
+        color: #f0f0f0;
       }
 
       .btn.nav-btn svg {
@@ -506,11 +500,9 @@
       .actions div[style*='width:1px'] {
         width: 1px !important;
         height: 30px !important;
-        background: rgba(56,189,248,0.12) !important;
+        background: rgba(255,255,255,0.08) !important;
         margin: 0 2px !important;
       }
-
-      /* ================= CHART CONTAINER ================= */
 
       #full-capture-area {
         position: relative;
@@ -521,14 +513,14 @@
 
         background:
           linear-gradient(180deg,
-            rgba(8,15,24,0.98),
-            rgba(5,11,18,0.98));
+            rgba(18,18,18,0.98),
+            rgba(8,8,8,0.98));
 
-        border: 1px solid rgba(56,189,248,0.08);
+        border: 1px solid rgba(255,255,255,0.05);
 
         box-shadow:
-          0 30px 70px rgba(0,0,0,0.58),
-          inset 0 1px 0 rgba(255,255,255,0.02);
+          0 30px 70px rgba(0,0,0,0.70),
+          inset 0 1px 0 rgba(255,255,255,0.015);
       }
 
       #full-capture-area::before {
@@ -539,7 +531,7 @@
 
         background:
           linear-gradient(180deg,
-            rgba(255,255,255,0.018),
+            rgba(255,255,255,0.015),
             transparent 18%);
 
         pointer-events: none;
@@ -570,8 +562,8 @@
         border-radius: 16px;
 
         box-shadow:
-          0 26px 80px rgba(0,0,0,0.62),
-          0 0 0 1px rgba(56,189,248,0.04);
+          0 26px 80px rgba(0,0,0,0.72),
+          0 0 0 1px rgba(255,255,255,0.025);
 
         transition:
           transform 0.3s ease,
@@ -582,11 +574,9 @@
         transform: scale(1.006);
 
         box-shadow:
-          0 38px 100px rgba(0,0,0,0.72),
-          0 0 0 1px rgba(56,189,248,0.10);
+          0 38px 100px rgba(0,0,0,0.82),
+          0 0 0 1px rgba(255,255,255,0.04);
       }
-
-      /* ================= SCROLLBAR ================= */
 
       ::-webkit-scrollbar {
         width: 10px;
@@ -594,12 +584,12 @@
       }
 
       ::-webkit-scrollbar-thumb {
-        background: rgba(56,189,248,0.12);
+        background: rgba(255,255,255,0.10);
         border-radius: 999px;
       }
 
       ::-webkit-scrollbar-thumb:hover {
-        background: rgba(56,189,248,0.26);
+        background: rgba(255,255,255,0.18);
       }
     }
   </style>
