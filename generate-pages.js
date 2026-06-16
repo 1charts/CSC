@@ -12,25 +12,85 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
-const files = fs.readdirSync(chartsDir)
-  .filter(f => f.endsWith('.png'))
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+// ==================== ORDINE PERSONALIZZATO (IMPORTANTE) ====================
+const chartOrder = [
+  "upstream-nyse",
+  "upstream-lse",
+  "upstream-tsx",
+  "upstream-tsxv",
+  "upstream-asx",
+  "upstream-global",
+  "midstream",
+  "downstream",
+  "og-equipment-services",
+  "drilling-contractors",
+  "tankers",
+  "lng",
+  "royalties-trusts",
+  "biofuels-biogas",
+  "oil-gas",
+  "gold-nyse",
+  "gold-lse",
+  "gold-tsx",
+  "gold-tsxv",
+  "gold-asx",
+  "silver",
+  "gold-silver",
+  "gold-copper",
+  "pgm",
+  "precious-metals",
+  "aluminum",
+  "copper",
+  "lead-zinc",
+  "lithium",
+  "iron-steel",
+  "nickel",
+  "rare-earths",
+  "uranium",
+  "antimony",
+  "beryllium",
+  "cobalt",
+  "magnesium",
+  "manganese",
+  "molybdenum-tungsten",
+  "niobium-tantalum",
+  "tin",
+  "titanium-zirconium",
+  "silicon",
+  "vanadium",
+  "base-metals",
+  "diversified",
+  "hydrogen",
+  "helium",
+  "coal",
+  "graphite-graphene",
+  "diamonds-gems",
+  "fertilizers-salt",
+  "industrial-minerals",
+  "mining-equipment-services",
+  "total-csc"
+];
 
-const chartsData = files.map(file => {
-  const name = path.basename(file, '.png');
-  const cfg = config[name] || {};
-  return {
-    name,
-    file,
-    title: cfg.title || `Chart ${name}`,
-    sources: Array.isArray(cfg.sources) ? cfg.sources : []
-  };
-});
+// Leggi tutti i file PNG presenti
+const allFiles = fs.readdirSync(chartsDir).filter(f => f.endsWith('.png'));
 
-function createPage(file) {
-  const name = path.basename(file, '.png');
+// Costruisci chartsData rispettando l'ordine desiderato
+const chartsData = chartOrder
+  .filter(name => allFiles.some(f => path.basename(f, '.png') === name))
+  .map(name => {
+    const file = allFiles.find(f => path.basename(f, '.png') === name);
+    const cfg = config[name] || {};
+    return {
+      name,
+      file,
+      title: cfg.title || `Chart ${name}`,
+      sources: Array.isArray(cfg.sources) ? cfg.sources : []
+    };
+  });
+
+function createPage(chart) {
+  const { name, file, title } = chart;
   const cfg = config[name] || {};
-  const title = cfg.title || `Chart ${name}`;
 
   const fullCSS = template.commonCSS + "\n\n" + mobile.mobileCSS + "\n\n" + desktop.desktopCSS;
 
@@ -51,6 +111,7 @@ function createPage(file) {
   fs.writeFileSync(name + '.html', html);
 }
 
-files.forEach(file => createPage(file));
+// Genera le pagine
+chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${files.length} pagine HTML generate correttamente!`);
+console.log(`🎉 ${chartsData.length} pagine HTML generate correttamente nell'ordine corretto!`);
