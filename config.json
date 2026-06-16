@@ -1,138 +1,138 @@
 {
-  "01": { "title": "O&G Upstream Companies Listed on NYSE", "sources": 
+  "upstream-nyse": { "title": "O&G Upstream Companies Listed on NYSE", "sources": 
 [{ "text": "WTI Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "02": { "title": "O&G Upstream Companies Listed on LSE", "sources": 
+  "upstream-lse": { "title": "O&G Upstream Companies Listed on LSE", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "03": { "title": "O&G Upstream Companies Listed on TSX", "sources": 
+  "upstream-tsx": { "title": "O&G Upstream Companies Listed on TSX", "sources": 
 [{ "text": "WTI Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "04": { "title": "O&G Upstream Companies Listed on TSXV", "sources": 
+  "upstream-tsxv": { "title": "O&G Upstream Companies Listed on TSXV", "sources": 
 [{ "text": "WTI Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILWTICO" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "05": { "title": "O&G Upstream Companies Listed on ASX", "sources": 
+  "upstream-asx": { "title": "O&G Upstream Companies Listed on ASX", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "06": { "title": "O&G Upstream Companies Listed Globally", "sources": 
+  "upstream-global": { "title": "O&G Upstream Companies Listed Globally", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "07": { "title": "O&G Midstream Companies", "sources": 
+  "midstream": { "title": "O&G Midstream Companies", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "08": { "title": "O&G Downstream Companies", "sources": 
+  "downstream": { "title": "O&G Downstream Companies", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "RBOB Gasoline & Brent (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DRGASLA" }, 
 { "text": "", "link": "#" }] },
-  "09": { "title": "O&G Equipment & Services Companies", "sources": 
+  "og-equipment-services": { "title": "O&G Equipment & Services Companies", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "10": { "title": "O&G Drilling Contractors", "sources": 
+  "drilling-contractors": { "title": "O&G Drilling Contractors", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "11": { "title": "Tankers Companies", "sources": 
+  "tankers": { "title": "Tankers Companies", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "12": { "title": "LNG Companies", "sources": 
+  "lng": { "title": "LNG Companies", "sources": 
 [{ "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "13": { "title": "O&G Royalties & Trusts", "sources": 
+  "royalties-trusts": { "title": "O&G Royalties & Trusts", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "14": { "title": "Biofuels & Biogas Companies", "sources": 
+  "biofuels-biogas": { "title": "Biofuels & Biogas Companies", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "15": { "title": "Global Oil & Gas Sector", "sources": 
+  "oil-gas": { "title": "Global Oil & Gas Sector", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "16": { "title": "Gold Companies Listed on NYSE", "sources": 
+  "gold-nyse": { "title": "Gold Companies Listed on NYSE", "sources": 
 [{ "text": "Gold (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "17": { "title": "Gold Companies Listed on LSE", "sources": 
+  "gold-lse": { "title": "Gold Companies Listed on LSE", "sources": 
 [{ "text": "Gold (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" },  
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "18": { "title": "Gold Companies Listed on TSX", "sources": 
+  "gold-tsx": { "title": "Gold Companies Listed on TSX", "sources": 
 [{ "text": "Gold (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "19": { "title": "Gold Companies Listed on TSXV", "sources": 
+  "gold-tsxv": { "title": "Gold Companies Listed on TSXV", "sources": 
 [{ "text": "Gold (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "20": { "title": "Gold Companies Listed on ASX", "sources": 
+  "gold-asx": { "title": "Gold Companies Listed on ASX", "sources": 
 [{ "text": "Gold (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "21": { "title": "Gold & Copper Companies", "sources": 
-[{ "text": "Gold - Copper (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
+  "silver": { "title": "Silver Companies", "sources": 
+[{ "text": "Silver (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" },
 { "text": "", "link": "" },  
 { "text": "", "link": "#" }] },
-  "22": { "title": "Gold & Silver Companies", "sources": 
+  "gold-silver": { "title": "Gold & Silver Companies", "sources": 
 [{ "text": "Gold - Silver (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" },  
 { "text": "", "link": "" }, 
 { "text": "", "link": "#" }] },
-  "23": { "title": "Silver Companies", "sources": 
-[{ "text": "Silver (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
+  "gold-copper": { "title": "Gold & Copper Companies", "sources": 
+[{ "text": "Gold - Copper (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" },  
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "24": { "title": "Platinum Group Metals Companies", "sources": 
+  "pgm": { "title": "Platinum Group Metals Companies", "sources": 
 [{ "text": "Platinum - Palladium (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "" }, 
 { "text": "", "link": "#" }] },
-  "25": { "title": "Global Precious Metals Sector", "sources": 
+  "precious-metals": { "title": "Global Precious Metals Sector", "sources": 
 [{ "text": "Gold - Silver - Platinum (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "" }, 
 { "text": "", "link": "#" }] },
-  "26": { "title": "Aluminum Companies", "sources": 
+  "aluminum": { "title": "Aluminum Companies", "sources": 
 [{ "text": "Aluminum (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "27": { "title": "Copper Companies", "sources": 
+  "copper": { "title": "Copper Companies", "sources": 
 [{ "text": "Copper (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "#" }, 
 { "text": "", "link": "#" }] },
-  "28": { "title": "Lead & Zinc Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "29": { "title": "Lithium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "30": { "title": "Iron & Steel Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "31": { "title": "Nickel Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "32": { "title": "Rare Earths Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "33": { "title": "Uranium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "34": { "title": "Antimony Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "35": { "title": "Beryllium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "36": { "title": "Cobalt Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "37": { "title": "Magnesium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "38": { "title": "Manganese Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "39": { "title": "Molybdenum & Tungsten Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "40": { "title": "Niobium & Tantalum Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "41": { "title": "Tin Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "42": { "title": "Titanium & Zirconium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "43": { "title": "Silicon Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "44": { "title": "Vanadium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "45": { "title": "Global Metals Sector", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "46": { "title": "Diversified Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "47": { "title": "Hydrogen Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "48": { "title": "Helium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "49": { "title": "Coal Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "50": { "title": "Graphite & Graphene Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "51": { "title": "Diamonds & Gems Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "52": { "title": "Fertilizers & Salt Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "53": { "title": "Industrial Minerals Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "54": { "title": "Mining Equipment & Services Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] }
-} 
-
+  "lead-zinc": { "title": "Lead & Zinc Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "lithium": { "title": "Lithium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "iron-steel": { "title": "Iron & Steel Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "nickel": { "title": "Nickel Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "rare-earths": { "title": "Rare Earths Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "uranium": { "title": "Uranium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "antimony": { "title": "Antimony Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "beryllium": { "title": "Beryllium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "cobalt": { "title": "Cobalt Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "magnesium": { "title": "Magnesium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "manganese": { "title": "Manganese Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "molybdenum-tungsten": { "title": "Molybdenum & Tungsten Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "niobium-tantalum": { "title": "Niobium & Tantalum Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "tin": { "title": "Tin Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "titanium-zirconium": { "title": "Titanium & Zirconium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "silicon": { "title": "Silicon Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "vanadium": { "title": "Vanadium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "base-metals": { "title": "Global Metals Sector", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "diversified": { "title": "Diversified Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "hydrogen": { "title": "Hydrogen Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "helium": { "title": "Helium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "coal": { "title": "Coal Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "graphite-graphene": { "title": "Graphite & Graphene Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "diamonds-gems": { "title": "Diamonds & Gems Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "fertilizers-salt": { "title": "Fertilizers & Salt Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "industrial-minerals": { "title": "Industrial Minerals Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "mining-equipment-services": { "title": "Mining Equipment & Services Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "total-csc": { "title": "Mining Equipment & Services Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] }
+}
