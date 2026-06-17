@@ -52,7 +52,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // META TAGS
+  // Meta SEO
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
@@ -73,16 +73,20 @@ function createPage(chart) {
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": seo.title || chart.title,
-    "description": seo.metaDescription || `Total market capitalization chart of ${name} sector.`,
+    "description": seo.metaDescription,
     "url": seo.canonical,
-    "creator": { "@type": "Organization", "name": "CommoditySuperCycle", "url": "https://commoditysupercycle.com" },
-    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks"],
+    "creator": {
+      "@type": "Organization",
+      "name": "CommoditySuperCycle",
+      "url": "https://commoditysupercycle.com"
+    },
+    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining"],
     "datePublished": new Date().toISOString().split('T')[0]
   };
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // Body con alt corretto
+  // Body + alt sull'immagine
   let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
