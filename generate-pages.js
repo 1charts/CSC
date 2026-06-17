@@ -40,7 +40,13 @@ const chartsData = chartOrder
     const file = allFiles.find(f => path.basename(f, '.png') === name);
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-    return { name, file, title: cfg.title || `Chart ${name}`, sources: cfg.sources || [], seo };
+    return { 
+      name, 
+      file, 
+      title: cfg.title || `Chart ${name}`, 
+      sources: cfg.sources || [], 
+      seo 
+    };
   });
 
 function createPage(chart) {
@@ -52,7 +58,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // Meta SEO
+  // ==================== META SEO (usa i nuovi testi migliorati) ====================
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
@@ -68,7 +74,7 @@ function createPage(chart) {
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // JSON-LD
+  // ==================== JSON-LD ====================
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -76,18 +82,18 @@ function createPage(chart) {
     "description": seo.metaDescription,
     "url": seo.canonical,
     "creator": { "@type": "Organization", "name": "CommoditySuperCycle", "url": "https://commoditysupercycle.com" },
-    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks"],
+    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks", "sector valuation"],
     "datePublished": new Date().toISOString().split('T')[0]
   };
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // ==================== BODY CON ALT GARANTITO ====================
+  // ==================== BODY + H1 + ALT GARANTITO ====================
   let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // ALT SICURO - sostituiamo indipendentemente dal formato
+  // ALT SICURO
   bodyHtml = bodyHtml.replace(
     /<img id="chart-image" src="charts\/[^"]*"/i,
     `<img id="chart-image" src="charts/${file}" alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"`
@@ -99,9 +105,9 @@ function createPage(chart) {
     .replace('{{CHARTS_DATA}}', JSON.stringify(chartsData))
     .replace('{{JAVASCRIPT}}', mobile.mobileJS);
 
-  fs.writeFileSync(name + '.html', html);
+  fs.writeFileSync(name + '.html', html, 'utf-8');
 }
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con ALT + SEO + JSON-LD completo!`);
+console.log(`🎉 ${chartsData.length} pagine generate con SEO MIGLIORATA + H1-ready + ALT + JSON-LD!`);
