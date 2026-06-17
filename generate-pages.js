@@ -58,7 +58,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // Meta SEO
+  // ==================== META SEO ====================
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
@@ -74,7 +74,7 @@ function createPage(chart) {
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // JSON-LD
+  // ==================== JSON-LD ====================
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -88,19 +88,20 @@ function createPage(chart) {
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // ==================== BODY + H1 + ALT ====================
+  // ==================== BODY ====================
   let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // === TRASFORMA AUTOMATICAMENTE IN <h1> ===
-  bodyHtml = bodyHtml.replace(
-    /<div class="title" id="page-title">/i,
-    '<h1 class="title" id="page-title">'
-  ).replace(
-    /<\/div>\s*(?=<a class="subtitle")/i,
-    '</h1>'
-  );
+  // Fonti statiche per i crawler
+  let sourcesStatic = '';
+  if (chart.sources && chart.sources.length > 0) {
+    const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
+    if (valid.length > 0) {
+      sourcesStatic = valid.map(s => s.text + (s.link && s.link !== '#' ? ` (${s.link})` : '')).join(' · ');
+    }
+  }
+  bodyHtml = bodyHtml.replace('{{SOURCES_STATIC}}', sourcesStatic);
 
   // ALT SICURO
   bodyHtml = bodyHtml.replace(
@@ -119,4 +120,4 @@ function createPage(chart) {
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con <h1> + SEO MIGLIORATA + ALT + JSON-LD!`);
+console.log(`🎉 ${chartsData.length} pagine generate con <h1> + fonti statiche + SEO completa!`);
