@@ -8,6 +8,7 @@ const templatePath = path.join(__dirname, 'template.json');
 const mobilePath = path.join(__dirname, 'template-mobile.json');
 const desktopPath = path.join(__dirname, 'template-desktop.json');
 
+// Caricamento file
 const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf-8')) : {};
 const seoConfig = fs.existsSync(seoPath) ? JSON.parse(fs.readFileSync(seoPath, 'utf-8')) : {};
 
@@ -15,6 +16,7 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
+// ==================== ORDINE ESATTO (55 pagine) ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -32,6 +34,7 @@ const chartOrder = [
   "csc-index"
 ];
 
+// Costruzione dati
 const allFiles = fs.readdirSync(chartsDir).filter(f => f.endsWith('.png'));
 
 const chartsData = chartOrder
@@ -40,7 +43,13 @@ const chartsData = chartOrder
     const file = allFiles.find(f => path.basename(f, '.png') === name);
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-    return { name, file, title: cfg.title || `Chart ${name}`, sources: cfg.sources || [], seo };
+    return {
+      name,
+      file,
+      title: cfg.title || `Chart ${name}`,
+      sources: cfg.sources || [],
+      seo
+    };
   });
 
 function createPage(chart) {
@@ -52,7 +61,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // Meta SEO
+  // ==================== META TAGS SEO ====================
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
@@ -68,7 +77,7 @@ function createPage(chart) {
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // JSON-LD
+  // ==================== JSON-LD DATASET ====================
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -80,17 +89,18 @@ function createPage(chart) {
       "name": "CommoditySuperCycle",
       "url": "https://commoditysupercycle.com"
     },
-    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining"],
+    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks", "sector performance"],
     "datePublished": new Date().toISOString().split('T')[0]
   };
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // Body + alt sull'immagine
+  // ==================== BODY + ALT IMMAGINE ====================
   let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
+  // Fix alt sull'immagine
   bodyHtml = bodyHtml.replace(
     '<img id="chart-image" src="charts/{{FILE}}">',
     `<img id="chart-image" src="charts/${file}" alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}">`
@@ -105,6 +115,8 @@ function createPage(chart) {
   fs.writeFileSync(name + '.html', html);
 }
 
+// Esecuzione
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con SEO + JSON-LD + alt completo!`);
+console.log(`🎉 ${chartsData.length} pagine HTML generate con SEO + JSON-LD + ALT completo!`);
+console.log(`Ultima pagina: ${chartsData[chartsData.length - 1].name}.html`);
