@@ -9,14 +9,13 @@ const mobilePath = path.join(__dirname, 'template-mobile.json');
 const desktopPath = path.join(__dirname, 'template-desktop.json');
 
 // Caricamento file
-const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath)) : {};
-const seoConfig = fs.existsSync(seoPath) ? JSON.parse(fs.readFileSync(seoPath)) : {};
+const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf-8')) : {};
+const seoConfig = fs.existsSync(seoPath) ? JSON.parse(fs.readFileSync(seoPath, 'utf-8')) : {};
 
 const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
-// ==================== ORDINE ESATTO DELLE PAGINE ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -34,7 +33,6 @@ const chartOrder = [
   "csc-index"
 ];
 
-// Costruzione dati
 const allFiles = fs.readdirSync(chartsDir).filter(f => f.endsWith('.png'));
 
 const chartsData = chartOrder
@@ -43,13 +41,7 @@ const chartsData = chartOrder
     const file = allFiles.find(f => path.basename(f, '.png') === name);
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-    return {
-      name,
-      file,
-      title: cfg.title || `Chart ${name}`,
-      sources: cfg.sources || [],
-      seo
-    };
+    return { name, file, title: cfg.title || `Chart ${name}`, sources: cfg.sources || [], seo };
   });
 
 function createPage(chart) {
@@ -61,19 +53,24 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // ==================== SEO INIEZIONE ====================
+  // ==================== SEO INIEZIONE ULTRA-ROBUSTA ====================
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
     <meta property="og:description" content="${(seo.ogDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:image" content="https://commoditysupercycle.com/charts/${seo.ogImage || file}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${seo.canonical}">
-    <link rel="canonical" href="${seo.canonical}">
+    <meta property="og:url" content="${seo.canonical || ''}">
+    <link rel="canonical" href="${seo.canonical || ''}">
+    <meta name="robots" content="index, follow">
   `.trim();
 
-  // Inserisce i meta tag prima del <style>
-  html = html.replace(/<style>/i, seoHead + '\n  <style>');
+  // Inserimento più affidabile (cerca <style> anche con spazi)
+  if (html.includes('<style>')) {
+    html = html.replace('<style>', seoHead + '\n  <style>');
+  } else {
+    console.warn(`⚠️ <style> non trovato in ${name}.html`);
+  }
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
@@ -91,5 +88,5 @@ function createPage(chart) {
 // Esecuzione
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine HTML generate correttamente con SEO completa!`);
-console.log(`Ultima pagina generata: ${chartsData[chartsData.length - 1].name}.html`);
+console.log(`🎉 ${chartsData.length} pagine HTML generate correttamente con SEO!`);
+console.log(`Ultima pagina: ${chartsData[chartsData.length - 1].name}.html`);
