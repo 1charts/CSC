@@ -135,33 +135,6 @@
       display: block;
     }
 
-    .btn {
-      background: transparent;
-      border: none;
-      color: #e2e8f0;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      padding: 4px;
-      pointer-events: auto;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      background: rgba(103, 232, 249, 0.1);
-      color: #67e8f9;
-    }
-
-    .btn svg {
-      width: 20px;
-      height: 20px;
-      stroke: currentColor;
-    }
-
     /* ==================== STILI MOBILE CSC PREMIUM (solo sotto 1280px) ==================== */
     @media (max-width: 1279px) {
       .header-row {
@@ -671,25 +644,34 @@
             <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
           </svg>
         </button>
-
         <a id="twitter-share" class="btn" href="" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
         </a>
 
-        <!-- ICONA HOME (sostituisce Facebook) -->
-        <a id="home-btn"
-           class="btn"
+        <a id="fb-share" class="btn" href="" target="_blank">
+          <svg viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a class="btn"
            href="https://commoditysupercycle.com/"
            target="_self"
            title="Home">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="none">
+
             <path
-              d="M4 11.5L12 4L20 11.5V19C20 20.1046 19.1046 21 18 21H15V15C15 14.4477 14.5523 14 14 14H10C9.44772 14 9 14.4477 9 15V21H6C4.89543 21 4 20.1046 4 19V11.5Z"
+              d="M4.5 11.5L12 4.5L19.5 11.5V18.5C19.5 19.6046 18.6046 20.5 17.5 20.5H14.5V15C14.5 14.1716 13.8284 13.5 13 13.5H11C10.1716 13.5 9.5 14.1716 9.5 15V20.5H6.5C5.39543 20.5 4.5 19.6046 4.5 18.5V11.5Z"
               stroke="currentColor"
-              stroke-width="2.2"
+              stroke-width="2.4"
               stroke-linecap="round"
               stroke-linejoin="round"/>
+
           </svg>
+
         </a>
 
         <div style="width:1px; height:20px; background:#444; margin:0 4px;"></div>
