@@ -16,7 +16,7 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
-// ==================== ORDINE ESATTO DELLE PAGINE ====================
+// ==================== ORDINE ESATTO ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -95,20 +95,20 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // ==================== FONTI STATICHE (pulite) ====================
-  let sourcesStatic = '';
+  // ==================== FONTI STATICHE (blocco intero condizionale) ====================
+  let sourcesBlock = '';
   if (chart.sources && chart.sources.length > 0) {
     const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
     if (valid.length > 0) {
-      sourcesStatic = valid.map(s => {
-        if (s.link && s.link !== '#') {
-          return `${s.text} - ${s.link}`;
-        }
+      const sourcesText = valid.map(s => {
+        if (s.link && s.link !== '#') return `${s.text} - ${s.link}`;
         return s.text;
       }).join(' · ');
+
+      sourcesBlock = `Sources: ${sourcesText}`;
     }
   }
-  bodyHtml = bodyHtml.replace('{{SOURCES_STATIC}}', sourcesStatic);
+  bodyHtml = bodyHtml.replace('{{SOURCES_STATIC}}', sourcesBlock);
 
   // ==================== ALT SICURO ====================
   bodyHtml = bodyHtml.replace(
@@ -128,4 +128,4 @@ function createPage(chart) {
 chartsData.forEach(chart => createPage(chart));
 
 console.log(`🎉 ${chartsData.length} pagine generate con successo!`);
-console.log(`   → Fonti statiche pulite (niente "Sources: " vuoto) + SEO completa`);
+console.log(`   → Blocco fonti pulito (scompare quando vuoto)`);
