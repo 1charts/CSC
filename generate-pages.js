@@ -58,7 +58,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // ==================== META SEO (usa i nuovi testi migliorati) ====================
+  // Meta SEO
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
@@ -74,7 +74,7 @@ function createPage(chart) {
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // ==================== JSON-LD ====================
+  // JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -88,10 +88,19 @@ function createPage(chart) {
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // ==================== BODY + H1 + ALT GARANTITO ====================
+  // ==================== BODY + H1 + ALT ====================
   let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
+
+  // === TRASFORMA AUTOMATICAMENTE IN <h1> ===
+  bodyHtml = bodyHtml.replace(
+    /<div class="title" id="page-title">/i,
+    '<h1 class="title" id="page-title">'
+  ).replace(
+    /<\/div>\s*(?=<a class="subtitle")/i,
+    '</h1>'
+  );
 
   // ALT SICURO
   bodyHtml = bodyHtml.replace(
@@ -110,4 +119,4 @@ function createPage(chart) {
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con SEO MIGLIORATA + H1-ready + ALT + JSON-LD!`);
+console.log(`🎉 ${chartsData.length} pagine generate con <h1> + SEO MIGLIORATA + ALT + JSON-LD!`);
