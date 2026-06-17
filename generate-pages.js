@@ -95,7 +95,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // ==================== FONTI STATICHE (solo se presenti e pulite) ====================
+  // ==================== FONTI STATICHE (pulite) ====================
   let sourcesStatic = '';
   if (chart.sources && chart.sources.length > 0) {
     const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
@@ -128,4 +128,4 @@ function createPage(chart) {
 chartsData.forEach(chart => createPage(chart));
 
 console.log(`🎉 ${chartsData.length} pagine generate con successo!`);
-console.log(`   → <h1> semantic + fonti statiche pulite + SEO completa + ALT garantito`);
+console.log(`   → Fonti statiche pulite (niente "Sources: " vuoto) + SEO completa`);
