@@ -8,6 +8,7 @@ const templatePath = path.join(__dirname, 'template.json');
 const mobilePath = path.join(__dirname, 'template-mobile.json');
 const desktopPath = path.join(__dirname, 'template-desktop.json');
 
+// Caricamento file
 const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath)) : {};
 const seoConfig = fs.existsSync(seoPath) ? JSON.parse(fs.readFileSync(seoPath)) : {};
 
@@ -15,7 +16,7 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
-// ==================== ORDINE ESATTO (aggiornato con csc-index) ====================
+// ==================== ORDINE ESATTO DELLE PAGINE ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -30,26 +31,24 @@ const chartOrder = [
   "diversified", "hydrogen", "helium", "coal", "graphite-graphene",
   "diamonds-gems", "fertilizers-salt", "industrial-minerals",
   "mining-equipment-services",
-  "csc-index"          // ← corretto
+  "csc-index"
 ];
 
-// Leggi tutti i PNG presenti
+// Costruzione dati
 const allFiles = fs.readdirSync(chartsDir).filter(f => f.endsWith('.png'));
 
-// Costruisci chartsData rispettando l'ordine
 const chartsData = chartOrder
   .filter(name => allFiles.some(f => path.basename(f, '.png') === name))
   .map(name => {
     const file = allFiles.find(f => path.basename(f, '.png') === name);
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-
     return {
       name,
       file,
       title: cfg.title || `Chart ${name}`,
-      sources: Array.isArray(cfg.sources) ? cfg.sources : [],
-      seo: seo
+      sources: cfg.sources || [],
+      seo
     };
   });
 
@@ -64,15 +63,17 @@ function createPage(chart) {
 
   // ==================== SEO INIEZIONE ====================
   const seoHead = `
-    <meta name="description" content="${seo.metaDescription || ''}">
-    <meta property="og:title" content="${seo.ogTitle || seo.title}">
-    <meta property="og:description" content="${seo.ogDescription || ''}">
+    <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
+    <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
+    <meta property="og:description" content="${(seo.ogDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:image" content="https://commoditysupercycle.com/charts/${seo.ogImage || file}">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="${seo.canonical}">
     <link rel="canonical" href="${seo.canonical}">
-  `;
+  `.trim();
 
-  html = html.replace('</head>', seoHead + '\n</head>');
+  // Inserisce i meta tag prima del <style>
+  html = html.replace(/<style>/i, seoHead + '\n  <style>');
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
@@ -87,7 +88,8 @@ function createPage(chart) {
   fs.writeFileSync(name + '.html', html);
 }
 
-// Genera le pagine
+// Esecuzione
 chartsData.forEach(chart => createPage(chart));
 
 console.log(`🎉 ${chartsData.length} pagine HTML generate correttamente con SEO completa!`);
+console.log(`Ultima pagina generata: ${chartsData[chartsData.length - 1].name}.html`);
