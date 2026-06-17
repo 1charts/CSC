@@ -8,6 +8,7 @@ const templatePath = path.join(__dirname, 'template.json');
 const mobilePath = path.join(__dirname, 'template-mobile.json');
 const desktopPath = path.join(__dirname, 'template-desktop.json');
 
+// ==================== CARICAMENTO FILE ====================
 const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf-8')) : {};
 const seoConfig = fs.existsSync(seoPath) ? JSON.parse(fs.readFileSync(seoPath, 'utf-8')) : {};
 
@@ -15,6 +16,7 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
+// ==================== ORDINE ESATTO DELLE PAGINE ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -79,7 +81,7 @@ function createPage(chart) {
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": seo.title || chart.title,
-    "description": seo.metaDescription,
+    "description": seo.metaDescription || "Total market capitalization chart.",
     "url": seo.canonical,
     "creator": { "@type": "Organization", "name": "CommoditySuperCycle", "url": "https://commoditysupercycle.com" },
     "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks", "sector valuation"],
@@ -93,21 +95,22 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // ==================== FONTI STATICHE (solo se presenti) ====================
+  // ==================== FONTI STATICHE (solo se presenti e pulite) ====================
   let sourcesStatic = '';
   if (chart.sources && chart.sources.length > 0) {
     const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
     if (valid.length > 0) {
       sourcesStatic = valid.map(s => {
-        return s.link && s.link !== '#' 
-          ? `${s.text} (${s.link})` 
-          : s.text;
+        if (s.link && s.link !== '#') {
+          return `${s.text} - ${s.link}`;
+        }
+        return s.text;
       }).join(' · ');
     }
   }
   bodyHtml = bodyHtml.replace('{{SOURCES_STATIC}}', sourcesStatic);
 
-  // ALT SICURO
+  // ==================== ALT SICURO ====================
   bodyHtml = bodyHtml.replace(
     /<img id="chart-image" src="charts\/[^"]*"/i,
     `<img id="chart-image" src="charts/${file}" alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"`
@@ -125,4 +128,4 @@ function createPage(chart) {
 chartsData.forEach(chart => createPage(chart));
 
 console.log(`🎉 ${chartsData.length} pagine generate con successo!`);
-console.log(`   → <h1> + fonti statiche + SEO ottimizzata`);
+console.log(`   → <h1> semantic + fonti statiche pulite + SEO completa + ALT garantito`);
