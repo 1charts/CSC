@@ -16,6 +16,7 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
+// ==================== ORDINE ESATTO (55 pagine) ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -33,6 +34,7 @@ const chartOrder = [
   "csc-index"
 ];
 
+// Costruzione dati
 const allFiles = fs.readdirSync(chartsDir).filter(f => f.endsWith('.png'));
 
 const chartsData = chartOrder
@@ -41,7 +43,13 @@ const chartsData = chartOrder
     const file = allFiles.find(f => path.basename(f, '.png') === name);
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-    return { name, file, title: cfg.title || `Chart ${name}`, sources: cfg.sources || [], seo };
+    return {
+      name,
+      file,
+      title: cfg.title || `Chart ${name}`,
+      sources: cfg.sources || [],
+      seo
+    };
   });
 
 function createPage(chart) {
@@ -53,30 +61,53 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // ==================== SEO INIEZIONE ULTRA-ROBUSTA ====================
+  // ==================== META TAGS SEO ====================
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
     <meta property="og:description" content="${(seo.ogDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:image" content="https://commoditysupercycle.com/charts/${seo.ogImage || file}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${seo.canonical || ''}">
-    <link rel="canonical" href="${seo.canonical || ''}">
+    <meta property="og:url" content="${seo.canonical}">
+    <link rel="canonical" href="${seo.canonical}">
     <meta name="robots" content="index, follow">
   `.trim();
 
-  // Inserimento più affidabile (cerca <style> anche con spazi)
-  if (html.includes('<style>')) {
-    html = html.replace('<style>', seoHead + '\n  <style>');
-  } else {
-    console.warn(`⚠️ <style> non trovato in ${name}.html`);
-  }
+  html = html.replace('<style>', seoHead + '\n  <style>');
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  html += template.htmlBody
+  // ==================== JSON-LD DATASET ====================
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": seo.title || chart.title,
+    "description": seo.metaDescription || `Total market capitalization chart of ${name} sector by CommoditySuperCycle.`,
+    "url": seo.canonical,
+    "creator": {
+      "@type": "Organization",
+      "name": "CommoditySuperCycle",
+      "url": "https://commoditysupercycle.com"
+    },
+    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks", "sector performance"],
+    "datePublished": new Date().toISOString().split('T')[0]
+  };
+
+  const jsonLdScript = `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>`;
+
+  html += jsonLdScript;
+
+  // Body con alt sull'immagine
+  let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
+
+  bodyHtml = bodyHtml.replace(
+    '<img id="chart-image" src="charts/{{FILE}}">',
+    `<img id="chart-image" src="charts/${file}" alt="${seo.title || chart.title} - Market Capitalization Chart">`
+  );
+
+  html += bodyHtml;
 
   html += template.htmlEnd
     .replace('{{CHARTS_DATA}}', JSON.stringify(chartsData))
@@ -88,5 +119,5 @@ function createPage(chart) {
 // Esecuzione
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine HTML generate correttamente con SEO!`);
+console.log(`🎉 ${chartsData.length} pagine HTML generate con SEO + JSON-LD completo!`);
 console.log(`Ultima pagina: ${chartsData[chartsData.length - 1].name}.html`);
