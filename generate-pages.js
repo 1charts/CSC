@@ -8,7 +8,7 @@ const templatePath = path.join(__dirname, 'template.json');
 const mobilePath = path.join(__dirname, 'template-mobile.json');
 const desktopPath = path.join(__dirname, 'template-desktop.json');
 
-// ==================== CARICAMENTO FILE ====================
+// ==================== CARICAMENTO ====================
 const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf-8')) : {};
 const seoConfig = fs.existsSync(seoPath) ? JSON.parse(fs.readFileSync(seoPath, 'utf-8')) : {};
 
@@ -16,7 +16,7 @@ const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
 const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
-// ==================== ORDINE ESATTO ====================
+// ==================== ORDINE PAGINE ====================
 const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
@@ -60,7 +60,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // ==================== META SEO ====================
+  // META SEO
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
@@ -76,7 +76,7 @@ function createPage(chart) {
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // ==================== JSON-LD ====================
+  // JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -90,27 +90,35 @@ function createPage(chart) {
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // ==================== BODY ====================
+  // BODY
   let bodyHtml = template.htmlBody
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // ==================== FONTI STATICHE (blocco intero condizionale) ====================
-  let sourcesBlock = '';
+  // ==================== FONTI STATICHE (CONDIZIONALE) ====================
+  let sourcesText = '';
   if (chart.sources && chart.sources.length > 0) {
     const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
     if (valid.length > 0) {
-      const sourcesText = valid.map(s => {
+      sourcesText = valid.map(s => {
         if (s.link && s.link !== '#') return `${s.text} - ${s.link}`;
         return s.text;
       }).join(' · ');
-
-      sourcesBlock = `Sources: ${sourcesText}`;
     }
   }
-  bodyHtml = bodyHtml.replace('{{SOURCES_STATIC}}', sourcesBlock);
 
-  // ==================== ALT SICURO ====================
+  // Se non ci sono fonti, rimuoviamo completamente il div
+  if (sourcesText) {
+    bodyHtml = bodyHtml.replace(
+      '<!-- Fonti statiche per i crawler (nascoste) -->\n        <div id="sources-static" style="display:none;">\n          Sources: {{SOURCES_STATIC}}\n        </div>',
+      `<!-- Fonti statiche per i crawler -->\n        <div id="sources-static" style="display:none;">\n          Sources: ${sourcesText}\n        </div>`
+    );
+  } else {
+    // Rimuove completamente il blocco quando vuoto
+    bodyHtml = bodyHtml.replace(/<!-- Fonti statiche per i crawler \(nascoste\) -->[\s\S]*?<\/div>/, '');
+  }
+
+  // ALT SICURO
   bodyHtml = bodyHtml.replace(
     /<img id="chart-image" src="charts\/[^"]*"/i,
     `<img id="chart-image" src="charts/${file}" alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"`
@@ -128,4 +136,4 @@ function createPage(chart) {
 chartsData.forEach(chart => createPage(chart));
 
 console.log(`🎉 ${chartsData.length} pagine generate con successo!`);
-console.log(`   → Blocco fonti pulito (scompare quando vuoto)`);
+console.log(`   → Blocco "Sources:" rimosso completamente quando vuoto`);
