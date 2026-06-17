@@ -93,12 +93,16 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || chart.title)
     .replace('{{FILE}}', file);
 
-  // Fonti statiche per i crawler
+  // ==================== FONTI STATICHE (solo se presenti) ====================
   let sourcesStatic = '';
   if (chart.sources && chart.sources.length > 0) {
     const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
     if (valid.length > 0) {
-      sourcesStatic = valid.map(s => s.text + (s.link && s.link !== '#' ? ` (${s.link})` : '')).join(' · ');
+      sourcesStatic = valid.map(s => {
+        return s.link && s.link !== '#' 
+          ? `${s.text} (${s.link})` 
+          : s.text;
+      }).join(' · ');
     }
   }
   bodyHtml = bodyHtml.replace('{{SOURCES_STATIC}}', sourcesStatic);
@@ -120,4 +124,5 @@ function createPage(chart) {
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con <h1> + fonti statiche + SEO completa!`);
+console.log(`🎉 ${chartsData.length} pagine generate con successo!`);
+console.log(`   → <h1> + fonti statiche + SEO ottimizzata`);
