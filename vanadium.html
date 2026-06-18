@@ -154,6 +154,17 @@
       }
     }
 
+    /* NASCONDI FRECCE NAVIGAZIONE SU MOBILE (evita la freccia fantasma) */
+    .nav-btn {
+      display: none !important;
+    }
+
+    @media (min-width: 1280px) {
+      .nav-btn {
+        display: flex !important;
+      }
+    }
+
     /* ==================== STILI MOBILE CSC PREMIUM (solo sotto 1280px) ==================== */
     @media (max-width: 1279px) {
       .header-row {
@@ -266,7 +277,7 @@
         align-items: center;
       }
 
-      .chart-container img {
+      .chart-container img, picture {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
@@ -275,6 +286,7 @@
       }
     }
 
+    /* NASCONDI COMPLETAMENTE LE FRECCE SU MOBILE */
     @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
       #prev-btn, #next-btn {
         display: none !important;
@@ -612,7 +624,26 @@
 <body>
 
     <script type="application/ld+json">
-{}
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Vanadium Mining Market Cap | CommoditySuperCycle",
+  "description": "Total market capitalization of global vanadium mining companies. Steel alloy and battery applications.",
+  "url": "https://commoditysupercycle.com/charts/vanadium",
+  "creator": {
+    "@type": "Organization",
+    "name": "CommoditySuperCycle",
+    "url": "https://commoditysupercycle.com"
+  },
+  "keywords": [
+    "vanadium",
+    "market cap",
+    "commodity",
+    "mining stocks",
+    "sector valuation"
+  ],
+  "datePublished": "2026-06-18"
+}
     </script>
   <div id="rotate-message">
     <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9">
@@ -670,8 +701,8 @@
     <div id="full-capture-area">
       <div class="chart-container">
         <!-- Qui verrà sostituito dal generate-pages.js con <picture> -->
-        <picture>
-        <source srcset="charts/vanadium.svg" type="image/svg+xml">
+        <picture id="chart-picture">
+        <source id="svg-source" srcset="charts/vanadium.svg" type="image/svg+xml">
         <img id="chart-image" 
              src="charts/vanadium.png" 
              alt="Vanadium Mining Market Cap | CommoditySuperCycle"
@@ -697,8 +728,15 @@
           validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
         : '';
 
-      document.getElementById('chart-image').src = 'charts/' + c.file;
+      // ==================== AGGIORNAMENTO IMMAGINE ROBUSTO (SVG + PICTURE) ====================
+      const picture = document.getElementById('chart-picture');
+      const source = document.getElementById('svg-source');
+      const img = document.getElementById('chart-image');
 
+      if (source) source.srcset = 'charts/' + c.file;
+      if (img) img.src = 'charts/' + (c.pngFallback || c.file);
+
+      // Aggiorna URL social
       const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
       const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
 
@@ -727,6 +765,7 @@
       if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
     });
 
+    // Swipe su mobile
     let tsX = 0;
     const area = document.getElementById('full-capture-area');
     area.addEventListener('touchstart', e => {

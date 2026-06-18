@@ -17,7 +17,7 @@ const mobile = JSON.parse(fs.readFileSync(mobilePath, 'utf-8'));
 const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
 // ==================== ORDINE PAGINE ====================
-const chartOrder = [ /* il tuo array rimane identico */ 
+const chartOrder = [
   "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
   "upstream-global", "midstream", "downstream", "og-equipment-services",
   "drilling-contractors", "tankers", "lng", "royalties-trusts", "biofuels-biogas",
@@ -36,22 +36,22 @@ const chartOrder = [ /* il tuo array rimane identico */
 
 const allFiles = fs.readdirSync(chartsDir);
 
-// Prendiamo sia .svg che .png, ma preferiamo SVG
 const chartsData = chartOrder
-  .filter(name => allFiles.some(f => path.basename(f, '.svg') === name || path.basename(f, '.png') === name))
+  .filter(name => allFiles.some(f => 
+    path.basename(f, '.svg') === name || path.basename(f, '.png') === name
+  ))
   .map(name => {
     const svgFile = `${name}.svg`;
     const pngFile = `${name}.png`;
-    
-    const file = allFiles.includes(svgFile) ? svgFile : pngFile; // preferisce SVG
-    
+    const file = allFiles.includes(svgFile) ? svgFile : pngFile;
+
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-    
+
     return { 
       name, 
       file, 
-      pngFallback: pngFile,   // salviamo anche il png per il fallback
+      pngFallback: pngFile,
       title: cfg.title || `Chart ${name}`, 
       sources: cfg.sources || [], 
       seo 
@@ -67,7 +67,6 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // META SEO (usiamo PNG per og:image perché più compatibile con i social)
   const ogImage = seo.ogImage || pngFallback || file;
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
@@ -84,19 +83,27 @@ function createPage(chart) {
 
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // JSON-LD (rimane uguale)
-  const jsonLd = { /* ... rimane identico ... */ };
+  // JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": seo.title || chart.title,
+    "description": seo.metaDescription || "Total market capitalization chart.",
+    "url": seo.canonical,
+    "creator": { "@type": "Organization", "name": "CommoditySuperCycle", "url": "https://commoditysupercycle.com" },
+    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks", "sector valuation"],
+    "datePublished": new Date().toISOString().split('T')[0]
+  };
+
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
-  // ==================== BODY CON PICTURE (SVG + PNG fallback) ====================
-  let bodyHtml = template.htmlBody
-    .replace('{{TITLE}}', seo.title || chart.title);
+  let bodyHtml = template.htmlBody.replace('{{TITLE}}', seo.title || chart.title);
 
-  // Sostituiamo l'img con <picture>
+  // PICTURE + ID per JS
   bodyHtml = bodyHtml.replace(
     /<img id="chart-image" src="charts\/[^"]*"/i,
-    `<picture>
-        <source srcset="charts/${file}" type="image/svg+xml">
+    `<picture id="chart-picture">
+        <source id="svg-source" srcset="charts/${file}" type="image/svg+xml">
         <img id="chart-image" 
              src="charts/${pngFallback}" 
              alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"
@@ -105,26 +112,23 @@ function createPage(chart) {
       </picture>`
   );
 
-  // Fonti statiche (rimane uguale)
+  // Fonti
   let sourcesText = '';
-  if (chart.sources && chart.sources.length > 0) {
-    const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
-    if (valid.length > 0) {
-      sourcesText = valid.map(s => s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text).join(' · ');
-    }
+  if (chart.sources?.length > 0) {
+    const valid = chart.sources.filter(s => s.text?.trim());
+    if (valid.length) sourcesText = valid.map(s => s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text).join(' · ');
   }
 
   if (sourcesText) {
     bodyHtml = bodyHtml.replace(
-      '<!-- Fonti statiche per i crawler (nascoste) -->\n        <div id="sources-static" style="display:none;">\n          Sources: {{SOURCES_STATIC}}\n        </div>',
-      `<!-- Fonti statiche per i crawler -->\n        <div id="sources-static" style="display:none;">\n          Sources: ${sourcesText}\n        </div>`
+      /Sources: {{SOURCES_STATIC}}/,
+      `Sources: ${sourcesText}`
     );
   } else {
-    bodyHtml = bodyHtml.replace(/<!-- Fonti statiche per i crawler \(nascoste\) -->[\s\S]*?<\/div>/, '');
+    bodyHtml = bodyHtml.replace(/<!-- Fonti statiche.*?<\/div>/s, '');
   }
 
   html += bodyHtml;
-
   html += template.htmlEnd
     .replace('{{CHARTS_DATA}}', JSON.stringify(chartsData))
     .replace('{{JAVASCRIPT}}', mobile.mobileJS);
@@ -134,5 +138,4 @@ function createPage(chart) {
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con SVG + PNG fallback!`);
-console.log(`   → SVG prioritario, PNG come fallback`);
+console.log(`🎉 ${chartsData.length} pagine generate con SVG + fix navigazione!`);
