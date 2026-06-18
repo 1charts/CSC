@@ -36,22 +36,16 @@ const chartOrder = [
 
 const allFiles = fs.readdirSync(chartsDir);
 
+// ==================== SOLO SVG ====================
 const chartsData = chartOrder
-  .filter(name => allFiles.some(f => 
-    path.basename(f, '.svg') === name || path.basename(f, '.png') === name
-  ))
+  .filter(name => allFiles.includes(`${name}.svg`))
   .map(name => {
-    const svgFile = `${name}.svg`;
-    const pngFile = `${name}.png`;
-    const file = allFiles.includes(svgFile) ? svgFile : pngFile;
-
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
 
     return { 
       name, 
-      file, 
-      pngFallback: pngFile,
+      file: `${name}.svg`,           // Solo SVG
       title: cfg.title || `Chart ${name}`, 
       sources: cfg.sources || [], 
       seo 
@@ -59,7 +53,7 @@ const chartsData = chartOrder
   });
 
 function createPage(chart) {
-  const { name, file, pngFallback, seo } = chart;
+  const { name, file, seo } = chart;
 
   const fullCSS = template.commonCSS + "\n\n" + mobile.mobileCSS + "\n\n" + desktop.desktopCSS;
 
@@ -67,12 +61,12 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  const ogImage = seo.ogImage || pngFallback || file;
+  // META SEO - usa SVG
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
     <meta property="og:description" content="${(seo.ogDescription || '').replace(/"/g, '&quot;')}">
-    <meta property="og:image" content="https://commoditysupercycle.com/charts/${ogImage}">
+    <meta property="og:image" content="https://commoditysupercycle.com/charts/${file}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${seo.canonical}">
     <link rel="canonical" href="${seo.canonical}">
@@ -99,31 +93,27 @@ function createPage(chart) {
 
   let bodyHtml = template.htmlBody.replace('{{TITLE}}', seo.title || chart.title);
 
-  // PICTURE + ID per JS
+  // ==================== SOLO SVG (semplice e pulito) ====================
   bodyHtml = bodyHtml.replace(
-    /<img id="chart-image" src="charts\/[^"]*"/i,
-    `<picture id="chart-picture">
-        <source id="svg-source" srcset="charts/${file}" type="image/svg+xml">
-        <img id="chart-image" 
-             src="charts/${pngFallback}" 
-             alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"
-             loading="lazy"
-             decoding="async">
-      </picture>`
+    /<img id="chart-image" src="charts\/[^"]*">/i,
+    `<img id="chart-image" 
+         src="charts/${file}" 
+         alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"
+         loading="lazy"
+         decoding="async">`
   );
 
-  // Fonti
+  // Fonti statiche
   let sourcesText = '';
-  if (chart.sources?.length > 0) {
-    const valid = chart.sources.filter(s => s.text?.trim());
-    if (valid.length) sourcesText = valid.map(s => s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text).join(' · ');
+  if (chart.sources && chart.sources.length > 0) {
+    const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
+    if (valid.length > 0) {
+      sourcesText = valid.map(s => s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text).join(' · ');
+    }
   }
 
   if (sourcesText) {
-    bodyHtml = bodyHtml.replace(
-      /Sources: {{SOURCES_STATIC}}/,
-      `Sources: ${sourcesText}`
-    );
+    bodyHtml = bodyHtml.replace('Sources: {{SOURCES_STATIC}}', `Sources: ${sourcesText}`);
   } else {
     bodyHtml = bodyHtml.replace(/<!-- Fonti statiche.*?<\/div>/s, '');
   }
@@ -138,4 +128,5 @@ function createPage(chart) {
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con SVG + fix navigazione!`);
+console.log(`🎉 ${chartsData.length} pagine generate con SOLO SVG!`);
+console.log(`   → Nessun fallback PNG - codice semplificato`);
