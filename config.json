@@ -55,7 +55,7 @@
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
-  "oil-gas": { "title": "CommoditySuperCycle Oil & Gas Index", "sources": 
+  "oil-gas": { "title": "CSC Oil & Gas Index", "sources": 
 [{ "text": "Brent Crude Oil (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DCOILBRENTEU" }, 
 { "text": "Henry Hub Natural Gas (EIA/FRED)", "link": "https://fred.stlouisfed.org/series/DHHNGSP" }, 
 { "text": "", "link": "#" }] },
@@ -95,7 +95,7 @@
 [{ "text": "Platinum - Palladium (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "" }, 
 { "text": "", "link": "#" }] },
-  "precious-metals": { "title": "CommoditySuperCycle Precious Metals Index", "sources": 
+  "precious-metals": { "title": "CSC Precious Metals Index", "sources": 
 [{ "text": "Gold - Silver - Platinum (IMF)", "link": "https://www.imf.org/en/research/commodity-prices" }, 
 { "text": "", "link": "" }, 
 { "text": "", "link": "#" }] },
@@ -124,7 +124,7 @@
   "titanium-zirconium": { "title": "Titanium & Zirconium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "silicon": { "title": "Silicon Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "vanadium": { "title": "Vanadium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "base-metals": { "title": "CommoditySuperCycle Base Metals Index", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
+  "base-metals": { "title": "CSC Base Metals Index", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "diversified": { "title": "Diversified Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "hydrogen": { "title": "Hydrogen Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "helium": { "title": "Helium Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
@@ -134,5 +134,5 @@
   "fertilizers-salt": { "title": "Fertilizers & Salt Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "industrial-minerals": { "title": "Industrial Minerals Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
   "mining-equipment-services": { "title": "Mining Equipment & Services Companies", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] },
-  "csc-index": { "title": "CommoditySuperCycle Index", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] }
+  "csc-index": { "title": "CSC Total Index", "sources": [{ "text": "", "link": "#" }, { "text": "", "link": "#" }, { "text": "", "link": "#" }] }
 }
