@@ -36,16 +36,22 @@ const chartOrder = [
 
 const allFiles = fs.readdirSync(chartsDir);
 
-// ==================== SOLO SVG ====================
+// Preferiamo SVG
 const chartsData = chartOrder
-  .filter(name => allFiles.includes(`${name}.svg`))
+  .filter(name => allFiles.some(f => path.basename(f, '.svg') === name || path.basename(f, '.png') === name))
   .map(name => {
+    const svgFile = `${name}.svg`;
+    const pngFile = `${name}.png`;
+    
+    const file = allFiles.includes(svgFile) ? svgFile : pngFile;
+    
     const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-
+    
     return { 
       name, 
-      file: `${name}.svg`,           // Solo SVG
+      file, 
+      pngFallback: pngFile,
       title: cfg.title || `Chart ${name}`, 
       sources: cfg.sources || [], 
       seo 
@@ -53,7 +59,7 @@ const chartsData = chartOrder
   });
 
 function createPage(chart) {
-  const { name, file, seo } = chart;
+  const { name, file, pngFallback, seo } = chart;
 
   const fullCSS = template.commonCSS + "\n\n" + mobile.mobileCSS + "\n\n" + desktop.desktopCSS;
 
@@ -61,12 +67,13 @@ function createPage(chart) {
     .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
     .replace('{{LOGO_URL}}', template.logoUrl);
 
-  // META SEO - usa SVG
+  // META SEO
+  const ogImage = seo.ogImage || pngFallback || file;
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
     <meta property="og:description" content="${(seo.ogDescription || '').replace(/"/g, '&quot;')}">
-    <meta property="og:image" content="https://commoditysupercycle.com/charts/${file}">
+    <meta property="og:image" content="https://commoditysupercycle.com/charts/${ogImage}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${seo.canonical}">
     <link rel="canonical" href="${seo.canonical}">
@@ -91,16 +98,20 @@ function createPage(chart) {
 
   html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
 
+  // ==================== BODY ====================
   let bodyHtml = template.htmlBody.replace('{{TITLE}}', seo.title || chart.title);
 
-  // ==================== SOLO SVG (semplice e pulito) ====================
+  // Sostituzione corretta dell'immagine (rimuove anche il > finale)
   bodyHtml = bodyHtml.replace(
-    /<img id="chart-image" src="charts\/[^"]*">/i,
-    `<img id="chart-image" 
-         src="charts/${file}" 
-         alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"
-         loading="lazy"
-         decoding="async">`
+    /<img id="chart-image" src="charts\/[^"]*"\s*>/i,
+    `<picture>
+        <source srcset="charts/${file}" type="image/svg+xml">
+        <img id="chart-image" 
+             src="charts/${pngFallback}" 
+             alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}"
+             loading="lazy"
+             decoding="async">
+      </picture>`
   );
 
   // Fonti statiche
@@ -108,17 +119,23 @@ function createPage(chart) {
   if (chart.sources && chart.sources.length > 0) {
     const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
     if (valid.length > 0) {
-      sourcesText = valid.map(s => s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text).join(' · ');
+      sourcesText = valid.map(s => 
+        s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text
+      ).join(' · ');
     }
   }
 
   if (sourcesText) {
-    bodyHtml = bodyHtml.replace('Sources: {{SOURCES_STATIC}}', `Sources: ${sourcesText}`);
+    bodyHtml = bodyHtml.replace(
+      '<!-- Fonti statiche per i crawler (nascoste) -->\n        <div id="sources-static" style="display:none;">\n          Sources: {{SOURCES_STATIC}}\n        </div>',
+      `<!-- Fonti statiche per i crawler -->\n        <div id="sources-static" style="display:none;">\n          Sources: ${sourcesText}\n        </div>`
+    );
   } else {
-    bodyHtml = bodyHtml.replace(/<!-- Fonti statiche.*?<\/div>/s, '');
+    bodyHtml = bodyHtml.replace(/<!-- Fonti statiche per i crawler \(nascoste\) -->[\s\S]*?<\/div>/, '');
   }
 
   html += bodyHtml;
+
   html += template.htmlEnd
     .replace('{{CHARTS_DATA}}', JSON.stringify(chartsData))
     .replace('{{JAVASCRIPT}}', mobile.mobileJS);
@@ -128,5 +145,5 @@ function createPage(chart) {
 
 chartsData.forEach(chart => createPage(chart));
 
-console.log(`🎉 ${chartsData.length} pagine generate con SOLO SVG!`);
-console.log(`   → Nessun fallback PNG - codice semplificato`);
+console.log(`🎉 ${chartsData.length} pagine generate con SVG + PNG fallback!`);
+console.log(`   → Problema della ">" risolto`);
