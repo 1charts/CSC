@@ -8,7 +8,7 @@
       <rdf:Description rdf:about="">
         <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Global Diamonds &amp; Gems Companies Market Cap</dc:title>
         <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Historical total market capitalization of diamond and gemstone mining companies.</dc:description>
-        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, diamonds gems, global diamonds & gems companies market cap, commodity supercycle, energy sector, mining sector</dc:subject>
+        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, diamonds gems, global diamonds &amp; gems companies market cap, commodity supercycle, energy sector, mining sector</dc:subject>
         <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/">Dataset</dc:type>
         <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
       </rdf:Description>

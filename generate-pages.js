@@ -22,20 +22,18 @@ const desktop = JSON.parse(fs.readFileSync(desktopPath, 'utf-8'));
 
 // ==================== ORDINE PAGINE ====================
 const chartOrder = [
-  "upstream-nyse", "upstream-lse", "upstream-tsx", "upstream-tsxv", "upstream-asx",
-  "upstream-global", "midstream", "downstream", "og-equipment-services",
-  "drilling-contractors", "tankers", "lng", "royalties-trusts", "biofuels-biogas",
-  "oil-gas",
-  "gold-nyse", "gold-lse", "gold-tsx", "gold-tsxv", "gold-asx",
-  "silver", "gold-silver", "gold-copper", "pgm", "precious-metals",
-  "aluminum", "copper", "lead-zinc", "lithium", "iron-steel", "nickel",
-  "rare-earths", "uranium", "antimony", "beryllium", "cobalt", "magnesium",
-  "manganese", "molybdenum-tungsten", "niobium-tantalum", "tin",
-  "titanium-zirconium", "silicon", "vanadium", "base-metals",
-  "diversified", "hydrogen", "helium", "coal", "graphite-graphene",
-  "diamonds-gems", "fertilizers-salt", "industrial-minerals",
-  "mining-equipment-services",
-  "csc-index"
+  "upstream-nyse","upstream-lse","upstream-tsx","upstream-tsxv","upstream-asx","upstream-global",
+  "midstream","downstream","og-equipment-services","drilling-contractors","tankers","lng",
+  "royalties-trusts","biofuels-biogas","oil-gas",
+  "gold-nyse","gold-lse","gold-tsx","gold-tsxv","gold-asx",
+  "silver","gold-silver","gold-copper","pgm","precious-metals",
+  "aluminum","copper","lead-zinc","lithium","iron-steel","nickel",
+  "rare-earths","uranium","antimony","beryllium","cobalt","magnesium",
+  "manganese","molybdenum-tungsten","niobium-tantalum","tin",
+  "titanium-zirconium","silicon","vanadium","base-metals",
+  "diversified","hydrogen","helium","coal","graphite-graphene",
+  "diamonds-gems","fertilizers-salt","industrial-minerals",
+  "mining-equipment-services","csc-index"
 ];
 
 const allFiles = fs.readdirSync(svgPngDir);
@@ -50,7 +48,7 @@ const chartsData = chartOrder
       svgFile: `${name}.svg`,
       pngFile: `${name}.png`,
       title: seo.title || `Market Cap - ${name}`,
-      sources: cfg.sources || [],
+      sources: cfg.sources || [],     // Importante per le fonti
       seo
     };
   });
@@ -62,7 +60,7 @@ function createPage(chart) {
     .replace('{{TITLE}}', cleanTitle)
     .replace('{{LOGO_URL}}', template.logoUrl || '');
 
-  // ==================== META SEO ====================
+  // META SEO
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
     <meta property="og:title" content="${(seo.ogTitle || cleanTitle).replace(/"/g, '&quot;')}">
@@ -79,7 +77,7 @@ function createPage(chart) {
   const fullCSS = template.commonCSS + "\n\n" + mobile.mobileCSS + "\n\n" + desktop.desktopCSS;
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // ==================== JSON-LD ====================
+  // JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -91,10 +89,9 @@ function createPage(chart) {
 
   html += `<script type="application/ld+json">${JSON.stringify(jsonLd, null, 2)}</script>\n`;
 
-  // ==================== BODY ====================
+  // BODY
   let bodyHtml = template.htmlBody.replace('{{TITLE}}', cleanTitle);
 
-  // Replace sicuro dell'immagine
   bodyHtml = bodyHtml.replace(
     /<img[^>]*id=["']chart-image["'][^>]*>/i,
     `<img id="chart-image" src="SVG-PNG/${svgFile}" alt="${cleanTitle}" loading="lazy" decoding="async">`
@@ -104,7 +101,6 @@ function createPage(chart) {
     .replace('{{CHARTS_DATA}}', JSON.stringify(chartsData))
     .replace('{{JAVASCRIPT}}', mobile.mobileJS);
 
-  // ==================== SALVA ====================
   fs.writeFileSync(path.join(outputHtmlDir, `${name}.html`), html, 'utf-8');
   console.log(`✓ ${name}.html`);
 }
@@ -112,5 +108,5 @@ function createPage(chart) {
 chartsData.forEach(createPage);
 
 console.log(`\n🎉 ${chartsData.length} pagine HTML generate con successo!`);
-console.log(`   HTML → ${outputHtmlDir}`);
-console.log(`   SVG/PNG → ${svgPngDir}`);
+console.log(`   → HTML in: ${outputHtmlDir}`);
+console.log(`   → Immagini in: ${svgPngDir}`);

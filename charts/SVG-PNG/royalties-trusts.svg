@@ -8,7 +8,7 @@
       <rdf:Description rdf:about="">
         <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Global O&amp;G Royalties &amp; Trusts Market Cap</dc:title>
         <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Historical total market capitalization of oil &amp; gas royalty trusts and mineral rights companies. Passive income energy sector performance.</dc:description>
-        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, royalties trusts, global o&g royalties & trusts market cap, commodity supercycle, energy sector, mining sector</dc:subject>
+        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, royalties trusts, global o&amp;g royalties &amp; trusts market cap, commodity supercycle, energy sector, mining sector</dc:subject>
         <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/">Dataset</dc:type>
         <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
       </rdf:Description>

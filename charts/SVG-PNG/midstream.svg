@@ -8,7 +8,7 @@
       <rdf:Description rdf:about="">
         <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Global Midstream Oil &amp; Gas Market Cap</dc:title>
         <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Historical total market capitalization of global midstream oil and gas companies. Infrastructure, transportation and storage sector performance.</dc:description>
-        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, midstream, global midstream oil & gas market cap, commodity supercycle, energy sector, mining sector</dc:subject>
+        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, midstream, global midstream oil &amp; gas market cap, commodity supercycle, energy sector, mining sector</dc:subject>
         <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/">Dataset</dc:type>
         <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
       </rdf:Description>

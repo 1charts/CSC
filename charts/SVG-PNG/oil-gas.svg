@@ -8,7 +8,7 @@
       <rdf:Description rdf:about="">
         <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">CSC Oil &amp; Gas Index</dc:title>
         <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Official CommoditySuperCycle Index - Historical total market capitalization of the global oil and gas sector.</dc:description>
-        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, oil gas, csc oil & gas index, commodity supercycle, energy sector, mining sector</dc:subject>
+        <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, oil gas, csc oil &amp; gas index, commodity supercycle, energy sector, mining sector</dc:subject>
         <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/">Dataset</dc:type>
         <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
       </rdf:Description>
