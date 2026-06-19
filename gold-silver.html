@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Market Cap - gold-silver</title>
+  <link rel="icon" type="image/png" href="https://commoditysupercycle.com/assets/logo192-C5BlHOLs.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="description" content="">
+    <meta property="og:title" content="Market Cap - gold-silver">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://commoditysupercycle.com/charts/SVG-PNG/gold-silver.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <link rel="canonical" href="#">
+    <meta name="robots" content="index, follow">
+  <style>    * { box-sizing: border-box; }
+
+    body { 
+      margin: 0; 
+      background: #1E1E1E; 
+      font-family: 'Inter', sans-serif; 
+      color: #e2e8f0; 
+      overflow: hidden; 
+      height: 100dvh; 
+      width: 100vw; 
+    }
+
+    #rotate-message { 
+      display: none; 
+      position: fixed; 
+      top: 0; left: 0; 
+      width: 100%; height: 100%; 
+      background: #1E1E1E; 
+      z-index: 999; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+    }
+
+    @media (orientation: portrait) { 
+      #rotate-message { display: flex; } 
+    }
+
+    .container { 
+      width: 100%; 
+      height: 100dvh; 
+      display: flex; 
+      flex-direction: column; 
+      position: relative; 
+    }
+
+    .header-row { 
+      display: flex; 
+      justify-content: flex-end; 
+      align-items: center; 
+      flex-shrink: 0; 
+      padding: 8px 10px; 
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .title-group { 
+      flex: 1; 
+      min-width: 0; 
+      padding-left: 8px; 
+      padding-right: 70px; 
+    }
+
+    .title { 
+      font-size: 15px; 
+      font-weight: 700; 
+      color: #f8fafc; 
+      margin: 0; 
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subtitle { 
+      font-size: 11px; 
+      color: #67e8f9; 
+      text-decoration: none; 
+      font-weight: bold; 
+    }
+
+    .sources { 
+      font-size: 10px; 
+      color: #94a3b8; 
+    }
+
+    .sources a { 
+      color: #67e8f9; 
+      text-decoration: none; 
+    }
+
+    #full-capture-area { 
+      flex-grow: 1; 
+      display: flex; 
+      flex-direction: column; 
+      position: relative; 
+      overflow: hidden; 
+      background: #1E1E1E; 
+      padding: 0; 
+      margin: 0;
+      height: 100%;
+    }
+
+    .chart-container { 
+      flex-grow: 1; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      padding: 0;
+      margin-top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #chart-image {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      image-rendering: crisp-edges;
+      margin: 0;
+      display: block;
+      border-radius: 12px;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #chart-image {
+        image-rendering: optimizeQuality;
+      }
+    }
+
+    /* ==================== STILI MOBILE CSC PREMIUM (solo sotto 1280px) ==================== */
+    @media (max-width: 1279px) {
+      .header-row {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 30;
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .title-group {
+        background: linear-gradient(180deg, rgba(22,30,42,0.96), rgba(12,18,28,0.94));
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 14px;
+        padding: 12px 15px;
+        max-width: 68%;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        pointer-events: auto;
+        cursor: grab;
+        user-select: none;
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        z-index: 50;
+      }
+
+      .title {
+        font-size: 15px;
+        line-height: 1.25;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #f8fafc;
+        margin: 0;
+      }
+
+      .subtitle, .sources {
+        display: none !important;
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        align-items: flex-end;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        z-index: 40;
+        pointer-events: auto;
+      }
+
+      .btn {
+        background: linear-gradient(180deg, rgba(22,30,42,0.96), rgba(10,18,28,0.94));
+        border: 1px solid rgba(255,255,255,0.07);
+        color: #f8fafc;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        border-radius: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.03);
+        transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .btn:active {
+        transform: scale(0.95);
+        border-color: rgba(34,211,238,0.18);
+        background: linear-gradient(180deg, rgba(34,211,238,0.10), rgba(10,18,28,0.95));
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25), 0 0 12px rgba(34,211,238,0.10);
+      }
+
+      .btn:hover {
+        border-color: rgba(34,211,238,0.15);
+      }
+
+      .btn svg {
+        width: 23px;
+        height: 23px;
+        fill: currentColor;
+      }
+
+      .btn.nav-btn {
+        color: #22d3ee;
+      }
+
+      .btn.nav-btn svg {
+        width: 26px;
+        height: 26px;
+        stroke: currentColor;
+        stroke-width: 2.5;
+        fill: none;
+      }
+
+      #full-capture-area {
+        padding-right: 74px;
+        padding-left: 8px;
+      }
+
+      .chart-container {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .chart-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 14px 36px rgba(0,0,0,0.40), 0 0 0 1px rgba(255,255,255,0.03);
+      }
+    }
+
+    @media (max-width: 1279px) and (hover: none) and (pointer: coarse) {
+      #prev-btn, #next-btn {
+        display: none !important;
+      }
+    }
+
+    /* ==================== DESKTOP CSC PREMIUM (≥ 1280px) ==================== */
+    @media (min-width: 1280px) {
+
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(255,255,255,0.025), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(255,255,255,0.018), transparent 30%),
+          linear-gradient(180deg, #050505 0%, #0a0a0a 38%, #121212 100%);
+      }
+
+      .container {
+        padding: 30px;
+        gap: 22px;
+      }
+
+      .header-row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        min-height: 108px;
+
+        padding: 24px 32px;
+
+        border-radius: 26px;
+
+        background:
+          linear-gradient(180deg,
+            rgba(20,20,20,0.96),
+            rgba(10,10,10,0.94));
+
+        border: 1px solid rgba(255,255,255,0.05);
+
+        box-shadow:
+          0 18px 50px rgba(0,0,0,0.62),
+          inset 0 1px 0 rgba(255,255,255,0.025);
+
+        overflow: hidden;
+
+        pointer-events: none;
+      }
+
+      .title-group,
+      .title-group *,
+      .actions,
+      .actions * {
+        pointer-events: auto;
+      }
+
+      .header-row::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+
+        background:
+          linear-gradient(90deg,
+            rgba(255,255,255,0.02),
+            transparent 36%,
+            transparent 64%,
+            rgba(255,255,255,0.015));
+
+        pointer-events: none;
+      }
+
+      .title-group {
+        position: relative;
+        z-index: 2;
+
+        flex: 1;
+        max-width: 72%;
+
+        padding: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      /* ==================== TITOLO OTTIMIZZATO ==================== */
+      .title {
+        font-size: 42px;
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.028em;
+        word-spacing: 0.145em;           /* ← spazio tra parole migliorato */
+
+        color: #f5f5f5;
+
+        margin: 0 0 14px 0;
+
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+
+        text-shadow: 0 2px 22px rgba(0,0,0,0.55);
+      }
+
+      .subtitle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+
+        color: #d6d6d6;
+
+        margin-bottom: 10px;
+
+        transition: opacity 0.2s ease;
+      }
+
+      .subtitle:hover {
+        opacity: 0.82;
+      }
+
+      .subtitle::before {
+        content: '';
+
+        width: 7px;
+        height: 7px;
+
+        border-radius: 999px;
+
+        background: #D4A017;
+
+        box-shadow: 0 0 10px rgba(212,160,23,0.55);
+      }
+
+      .sources {
+        display: block;
+
+        font-size: 13px;
+        line-height: 1.7;
+
+        color: #8b8b8b;
+
+        max-width: 1000px;
+      }
+
+      .sources a {
+        color: #dcdcdc;
+        text-decoration: none;
+
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .sources a:hover {
+        color: #ffffff;
+      }
+
+      .actions {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 10px;
+
+        border-radius: 20px;
+
+        background: rgba(255,255,255,0.025);
+
+        border: 1px solid rgba(255,255,255,0.05);
+
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.02),
+          0 8px 24px rgba(0,0,0,0.35);
+      }
+
+      .btn {
+        position: relative;
+
+        width: 50px;
+        height: 50px;
+
+        border-radius: 15px;
+
+        border: 1px solid rgba(255,255,255,0.06);
+
+        background:
+          linear-gradient(180deg,
+            rgba(36,36,36,0.96),
+            rgba(18,18,18,0.96));
+
+        color: #f5f5f5;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+
+        border-color: rgba(255,255,255,0.14);
+
+        background:
+          linear-gradient(180deg,
+            rgba(52,52,52,0.98),
+            rgba(22,22,22,0.98));
+
+        box-shadow:
+          0 12px 28px rgba(0,0,0,0.45),
+          0 0 22px rgba(255,255,255,0.04);
+      }
+
+      .btn:active {
+        transform: scale(0.96);
+      }
+
+      .btn svg {
+        width: 22px;
+        height: 22px;
+        fill: currentColor;
+      }
+
+      .btn.nav-btn {
+        color: #f0f0f0;
+      }
+
+      .btn.nav-btn svg {
+        width: 26px;
+        height: 26px;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        fill: none;
+      }
+
+      .actions div[style*='width:1px'] {
+        width: 1px !important;
+        height: 30px !important;
+        background: rgba(255,255,255,0.08) !important;
+        margin: 0 2px !important;
+      }
+
+      #full-capture-area {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(18,18,18,0.98), rgba(8,8,8,0.98));
+        border: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 30px 70px rgba(0,0,0,0.70), inset 0 1px 0 rgba(255,255,255,0.015);
+      }
+
+      #full-capture-area::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent 18%);
+        pointer-events: none;
+      }
+
+      .chart-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 16px;
+      }
+
+      .chart-container img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: calc(100vh - 165px);
+        object-fit: contain;
+        border-radius: 16px;
+        box-shadow: 0 26px 80px rgba(0,0,0,0.72), 0 0 0 1px rgba(255,255,255,0.025);
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.10);
+        border-radius: 999px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255,255,255,0.18);
+      }
+    }
+  </style>
+</head>
+<body>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Market Cap - gold-silver",
+  "description": "",
+  "image": "https://commoditysupercycle.com/charts/SVG-PNG/gold-silver.svg"
+}</script>
+  <div id="rotate-message">
+    <svg width="50" height="50" viewBox="0 0 24 24" fill="#67e8f9">
+      <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h2C24 4.96 19.1 0 13 0l-1.65 1.65 1.41 1.41 3.72-3.54zM7.52 21.48C4.25 19.93 1.91 16.76 1.55 13h-2C-.45 19.04 4.45 24 10.55 24l1.65-1.65-1.41-1.41-3.27 3.54zM21 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0 1.1-.9-2-2-2zm0 12H3V7h18v10z"/>
+    </svg>
+    <h2 style="margin-top:20px">Ruota il dispositivo</h2>
+  </div>
+
+  <div class="container">
+    <div class="header-row">
+      <div class="title-group">
+        <h1 class="title" id="page-title">Market Cap - gold-silver</h1>
+        <a class="subtitle" href="https://commoditysupercycle.com/" target="_blank">commoditysupercycle.com</a>
+        <span id="source-inline" class="sources"></span>
+        
+        <div id="sources-static" style="display:none;">
+          Sources: {{SOURCES_STATIC}}
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="toggleFullScreen()">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px;">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+          </svg>
+        </button>
+        <button class="btn" onclick="takeScreenshot()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z"/>
+            <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+          </svg>
+        </button>
+        <a id="twitter-share" class="btn" href="" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
+        </a>
+        <a id="fb-share" class="btn" href="" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+
+        <a class="btn" href="https://commoditysupercycle.com/" title="Home">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px;">
+            <path d="M12 3 L2 11 H5 V21 H9 V14 H15 V21 H19 V11 H22 Z"/>
+          </svg>
+        </a>
+
+        <div style="width:1px; height:20px; background:#444; margin:0 4px;"></div>
+
+        <button id="prev-btn" class="btn nav-btn" onclick="navigatePrev()">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button id="next-btn" class="btn nav-btn" onclick="navigateNext()">
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="full-capture-area">
+      <div class="chart-container">
+        <img id="chart-image" src="SVG-PNG/gold-silver.svg" alt="Market Cap - gold-silver" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>  <script>
+    const chartsData = [{"name":"upstream-nyse","svgFile":"upstream-nyse.svg","pngFile":"upstream-nyse.png","title":"Market Cap - upstream-nyse","sources":[{"text":"WTI Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"upstream-lse","svgFile":"upstream-lse.svg","pngFile":"upstream-lse.png","title":"Market Cap - upstream-lse","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"upstream-tsx","svgFile":"upstream-tsx.svg","pngFile":"upstream-tsx.png","title":"Market Cap - upstream-tsx","sources":[{"text":"WTI Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"upstream-tsxv","svgFile":"upstream-tsxv.svg","pngFile":"upstream-tsxv.png","title":"Market Cap - upstream-tsxv","sources":[{"text":"WTI Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILWTICO"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"upstream-asx","svgFile":"upstream-asx.svg","pngFile":"upstream-asx.png","title":"Market Cap - upstream-asx","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"upstream-global","svgFile":"upstream-global.svg","pngFile":"upstream-global.png","title":"Market Cap - upstream-global","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"midstream","svgFile":"midstream.svg","pngFile":"midstream.png","title":"Market Cap - midstream","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"downstream","svgFile":"downstream.svg","pngFile":"downstream.png","title":"Market Cap - downstream","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"RBOB Gasoline & Brent (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DRGASLA"},{"text":"","link":"#"}],"seo":{}},{"name":"og-equipment-services","svgFile":"og-equipment-services.svg","pngFile":"og-equipment-services.png","title":"Market Cap - og-equipment-services","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"drilling-contractors","svgFile":"drilling-contractors.svg","pngFile":"drilling-contractors.png","title":"Market Cap - drilling-contractors","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"tankers","svgFile":"tankers.svg","pngFile":"tankers.png","title":"Market Cap - tankers","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"lng","svgFile":"lng.svg","pngFile":"lng.png","title":"Market Cap - lng","sources":[{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"royalties-trusts","svgFile":"royalties-trusts.svg","pngFile":"royalties-trusts.png","title":"Market Cap - royalties-trusts","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"biofuels-biogas","svgFile":"biofuels-biogas.svg","pngFile":"biofuels-biogas.png","title":"Market Cap - biofuels-biogas","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"oil-gas","svgFile":"oil-gas.svg","pngFile":"oil-gas.png","title":"Market Cap - oil-gas","sources":[{"text":"Brent Crude Oil (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DCOILBRENTEU"},{"text":"Henry Hub Natural Gas (EIA/FRED)","link":"https://fred.stlouisfed.org/series/DHHNGSP"},{"text":"","link":"#"}],"seo":{}},{"name":"gold-nyse","svgFile":"gold-nyse.svg","pngFile":"gold-nyse.png","title":"Market Cap - gold-nyse","sources":[{"text":"Gold (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"gold-lse","svgFile":"gold-lse.svg","pngFile":"gold-lse.png","title":"Market Cap - gold-lse","sources":[{"text":"Gold (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"gold-tsx","svgFile":"gold-tsx.svg","pngFile":"gold-tsx.png","title":"Market Cap - gold-tsx","sources":[{"text":"Gold (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"gold-tsxv","svgFile":"gold-tsxv.svg","pngFile":"gold-tsxv.png","title":"Market Cap - gold-tsxv","sources":[{"text":"Gold (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"gold-asx","svgFile":"gold-asx.svg","pngFile":"gold-asx.png","title":"Market Cap - gold-asx","sources":[{"text":"Gold (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"silver","svgFile":"silver.svg","pngFile":"silver.png","title":"Market Cap - silver","sources":[{"text":"Silver (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":""},{"text":"","link":"#"}],"seo":{}},{"name":"gold-silver","svgFile":"gold-silver.svg","pngFile":"gold-silver.png","title":"Market Cap - gold-silver","sources":[{"text":"Gold - Silver (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":""},{"text":"","link":"#"}],"seo":{}},{"name":"gold-copper","svgFile":"gold-copper.svg","pngFile":"gold-copper.png","title":"Market Cap - gold-copper","sources":[{"text":"Gold - Copper (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"pgm","svgFile":"pgm.svg","pngFile":"pgm.png","title":"Market Cap - pgm","sources":[{"text":"Platinum - Palladium (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":""},{"text":"","link":"#"}],"seo":{}},{"name":"precious-metals","svgFile":"precious-metals.svg","pngFile":"precious-metals.png","title":"Market Cap - precious-metals","sources":[{"text":"Gold - Silver - Platinum (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":""},{"text":"","link":"#"}],"seo":{}},{"name":"aluminum","svgFile":"aluminum.svg","pngFile":"aluminum.png","title":"Market Cap - aluminum","sources":[{"text":"Aluminum (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"copper","svgFile":"copper.svg","pngFile":"copper.png","title":"Market Cap - copper","sources":[{"text":"Copper (IMF)","link":"https://www.imf.org/en/research/commodity-prices"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"lead-zinc","svgFile":"lead-zinc.svg","pngFile":"lead-zinc.png","title":"Market Cap - lead-zinc","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"lithium","svgFile":"lithium.svg","pngFile":"lithium.png","title":"Market Cap - lithium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"iron-steel","svgFile":"iron-steel.svg","pngFile":"iron-steel.png","title":"Market Cap - iron-steel","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"nickel","svgFile":"nickel.svg","pngFile":"nickel.png","title":"Market Cap - nickel","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"rare-earths","svgFile":"rare-earths.svg","pngFile":"rare-earths.png","title":"Market Cap - rare-earths","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"uranium","svgFile":"uranium.svg","pngFile":"uranium.png","title":"Market Cap - uranium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"antimony","svgFile":"antimony.svg","pngFile":"antimony.png","title":"Market Cap - antimony","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"beryllium","svgFile":"beryllium.svg","pngFile":"beryllium.png","title":"Market Cap - beryllium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"cobalt","svgFile":"cobalt.svg","pngFile":"cobalt.png","title":"Market Cap - cobalt","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"magnesium","svgFile":"magnesium.svg","pngFile":"magnesium.png","title":"Market Cap - magnesium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"manganese","svgFile":"manganese.svg","pngFile":"manganese.png","title":"Market Cap - manganese","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"molybdenum-tungsten","svgFile":"molybdenum-tungsten.svg","pngFile":"molybdenum-tungsten.png","title":"Market Cap - molybdenum-tungsten","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"niobium-tantalum","svgFile":"niobium-tantalum.svg","pngFile":"niobium-tantalum.png","title":"Market Cap - niobium-tantalum","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"tin","svgFile":"tin.svg","pngFile":"tin.png","title":"Market Cap - tin","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"titanium-zirconium","svgFile":"titanium-zirconium.svg","pngFile":"titanium-zirconium.png","title":"Market Cap - titanium-zirconium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"silicon","svgFile":"silicon.svg","pngFile":"silicon.png","title":"Market Cap - silicon","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"vanadium","svgFile":"vanadium.svg","pngFile":"vanadium.png","title":"Market Cap - vanadium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"base-metals","svgFile":"base-metals.svg","pngFile":"base-metals.png","title":"Market Cap - base-metals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"diversified","svgFile":"diversified.svg","pngFile":"diversified.png","title":"Market Cap - diversified","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"hydrogen","svgFile":"hydrogen.svg","pngFile":"hydrogen.png","title":"Market Cap - hydrogen","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"helium","svgFile":"helium.svg","pngFile":"helium.png","title":"Market Cap - helium","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"coal","svgFile":"coal.svg","pngFile":"coal.png","title":"Market Cap - coal","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"graphite-graphene","svgFile":"graphite-graphene.svg","pngFile":"graphite-graphene.png","title":"Market Cap - graphite-graphene","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"diamonds-gems","svgFile":"diamonds-gems.svg","pngFile":"diamonds-gems.png","title":"Market Cap - diamonds-gems","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"fertilizers-salt","svgFile":"fertilizers-salt.svg","pngFile":"fertilizers-salt.png","title":"Market Cap - fertilizers-salt","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"industrial-minerals","svgFile":"industrial-minerals.svg","pngFile":"industrial-minerals.png","title":"Market Cap - industrial-minerals","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"mining-equipment-services","svgFile":"mining-equipment-services.svg","pngFile":"mining-equipment-services.png","title":"Market Cap - mining-equipment-services","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}},{"name":"csc-index","svgFile":"csc-index.svg","pngFile":"csc-index.png","title":"Market Cap - csc-index","sources":[{"text":"","link":"#"},{"text":"","link":"#"},{"text":"","link":"#"}],"seo":{}}];
+    const getName = () => window.location.pathname.split('/').pop().replace('.html', '') || chartsData[0].name;
+    let currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
+
+    function updatePage() {
+      const c = chartsData[currentIndex];
+      const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+
+      document.getElementById('page-title').textContent = c.title;
+
+      const sInline = document.getElementById('source-inline');
+      sInline.innerHTML = validSources.length 
+        ? '<span class="source-label">Sources:</span> ' + 
+          validSources.map(s => '<a href="' + s.link + '" target="_blank">' + s.text + '</a>').join(' · ')
+        : '';
+
+      // ←←← MODIFICA IMPORTANTE
+      document.getElementById('chart-image').src = 'SVG-PNG/' + c.svgFile;
+
+      const url = 'https://1charts.github.io/CSC/' + c.name + '.html';
+      const txt = encodeURIComponent(c.title + ' - via @CommodityCSC');
+
+      document.getElementById('twitter-share').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
+      document.getElementById('fb-share').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+
+      document.getElementById('prev-btn').style.display = currentIndex > 0 ? 'flex' : 'none';
+      document.getElementById('next-btn').style.display = currentIndex < chartsData.length - 1 ? 'flex' : 'none';
+      document.title = c.title + ' | CSC';
+
+      makeTitleDraggable();
+    }
+
+    function navigateTo(idx) {
+      if (idx < 0 || idx >= chartsData.length) return;
+      currentIndex = idx;
+      updatePage();
+      history.pushState({index: currentIndex}, '', chartsData[currentIndex].name + '.html');
+    }
+
+    const navigatePrev = () => navigateTo(currentIndex - 1);
+    const navigateNext = () => navigateTo(currentIndex + 1);
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.code === 'Space') { e.preventDefault(); navigateNext(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
+    });
+
+    let tsX = 0;
+    const area = document.getElementById('full-capture-area');
+    area.addEventListener('touchstart', e => {
+      if (e.touches.length === 1) tsX = e.touches[0].screenX;
+    }, { passive: true });
+
+    area.addEventListener('touchend', e => {
+      if (e.changedTouches.length === 1) {
+        const dx = e.changedTouches[0].screenX - tsX;
+        if (Math.abs(dx) > 60) {
+          if (dx < -60) navigateNext();
+          else if (dx > 60) navigatePrev();
+        }
+      }
+    });
+
+    window.onpopstate = () => {
+      currentIndex = Math.max(0, chartsData.findIndex(c => c.name === getName()));
+      updatePage();
+    };
+
+    function makeTitleDraggable() {
+      const titleGroup = document.querySelector('.title-group');
+      if (!titleGroup || window.innerWidth >= 1280) return;
+
+      let isDragging = false;
+      let startX, startY, initialLeft, initialTop;
+
+      titleGroup.style.position = 'absolute';
+      titleGroup.style.zIndex = '50';
+      titleGroup.style.cursor = 'grab';
+
+      titleGroup.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        const rect = titleGroup.getBoundingClientRect();
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        initialLeft = rect.left;
+        initialTop = rect.top;
+        titleGroup.style.transition = 'none';
+        titleGroup.style.cursor = 'grabbing';
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+        let newLeft = initialLeft + dx;
+        let newTop = initialTop + dy;
+        const maxLeft = window.innerWidth - titleGroup.offsetWidth - 10;
+        const maxTop = window.innerHeight - titleGroup.offsetHeight - 10;
+        newLeft = Math.max(10, Math.min(newLeft, maxLeft));
+        newTop = Math.max(10, Math.min(newTop, maxTop));
+        titleGroup.style.left = newLeft + 'px';
+        titleGroup.style.top = newTop + 'px';
+      }, { passive: true });
+
+      document.addEventListener('touchend', () => {
+        if (isDragging) {
+          isDragging = false;
+          titleGroup.style.cursor = 'grab';
+          titleGroup.style.transition = 'left 0.15s ease, top 0.15s ease';
+        }
+      });
+    }
+
+    window.onload = () => { updatePage(); };
+
+    const toggleFullScreen = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    };
+
+    function takeScreenshot() {
+      const c = chartsData[currentIndex];
+      const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
+      const img = document.getElementById('chart-image');
+      
+      const preload = new Image();
+      preload.crossOrigin = "anonymous";
+      preload.src = img.src;
+
+      preload.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const WIDTH = 1450;
+        const PADDING_X = 60;
+        const PADDING_TOP = 80;
+        const PADDING_BOTTOM = 100;
+        const TITLE_HEIGHT = 85;
+        const SUBTITLE_HEIGHT = 45;
+        const SOURCES_HEIGHT = validSources.length ? 55 : 0;
+
+        canvas.width = WIDTH;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
+
+        ctx.fillStyle = '#1E1E1E';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '700 42px Inter';
+        ctx.textAlign = 'left';
+        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 52);
+
+        ctx.fillStyle = '#67e8f9';
+        ctx.font = '600 32px Inter';
+        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 28);
+
+        if (validSources.length) {
+          ctx.fillStyle = '#f8fafc';
+          ctx.font = '500 22px Inter';
+          ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = '500 22px Inter';
+          ctx.fillText(validSources.map(s => s.text).join(' · '), PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+        }
+
+        const imgX = PADDING_X;
+        const imgY = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT;
+        const imgW = WIDTH - 2 * PADDING_X;
+        const imgH = preload.height * (imgW / preload.width);
+        
+        ctx.drawImage(preload, imgX, imgY, imgW, imgH);
+
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = c.name + '_CSC.png';
+        link.href = dataUrl;
+        link.click();
+      };
+    }
+  </script>
+</body>
+</html>
