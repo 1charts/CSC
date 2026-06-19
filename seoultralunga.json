@@ -1,0 +1,4207 @@
+{
+  "upstream-nyse": {
+    "id": "upstream-nyse",
+
+    "meta": {
+      "title": "NYSE Upstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Aggregate market capitalization of upstream oil & gas companies listed on the NYSE, tracking long-term valuation trends in US exploration and production.",
+      "canonical": "https://commoditysupercycle.com/charts/upstream-nyse",
+      "keywords": [
+        "NYSE upstream oil and gas market cap",
+        "US E&P sector valuation",
+        "US oil producers market capitalization",
+        "NY exploration and production stocks",
+        "American upstream energy market"
+      ]
+    },
+
+    "social": {
+      "og": {
+        "title": "NYSE Upstream Oil & Gas Market Cap",
+        "description": "Track aggregate market capitalization of NYSE-listed upstream oil & gas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/upstream-nyse.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "NYSE Upstream Oil & Gas Market Cap",
+        "description": "US upstream energy sector market capitalization over time."
+      }
+    },
+
+    "content": {
+      "h1": "NYSE Upstream Oil & Gas Market Cap",
+      "summary": "Aggregate market capitalization of upstream oil and gas companies listed on the New York Stock Exchange.",
+      "extendedDescription": "This series aggregates the total equity value of NYSE-listed exploration and production companies operating in crude oil and natural gas extraction. It functions as a macro indicator of US upstream energy sector valuation and is closely linked to WTI-driven commodity cycles.",
+      "sections": [
+        {
+          "title": "What it measures",
+          "text": "Total combined market capitalization of NYSE-listed upstream oil and gas companies."
+        },
+        {
+          "title": "Calculation methodology",
+          "text": "Each company’s market capitalization is derived from share price multiplied by outstanding shares, then aggregated across the defined universe."
+        },
+        {
+          "title": "Interpretation",
+          "text": "Reflects investor sentiment toward US upstream energy producers and tends to correlate with long-term crude oil price cycles."
+        }
+      ]
+    },
+
+    "chart": {
+      "title": "NYSE Upstream Oil & Gas Market Cap",
+      "description": "Aggregate valuation of NYSE-listed upstream oil and gas exploration and production companies.",
+      "svgPath": "/charts/svg/upstream-nyse.svg",
+      "pngPath": "/assets/images/og/upstream-nyse.png"
+    },
+
+    "data": {
+      "universe": "NYSE",
+      "sector": "upstream",
+      "industry": "oil_and_gas_exploration_production",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+      }
+    }
+  },
+  "upstream-lse": {
+    "id": "upstream-lse",
+
+    "meta": {
+      "title": "LSE Upstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Aggregate market capitalization of upstream oil & gas companies listed on the London Stock Exchange, tracking UK and international E&P valuation trends.",
+      "canonical": "https://commoditysupercycle.com/charts/upstream-lse",
+      "keywords": [
+        "LSE upstream oil and gas market cap",
+        "UK E&P sector valuation",
+        "North Sea oil producers valuation",
+        "London energy stocks market cap",
+        "upstream companies LSE"
+      ]
+    },
+
+    "social": {
+      "og": {
+        "title": "LSE Upstream Oil & Gas Market Cap",
+        "description": "Track aggregate market capitalization of LSE-listed upstream oil & gas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/upstream-lse.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "LSE Upstream Oil & Gas Market Cap",
+        "description": "UK and international upstream energy sector market capitalization over time."
+      }
+    },
+
+    "content": {
+      "h1": "LSE Upstream Oil & Gas Market Cap",
+      "summary": "Aggregate market capitalization of upstream oil and gas companies listed on the London Stock Exchange.",
+      "extendedDescription": "This dataset aggregates equity value across LSE-listed exploration and production companies, with exposure to North Sea and global upstream assets. It reflects valuation trends in UK-linked energy markets and correlates with Brent crude pricing dynamics.",
+      "sections": [
+        {
+          "title": "What it measures",
+          "text": "Total market capitalization of upstream oil and gas companies listed on the LSE."
+        },
+        {
+          "title": "Calculation methodology",
+          "text": "Market capitalization is computed per company using share price multiplied by outstanding shares, then aggregated across the universe."
+        },
+        {
+          "title": "Interpretation",
+          "text": "Reflects investor sentiment toward UK-listed energy producers and North Sea exposure."
+        }
+      ]
+    },
+
+    "chart": {
+      "title": "LSE Upstream Oil & Gas Market Cap",
+      "description": "Aggregate valuation of LSE-listed upstream oil and gas exploration and production companies.",
+      "svgPath": "/charts/svg/upstream-lse.svg",
+      "pngPath": "/assets/images/og/upstream-lse.png"
+    },
+
+    "data": {
+      "universe": "LSE",
+      "sector": "upstream",
+      "industry": "oil_and_gas_exploration_production",
+      "frequency": "weekly",
+      "baseCurrency": "GBP",
+      "startDate": "2016",
+      "endDate": "2026"
+      }
+    }
+  },
+  "upstream-tsx": {
+    "id": "upstream-tsx",
+
+    "meta": {
+      "title": "TSX Upstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Aggregate market capitalization of Canadian upstream oil & gas companies listed on the Toronto Stock Exchange, tracking domestic energy sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/upstream-tsx",
+      "keywords": [
+        "TSX upstream oil and gas market cap",
+        "Canadian E&P sector valuation",
+        "oil sands market capitalization",
+        "Canadian energy stocks TSX",
+        "upstream companies Canada"
+      ]
+    },
+
+    "social": {
+      "og": {
+        "title": "TSX Upstream Oil & Gas Market Cap",
+        "description": "Track aggregate market capitalization of TSX-listed upstream oil & gas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/upstream-tsx.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "TSX Upstream Oil & Gas Market Cap",
+        "description": "Canadian upstream energy sector market capitalization over time."
+      }
+    },
+
+    "content": {
+      "h1": "TSX Upstream Oil & Gas Market Cap",
+      "summary": "Aggregate market capitalization of upstream oil and gas companies listed on the Toronto Stock Exchange.",
+      "extendedDescription": "This series aggregates equity value across Canadian upstream producers, including oil sands and conventional E&P companies. It reflects domestic energy sector valuation and is influenced by WCS pricing and pipeline infrastructure constraints.",
+      "sections": [
+        {
+          "title": "What it measures",
+          "text": "Total market capitalization of upstream oil and gas companies listed on the TSX."
+        },
+        {
+          "title": "Calculation methodology",
+          "text": "Each company’s market capitalization is computed from share price and outstanding shares, then aggregated across the index universe."
+        },
+        {
+          "title": "Interpretation",
+          "text": "Represents investor sentiment toward Canadian upstream energy producers and oil sands exposure."
+        }
+      ]
+    },
+
+    "chart": {
+      "title": "TSX Upstream Oil & Gas Market Cap",
+      "description": "Aggregate valuation of TSX-listed upstream oil and gas exploration and production companies.",
+      "svgPath": "/charts/svg/upstream-tsx.svg",
+      "pngPath": "/assets/images/og/upstream-tsx.png"
+    },
+
+    "data": {
+      "universe": "TSX",
+      "sector": "upstream",
+      "industry": "oil_and_gas_exploration_production",
+      "frequency": "weekly",
+      "baseCurrency": "CAD",
+      "startDate": "2016",
+      "endDate": "2026"
+      }
+    }
+  },
+  "upstream-tsxv": {
+    "id": "upstream-tsxv",
+    "meta": {
+      "title": "TSXV Junior Upstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of junior upstream oil & gas explorers on the TSX Venture Exchange. Track small-cap energy sector sentiment and risk appetite.",
+      "canonical": "https://commoditysupercycle.com/charts/upstream-tsxv",
+      "keywords": [
+        "TSXV junior upstream market cap",
+        "small-cap oil and gas explorers",
+        "TSX Venture energy stocks",
+        "junior E&P sector valuation",
+        "Canadian junior energy companies"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "TSXV Junior Upstream Oil & Gas Market Cap",
+        "description": "Track the total market capitalization of junior upstream oil & gas companies on the TSXV.",
+        "image": "https://commoditysupercycle.com/assets/images/og/upstream-tsxv.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "TSXV Junior Upstream Oil & Gas Market Cap",
+        "description": "Canadian junior upstream energy sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "TSXV Junior Upstream Oil & Gas Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of junior upstream oil and gas exploration companies listed on the TSX Venture Exchange, providing a barometer of risk appetite in the small-cap energy sector.",
+      "extendedDescription": "The TSXV junior upstream oil and gas market cap chart aggregates the total equity value of smaller, early-stage exploration and development companies. These companies are typically higher-risk and serve as a leading indicator of investor enthusiasm for the energy sector during commodity upcycles.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying junior upstream oil and gas companies listed on the TSXV."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of junior producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects speculative sentiment toward small-cap energy companies and often leads broader market trends during commodity price cycles."
+        }
+      ]
+    },
+    "svg": {
+      "title": "TSXV Junior Upstream Oil & Gas Market Cap",
+      "description": "Aggregate market capitalization of junior upstream oil and gas exploration companies listed on the TSX Venture Exchange."
+    },
+    "data": {
+      "universe": "TSXV",
+      "sector": "upstream",
+      "industry": "oil_and_gas_exploration_production_junior",
+      "frequency": "weekly",
+      "baseCurrency": "CAD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "TSXV Junior Upstream Oil & Gas Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of junior upstream oil and gas companies listed on the TSXV.",
+      "url": "https://commoditysupercycle.com/charts/upstream-tsxv",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "CAD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "upstream-asx": {
+    "id": "upstream-asx",
+    "meta": {
+      "title": "ASX Upstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of upstream oil & gas companies listed on the ASX. Track Australian energy sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/upstream-asx",
+      "keywords": [
+        "ASX upstream oil and gas market cap",
+        "Australian E&P sector valuation",
+        "ASX energy stocks",
+        "LNG exporters market cap",
+        "Australian upstream companies"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "ASX Upstream Oil & Gas Market Cap",
+        "description": "Track the total market capitalization of ASX-listed upstream oil & gas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/upstream-asx.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "ASX Upstream Oil & Gas Market Cap",
+        "description": "Australian upstream energy sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "ASX Upstream Oil & Gas Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of upstream oil and gas companies listed on the Australian Securities Exchange, providing a long-term view of valuation trends in the Australian energy sector.",
+      "extendedDescription": "The ASX upstream oil and gas market cap chart aggregates the total equity value of publicly listed exploration and production companies operating in Australia and the Asia-Pacific region. It serves as a key indicator of investor sentiment toward Australian energy producers and is influenced by Asian LNG demand and domestic gas pricing.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying upstream oil and gas companies listed on the ASX."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of upstream producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward Australian energy producers and provides insight into the health of the domestic oil and gas sector."
+        }
+      ]
+    },
+    "svg": {
+      "title": "ASX Upstream Oil & Gas Market Cap",
+      "description": "Aggregate market capitalization of upstream oil and gas exploration and production companies listed on the Australian Securities Exchange."
+    },
+    "data": {
+      "universe": "ASX",
+      "sector": "upstream",
+      "industry": "oil_and_gas_exploration_production",
+      "frequency": "weekly",
+      "baseCurrency": "AUD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "ASX Upstream Oil & Gas Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of upstream oil and gas companies listed on the ASX.",
+      "url": "https://commoditysupercycle.com/charts/upstream-asx",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "AUD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "upstream-global": {
+    "id": "upstream-global",
+    "meta": {
+      "title": "Global Upstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of upstream oil & gas companies listed worldwide. Comprehensive view of global E&P sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/upstream-global",
+      "keywords": [
+        "global upstream oil and gas market cap",
+        "worldwide E&P sector valuation",
+        "international energy stocks",
+        "global oil producers market cap",
+        "upstream energy market capitalization"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Upstream Oil & Gas Market Cap",
+        "description": "Track the total market capitalization of global upstream oil & gas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/upstream-global.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Upstream Oil & Gas Market Cap",
+        "description": "Worldwide upstream energy sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Upstream Oil & Gas Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of upstream oil and gas companies listed worldwide, providing a comprehensive view of global E&P sector valuation.",
+      "extendedDescription": "The global upstream oil and gas market cap chart aggregates the total equity value of publicly listed exploration and production companies across major exchanges including the NYSE, LSE, TSX and ASX. It serves as a macro indicator of global investor sentiment toward the upstream energy sector and is strongly influenced by crude oil price cycles.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying upstream oil and gas companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined global universe of upstream producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects global capital market sentiment toward energy producers and serves as a leading indicator of sector health and commodity price expectations."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Upstream Oil & Gas Market Cap",
+      "description": "Aggregate market capitalization of upstream oil and gas exploration and production companies listed worldwide."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "upstream",
+      "industry": "oil_and_gas_exploration_production",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Upstream Oil & Gas Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of upstream oil and gas companies listed worldwide.",
+      "url": "https://commoditysupercycle.com/charts/upstream-global",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "midstream": {
+    "id": "midstream",
+    "meta": {
+      "title": "Global Midstream Oil & Gas Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global midstream oil & gas companies. Track pipelines, storage and energy infrastructure valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/midstream",
+      "keywords": [
+        "global midstream oil and gas market cap",
+        "pipelines and storage companies valuation",
+        "energy infrastructure stocks",
+        "midstream sector market cap",
+        "oil and gas logistics"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Midstream Oil & Gas Market Cap",
+        "description": "Track the total market capitalization of global midstream oil & gas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/midstream.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Midstream Oil & Gas Market Cap",
+        "description": "Global midstream energy infrastructure sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Midstream Oil & Gas Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of midstream oil and gas companies worldwide, providing a long-term view of energy infrastructure sector valuation.",
+      "extendedDescription": "The global midstream oil and gas market cap chart aggregates the total equity value of publicly listed companies involved in the transportation, storage and processing of crude oil, natural gas and refined products. These companies generate stable fee-based cash flows, making the sector a defensive play within energy markets.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying midstream oil and gas companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of midstream operators."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects investor sentiment toward critical energy infrastructure assets and tends to be more stable than upstream or downstream sectors."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Midstream Oil & Gas Market Cap",
+      "description": "Aggregate market capitalization of global midstream oil and gas companies involved in pipelines, storage and processing."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "midstream",
+      "industry": "oil_and_gas_midstream",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Midstream Oil & Gas Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global midstream oil and gas companies.",
+      "url": "https://commoditysupercycle.com/charts/midstream",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "downstream": {
+    "id": "downstream",
+    "meta": {
+      "title": "Global Downstream Oil Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global downstream oil companies. Track refining, marketing and petrochemicals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/downstream",
+      "keywords": [
+        "global downstream oil market cap",
+        "refining and marketing companies valuation",
+        "petrochemicals sector market cap",
+        "oil product distributors",
+        "downstream energy stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Downstream Oil Market Cap",
+        "description": "Track the total market capitalization of global downstream oil companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/downstream.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Downstream Oil Market Cap",
+        "description": "Global downstream oil sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Downstream Oil Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of downstream oil companies worldwide, providing a long-term view of refining, marketing and petrochemical sector valuation.",
+      "extendedDescription": "The global downstream oil market cap chart aggregates the total equity value of publicly listed companies involved in refining, distribution, marketing and petrochemicals. The sector's valuation is influenced by crack spreads, demand for refined products and crude oil price dynamics.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying downstream oil companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of downstream operators."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects investor sentiment toward refining and marketing companies, with margins often moving inversely to crude oil prices."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Downstream Oil Market Cap",
+      "description": "Aggregate market capitalization of global downstream oil companies involved in refining, marketing and petrochemicals."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "downstream",
+      "industry": "oil_and_gas_downstream",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Downstream Oil Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global downstream oil companies.",
+      "url": "https://commoditysupercycle.com/charts/downstream",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "og-equipment-services": {
+    "id": "og-equipment-services",
+    "meta": {
+      "title": "Global O&G Equipment & Services Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global oilfield services and equipment companies. Track the oil services sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/og-equipment-services",
+      "keywords": [
+        "global oilfield services market cap",
+        "drilling equipment companies valuation",
+        "oil services sector stocks",
+        "energy equipment manufacturers",
+        "well servicing companies"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global O&G Equipment & Services Market Cap",
+        "description": "Track the total market capitalization of global oilfield services and equipment companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/og-equipment-services.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global O&G Equipment & Services Market Cap",
+        "description": "Global oilfield services and equipment sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global O&G Equipment & Services Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of oilfield services and equipment companies worldwide, providing a leading indicator of upstream activity and capital spending.",
+      "extendedDescription": "The global O&G equipment and services market cap chart aggregates the total equity value of publicly listed companies providing drilling, seismic, well services and equipment to the oil and gas industry. The sector's valuation is a leading indicator of E&P capital expenditure intentions.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying oilfield services and equipment companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of oil services providers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward the oil services sector and often leads broader energy markets during commodity cycles."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global O&G Equipment & Services Market Cap",
+      "description": "Aggregate market capitalization of global oilfield services and equipment companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "oil_services",
+      "industry": "oilfield_services_and_equipment",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global O&G Equipment & Services Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global oilfield services and equipment companies.",
+      "url": "https://commoditysupercycle.com/charts/og-equipment-services",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "drilling-contractors": {
+    "id": "drilling-contractors",
+    "meta": {
+      "title": "Global Drilling Contractors Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global oil & gas drilling contractors. Track onshore and offshore rig operators valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/drilling-contractors",
+      "keywords": [
+        "global drilling contractors market cap",
+        "onshore and offshore rig operators",
+        "oil drilling companies valuation",
+        "contract drilling stocks",
+        "rig market capitalization"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Drilling Contractors Market Cap",
+        "description": "Track the total market capitalization of global drilling contractors.",
+        "image": "https://commoditysupercycle.com/assets/images/og/drilling-contractors.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Drilling Contractors Market Cap",
+        "description": "Global drilling contractors sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Drilling Contractors Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global oil and gas drilling contractors, providing a long-term view of onshore and offshore rig operator valuation.",
+      "extendedDescription": "The global drilling contractors market cap chart aggregates the total equity value of publicly listed companies that operate drilling rigs under contract to E&P companies. The sector's valuation is closely tied to rig utilization rates, day rates and the outlook for drilling activity.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying drilling contractors globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of drilling contractors."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward drilling contractors and serves as a proxy for the health of the global drilling industry."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Drilling Contractors Market Cap",
+      "description": "Aggregate market capitalization of global oil and gas drilling contractors."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "oil_services",
+      "industry": "drilling_contractors",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Drilling Contractors Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global oil and gas drilling contractors.",
+      "url": "https://commoditysupercycle.com/charts/drilling-contractors",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "tankers": {
+    "id": "tankers",
+    "meta": {
+      "title": "Global Oil Tankers Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global oil tanker and crude shipping companies. Track maritime energy transportation valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/tankers",
+      "keywords": [
+        "global oil tanker market cap",
+        "crude shipping companies valuation",
+        "product tanker stocks",
+        "supertanker operators",
+        "maritime energy transportation"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Oil Tankers Market Cap",
+        "description": "Track the total market capitalization of global oil tanker companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/tankers.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Oil Tankers Market Cap",
+        "description": "Global oil tanker and shipping sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Oil Tankers Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global oil tanker companies, providing a long-term view of crude shipping sector valuation.",
+      "extendedDescription": "The global oil tankers market cap chart aggregates the total equity value of publicly listed owners and operators of crude carriers, product tankers and shuttle tankers. The sector's valuation is highly cyclical and influenced by shipping rates, global trade flows and oil demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying oil tanker companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of tanker operators."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward maritime energy transportation and provides insight into global oil trade dynamics."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Oil Tankers Market Cap",
+      "description": "Aggregate market capitalization of global oil tanker and crude shipping companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "shipping",
+      "industry": "oil_tankers",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Oil Tankers Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global oil tanker companies.",
+      "url": "https://commoditysupercycle.com/charts/tankers",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "lng": {
+    "id": "lng",
+    "meta": {
+      "title": "Global LNG Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global LNG (liquefied natural gas) companies. Track the growing LNG sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/lng",
+      "keywords": [
+        "global LNG market cap",
+        "liquefied natural gas producers valuation",
+        "LNG infrastructure stocks",
+        "natural gas exporters",
+        "global gas sector"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global LNG Companies Market Cap",
+        "description": "Track the total market capitalization of global LNG companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/lng.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global LNG Companies Market Cap",
+        "description": "Global LNG sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global LNG Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global LNG companies, providing a long-term view of the liquefied natural gas sector's valuation.",
+      "extendedDescription": "The global LNG market cap chart aggregates the total equity value of publicly listed companies involved in the LNG value chain, including gas producers with LNG exposure, liquefaction plant operators and export infrastructure companies. The sector has grown significantly with the global energy transition.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying LNG companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of LNG operators."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward the LNG sector and its growing importance in global energy markets."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global LNG Companies Market Cap",
+      "description": "Aggregate market capitalization of global LNG and liquefied natural gas companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "energy",
+      "industry": "liquefied_natural_gas",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global LNG Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global LNG companies.",
+      "url": "https://commoditysupercycle.com/charts/lng",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "royalties-trusts": {
+    "id": "royalties-trusts",
+    "meta": {
+      "title": "Global O&G Royalties & Trusts Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of oil & gas royalty trusts and mineral rights companies. Track passive energy income vehicles valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/royalties-trusts",
+      "keywords": [
+        "global oil and gas royalties market cap",
+        "royalty trusts valuation",
+        "mineral rights companies",
+        "passive energy income stocks",
+        "energy royalty sector"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global O&G Royalties & Trusts Market Cap",
+        "description": "Track the total market capitalization of oil & gas royalty trusts.",
+        "image": "https://commoditysupercycle.com/assets/images/og/royalties-trusts.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global O&G Royalties & Trusts Market Cap",
+        "description": "Global oil and gas royalties and trusts sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global O&G Royalties & Trusts Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of oil and gas royalty trusts and mineral rights companies, providing a long-term view of this passive energy income sector.",
+      "extendedDescription": "The global O&G royalties and trusts market cap chart aggregates the total equity value of publicly listed entities that own mineral rights and generate income from royalty payments on oil and gas production. These vehicles offer investors exposure to commodity prices without operational risk.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying oil and gas royalty trusts and mineral rights companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of royalty entities."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward passive energy income vehicles and provides insight into the valuation of mineral rights."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global O&G Royalties & Trusts Market Cap",
+      "description": "Aggregate market capitalization of global oil and gas royalty trusts and mineral rights companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "energy",
+      "industry": "oil_and_gas_royalties",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global O&G Royalties & Trusts Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global oil and gas royalty trusts.",
+      "url": "https://commoditysupercycle.com/charts/royalties-trusts",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "biofuels-biogas": {
+    "id": "biofuels-biogas",
+    "meta": {
+      "title": "Global Biofuels & Biogas Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global biofuels and biogas companies. Track renewable fuel sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/biofuels-biogas",
+      "keywords": [
+        "global biofuels market cap",
+        "biogas companies valuation",
+        "renewable fuel producers",
+        "ethanol and biodiesel stocks",
+        "green energy sector"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Biofuels & Biogas Market Cap",
+        "description": "Track the total market capitalization of global biofuels and biogas companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/biofuels-biogas.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Biofuels & Biogas Market Cap",
+        "description": "Global biofuels and biogas sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Biofuels & Biogas Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global biofuels and biogas companies, providing a long-term view of renewable fuel sector valuation.",
+      "extendedDescription": "The global biofuels and biogas market cap chart aggregates the total equity value of publicly listed producers of ethanol, biodiesel, renewable diesel and biogas. The sector operates at the intersection of energy, agriculture and environmental policy, with valuations influenced by regulatory mandates.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying biofuels and biogas companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of renewable fuel producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward renewable fuels and provides insight into the growth of the green energy transition."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Biofuels & Biogas Market Cap",
+      "description": "Aggregate market capitalization of global biofuels and biogas companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "renewable_energy",
+      "industry": "biofuels_and_biogas",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Biofuels & Biogas Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global biofuels and biogas companies.",
+      "url": "https://commoditysupercycle.com/charts/biofuels-biogas",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "oil-gas": {
+    "id": "oil-gas",
+    "meta": {
+      "title": "CSC Oil & Gas Index | Market Cap | CommoditySuperCycle",
+      "description": "The official CSC Oil & Gas Index: total market capitalization of the global oil and gas sector. Interactive historical chart updated weekly.",
+      "canonical": "https://commoditysupercycle.com/charts/oil-gas",
+      "keywords": [
+        "CSC Oil and Gas Index",
+        "global oil and gas sector market cap",
+        "energy sector benchmark index",
+        "commodity supercycle energy index",
+        "global E&P and refining valuation"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "CSC Oil & Gas Index",
+        "description": "The official CommoditySuperCycle Oil & Gas Index tracking global energy sector market capitalization.",
+        "image": "https://commoditysupercycle.com/assets/images/og/oil-gas.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "CSC Oil & Gas Index",
+        "description": "Official CommoditySuperCycle Oil & Gas Index market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "CSC Oil & Gas Index",
+      "summary": "The official CommoditySuperCycle Oil & Gas Index tracks the aggregate market capitalization of the global oil and gas sector, covering upstream, midstream and downstream companies worldwide.",
+      "extendedDescription": "The CSC Oil & Gas Index is a comprehensive benchmark that aggregates the total equity value of publicly listed companies across the entire oil and gas value chain. It captures the full spectrum of the industry from exploration and production to refining and marketing, providing a complete view of the energy sector's health.",
+      "sections": [
+        {
+          "title": "What the index measures",
+          "text": "It represents the combined market capitalization of all qualifying oil and gas companies globally, including upstream, midstream and downstream segments."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined global universe of energy companies."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The index serves as the official CommoditySuperCycle benchmark for the global oil and gas sector and is a leading indicator of industry health."
+        }
+      ]
+    },
+    "svg": {
+      "title": "CSC Oil & Gas Index",
+      "description": "Official CommoditySuperCycle Oil & Gas Index - aggregate market capitalization of the global oil and gas sector."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "energy",
+      "industry": "oil_and_gas",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "CSC Oil & Gas Index Dataset",
+      "description": "Official CommoditySuperCycle Oil & Gas Index - historical aggregated market capitalization of the global oil and gas sector.",
+      "url": "https://commoditysupercycle.com/charts/oil-gas",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-nyse": {
+    "id": "gold-nyse",
+    "meta": {
+      "title": "NYSE Gold Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of gold mining companies listed on the NYSE. Track US-listed precious metal equities valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-nyse",
+      "keywords": [
+        "NYSE gold mining market cap",
+        "gold producers listed on NYSE",
+        "US gold stocks valuation",
+        "precious metals equities NYSE",
+        "gold sector performance"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "NYSE Gold Mining Companies Market Cap",
+        "description": "Track the total market capitalization of NYSE-listed gold mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-nyse.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "NYSE Gold Mining Companies Market Cap",
+        "description": "NYSE-listed gold mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "NYSE Gold Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of gold mining companies listed on the New York Stock Exchange, providing a long-term view of US-listed precious metal equity valuation.",
+      "extendedDescription": "The NYSE gold mining market cap chart aggregates the total equity value of publicly listed gold producers and development-stage companies. The sector's valuation is heavily influenced by gold prices, inflation expectations and interest rates, making it a key indicator of precious metal sentiment.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying gold mining companies listed on the NYSE."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of gold producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward gold equities and provides insight into the performance of the precious metals sector."
+        }
+      ]
+    },
+    "svg": {
+      "title": "NYSE Gold Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of gold mining companies listed on the New York Stock Exchange."
+    },
+    "data": {
+      "universe": "NYSE",
+      "sector": "mining",
+      "industry": "gold_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "NYSE Gold Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of gold mining companies listed on the NYSE.",
+      "url": "https://commoditysupercycle.com/charts/gold-nyse",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-lse": {
+    "id": "gold-lse",
+    "meta": {
+      "title": "LSE Gold Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of gold mining companies listed on the LSE. Track London-listed precious metal equities valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-lse",
+      "keywords": [
+        "LSE gold mining market cap",
+        "London-listed gold producers",
+        "UK gold stocks valuation",
+        "precious metals LSE",
+        "gold mining companies London"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "LSE Gold Mining Companies Market Cap",
+        "description": "Track the total market capitalization of LSE-listed gold mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-lse.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "LSE Gold Mining Companies Market Cap",
+        "description": "LSE-listed gold mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "LSE Gold Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of gold mining companies listed on the London Stock Exchange, providing a long-term view of London-listed precious metal equity valuation.",
+      "extendedDescription": "The LSE gold mining market cap chart aggregates the total equity value of publicly listed gold producers and exploration companies. London is a key global hub for mining finance, and the chart provides insight into the UK-listed gold sector's evolution over time.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying gold mining companies listed on the LSE."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of gold producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward London-listed gold equities and provides insight into the precious metals sector."
+        }
+      ]
+    },
+    "svg": {
+      "title": "LSE Gold Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of gold mining companies listed on the London Stock Exchange."
+    },
+    "data": {
+      "universe": "LSE",
+      "sector": "mining",
+      "industry": "gold_mining",
+      "frequency": "weekly",
+      "baseCurrency": "GBP",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "LSE Gold Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of gold mining companies listed on the LSE.",
+      "url": "https://commoditysupercycle.com/charts/gold-lse",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "GBP"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-tsx": {
+    "id": "gold-tsx",
+    "meta": {
+      "title": "TSX Gold Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of gold mining companies listed on the TSX. Track Canadian precious metal equities valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-tsx",
+      "keywords": [
+        "TSX gold mining market cap",
+        "Canadian gold producers valuation",
+        "Toronto Stock Exchange gold stocks",
+        "global gold equities",
+        "precious metals TSX"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "TSX Gold Mining Companies Market Cap",
+        "description": "Track the total market capitalization of TSX-listed gold mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-tsx.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "TSX Gold Mining Companies Market Cap",
+        "description": "TSX-listed gold mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "TSX Gold Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of gold mining companies listed on the Toronto Stock Exchange, a key hub for global gold equities.",
+      "extendedDescription": "The TSX gold mining market cap chart aggregates the total equity value of publicly listed Canadian gold producers and explorers. The TSX hosts a large proportion of global gold mining equities, making this chart a key indicator of the health of the precious metals sector.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying gold mining companies listed on the TSX."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of gold producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward Canadian gold equities and provides insight into the global precious metals industry."
+        }
+      ]
+    },
+    "svg": {
+      "title": "TSX Gold Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of gold mining companies listed on the Toronto Stock Exchange."
+    },
+    "data": {
+      "universe": "TSX",
+      "sector": "mining",
+      "industry": "gold_mining",
+      "frequency": "weekly",
+      "baseCurrency": "CAD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "TSX Gold Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of gold mining companies listed on the TSX.",
+      "url": "https://commoditysupercycle.com/charts/gold-tsx",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "CAD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-tsxv": {
+    "id": "gold-tsxv",
+    "meta": {
+      "title": "TSXV Junior Gold Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of junior gold exploration companies on the TSX Venture Exchange. Track small-cap precious metals sentiment.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-tsxv",
+      "keywords": [
+        "TSXV junior gold market cap",
+        "small-cap gold explorers",
+        "TSX Venture gold stocks",
+        "junior mining sector valuation",
+        "high-risk gold exploration"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "TSXV Junior Gold Mining Companies Market Cap",
+        "description": "Track the total market capitalization of junior gold companies on the TSXV.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-tsxv.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "TSXV Junior Gold Mining Companies Market Cap",
+        "description": "TSXV junior gold exploration sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "TSXV Junior Gold Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of junior gold exploration companies on the TSX Venture Exchange, providing a barometer of risk appetite in the small-cap precious metals sector.",
+      "extendedDescription": "The TSXV junior gold market cap chart aggregates the total equity value of early-stage exploration and development companies. These higher-risk companies serve as a leading indicator of investor enthusiasm for the gold sector during bull markets.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying junior gold companies listed on the TSXV."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of junior gold explorers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects speculative sentiment toward small-cap gold companies and often leads broader precious metals trends."
+        }
+      ]
+    },
+    "svg": {
+      "title": "TSXV Junior Gold Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of junior gold mining and exploration companies listed on the TSX Venture Exchange."
+    },
+    "data": {
+      "universe": "TSXV",
+      "sector": "mining",
+      "industry": "gold_mining_junior",
+      "frequency": "weekly",
+      "baseCurrency": "CAD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "TSXV Junior Gold Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of junior gold mining companies listed on the TSXV.",
+      "url": "https://commoditysupercycle.com/charts/gold-tsxv",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "CAD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-asx": {
+    "id": "gold-asx",
+    "meta": {
+      "title": "ASX Gold Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of gold mining companies listed on the ASX. Track Australian precious metal equities valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-asx",
+      "keywords": [
+        "ASX gold mining market cap",
+        "Australian gold producers valuation",
+        "ASX gold stocks",
+        "gold mining Australia",
+        "precious metals ASX"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "ASX Gold Mining Companies Market Cap",
+        "description": "Track the total market capitalization of ASX-listed gold mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-asx.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "ASX Gold Mining Companies Market Cap",
+        "description": "ASX-listed gold mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "ASX Gold Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of gold mining companies listed on the Australian Securities Exchange, providing a long-term view of Australian precious metal equity valuation.",
+      "extendedDescription": "The ASX gold mining market cap chart aggregates the total equity value of publicly listed Australian gold producers and explorers. Australia is a major gold-producing country, and the ASX-listed gold sector includes some of the world's largest and lowest-cost producers.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying gold mining companies listed on the ASX."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of gold producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward Australian gold equities and provides insight into the health of the domestic precious metals industry."
+        }
+      ]
+    },
+    "svg": {
+      "title": "ASX Gold Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of gold mining companies listed on the Australian Securities Exchange."
+    },
+    "data": {
+      "universe": "ASX",
+      "sector": "mining",
+      "industry": "gold_mining",
+      "frequency": "weekly",
+      "baseCurrency": "AUD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "ASX Gold Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of gold mining companies listed on the ASX.",
+      "url": "https://commoditysupercycle.com/charts/gold-asx",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "AUD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "silver": {
+    "id": "silver",
+    "meta": {
+      "title": "Global Silver Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global silver mining companies. Track precious metal equities valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/silver",
+      "keywords": [
+        "global silver mining market cap",
+        "silver producers valuation",
+        "precious metals silver",
+        "silver mining stocks",
+        "by-product silver producers"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Silver Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global silver mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/silver.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Silver Mining Companies Market Cap",
+        "description": "Global silver mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Silver Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global silver mining companies, providing a long-term view of precious metal equity valuation.",
+      "extendedDescription": "The global silver mining market cap chart aggregates the total equity value of publicly listed primary silver producers and companies that produce silver as a by-product. The sector's valuation is influenced by silver prices, industrial demand and its role as a precious metal.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying silver mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of silver producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward silver equities and provides insight into the precious metals sector."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Silver Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global silver mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "silver_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Silver Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global silver mining companies.",
+      "url": "https://commoditysupercycle.com/charts/silver",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-silver": {
+    "id": "gold-silver",
+    "meta": {
+      "title": "Global Gold & Silver Companies Market Cap | CommoditySuperCycle",
+      "description": "Combined market capitalization of gold and silver mining companies worldwide. Track precious metals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-silver",
+      "keywords": [
+        "global gold and silver market cap",
+        "combined precious metals mining valuation",
+        "gold and silver producers",
+        "precious metals sector stocks",
+        "gold silver equities"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Gold & Silver Companies Market Cap",
+        "description": "Track the combined market capitalization of global gold and silver mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-silver.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Gold & Silver Companies Market Cap",
+        "description": "Combined global gold and silver mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Gold & Silver Companies Market Cap",
+      "summary": "This chart tracks the combined aggregate market capitalization of gold and silver mining companies worldwide, providing a comprehensive view of the precious metals sector.",
+      "extendedDescription": "The global gold and silver market cap chart aggregates the total equity value of companies that produce both gold and silver, as well as those that specialize in either metal. The combined valuation is influenced by monetary policy, inflation expectations and industrial demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying gold and silver mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of precious metal producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward the combined precious metals sector and provides a holistic view of gold and silver equities."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Gold & Silver Companies Market Cap",
+      "description": "Combined aggregate market capitalization of global gold and silver mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "gold_and_silver_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Gold & Silver Companies Market Cap Dataset",
+      "description": "Historical combined aggregated market capitalization of global gold and silver mining companies.",
+      "url": "https://commoditysupercycle.com/charts/gold-silver",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "gold-copper": {
+    "id": "gold-copper",
+    "meta": {
+      "title": "Global Gold & Copper Companies Market Cap | CommoditySuperCycle",
+      "description": "Combined market capitalization of gold and copper mining companies worldwide. Track dual-commodity producer valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/gold-copper",
+      "keywords": [
+        "global gold and copper market cap",
+        "gold-copper mining companies",
+        "dual commodity producers valuation",
+        "precious and base metals",
+        "gold copper equities"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Gold & Copper Companies Market Cap",
+        "description": "Track the combined market capitalization of global gold and copper mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/gold-copper.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Gold & Copper Companies Market Cap",
+        "description": "Combined global gold and copper mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Gold & Copper Companies Market Cap",
+      "summary": "This chart tracks the combined aggregate market capitalization of gold and copper mining companies worldwide, providing a view of dual-commodity producer valuation.",
+      "extendedDescription": "The global gold and copper market cap chart aggregates the total equity value of companies with significant exposure to both gold and copper production. Many major miners produce both metals, and the chart reflects the combined valuation of these diversified producers.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying gold and copper mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of dual-commodity producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward companies with balanced exposure to precious and base metals."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Gold & Copper Companies Market Cap",
+      "description": "Combined aggregate market capitalization of global gold and copper mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "gold_and_copper_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Gold & Copper Companies Market Cap Dataset",
+      "description": "Historical combined aggregated market capitalization of global gold and copper mining companies.",
+      "url": "https://commoditysupercycle.com/charts/gold-copper",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "pgm": {
+    "id": "pgm",
+    "meta": {
+      "title": "Global Platinum Group Metals Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of Platinum Group Metals (PGM) companies worldwide. Track platinum, palladium and rhodium producers.",
+      "canonical": "https://commoditysupercycle.com/charts/pgm",
+      "keywords": [
+        "global PGM market cap",
+        "platinum group metals valuation",
+        "platinum and palladium producers",
+        "rhodium mining stocks",
+        "precious metals PGM"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Platinum Group Metals Companies Market Cap",
+        "description": "Track the total market capitalization of global PGM companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/pgm.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Platinum Group Metals Companies Market Cap",
+        "description": "Global PGM sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Platinum Group Metals Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global Platinum Group Metals companies, providing a long-term view of platinum, palladium and rhodium producer valuation.",
+      "extendedDescription": "The global PGM market cap chart aggregates the total equity value of publicly listed producers of platinum, palladium, rhodium and related metals. The sector's valuation is driven by industrial demand, particularly from the automotive sector for catalytic converters, and supply constraints.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying PGM companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of PGM producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward PGM equities and provides insight into industrial metal demand."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Platinum Group Metals Companies Market Cap",
+      "description": "Aggregate market capitalization of global Platinum Group Metals companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "platinum_group_metals",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Platinum Group Metals Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global Platinum Group Metals companies.",
+      "url": "https://commoditysupercycle.com/charts/pgm",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "precious-metals": {
+    "id": "precious-metals",
+    "meta": {
+      "title": "CSC Precious Metals Index | Market Cap | CommoditySuperCycle",
+      "description": "The official CSC Precious Metals Index: total market capitalization of gold, silver and PGM companies. Historical chart updated weekly.",
+      "canonical": "https://commoditysupercycle.com/charts/precious-metals",
+      "keywords": [
+        "CSC Precious Metals Index",
+        "gold silver PGM index",
+        "precious metals sector benchmark",
+        "commodity supercycle precious metals",
+        "global precious metals valuation"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "CSC Precious Metals Index",
+        "description": "The official CommoditySuperCycle Precious Metals Index tracking gold, silver and PGM market capitalization.",
+        "image": "https://commoditysupercycle.com/assets/images/og/precious-metals.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "CSC Precious Metals Index",
+        "description": "Official CommoditySuperCycle Precious Metals Index market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "CSC Precious Metals Index",
+      "summary": "The official CommoditySuperCycle Precious Metals Index tracks the aggregate market capitalization of gold, silver and PGM companies worldwide.",
+      "extendedDescription": "The CSC Precious Metals Index is a comprehensive benchmark that aggregates the total equity value of publicly listed companies in the global precious metals sector. It provides a complete view of the industry, which is often viewed as a store of value and a hedge against inflation.",
+      "sections": [
+        {
+          "title": "What the index measures",
+          "text": "It represents the combined market capitalization of all qualifying precious metals companies globally, including gold, silver and PGM producers."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined global universe of precious metal producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The index serves as the official CommoditySuperCycle benchmark for the precious metals sector and is a leading indicator of industry health."
+        }
+      ]
+    },
+    "svg": {
+      "title": "CSC Precious Metals Index",
+      "description": "Official CommoditySuperCycle Precious Metals Index - aggregate market capitalization of gold, silver and PGM companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "precious_metals",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "CSC Precious Metals Index Dataset",
+      "description": "Official CommoditySuperCycle Precious Metals Index - historical aggregated market capitalization of gold, silver and PGM companies.",
+      "url": "https://commoditysupercycle.com/charts/precious-metals",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "aluminum": {
+    "id": "aluminum",
+    "meta": {
+      "title": "Global Aluminum Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global aluminum mining and production companies. Track light metal sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/aluminum",
+      "keywords": [
+        "global aluminum market cap",
+        "aluminum producers valuation",
+        "bauxite mining companies",
+        "light metal sector",
+        "aluminum stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Aluminum Companies Market Cap",
+        "description": "Track the total market capitalization of global aluminum companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/aluminum.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Aluminum Companies Market Cap",
+        "description": "Global aluminum sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Aluminum Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global aluminum mining and production companies, providing a long-term view of light metal sector valuation.",
+      "extendedDescription": "The global aluminum market cap chart aggregates the total equity value of publicly listed aluminum smelters, refiners and bauxite miners. The sector's valuation is heavily influenced by industrial demand, energy costs and global economic cycles.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying aluminum companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of aluminum producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward aluminum equities and provides insight into industrial metal demand."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Aluminum Companies Market Cap",
+      "description": "Aggregate market capitalization of global aluminum mining and production companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "aluminum_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Aluminum Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global aluminum companies.",
+      "url": "https://commoditysupercycle.com/charts/aluminum",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "copper": {
+    "id": "copper",
+    "meta": {
+      "title": "Global Copper Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global copper mining companies. Track the copper sector's valuation as a barometer of economic growth.",
+      "canonical": "https://commoditysupercycle.com/charts/copper",
+      "keywords": [
+        "global copper mining market cap",
+        "copper producers valuation",
+        "copper sector stocks",
+        "base metals copper",
+        "copper mining companies"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Copper Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global copper mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/copper.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Copper Mining Companies Market Cap",
+        "description": "Global copper mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Copper Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global copper mining companies, providing a long-term view of the copper sector as a barometer of economic growth.",
+      "extendedDescription": "The global copper mining market cap chart aggregates the total equity value of publicly listed copper producers, diversified miners with copper exposure and emerging developers. Copper is widely used in construction, electronics and renewable energy, making its sector valuation a key indicator of global economic activity.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying copper mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of copper producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward copper equities and serves as a leading indicator of global economic growth."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Copper Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global copper mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "copper_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Copper Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global copper mining companies.",
+      "url": "https://commoditysupercycle.com/charts/copper",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "lead-zinc": {
+    "id": "lead-zinc",
+    "meta": {
+      "title": "Global Lead & Zinc Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of lead and zinc mining companies worldwide. Track base metals sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/lead-zinc",
+      "keywords": [
+        "global lead and zinc market cap",
+        "lead zinc mining companies",
+        "base metals valuation",
+        "zinc producers stocks",
+        "lead mining sector"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Lead & Zinc Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global lead and zinc mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/lead-zinc.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Lead & Zinc Mining Companies Market Cap",
+        "description": "Global lead and zinc mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Lead & Zinc Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global lead and zinc mining companies, providing a long-term view of these base metal sectors.",
+      "extendedDescription": "The global lead and zinc market cap chart aggregates the total equity value of publicly listed producers of both metals, often found in polymetallic deposits. Lead and zinc are used in construction, batteries and galvanizing, making their valuation a proxy for industrial demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying lead and zinc mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of lead and zinc producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward lead and zinc equities and provides insight into base metal demand."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Lead & Zinc Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global lead and zinc mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "lead_and_zinc_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Lead & Zinc Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global lead and zinc mining companies.",
+      "url": "https://commoditysupercycle.com/charts/lead-zinc",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "lithium": {
+    "id": "lithium",
+    "meta": {
+      "title": "Global Lithium Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global lithium mining and battery metals companies. Track the electric vehicle metal sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/lithium",
+      "keywords": [
+        "global lithium mining market cap",
+        "lithium producers valuation",
+        "battery metals sector",
+        "electric vehicle battery materials",
+        "lithium stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Lithium Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global lithium mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/lithium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Lithium Mining Companies Market Cap",
+        "description": "Global lithium and battery metals sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Lithium Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global lithium mining and exploration companies, providing a view of the battery metals sector's growth.",
+      "extendedDescription": "The global lithium market cap chart aggregates the total equity value of publicly listed lithium producers and explorers. Lithium is a critical component of electric vehicle batteries and energy storage systems, making its sector valuation a key indicator of the energy transition.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying lithium mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of lithium producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward lithium equities and provides insight into the growth of the electric vehicle supply chain."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Lithium Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global lithium mining and exploration companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "lithium_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Lithium Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global lithium mining companies.",
+      "url": "https://commoditysupercycle.com/charts/lithium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "iron-steel": {
+    "id": "iron-steel",
+    "meta": {
+      "title": "Global Iron Ore & Steel Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global iron ore and steel production companies. Track industrial metals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/iron-steel",
+      "keywords": [
+        "global iron ore and steel market cap",
+        "iron ore miners valuation",
+        "steel producers stocks",
+        "industrial metals sector",
+        "steel industry valuation"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Iron Ore & Steel Companies Market Cap",
+        "description": "Track the total market capitalization of global iron ore and steel companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/iron-steel.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Iron Ore & Steel Companies Market Cap",
+        "description": "Global iron ore and steel sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Iron Ore & Steel Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global iron ore mining and steel production companies, providing a long-term view of industrial metals sector valuation.",
+      "extendedDescription": "The global iron ore and steel market cap chart aggregates the total equity value of publicly listed iron ore miners and integrated steel producers. The sector is a key indicator of global industrial activity and infrastructure investment.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying iron ore and steel companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of iron and steel producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward industrial metals and provides insight into global construction and manufacturing trends."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Iron Ore & Steel Companies Market Cap",
+      "description": "Aggregate market capitalization of global iron ore and steel production companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "iron_and_steel",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Iron Ore & Steel Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global iron ore and steel companies.",
+      "url": "https://commoditysupercycle.com/charts/iron-steel",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "nickel": {
+    "id": "nickel",
+    "meta": {
+      "title": "Global Nickel Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global nickel mining companies. Track battery and stainless steel metal sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/nickel",
+      "keywords": [
+        "global nickel mining market cap",
+        "nickel producers valuation",
+        "battery metal nickel",
+        "stainless steel raw materials",
+        "nickel stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Nickel Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global nickel mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/nickel.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Nickel Mining Companies Market Cap",
+        "description": "Global nickel mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Nickel Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global nickel mining companies, providing a long-term view of this battery and stainless steel metal sector.",
+      "extendedDescription": "The global nickel market cap chart aggregates the total equity value of publicly listed nickel producers. Nickel is a key component of stainless steel and lithium-ion batteries, making its valuation an important indicator of industrial and electric vehicle demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying nickel mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of nickel producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward nickel equities and provides insight into the EV battery supply chain."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Nickel Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global nickel mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "nickel_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Nickel Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global nickel mining companies.",
+      "url": "https://commoditysupercycle.com/charts/nickel",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "rare-earths": {
+    "id": "rare-earths",
+    "meta": {
+      "title": "Global Rare Earths Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global rare earth elements mining companies. Track critical minerals for technology and defense.",
+      "canonical": "https://commoditysupercycle.com/charts/rare-earths",
+      "keywords": [
+        "global rare earths market cap",
+        "rare earth elements valuation",
+        "critical minerals mining",
+        "REE producers stocks",
+        "technology metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Rare Earths Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global rare earth mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/rare-earths.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Rare Earths Mining Companies Market Cap",
+        "description": "Global rare earths mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Rare Earths Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global rare earth elements mining companies, providing a long-term view of this critical minerals sector.",
+      "extendedDescription": "The global rare earths market cap chart aggregates the total equity value of publicly listed producers of rare earth elements. These metals are critical for electronics, renewable energy and defense applications, making their valuation strategically important.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying rare earth mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of rare earth producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward critical minerals and provides insight into supply chain dynamics for high-tech industries."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Rare Earths Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global rare earth elements mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "rare_earths_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Rare Earths Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global rare earths mining companies.",
+      "url": "https://commoditysupercycle.com/charts/rare-earths",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "uranium": {
+    "id": "uranium",
+    "meta": {
+      "title": "Global Uranium Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global uranium mining companies. Track nuclear fuel sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/uranium",
+      "keywords": [
+        "global uranium mining market cap",
+        "uranium producers valuation",
+        "nuclear fuel sector",
+        "uranium stocks",
+        "energy transition uranium"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Uranium Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global uranium mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/uranium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Uranium Mining Companies Market Cap",
+        "description": "Global uranium mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Uranium Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global uranium mining and exploration companies, providing a long-term view of the nuclear fuel sector.",
+      "extendedDescription": "The global uranium market cap chart aggregates the total equity value of publicly listed uranium producers and explorers. Uranium is the primary fuel for nuclear power generation, making its sector valuation sensitive to nuclear energy policy and the clean energy transition.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying uranium mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of uranium producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward nuclear fuel equities and provides insight into the future of clean energy generation."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Uranium Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global uranium mining and exploration companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "uranium_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Uranium Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global uranium mining companies.",
+      "url": "https://commoditysupercycle.com/charts/uranium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "antimony": {
+    "id": "antimony",
+    "meta": {
+      "title": "Global Antimony Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global antimony mining companies. Track this critical mineral for flame retardants and alloys.",
+      "canonical": "https://commoditysupercycle.com/charts/antimony",
+      "keywords": [
+        "global antimony mining market cap",
+        "antimony producers valuation",
+        "critical minerals antimony",
+        "antimony stocks",
+        "fire retardant minerals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Antimony Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global antimony mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/antimony.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Antimony Mining Companies Market Cap",
+        "description": "Global antimony mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Antimony Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global antimony mining companies, providing a long-term view of this critical mineral sector.",
+      "extendedDescription": "The global antimony market cap chart aggregates the total equity value of publicly listed antimony producers. Antimony is used in flame retardants, batteries and alloys, making its valuation an indicator of industrial and safety material demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying antimony mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of antimony producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward critical minerals and provides insight into industrial safety material supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Antimony Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global antimony mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "antimony_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Antimony Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global antimony mining companies.",
+      "url": "https://commoditysupercycle.com/charts/antimony",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "beryllium": {
+    "id": "beryllium",
+    "meta": {
+      "title": "Global Beryllium Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global beryllium companies. Track this critical mineral for aerospace and defense applications.",
+      "canonical": "https://commoditysupercycle.com/charts/beryllium",
+      "keywords": [
+        "global beryllium market cap",
+        "beryllium producers valuation",
+        "critical minerals beryllium",
+        "aerospace metals",
+        "beryllium stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Beryllium Companies Market Cap",
+        "description": "Track the total market capitalization of global beryllium companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/beryllium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Beryllium Companies Market Cap",
+        "description": "Global beryllium sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Beryllium Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global beryllium companies, providing a long-term view of this critical mineral for aerospace and defense.",
+      "extendedDescription": "The global beryllium market cap chart aggregates the total equity value of publicly listed beryllium producers. Beryllium is used in aerospace, defense and electronics for its unique properties, making its valuation strategically important.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying beryllium companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of beryllium producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward critical minerals and provides insight into high-tech material supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Beryllium Companies Market Cap",
+      "description": "Aggregate market capitalization of global beryllium companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "beryllium_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Beryllium Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global beryllium companies.",
+      "url": "https://commoditysupercycle.com/charts/beryllium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "cobalt": {
+    "id": "cobalt",
+    "meta": {
+      "title": "Global Cobalt Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global cobalt mining companies. Track battery metal sector valuation for electric vehicles.",
+      "canonical": "https://commoditysupercycle.com/charts/cobalt",
+      "keywords": [
+        "global cobalt mining market cap",
+        "cobalt producers valuation",
+        "battery metal cobalt",
+        "electric vehicle battery materials",
+        "cobalt stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Cobalt Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global cobalt mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/cobalt.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Cobalt Mining Companies Market Cap",
+        "description": "Global cobalt mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Cobalt Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global cobalt mining companies, providing a long-term view of this battery metal sector.",
+      "extendedDescription": "The global cobalt market cap chart aggregates the total equity value of publicly listed cobalt producers. Cobalt is a critical component of lithium-ion batteries for electric vehicles and electronics, making its valuation an important indicator of the energy transition.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying cobalt mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of cobalt producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward battery metal equities and provides insight into EV supply chain dynamics."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Cobalt Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global cobalt mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "cobalt_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Cobalt Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global cobalt mining companies.",
+      "url": "https://commoditysupercycle.com/charts/cobalt",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "magnesium": {
+    "id": "magnesium",
+    "meta": {
+      "title": "Global Magnesium Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global magnesium companies. Track light metal sector for automotive and aerospace applications.",
+      "canonical": "https://commoditysupercycle.com/charts/magnesium",
+      "keywords": [
+        "global magnesium market cap",
+        "magnesium producers valuation",
+        "light metals sector",
+        "magnesium alloys",
+        "industrial metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Magnesium Companies Market Cap",
+        "description": "Track the total market capitalization of global magnesium companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/magnesium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Magnesium Companies Market Cap",
+        "description": "Global magnesium sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Magnesium Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global magnesium companies, providing a long-term view of this light metal sector.",
+      "extendedDescription": "The global magnesium market cap chart aggregates the total equity value of publicly listed magnesium producers. Magnesium is used in lightweight alloys for automotive and aerospace applications, making its valuation an indicator of advanced manufacturing demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying magnesium companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of magnesium producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward light metal equities and provides insight into automotive and aerospace material trends."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Magnesium Companies Market Cap",
+      "description": "Aggregate market capitalization of global magnesium companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "magnesium_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Magnesium Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global magnesium companies.",
+      "url": "https://commoditysupercycle.com/charts/magnesium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "manganese": {
+    "id": "manganese",
+    "meta": {
+      "title": "Global Manganese Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global manganese mining companies. Track steelmaking and battery material sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/manganese",
+      "keywords": [
+        "global manganese mining market cap",
+        "manganese producers valuation",
+        "steelmaking materials",
+        "manganese sector",
+        "industrial metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Manganese Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global manganese mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/manganese.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Manganese Mining Companies Market Cap",
+        "description": "Global manganese mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Manganese Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global manganese mining companies, providing a long-term view of this steelmaking and battery material sector.",
+      "extendedDescription": "The global manganese market cap chart aggregates the total equity value of publicly listed manganese producers. Manganese is an essential input in steelmaking and battery applications, making its valuation an indicator of industrial and energy transition demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying manganese mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of manganese producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward manganese equities and provides insight into steel and battery material supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Manganese Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global manganese mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "manganese_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Manganese Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global manganese mining companies.",
+      "url": "https://commoditysupercycle.com/charts/manganese",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "molybdenum-tungsten": {
+    "id": "molybdenum-tungsten",
+    "meta": {
+      "title": "Global Molybdenum & Tungsten Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of molybdenum and tungsten mining companies. Track high-strength alloy metals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/molybdenum-tungsten",
+      "keywords": [
+        "global molybdenum tungsten market cap",
+        "molybdenum producers valuation",
+        "tungsten mining stocks",
+        "high-strength alloys",
+        "specialty metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Molybdenum & Tungsten Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global molybdenum and tungsten companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/molybdenum-tungsten.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Molybdenum & Tungsten Mining Companies Market Cap",
+        "description": "Global molybdenum and tungsten sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Molybdenum & Tungsten Mining Companies Market Cap",
+      "summary": "This chart tracks the combined aggregate market capitalization of molybdenum and tungsten mining companies, providing a long-term view of high-strength alloy metal sectors.",
+      "extendedDescription": "The global molybdenum and tungsten market cap chart aggregates the total equity value of publicly listed producers of both metals. These metals are used in high-strength alloys, electronics and industrial applications, making their valuation an indicator of advanced manufacturing demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying molybdenum and tungsten mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of specialty metal producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward specialty metal equities and provides insight into industrial alloy supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Molybdenum & Tungsten Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global molybdenum and tungsten mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "molybdenum_and_tungsten_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Molybdenum & Tungsten Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global molybdenum and tungsten mining companies.",
+      "url": "https://commoditysupercycle.com/charts/molybdenum-tungsten",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "niobium-tantalum": {
+    "id": "niobium-tantalum",
+    "meta": {
+      "title": "Global Niobium & Tantalum Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of niobium and tantalum mining companies. Track high-performance alloy metals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/niobium-tantalum",
+      "keywords": [
+        "global niobium tantalum market cap",
+        "niobium producers valuation",
+        "tantalum mining stocks",
+        "high-performance alloys",
+        "specialty metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Niobium & Tantalum Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global niobium and tantalum companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/niobium-tantalum.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Niobium & Tantalum Mining Companies Market Cap",
+        "description": "Global niobium and tantalum sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Niobium & Tantalum Mining Companies Market Cap",
+      "summary": "This chart tracks the combined aggregate market capitalization of niobium and tantalum mining companies, providing a long-term view of high-performance alloy metal sectors.",
+      "extendedDescription": "The global niobium and tantalum market cap chart aggregates the total equity value of publicly listed producers of both metals. These metals are used in high-performance alloys, electronics and aerospace applications, making their valuation an indicator of advanced technology demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying niobium and tantalum mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of specialty metal producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward specialty metal equities and provides insight into aerospace and electronics supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Niobium & Tantalum Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global niobium and tantalum mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "niobium_and_tantalum_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Niobium & Tantalum Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global niobium and tantalum mining companies.",
+      "url": "https://commoditysupercycle.com/charts/niobium-tantalum",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "tin": {
+    "id": "tin",
+    "meta": {
+      "title": "Global Tin Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global tin mining companies. Track solder and alloy metal sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/tin",
+      "keywords": [
+        "global tin mining market cap",
+        "tin producers valuation",
+        "solder metals",
+        "tin sector stocks",
+        "industrial metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Tin Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global tin mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/tin.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Tin Mining Companies Market Cap",
+        "description": "Global tin mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Tin Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global tin mining companies, providing a long-term view of this solder and alloy metal sector.",
+      "extendedDescription": "The global tin market cap chart aggregates the total equity value of publicly listed tin producers. Tin is used in solders, alloys and corrosion-resistant coatings, making its valuation an indicator of electronics and industrial demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying tin mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of tin producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward tin equities and provides insight into electronics manufacturing demand."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Tin Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global tin mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "tin_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Tin Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global tin mining companies.",
+      "url": "https://commoditysupercycle.com/charts/tin",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "titanium-zirconium": {
+    "id": "titanium-zirconium",
+    "meta": {
+      "title": "Global Titanium & Zirconium Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of titanium and zirconium mining companies. Track aerospace and ceramics metals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/titanium-zirconium",
+      "keywords": [
+        "global titanium zirconium market cap",
+        "titanium mining valuation",
+        "zirconium producers stocks",
+        "aerospace metals",
+        "specialty minerals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Titanium & Zirconium Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global titanium and zirconium companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/titanium-zirconium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Titanium & Zirconium Mining Companies Market Cap",
+        "description": "Global titanium and zirconium sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Titanium & Zirconium Mining Companies Market Cap",
+      "summary": "This chart tracks the combined aggregate market capitalization of titanium and zirconium mining companies, providing a long-term view of aerospace and ceramics metals sectors.",
+      "extendedDescription": "The global titanium and zirconium market cap chart aggregates the total equity value of publicly listed producers of both metals. These metals are used in aerospace alloys, ceramics and industrial applications, making their valuation an indicator of advanced materials demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying titanium and zirconium mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of specialty mineral producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward specialty mineral equities and provides insight into aerospace and ceramics supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Titanium & Zirconium Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global titanium and zirconium mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "titanium_and_zirconium_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Titanium & Zirconium Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global titanium and zirconium mining companies.",
+      "url": "https://commoditysupercycle.com/charts/titanium-zirconium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "silicon": {
+    "id": "silicon",
+    "meta": {
+      "title": "Global Silicon Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global silicon companies. Track this key material for electronics and solar energy.",
+      "canonical": "https://commoditysupercycle.com/charts/silicon",
+      "keywords": [
+        "global silicon market cap",
+        "silicon producers valuation",
+        "industrial minerals silicon",
+        "semiconductor materials",
+        "solar energy metals"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Silicon Companies Market Cap",
+        "description": "Track the total market capitalization of global silicon companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/silicon.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Silicon Companies Market Cap",
+        "description": "Global silicon sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Silicon Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global silicon companies, providing a long-term view of this key material for electronics and solar energy.",
+      "extendedDescription": "The global silicon market cap chart aggregates the total equity value of publicly listed silicon producers. Silicon is used in semiconductors, solar panels and industrial applications, making its valuation an indicator of technology and renewable energy demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying silicon companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of silicon producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward silicon equities and provides insight into semiconductor and solar supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Silicon Companies Market Cap",
+      "description": "Aggregate market capitalization of global silicon companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "silicon_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Silicon Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global silicon companies.",
+      "url": "https://commoditysupercycle.com/charts/silicon",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "vanadium": {
+    "id": "vanadium",
+    "meta": {
+      "title": "Global Vanadium Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global vanadium mining companies. Track steel alloy and battery metal sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/vanadium",
+      "keywords": [
+        "global vanadium mining market cap",
+        "vanadium producers valuation",
+        "steel alloy metals",
+        "battery metals vanadium",
+        "vanadium stocks"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Vanadium Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global vanadium mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/vanadium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Vanadium Mining Companies Market Cap",
+        "description": "Global vanadium mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Vanadium Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global vanadium mining companies, providing a long-term view of this steel alloy and battery metal sector.",
+      "extendedDescription": "The global vanadium market cap chart aggregates the total equity value of publicly listed vanadium producers. Vanadium is used in high-strength steel alloys and emerging battery technologies, making its valuation an indicator of industrial and energy storage demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying vanadium mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of vanadium producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward vanadium equities and provides insight into steel and battery supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Vanadium Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global vanadium mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "vanadium_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Vanadium Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global vanadium mining companies.",
+      "url": "https://commoditysupercycle.com/charts/vanadium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "base-metals": {
+    "id": "base-metals",
+    "meta": {
+      "title": "CSC Base Metals Index | Market Cap | CommoditySuperCycle",
+      "description": "The official CSC Base Metals Index: total market capitalization of copper, nickel, aluminum and other base metals. Historical chart updated weekly.",
+      "canonical": "https://commoditysupercycle.com/charts/base-metals",
+      "keywords": [
+        "CSC Base Metals Index",
+        "copper nickel aluminum index",
+        "base metals sector benchmark",
+        "commodity supercycle base metals",
+        "global industrial metals valuation"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "CSC Base Metals Index",
+        "description": "The official CommoditySuperCycle Base Metals Index tracking industrial metals market capitalization.",
+        "image": "https://commoditysupercycle.com/assets/images/og/base-metals.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "CSC Base Metals Index",
+        "description": "Official CommoditySuperCycle Base Metals Index market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "CSC Base Metals Index",
+      "summary": "The official CommoditySuperCycle Base Metals Index tracks the aggregate market capitalization of copper, nickel, aluminum and other base metals companies worldwide.",
+      "extendedDescription": "The CSC Base Metals Index is a comprehensive benchmark that aggregates the total equity value of publicly listed companies in the global base metals sector. It provides a complete view of industrial metal valuations, which are closely tied to global economic growth and infrastructure spending.",
+      "sections": [
+        {
+          "title": "What the index measures",
+          "text": "It represents the combined market capitalization of all qualifying base metals companies globally, including copper, nickel and aluminum producers."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined global universe of base metal producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The index serves as the official CommoditySuperCycle benchmark for the base metals sector and is a leading indicator of industrial activity."
+        }
+      ]
+    },
+    "svg": {
+      "title": "CSC Base Metals Index",
+      "description": "Official CommoditySuperCycle Base Metals Index - aggregate market capitalization of copper, nickel, aluminum and other base metals."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "base_metals",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "CSC Base Metals Index Dataset",
+      "description": "Official CommoditySuperCycle Base Metals Index - historical aggregated market capitalization of copper, nickel, aluminum and other base metals.",
+      "url": "https://commoditysupercycle.com/charts/base-metals",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "diversified": {
+    "id": "diversified",
+    "meta": {
+      "title": "Global Diversified Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of diversified mining companies operating across multiple commodities. Track global mining majors.",
+      "canonical": "https://commoditysupercycle.com/charts/diversified",
+      "keywords": [
+        "global diversified mining market cap",
+        "major miners valuation",
+        "multi-commodity mining companies",
+        "diversified resource stocks",
+        "global mining giants"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Diversified Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global diversified mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/diversified.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Diversified Mining Companies Market Cap",
+        "description": "Global diversified mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Diversified Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of diversified mining companies operating across multiple commodities, providing a long-term view of global mining majors.",
+      "extendedDescription": "The global diversified mining market cap chart aggregates the total equity value of large mining companies with operations across iron ore, copper, coal, precious metals and other commodities. These bellwethers reflect the overall health of the global mining industry.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying diversified mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of diversified miners."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward the world's largest mining companies and provides insight into the global resources sector."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Diversified Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of diversified mining companies operating across multiple commodities."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "diversified_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Diversified Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of diversified mining companies worldwide.",
+      "url": "https://commoditysupercycle.com/charts/diversified",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "hydrogen": {
+    "id": "hydrogen",
+    "meta": {
+      "title": "Global Hydrogen and Green Energy Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global hydrogen and green energy companies. Track clean energy sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/hydrogen",
+      "keywords": [
+        "global hydrogen market cap",
+        "green hydrogen producers valuation",
+        "clean energy stocks",
+        "hydrogen infrastructure",
+        "energy transition"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Hydrogen and Green Energy Companies Market Cap",
+        "description": "Track the total market capitalization of global hydrogen and green energy companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/hydrogen.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Hydrogen and Green Energy Companies Market Cap",
+        "description": "Global hydrogen and green energy sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Hydrogen and Green Energy Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global hydrogen and green energy companies, providing a long-term view of this emerging clean energy sector.",
+      "extendedDescription": "The global hydrogen market cap chart aggregates the total equity value of publicly listed producers of green and blue hydrogen, electrolyzer manufacturers and related infrastructure. The sector's valuation is increasingly driven by policy support and decarbonization goals.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying hydrogen and green energy companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of clean energy companies."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward the energy transition and provides insight into the growth of the hydrogen economy."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Hydrogen and Green Energy Companies Market Cap",
+      "description": "Aggregate market capitalization of global hydrogen and green energy companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "renewable_energy",
+      "industry": "hydrogen_and_green_energy",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Hydrogen and Green Energy Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global hydrogen and green energy companies.",
+      "url": "https://commoditysupercycle.com/charts/hydrogen",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "helium": {
+    "id": "helium",
+    "meta": {
+      "title": "Global Helium Exploration and Production Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global helium exploration and production companies. Track this critical gas sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/helium",
+      "keywords": [
+        "global helium market cap",
+        "helium producers valuation",
+        "critical gases",
+        "helium exploration stocks",
+        "industrial gases"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Helium Exploration and Production Companies Market Cap",
+        "description": "Track the total market capitalization of global helium companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/helium.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Helium Exploration and Production Companies Market Cap",
+        "description": "Global helium sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Helium Exploration and Production Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global helium exploration and production companies, providing a long-term view of this critical gas sector.",
+      "extendedDescription": "The global helium market cap chart aggregates the total equity value of publicly listed helium producers and explorers. Helium is used in medical imaging, semiconductors and industrial applications, making its valuation an indicator of high-tech and healthcare demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying helium companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of helium producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward critical gas equities and provides insight into high-tech industrial supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Helium Exploration and Production Companies Market Cap",
+      "description": "Aggregate market capitalization of global helium exploration and production companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "energy",
+      "industry": "helium",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Helium Exploration and Production Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global helium companies.",
+      "url": "https://commoditysupercycle.com/charts/helium",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "coal": {
+    "id": "coal",
+    "meta": {
+      "title": "Global Coal Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global coal mining companies. Track thermal and metallurgical coal sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/coal",
+      "keywords": [
+        "global coal mining market cap",
+        "thermal coal producers valuation",
+        "metallurgical coal stocks",
+        "coal sector performance",
+        "global energy mix"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Coal Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global coal mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/coal.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Coal Mining Companies Market Cap",
+        "description": "Global coal mining sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Coal Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global coal mining companies, providing a long-term view of both thermal and metallurgical coal sectors.",
+      "extendedDescription": "The global coal market cap chart aggregates the total equity value of publicly listed coal producers. The sector's valuation is influenced by energy demand, steel production and environmental regulations, making it an important indicator of the global energy mix.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying coal mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of coal producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward coal equities and provides insight into global energy and steel production trends."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Coal Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global coal mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "coal_mining",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Coal Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global coal mining companies.",
+      "url": "https://commoditysupercycle.com/charts/coal",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "graphite-graphene": {
+    "id": "graphite-graphene",
+    "meta": {
+      "title": "Global Graphite and Graphene Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global graphite and graphene companies. Track battery anode and advanced materials sector.",
+      "canonical": "https://commoditysupercycle.com/charts/graphite-graphene",
+      "keywords": [
+        "global graphite graphene market cap",
+        "graphite producers valuation",
+        "battery anode materials",
+        "advanced materials stocks",
+        "critical minerals graphite"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Graphite and Graphene Companies Market Cap",
+        "description": "Track the total market capitalization of global graphite and graphene companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/graphite-graphene.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Graphite and Graphene Companies Market Cap",
+        "description": "Global graphite and graphene sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Graphite and Graphene Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global graphite and graphene companies, providing a long-term view of these advanced materials sectors.",
+      "extendedDescription": "The global graphite and graphene market cap chart aggregates the total equity value of publicly listed producers of both materials. Graphite is used in battery anodes for electric vehicles, while graphene has applications in advanced materials, making their valuation an indicator of the energy transition and technology innovation.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying graphite and graphene companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of advanced material producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward advanced material equities and provides insight into EV battery and technology supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Graphite and Graphene Companies Market Cap",
+      "description": "Aggregate market capitalization of global graphite and graphene companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "graphite_and_graphene",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Graphite and Graphene Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global graphite and graphene companies.",
+      "url": "https://commoditysupercycle.com/charts/graphite-graphene",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "diamonds-gems": {
+    "id": "diamonds-gems",
+    "meta": {
+      "title": "Global Diamonds and Gemstones Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of diamond and gemstone mining companies. Track luxury and industrial mineral sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/diamonds-gems",
+      "keywords": [
+        "global diamonds gems market cap",
+        "diamond mining companies valuation",
+        "gemstone producers stocks",
+        "precious stones sector",
+        "luxury commodities"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Diamonds and Gemstones Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global diamond and gemstone mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/diamonds-gems.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Diamonds and Gemstones Mining Companies Market Cap",
+        "description": "Global diamonds and gemstones sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Diamonds and Gemstones Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global diamond and gemstone mining companies, providing a long-term view of this luxury and industrial mineral sector.",
+      "extendedDescription": "The global diamonds and gems market cap chart aggregates the total equity value of publicly listed producers of rough diamonds and colored gemstones. The sector's valuation is driven by consumer demand, luxury trends and industrial applications for diamonds.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying diamond and gemstone mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of gemstone producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward luxury commodity equities and provides insight into consumer and industrial demand trends."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Diamonds and Gemstones Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global diamond and gemstone mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "diamonds_and_gemstones",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Diamonds and Gemstones Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global diamond and gemstone mining companies.",
+      "url": "https://commoditysupercycle.com/charts/diamonds-gems",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "fertilizers-salt": {
+    "id": "fertilizers-salt",
+    "meta": {
+      "title": "Global Fertilizers and Salt Mining Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of fertilizer and salt mining companies. Track agricultural minerals sector valuation.",
+      "canonical": "https://commoditysupercycle.com/charts/fertilizers-salt",
+      "keywords": [
+        "global fertilizers salt market cap",
+        "potash producers valuation",
+        "phosphate mining stocks",
+        "agricultural minerals sector",
+        "salt mining companies"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Fertilizers and Salt Mining Companies Market Cap",
+        "description": "Track the total market capitalization of global fertilizer and salt mining companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/fertilizers-salt.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Fertilizers and Salt Mining Companies Market Cap",
+        "description": "Global fertilizers and salt sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Fertilizers and Salt Mining Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global fertilizer and salt mining companies, providing a long-term view of agricultural minerals sectors.",
+      "extendedDescription": "The global fertilizers and salt market cap chart aggregates the total equity value of publicly listed producers of potash, phosphate and industrial salt. These minerals are essential to global food production and industrial processes, making their valuation an indicator of agricultural and manufacturing demand.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying fertilizer and salt mining companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of agricultural mineral producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward agricultural mineral equities and provides insight into global food production supply chains."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Fertilizers and Salt Mining Companies Market Cap",
+      "description": "Aggregate market capitalization of global fertilizer and salt mining companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "fertilizers_and_salt",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Fertilizers and Salt Mining Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global fertilizer and salt mining companies.",
+      "url": "https://commoditysupercycle.com/charts/fertilizers-salt",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "industrial-minerals": {
+    "id": "industrial-minerals",
+    "meta": {
+      "title": "Global Industrial Minerals Companies Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global industrial minerals companies. Track non-metallic mineral sector valuation over time.",
+      "canonical": "https://commoditysupercycle.com/charts/industrial-minerals",
+      "keywords": [
+        "global industrial minerals market cap",
+        "non-metallic minerals valuation",
+        "industrial mineral producers",
+        "construction minerals",
+        "global mining sector"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Industrial Minerals Companies Market Cap",
+        "description": "Track the total market capitalization of global industrial minerals companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/industrial-minerals.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Industrial Minerals Companies Market Cap",
+        "description": "Global industrial minerals sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Industrial Minerals Companies Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global industrial minerals companies, providing a long-term view of this diverse non-metallic mineral sector.",
+      "extendedDescription": "The global industrial minerals market cap chart aggregates the total equity value of publicly listed producers of a wide range of non-metallic minerals used in construction, manufacturing and other industries. The sector is essential to the economy but often overlooked by investors.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying industrial minerals companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of industrial mineral producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward industrial mineral equities and provides insight into construction and manufacturing demand."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Industrial Minerals Companies Market Cap",
+      "description": "Aggregate market capitalization of global industrial minerals companies."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "industrial_minerals",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Industrial Minerals Companies Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global industrial minerals companies.",
+      "url": "https://commoditysupercycle.com/charts/industrial-minerals",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "mining-equipment-services": {
+    "id": "mining-equipment-services",
+    "meta": {
+      "title": "Global Mining Equipment and Services Market Cap | CommoditySuperCycle",
+      "description": "Total market capitalization of global mining equipment manufacturers and service providers. Track mining sector capital expenditure.",
+      "canonical": "https://commoditysupercycle.com/charts/mining-equipment-services",
+      "keywords": [
+        "global mining equipment market cap",
+        "mining services valuation",
+        "heavy machinery manufacturers",
+        "mining technology stocks",
+        "equipment suppliers"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "Global Mining Equipment and Services Market Cap",
+        "description": "Track the total market capitalization of global mining equipment and services companies.",
+        "image": "https://commoditysupercycle.com/assets/images/og/mining-equipment-services.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Global Mining Equipment and Services Market Cap",
+        "description": "Global mining equipment and services sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "Global Mining Equipment and Services Market Cap",
+      "summary": "This chart tracks the aggregate market capitalization of global mining equipment manufacturers and service providers, providing a view of mining sector capital expenditure.",
+      "extendedDescription": "The global mining equipment and services market cap chart aggregates the total equity value of publicly listed companies that produce heavy machinery, provide engineering services and offer mining technology. The sector reflects the capital expenditure cycle of the mining industry.",
+      "sections": [
+        {
+          "title": "What the chart measures",
+          "text": "It represents the combined market capitalization of all qualifying mining equipment and services companies globally."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined universe of equipment and service providers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The series reflects capital market sentiment toward mining service equities and provides insight into the health of the global mining industry."
+        }
+      ]
+    },
+    "svg": {
+      "title": "Global Mining Equipment and Services Market Cap",
+      "description": "Aggregate market capitalization of global mining equipment manufacturers and service providers."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "mining",
+      "industry": "mining_equipment_and_services",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Global Mining Equipment and Services Market Cap Dataset",
+      "description": "Historical aggregated market capitalization of global mining equipment and services companies.",
+      "url": "https://commoditysupercycle.com/charts/mining-equipment-services",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  },
+  "csc-index": {
+    "id": "csc-index",
+    "meta": {
+      "title": "CSC Total Index | Global Commodity Market Cap | CommoditySuperCycle",
+      "description": "The official CommoditySuperCycle Total Index: combined market capitalization across all major commodity sectors. Historical chart updated weekly.",
+      "canonical": "https://commoditysupercycle.com/charts/csc-index",
+      "keywords": [
+        "CSC Total Index",
+        "global commodity market cap",
+        "commodity supercycle benchmark",
+        "energy metals mining valuation",
+        "total commodity index"
+      ]
+    },
+    "social": {
+      "og": {
+        "title": "CSC Total Index",
+        "description": "The official global CommoditySuperCycle Total Index tracking all major commodity sectors.",
+        "image": "https://commoditysupercycle.com/assets/images/og/csc-index.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "CSC Total Index",
+        "description": "Official CommoditySuperCycle Total Index - combined commodity sector market capitalization over time."
+      }
+    },
+    "content": {
+      "h1": "CSC Total Index",
+      "summary": "The official CommoditySuperCycle Total Index tracks the combined market capitalization across all major commodity sectors globally, including energy, metals and mining.",
+      "extendedDescription": "The CSC Total Index is the flagship benchmark of CommoditySuperCycle, aggregating the total equity value of publicly listed companies across the entire commodity complex. It provides a complete view of the global resources sector and is a powerful indicator of the overall health of commodity markets.",
+      "sections": [
+        {
+          "title": "What the index measures",
+          "text": "It represents the combined market capitalization of all qualifying commodity companies globally, including energy, metals and mining sectors."
+        },
+        {
+          "title": "How it is calculated",
+          "text": "Market capitalization is computed by multiplying each company's share price by its outstanding shares, then aggregating across the defined global universe of commodity producers."
+        },
+        {
+          "title": "Why it matters",
+          "text": "The index serves as the official CommoditySuperCycle benchmark for the entire commodity sector and is a leading indicator of global resource industry health."
+        }
+      ]
+    },
+    "svg": {
+      "title": "CSC Total Index",
+      "description": "Official CommoditySuperCycle Total Index - combined market capitalization across all major commodity sectors worldwide."
+    },
+    "data": {
+      "universe": "Global",
+      "sector": "commodity",
+      "industry": "all_commodity_sectors",
+      "frequency": "weekly",
+      "baseCurrency": "USD",
+      "startDate": "2016",
+      "endDate": "2026"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "CSC Total Index Dataset",
+      "description": "Official CommoditySuperCycle Total Index - combined historical market capitalization across all major commodity sectors worldwide.",
+      "url": "https://commoditysupercycle.com/charts/csc-index",
+      "temporalCoverage": "2016/2026",
+      "measurementTechnique": "Aggregated equity market capitalization from public financial data",
+      "variableMeasured": {
+        "@type": "PropertyValue",
+        "name": "Total Market Capitalization",
+        "unitText": "USD"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "CommoditySuperCycle Financial Datasets"
+      }
+    }
+  }
+}
