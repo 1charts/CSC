@@ -1,12 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const chartsDir = path.join(__dirname, 'charts');
-const configPath = path.join(__dirname, 'config.json');
-const seoPath = path.join(__dirname, 'seo.json');
-const templatePath = path.join(__dirname, 'template.json');
-const mobilePath = path.join(__dirname, 'template-mobile.json');
-const desktopPath = path.join(__dirname, 'template-desktop.json');
+// ==================== PERCORSI ====================
+const baseDir = __dirname;
+const svgPngDir = path.join(baseDir, 'charts', 'SVG-PNG');
+const outputHtmlDir = path.join(baseDir, 'charts');
+
+const configPath = path.join(baseDir, 'config.json');
+const seoPath = path.join(baseDir, 'CSC', 'seo.json');
+const templatePath = path.join(baseDir, 'template.json');
+const mobilePath = path.join(baseDir, 'template-mobile.json');
+const desktopPath = path.join(baseDir, 'template-desktop.json');
 
 // ==================== CARICAMENTO ====================
 const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf-8')) : {};
@@ -34,101 +38,79 @@ const chartOrder = [
   "csc-index"
 ];
 
-const allFiles = fs.readdirSync(chartsDir);
+const allFiles = fs.readdirSync(svgPngDir);
 
-// Solo SVG
 const chartsData = chartOrder
   .filter(name => allFiles.includes(`${name}.svg`))
   .map(name => {
-    const cfg = config[name] || {};
     const seo = seoConfig[name] || {};
-    return { 
-      name, 
-      file: `${name}.svg`,
-      title: cfg.title || `Chart ${name}`, 
-      sources: cfg.sources || [], 
-      seo 
+    const cfg = config[name] || {};
+    return {
+      name,
+      svgFile: `${name}.svg`,
+      pngFile: `${name}.png`,
+      title: seo.title || `Market Cap - ${name}`,
+      sources: cfg.sources || [],
+      seo
     };
   });
 
 function createPage(chart) {
-  const { name, file, seo } = chart;
-
-  const fullCSS = template.commonCSS + "\n\n" + mobile.mobileCSS + "\n\n" + desktop.desktopCSS;
+  const { name, svgFile, pngFile, title: cleanTitle, seo } = chart;
 
   let html = template.htmlStart
-    .replace('{{TITLE}}', seo.title || `${name} Market Cap | CommoditySuperCycle`)
-    .replace('{{LOGO_URL}}', template.logoUrl);
+    .replace('{{TITLE}}', cleanTitle)
+    .replace('{{LOGO_URL}}', template.logoUrl || '');
 
-  // META SEO
+  // ==================== META SEO ====================
   const seoHead = `
     <meta name="description" content="${(seo.metaDescription || '').replace(/"/g, '&quot;')}">
-    <meta property="og:title" content="${(seo.ogTitle || seo.title || '').replace(/"/g, '&quot;')}">
+    <meta property="og:title" content="${(seo.ogTitle || cleanTitle).replace(/"/g, '&quot;')}">
     <meta property="og:description" content="${(seo.ogDescription || '').replace(/"/g, '&quot;')}">
-    <meta property="og:image" content="https://commoditysupercycle.com/charts/${file}">
+    <meta property="og:image" content="https://commoditysupercycle.com/charts/SVG-PNG/${pngFile}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="${seo.canonical}">
-    <link rel="canonical" href="${seo.canonical}">
+    <meta property="og:url" content="${seo.canonical || '#'}">
+    <link rel="canonical" href="${seo.canonical || '#'}">
     <meta name="robots" content="index, follow">
   `.trim();
 
   html = html.replace('<style>', seoHead + '\n  <style>');
 
+  const fullCSS = template.commonCSS + "\n\n" + mobile.mobileCSS + "\n\n" + desktop.desktopCSS;
   html += fullCSS + "\n  </style>\n</head>\n<body>\n";
 
-  // JSON-LD
+  // ==================== JSON-LD ====================
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    "name": seo.title || chart.title,
-    "description": seo.metaDescription || "Total market capitalization chart.",
+    "name": cleanTitle,
+    "description": seo.metaDescription || "",
     "url": seo.canonical,
-    "creator": { "@type": "Organization", "name": "CommoditySuperCycle", "url": "https://commoditysupercycle.com" },
-    "keywords": [name.replace(/-/g, " "), "market cap", "commodity", "mining stocks", "sector valuation"],
-    "datePublished": new Date().toISOString().split('T')[0]
+    "image": `https://commoditysupercycle.com/charts/SVG-PNG/${svgFile}`
   };
 
-  html += `\n    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
+  html += `<script type="application/ld+json">${JSON.stringify(jsonLd, null, 2)}</script>\n`;
 
   // ==================== BODY ====================
-  let bodyHtml = template.htmlBody.replace('{{TITLE}}', seo.title || chart.title);
+  let bodyHtml = template.htmlBody.replace('{{TITLE}}', cleanTitle);
 
-  // Sostituzione CORRETTA (cattura anche il > finale)
+  // Replace sicuro dell'immagine
   bodyHtml = bodyHtml.replace(
-    /<img id="chart-image" src="charts\/[^"]*"\s*\/?>/i,
-    `<img id="chart-image" src="charts/${file}" alt="${(seo.title || chart.title).replace(/"/g, '&quot;')}" loading="lazy" decoding="async">`
+    /<img[^>]*id=["']chart-image["'][^>]*>/i,
+    `<img id="chart-image" src="SVG-PNG/${svgFile}" alt="${cleanTitle}" loading="lazy" decoding="async">`
   );
 
-  // Fonti statiche
-  let sourcesText = '';
-  if (chart.sources && chart.sources.length > 0) {
-    const valid = chart.sources.filter(s => s.text && s.text.trim() !== '');
-    if (valid.length > 0) {
-      sourcesText = valid.map(s => 
-        s.link && s.link !== '#' ? `${s.text} - ${s.link}` : s.text
-      ).join(' · ');
-    }
-  }
-
-  if (sourcesText) {
-    bodyHtml = bodyHtml.replace(
-      '<!-- Fonti statiche per i crawler (nascoste) -->\n        <div id="sources-static" style="display:none;">\n          Sources: {{SOURCES_STATIC}}\n        </div>',
-      `<!-- Fonti statiche per i crawler -->\n        <div id="sources-static" style="display:none;">\n          Sources: ${sourcesText}\n        </div>`
-    );
-  } else {
-    bodyHtml = bodyHtml.replace(/<!-- Fonti statiche per i crawler \(nascoste\) -->[\s\S]*?<\/div>/, '');
-  }
-
-  html += bodyHtml;
-
-  html += template.htmlEnd
+  html += bodyHtml + template.htmlEnd
     .replace('{{CHARTS_DATA}}', JSON.stringify(chartsData))
     .replace('{{JAVASCRIPT}}', mobile.mobileJS);
 
-  fs.writeFileSync(name + '.html', html, 'utf-8');
+  // ==================== SALVA ====================
+  fs.writeFileSync(path.join(outputHtmlDir, `${name}.html`), html, 'utf-8');
+  console.log(`✓ ${name}.html`);
 }
 
-chartsData.forEach(chart => createPage(chart));
+chartsData.forEach(createPage);
 
-console.log(`🎉 ${chartsData.length} pagine generate con SOLO SVG!`);
-console.log(`   → ">" rimossa`);
+console.log(`\n🎉 ${chartsData.length} pagine HTML generate con successo!`);
+console.log(`   HTML → ${outputHtmlDir}`);
+console.log(`   SVG/PNG → ${svgPngDir}`);

@@ -1,424 +1,538 @@
 {
   "upstream-nyse": {
     "title": "NYSE Upstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the New York Stock Exchange (NYSE). Interactive daily chart of the entire sector including Permian Basin and shale operators.",
+    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the NYSE. Interactive daily chart of the American upstream sector.",
     "h1": "NYSE Upstream Oil & Gas - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Upstream Companies on NYSE",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "NYSE Upstream Oil & Gas Market Cap",
-    "ogDescription": "Live total market capitalization chart of NYSE-listed upstream oil & gas companies.",
+    "ogDescription": "Total market capitalization of NYSE-listed upstream oil & gas companies.",
     "ogImage": "upstream-nyse.png",
-    "canonical": "https://commoditysupercycle.com/charts/upstream-nyse"
+    "canonical": "https://commoditysupercycle.com/charts/upstream-nyse",
+    
+    "svgTitle": "NYSE Upstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of publicly listed upstream oil and gas companies on the New York Stock Exchange. Track the performance of the American upstream energy sector over time."
   },
   "upstream-lse": {
     "title": "LSE Upstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the London Stock Exchange (LSE). Interactive chart of North Sea and international E&P companies.",
+    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the London Stock Exchange.",
     "h1": "LSE Upstream Oil & Gas - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Upstream Companies on LSE",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "LSE Upstream Oil & Gas Market Cap",
-    "ogDescription": "Total market cap performance of LSE-listed upstream oil & gas companies.",
+    "ogDescription": "Total market cap of LSE-listed upstream oil & gas companies.",
     "ogImage": "upstream-lse.png",
-    "canonical": "https://commoditysupercycle.com/charts/upstream-lse"
+    "canonical": "https://commoditysupercycle.com/charts/upstream-lse",
+    
+    "svgTitle": "LSE Upstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of publicly listed upstream oil and gas companies on the London Stock Exchange. Comprehensive view of the UK and European upstream energy sector performance."
   },
   "upstream-tsx": {
     "title": "TSX Upstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the Toronto Stock Exchange (TSX). Canadian E&P sector valuation in one interactive chart.",
+    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the Toronto Stock Exchange.",
     "h1": "TSX Upstream Oil & Gas - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Canadian Upstream Companies on TSX",
+    "h2": "Aggregate Market Capitalization of Canadian Upstream Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "TSX Upstream Oil & Gas Market Cap",
     "ogDescription": "Total market capitalization of TSX-listed upstream oil & gas companies.",
     "ogImage": "upstream-tsx.png",
-    "canonical": "https://commoditysupercycle.com/charts/upstream-tsx"
+    "canonical": "https://commoditysupercycle.com/charts/upstream-tsx",
+    
+    "svgTitle": "TSX Upstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of publicly listed upstream oil and gas companies on the Toronto Stock Exchange. Canadian energy producers sector performance tracking."
   },
   "upstream-tsxv": {
     "title": "TSXV Junior Upstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of junior upstream oil & gas companies on the TSX Venture Exchange (TSXV). High-risk exploration sector overview and valuation.",
+    "metaDescription": "Total market capitalization of junior upstream oil & gas companies on the TSX Venture Exchange.",
     "h1": "TSXV Junior Upstream Oil & Gas - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Junior E&P Companies on TSXV",
+    "h2": "Aggregate Market Capitalization of Junior E&P Companies",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "TSXV Junior Oil & Gas Market Cap",
-    "ogDescription": "Market capitalization of junior upstream companies on TSX Venture Exchange.",
+    "ogTitle": "TSXV Junior Upstream Market Cap",
+    "ogDescription": "Market capitalization of junior upstream companies on TSXV.",
     "ogImage": "upstream-tsxv.png",
-    "canonical": "https://commoditysupercycle.com/charts/upstream-tsxv"
+    "canonical": "https://commoditysupercycle.com/charts/upstream-tsxv",
+    
+    "svgTitle": "TSXV Junior Upstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of junior upstream oil and gas exploration and production companies listed on the TSX Venture Exchange."
   },
   "upstream-asx": {
     "title": "ASX Upstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the Australian Securities Exchange (ASX). Australian energy exploration and production sector.",
+    "metaDescription": "Total market capitalization of upstream oil & gas companies listed on the Australian Securities Exchange.",
     "h1": "ASX Upstream Oil & Gas - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Australian Upstream Companies on ASX",
+    "h2": "Aggregate Market Capitalization of Australian Upstream Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "ASX Upstream Oil & Gas Market Cap",
     "ogDescription": "Total market cap of ASX-listed upstream oil & gas companies.",
     "ogImage": "upstream-asx.png",
-    "canonical": "https://commoditysupercycle.com/charts/upstream-asx"
+    "canonical": "https://commoditysupercycle.com/charts/upstream-asx",
+    
+    "svgTitle": "ASX Upstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of publicly listed upstream oil and gas companies on the Australian Securities Exchange. Australian energy sector performance."
   },
   "upstream-global": {
     "title": "Global Upstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of international upstream oil & gas companies worldwide. Global E&P sector valuation overview.",
+    "metaDescription": "Total market capitalization of upstream oil & gas companies listed worldwide.",
     "h1": "Global Upstream Oil & Gas - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of International Upstream Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Global Upstream Oil & Gas Market Cap",
-    "ogDescription": "Worldwide upstream oil & gas total market capitalization chart.",
+    "ogDescription": "Worldwide upstream oil & gas total market capitalization.",
     "ogImage": "upstream-global.png",
-    "canonical": "https://commoditysupercycle.com/charts/upstream-global"
+    "canonical": "https://commoditysupercycle.com/charts/upstream-global",
+    
+    "svgTitle": "Global Upstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of publicly listed upstream oil and gas companies worldwide. Global exploration and production sector performance tracking."
   },
   "midstream": {
     "title": "Global Midstream Oil & Gas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global midstream oil & gas companies. Pipelines, storage, transportation and logistics sector valuation.",
-    "h1": "Global Midstream Oil & Gas - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Midstream Companies Worldwide",
+    "metaDescription": "Total market capitalization of global midstream oil & gas companies.",
+    "h1": "Midstream Oil & Gas - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Midstream Companies",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Midstream Oil & Gas Market Cap",
-    "ogDescription": "Total market cap of global midstream oil & gas infrastructure companies.",
+    "ogTitle": "Midstream Oil & Gas Market Cap",
+    "ogDescription": "Total market cap of global midstream companies.",
     "ogImage": "midstream.png",
-    "canonical": "https://commoditysupercycle.com/charts/midstream"
+    "canonical": "https://commoditysupercycle.com/charts/midstream",
+    
+    "svgTitle": "Global Midstream Oil & Gas Market Cap",
+    "svgDesc": "Historical total market capitalization of global midstream oil and gas companies. Infrastructure, transportation and storage sector performance."
   },
   "downstream": {
     "title": "Global Downstream Oil Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global downstream oil companies. Refining, marketing and retail petroleum sector overview.",
-    "h1": "Global Downstream Oil - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Downstream Companies Worldwide",
+    "metaDescription": "Total market capitalization of global downstream oil companies.",
+    "h1": "Downstream Oil - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Downstream Companies",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Downstream Oil Market Cap",
-    "ogDescription": "Interactive chart of global downstream oil companies total market capitalization.",
+    "ogTitle": "Downstream Oil Market Cap",
+    "ogDescription": "Total market cap of global downstream oil companies.",
     "ogImage": "downstream.png",
-    "canonical": "https://commoditysupercycle.com/charts/downstream"
+    "canonical": "https://commoditysupercycle.com/charts/downstream",
+    
+    "svgTitle": "Global Downstream Oil Market Cap",
+    "svgDesc": "Historical total market capitalization of global downstream oil companies. Refining, marketing and petrochemical sector performance."
   },
   "og-equipment-services": {
-    "title": "O&G Equipment & Services Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of oilfield services and equipment companies worldwide. Drilling, seismic and oilfield support sector valuation.",
+    "title": "Global O&G Equipment & Services Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of oilfield services and equipment companies worldwide.",
     "h1": "O&G Equipment & Services - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Oilfield Services Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "O&G Equipment & Services Market Cap",
     "ogDescription": "Total market cap of global oilfield services and equipment providers.",
     "ogImage": "og-equipment-services.png",
-    "canonical": "https://commoditysupercycle.com/charts/og-equipment-services"
+    "canonical": "https://commoditysupercycle.com/charts/og-equipment-services",
+    
+    "svgTitle": "Global O&G Equipment & Services Market Cap",
+    "svgDesc": "Historical total market capitalization of global oilfield services and equipment companies. Oil & gas services sector performance worldwide."
   },
   "drilling-contractors": {
     "title": "Global Drilling Contractors Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global drilling contractors. Onshore and offshore drilling services sector overview.",
-    "h1": "Global Drilling Contractors - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Drilling Contractors Worldwide",
+    "metaDescription": "Total market capitalization of global drilling contractors.",
+    "h1": "Drilling Contractors - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Drilling Contractors",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Drilling Contractors Market Cap",
-    "ogDescription": "Market capitalization chart of international drilling contractors.",
+    "ogTitle": "Drilling Contractors Market Cap",
+    "ogDescription": "Total market cap of global drilling contractors.",
     "ogImage": "drilling-contractors.png",
-    "canonical": "https://commoditysupercycle.com/charts/drilling-contractors"
+    "canonical": "https://commoditysupercycle.com/charts/drilling-contractors",
+    
+    "svgTitle": "Global Drilling Contractors Market Cap",
+    "svgDesc": "Historical total market capitalization of global oil & gas drilling contractors. Offshore and onshore drilling services sector performance."
   },
   "tankers": {
-    "title": "Global Oil Tanker Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global oil tanker companies. Crude oil and product shipping sector valuation.",
-    "h1": "Global Oil Tanker Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Oil Tanker Operators",
+    "title": "Global Oil Tankers Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global oil tanker companies.",
+    "h1": "Oil Tankers - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Oil Tanker Companies",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Oil Tankers Market Cap",
-    "ogDescription": "Total market cap performance of the international oil tanker industry.",
+    "ogTitle": "Oil Tankers Market Cap",
+    "ogDescription": "Total market cap of global oil tanker companies.",
     "ogImage": "tankers.png",
-    "canonical": "https://commoditysupercycle.com/charts/tankers"
+    "canonical": "https://commoditysupercycle.com/charts/tankers",
+    
+    "svgTitle": "Global Oil Tankers Market Cap",
+    "svgDesc": "Historical total market capitalization of global oil tanker companies. Crude oil and product shipping sector performance."
   },
   "lng": {
     "title": "Global LNG Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global LNG companies. Liquefied natural gas production, export and infrastructure sector.",
-    "h1": "Global LNG Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of LNG Producers and Infrastructure",
+    "metaDescription": "Total market capitalization of global LNG companies.",
+    "h1": "LNG Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of LNG Companies",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global LNG Market Cap",
-    "ogDescription": "Interactive chart of global LNG companies total market capitalization.",
+    "ogTitle": "LNG Companies Market Cap",
+    "ogDescription": "Total market cap of global LNG companies.",
     "ogImage": "lng.png",
-    "canonical": "https://commoditysupercycle.com/charts/lng"
+    "canonical": "https://commoditysupercycle.com/charts/lng",
+    
+    "svgTitle": "Global LNG Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global liquefied natural gas companies. LNG export, import and infrastructure sector performance."
   },
   "royalties-trusts": {
-    "title": "O&G Royalties & Trusts Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of oil & gas royalty trusts and mineral rights companies. Passive income energy sector overview.",
+    "title": "Global O&G Royalties & Trusts Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of oil & gas royalty trusts and mineral rights companies.",
     "h1": "O&G Royalties & Trusts - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Royalty Trusts",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "O&G Royalties & Trusts Market Cap",
-    "ogDescription": "Market cap of oil & gas royalty trusts and mineral rights vehicles.",
+    "ogDescription": "Total market cap of oil & gas royalty trusts.",
     "ogImage": "royalties-trusts.png",
-    "canonical": "https://commoditysupercycle.com/charts/royalties-trusts"
+    "canonical": "https://commoditysupercycle.com/charts/royalties-trusts",
+    
+    "svgTitle": "Global O&G Royalties & Trusts Market Cap",
+    "svgDesc": "Historical total market capitalization of oil & gas royalty trusts and mineral rights companies. Passive income energy sector performance."
   },
   "biofuels-biogas": {
-    "title": "Biofuels & Biogas Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of biofuels and biogas companies. Renewable natural gas and sustainable fuels sector valuation.",
-    "h1": "Biofuels & Biogas Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Biofuel and RNG Producers",
+    "title": "Global Biofuels & Biogas Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of biofuels and biogas companies.",
+    "h1": "Biofuels & Biogas - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Biofuels Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Biofuels & Biogas Market Cap",
     "ogDescription": "Total market cap of global biofuels and biogas companies.",
     "ogImage": "biofuels-biogas.png",
-    "canonical": "https://commoditysupercycle.com/charts/biofuels-biogas"
+    "canonical": "https://commoditysupercycle.com/charts/biofuels-biogas",
+    
+    "svgTitle": "Global Biofuels & Biogas Market Cap",
+    "svgDesc": "Historical total market capitalization of global biofuels and biogas companies. Renewable energy transition sector performance."
   },
   "oil-gas": {
-    "title": "CommoditySuperCycle Oil & Gas Index | Market Cap",
-    "metaDescription": "Official CommoditySuperCycle Oil & Gas Index. Total combined market capitalization of the entire global oil & gas sector.",
-    "h1": "CommoditySuperCycle Oil & Gas Index - Total Sector Market Cap",
+    "title": "CSC Oil & Gas Index | Market Cap",
+    "metaDescription": "The official CSC Oil & Gas Index. Total market capitalization of the global oil and gas sector.",
+    "h1": "CSC Oil & Gas Index - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of the Global Oil & Gas Industry",
     "h3": "Official CSC Index for Oil & Gas",
-    "ogTitle": "CommoditySuperCycle Oil & Gas Index",
-    "ogDescription": "The official CSC Index tracking total market cap of the global oil & gas sector.",
+    "ogTitle": "CSC Oil & Gas Index",
+    "ogDescription": "The official CommoditySuperCycle Oil & Gas Index.",
     "ogImage": "oil-gas.png",
-    "canonical": "https://commoditysupercycle.com/charts/csc-oil-gas"
+    "canonical": "https://commoditysupercycle.com/charts/oil-gas",
+    
+    "svgTitle": "CSC Oil & Gas Index",
+    "svgDesc": "Official CommoditySuperCycle Index - Historical total market capitalization of the global oil and gas sector."
   },
   "gold-nyse": {
-    "title": "NYSE Gold Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of gold mining companies listed on the New York Stock Exchange (NYSE). Interactive chart of major gold producers.",
-    "h1": "NYSE Gold Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Gold Producers on NYSE",
+    "title": "NYSE Gold Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of gold mining companies listed on the NYSE.",
+    "h1": "NYSE Gold Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of NYSE Gold Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "NYSE Gold Mining Market Cap",
+    "ogTitle": "NYSE Gold Companies Market Cap",
     "ogDescription": "Total market cap of NYSE-listed gold mining companies.",
     "ogImage": "gold-nyse.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-nyse"
+    "canonical": "https://commoditysupercycle.com/charts/gold-nyse",
+    
+    "svgTitle": "NYSE Gold Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of gold mining companies listed on the New York Stock Exchange."
   },
   "gold-lse": {
-    "title": "LSE Gold Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of gold mining companies listed on the London Stock Exchange (LSE).",
-    "h1": "LSE Gold Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Gold Producers on LSE",
+    "title": "LSE Gold Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of gold mining companies listed on the LSE.",
+    "h1": "LSE Gold Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of LSE Gold Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "LSE Gold Mining Market Cap",
+    "ogTitle": "LSE Gold Companies Market Cap",
     "ogDescription": "Total market cap of LSE-listed gold mining companies.",
     "ogImage": "gold-lse.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-lse"
+    "canonical": "https://commoditysupercycle.com/charts/gold-lse",
+    
+    "svgTitle": "LSE Gold Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of gold mining companies listed on the London Stock Exchange."
   },
   "gold-tsx": {
-    "title": "TSX Gold Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of gold mining companies listed on the Toronto Stock Exchange (TSX).",
-    "h1": "TSX Gold Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Gold Producers on TSX",
+    "title": "TSX Gold Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of gold mining companies listed on the TSX.",
+    "h1": "TSX Gold Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of TSX Gold Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "TSX Gold Mining Market Cap",
+    "ogTitle": "TSX Gold Companies Market Cap",
     "ogDescription": "Total market cap of TSX-listed gold mining companies.",
     "ogImage": "gold-tsx.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-tsx"
+    "canonical": "https://commoditysupercycle.com/charts/gold-tsx",
+    
+    "svgTitle": "TSX Gold Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of gold mining companies listed on the Toronto Stock Exchange."
   },
   "gold-tsxv": {
-    "title": "TSXV Junior Gold Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of junior gold exploration companies on the TSX Venture Exchange (TSXV).",
+    "title": "TSXV Junior Gold Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of junior gold companies listed on the TSX Venture Exchange.",
     "h1": "TSXV Junior Gold Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Junior Gold Explorers on TSXV",
+    "h2": "Aggregate Market Capitalization of Junior Gold Explorers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "TSXV Junior Gold Market Cap",
-    "ogDescription": "Market cap of junior gold companies on TSX Venture Exchange.",
+    "ogDescription": "Market cap of junior gold companies on TSXV.",
     "ogImage": "gold-tsxv.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-tsxv"
+    "canonical": "https://commoditysupercycle.com/charts/gold-tsxv",
+    
+    "svgTitle": "TSXV Junior Gold Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of junior gold mining and exploration companies on the TSX Venture Exchange."
   },
   "gold-asx": {
-    "title": "ASX Gold Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of gold mining companies listed on the Australian Securities Exchange (ASX).",
-    "h1": "ASX Gold Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Gold Producers on ASX",
+    "title": "ASX Gold Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of gold mining companies listed on the ASX.",
+    "h1": "ASX Gold Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of ASX Gold Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "ASX Gold Mining Market Cap",
+    "ogTitle": "ASX Gold Companies Market Cap",
     "ogDescription": "Total market cap of ASX-listed gold mining companies.",
     "ogImage": "gold-asx.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-asx"
+    "canonical": "https://commoditysupercycle.com/charts/gold-asx",
+    
+    "svgTitle": "ASX Gold Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of gold mining companies listed on the Australian Securities Exchange."
   },
   "silver": {
-    "title": "Silver Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global silver mining companies. Interactive chart of primary and byproduct silver producers.",
-    "h1": "Silver Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Silver Producers Worldwide",
+    "title": "Global Silver Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global silver mining companies.",
+    "h1": "Silver Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Silver Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Silver Mining Market Cap",
+    "ogTitle": "Silver Companies Market Cap",
     "ogDescription": "Total market capitalization of global silver mining companies.",
     "ogImage": "silver.png",
-    "canonical": "https://commoditysupercycle.com/charts/silver"
+    "canonical": "https://commoditysupercycle.com/charts/silver",
+    
+    "svgTitle": "Global Silver Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global silver mining companies. Silver producers sector performance worldwide."
   },
   "gold-silver": {
-    "title": "Gold & Silver Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of companies producing both gold and silver. Combined precious metals sector valuation.",
+    "title": "Global Gold & Silver Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of companies producing both gold and silver.",
     "h1": "Gold & Silver Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Gold-Silver Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Gold & Silver Mining Market Cap",
+    "ogTitle": "Gold & Silver Companies Market Cap",
     "ogDescription": "Combined market cap of gold and silver mining companies.",
     "ogImage": "gold-silver.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-silver"
+    "canonical": "https://commoditysupercycle.com/charts/gold-silver",
+    
+    "svgTitle": "Global Gold & Silver Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of companies producing both gold and silver. Precious metals mining sector performance."
   },
   "gold-copper": {
-    "title": "Gold & Copper Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of gold-copper mining companies. Dual commodity producers sector overview.",
+    "title": "Global Gold & Copper Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of gold-copper mining companies.",
     "h1": "Gold & Copper Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Gold-Copper Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Gold & Copper Mining Market Cap",
+    "ogTitle": "Gold & Copper Companies Market Cap",
     "ogDescription": "Total market cap of gold and copper mining companies.",
     "ogImage": "gold-copper.png",
-    "canonical": "https://commoditysupercycle.com/charts/gold-copper"
+    "canonical": "https://commoditysupercycle.com/charts/gold-copper",
+    
+    "svgTitle": "Global Gold & Copper Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of gold-copper mining companies. Dual commodity precious and base metals sector."
   },
   "pgm": {
-    "title": "PGM Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of Platinum Group Metals companies. Platinum, palladium and other PGM producers.",
-    "h1": "Platinum Group Metals Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of PGM Producers",
+    "title": "Global Platinum Group Metals Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of Platinum Group Metals companies.",
+    "h1": "PGM Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Platinum Group Metals Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "PGM Companies Market Cap",
     "ogDescription": "Total market cap of Platinum Group Metals companies.",
     "ogImage": "pgm.png",
-    "canonical": "https://commoditysupercycle.com/charts/pgm"
+    "canonical": "https://commoditysupercycle.com/charts/pgm",
+    
+    "svgTitle": "Global Platinum Group Metals Market Cap",
+    "svgDesc": "Historical total market capitalization of Platinum Group Metals (PGM) companies including platinum, palladium and rhodium."
   },
   "precious-metals": {
-    "title": "CommoditySuperCycle Precious Metals Index | Market Cap",
-    "metaDescription": "Official CommoditySuperCycle Precious Metals Index. Total market capitalization of gold, silver and PGM companies.",
-    "h1": "CommoditySuperCycle Precious Metals Index - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Gold, Silver and PGM",
+    "title": "CSC Precious Metals Index | Market Cap",
+    "metaDescription": "The official CSC Precious Metals Index. Total market capitalization of gold, silver and PGM companies.",
+    "h1": "CSC Precious Metals Index - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Gold, Silver & PGM",
     "h3": "Official CSC Index for Precious Metals",
-    "ogTitle": "CommoditySuperCycle Precious Metals Index",
-    "ogDescription": "The official CSC Index for the global precious metals sector.",
+    "ogTitle": "CSC Precious Metals Index",
+    "ogDescription": "The official CommoditySuperCycle Precious Metals Index.",
     "ogImage": "precious-metals.png",
-    "canonical": "https://commoditysupercycle.com/charts/csc-precious-metals"
+    "canonical": "https://commoditysupercycle.com/charts/precious-metals",
+    
+    "svgTitle": "CSC Precious Metals Index",
+    "svgDesc": "Official CommoditySuperCycle Precious Metals Index - Historical total market capitalization of gold, silver and PGM companies."
   },
   "aluminum": {
-    "title": "Aluminum Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global aluminum mining and smelting companies. Interactive chart of major aluminum producers.",
+    "title": "Global Aluminum Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global aluminum companies.",
     "h1": "Aluminum Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Aluminum Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Aluminum Companies Market Cap",
     "ogDescription": "Total market capitalization of global aluminum companies.",
     "ogImage": "aluminum.png",
-    "canonical": "https://commoditysupercycle.com/charts/aluminum"
+    "canonical": "https://commoditysupercycle.com/charts/aluminum",
+    
+    "svgTitle": "Global Aluminum Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global aluminum mining and production companies. Worldwide aluminum sector performance tracking."
   },
   "copper": {
-    "title": "Copper Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global copper mining companies. Interactive chart of major copper producers worldwide.",
-    "h1": "Copper Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Copper Producers Worldwide",
+    "title": "Global Copper Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global copper mining companies.",
+    "h1": "Copper Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Copper Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Copper Mining Market Cap",
-    "ogDescription": "Total market cap of global copper mining companies.",
+    "ogTitle": "Copper Companies Market Cap",
+    "ogDescription": "Total market capitalization of global copper mining companies.",
     "ogImage": "copper.png",
-    "canonical": "https://commoditysupercycle.com/charts/copper"
+    "canonical": "https://commoditysupercycle.com/charts/copper",
+    
+    "svgTitle": "Global Copper Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global copper mining companies. Red metal sector performance worldwide."
   },
   "lead-zinc": {
-    "title": "Lead & Zinc Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of lead and zinc mining companies worldwide. Combined base metals sector valuation.",
+    "title": "Global Lead & Zinc Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of lead and zinc mining companies.",
     "h1": "Lead & Zinc Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Lead and Zinc Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Lead & Zinc Mining Market Cap",
+    "ogTitle": "Lead & Zinc Market Cap",
     "ogDescription": "Total market capitalization of lead and zinc mining companies.",
     "ogImage": "lead-zinc.png",
-    "canonical": "https://commoditysupercycle.com/charts/lead-zinc"
+    "canonical": "https://commoditysupercycle.com/charts/lead-zinc",
+    
+    "svgTitle": "Global Lead & Zinc Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global lead and zinc mining companies."
   },
   "lithium": {
-    "title": "Lithium Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global lithium mining companies. Critical battery metal sector valuation.",
-    "h1": "Lithium Mining Companies - Total Sector Market Cap",
+    "title": "Global Lithium Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global lithium mining companies.",
+    "h1": "Lithium Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Lithium Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Lithium Mining Market Cap",
-    "ogDescription": "Total market cap of global lithium mining companies.",
+    "ogTitle": "Lithium Companies Market Cap",
+    "ogDescription": "Total market capitalization of global lithium mining companies.",
     "ogImage": "lithium.png",
-    "canonical": "https://commoditysupercycle.com/charts/lithium"
+    "canonical": "https://commoditysupercycle.com/charts/lithium",
+    
+    "svgTitle": "Global Lithium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global lithium mining companies. Battery metals and EV supply chain sector performance."
   },
   "iron-steel": {
-    "title": "Iron & Steel Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of iron ore and steel companies worldwide.",
+    "title": "Global Iron & Steel Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of iron ore and steel companies.",
     "h1": "Iron & Steel Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Iron Ore and Steel Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Iron & Steel Market Cap",
     "ogDescription": "Total market capitalization of iron ore and steel companies.",
     "ogImage": "iron-steel.png",
-    "canonical": "https://commoditysupercycle.com/charts/iron-steel"
+    "canonical": "https://commoditysupercycle.com/charts/iron-steel",
+    
+    "svgTitle": "Global Iron & Steel Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global iron ore and steel companies."
   },
   "nickel": {
-    "title": "Nickel Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global nickel mining companies. Battery and stainless steel metal sector.",
-    "h1": "Nickel Mining Companies - Total Sector Market Cap",
+    "title": "Global Nickel Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global nickel mining companies.",
+    "h1": "Nickel Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Nickel Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Nickel Mining Market Cap",
-    "ogDescription": "Total market cap of global nickel mining companies.",
+    "ogTitle": "Nickel Companies Market Cap",
+    "ogDescription": "Total market capitalization of global nickel mining companies.",
     "ogImage": "nickel.png",
-    "canonical": "https://commoditysupercycle.com/charts/nickel"
+    "canonical": "https://commoditysupercycle.com/charts/nickel",
+    
+    "svgTitle": "Global Nickel Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global nickel mining companies. Stainless steel and battery metals sector performance."
   },
   "rare-earths": {
-    "title": "Rare Earths Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of rare earth elements mining companies. Critical minerals sector valuation.",
+    "title": "Global Rare Earths Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of rare earth elements mining companies.",
     "h1": "Rare Earths Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Rare Earth Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Rare Earths Market Cap",
+    "ogTitle": "Rare Earths Market Cap",
     "ogDescription": "Total market capitalization of rare earth mining companies.",
     "ogImage": "rare-earths.png",
-    "canonical": "https://commoditysupercycle.com/charts/rare-earths"
+    "canonical": "https://commoditysupercycle.com/charts/rare-earths",
+    
+    "svgTitle": "Global Rare Earths Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global rare earth elements mining companies. Critical minerals sector performance."
   },
   "uranium": {
-    "title": "Uranium Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global uranium mining companies. Nuclear energy fuel sector overview.",
-    "h1": "Uranium Mining Companies - Total Sector Market Cap",
+    "title": "Global Uranium Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global uranium mining companies.",
+    "h1": "Uranium Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Uranium Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Global Uranium Mining Market Cap",
-    "ogDescription": "Total market cap of global uranium mining companies.",
+    "ogTitle": "Uranium Companies Market Cap",
+    "ogDescription": "Total market capitalization of global uranium mining companies.",
     "ogImage": "uranium.png",
-    "canonical": "https://commoditysupercycle.com/charts/uranium"
+    "canonical": "https://commoditysupercycle.com/charts/uranium",
+    
+    "svgTitle": "Global Uranium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global uranium mining companies. Nuclear energy sector performance."
   },
   "antimony": {
-    "title": "Antimony Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global antimony mining companies. Critical mineral for flame retardants and batteries.",
-    "h1": "Antimony Mining Companies - Total Sector Market Cap",
+    "title": "Global Antimony Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global antimony mining companies.",
+    "h1": "Antimony Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Antimony Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Antimony Mining Market Cap",
+    "ogTitle": "Antimony Companies Market Cap",
     "ogDescription": "Total market capitalization of antimony mining companies.",
     "ogImage": "antimony.png",
-    "canonical": "https://commoditysupercycle.com/charts/antimony"
+    "canonical": "https://commoditysupercycle.com/charts/antimony",
+    
+    "svgTitle": "Global Antimony Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global antimony mining companies."
   },
   "beryllium": {
-    "title": "Beryllium Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global beryllium companies. High-tech and aerospace applications.",
-    "h1": "Beryllium Mining Companies - Total Sector Market Cap",
+    "title": "Global Beryllium Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global beryllium companies.",
+    "h1": "Beryllium Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Beryllium Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Beryllium Mining Market Cap",
-    "ogDescription": "Total market cap of global beryllium companies.",
+    "ogTitle": "Beryllium Companies Market Cap",
+    "ogDescription": "Total market capitalization of beryllium companies.",
     "ogImage": "beryllium.png",
-    "canonical": "https://commoditysupercycle.com/charts/beryllium"
+    "canonical": "https://commoditysupercycle.com/charts/beryllium",
+    
+    "svgTitle": "Global Beryllium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global beryllium companies."
   },
   "cobalt": {
-    "title": "Cobalt Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global cobalt mining companies. Essential battery metal sector.",
-    "h1": "Cobalt Mining Companies - Total Sector Market Cap",
+    "title": "Global Cobalt Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global cobalt mining companies.",
+    "h1": "Cobalt Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Cobalt Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Cobalt Mining Market Cap",
+    "ogTitle": "Cobalt Companies Market Cap",
     "ogDescription": "Total market capitalization of global cobalt mining companies.",
     "ogImage": "cobalt.png",
-    "canonical": "https://commoditysupercycle.com/charts/cobalt"
+    "canonical": "https://commoditysupercycle.com/charts/cobalt",
+    
+    "svgTitle": "Global Cobalt Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global cobalt mining companies. Battery and EV supply chain performance."
   },
   "magnesium": {
-    "title": "Magnesium Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global magnesium mining companies.",
-    "h1": "Magnesium Mining Companies - Total Sector Market Cap",
+    "title": "Global Magnesium Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global magnesium companies.",
+    "h1": "Magnesium Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Magnesium Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Magnesium Mining Market Cap",
-    "ogDescription": "Total market cap of global magnesium companies.",
+    "ogTitle": "Magnesium Companies Market Cap",
+    "ogDescription": "Total market capitalization of global magnesium companies.",
     "ogImage": "magnesium.png",
-    "canonical": "https://commoditysupercycle.com/charts/magnesium"
+    "canonical": "https://commoditysupercycle.com/charts/magnesium",
+    
+    "svgTitle": "Global Magnesium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global magnesium companies."
   },
   "manganese": {
-    "title": "Manganese Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global manganese mining companies. Steel and battery applications.",
-    "h1": "Manganese Mining Companies - Total Sector Market Cap",
+    "title": "Global Manganese Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global manganese mining companies.",
+    "h1": "Manganese Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Manganese Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Manganese Mining Market Cap",
+    "ogTitle": "Manganese Companies Market Cap",
     "ogDescription": "Total market capitalization of global manganese companies.",
     "ogImage": "manganese.png",
-    "canonical": "https://commoditysupercycle.com/charts/manganese"
+    "canonical": "https://commoditysupercycle.com/charts/manganese",
+    
+    "svgTitle": "Global Manganese Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global manganese mining companies."
   },
   "molybdenum-tungsten": {
-    "title": "Molybdenum & Tungsten Market Cap | CommoditySuperCycle",
+    "title": "Global Molybdenum & Tungsten Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of molybdenum and tungsten mining companies.",
     "h1": "Molybdenum & Tungsten Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Molybdenum and Tungsten Producers",
@@ -426,32 +540,41 @@
     "ogTitle": "Molybdenum & Tungsten Market Cap",
     "ogDescription": "Total market cap of molybdenum and tungsten companies.",
     "ogImage": "molybdenum-tungsten.png",
-    "canonical": "https://commoditysupercycle.com/charts/molybdenum-tungsten"
+    "canonical": "https://commoditysupercycle.com/charts/molybdenum-tungsten",
+    
+    "svgTitle": "Global Molybdenum & Tungsten Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of molybdenum and tungsten mining companies."
   },
   "niobium-tantalum": {
-    "title": "Niobium & Tantalum Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of niobium and tantalum mining companies. Critical technology metals.",
+    "title": "Global Niobium & Tantalum Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of niobium and tantalum mining companies.",
     "h1": "Niobium & Tantalum Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Niobium and Tantalum Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Niobium & Tantalum Market Cap",
     "ogDescription": "Total market cap of niobium and tantalum companies.",
     "ogImage": "niobium-tantalum.png",
-    "canonical": "https://commoditysupercycle.com/charts/niobium-tantalum"
+    "canonical": "https://commoditysupercycle.com/charts/niobium-tantalum",
+    
+    "svgTitle": "Global Niobium & Tantalum Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of niobium and tantalum mining companies."
   },
   "tin": {
-    "title": "Tin Mining Market Cap | CommoditySuperCycle",
+    "title": "Global Tin Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of global tin mining companies.",
-    "h1": "Tin Mining Companies - Total Sector Market Cap",
+    "h1": "Tin Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Tin Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Tin Mining Market Cap",
+    "ogTitle": "Tin Companies Market Cap",
     "ogDescription": "Total market capitalization of global tin mining companies.",
     "ogImage": "tin.png",
-    "canonical": "https://commoditysupercycle.com/charts/tin"
+    "canonical": "https://commoditysupercycle.com/charts/tin",
+    
+    "svgTitle": "Global Tin Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global tin mining companies."
   },
   "titanium-zirconium": {
-    "title": "Titanium & Zirconium Market Cap | CommoditySuperCycle",
+    "title": "Global Titanium & Zirconium Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of titanium and zirconium mining companies.",
     "h1": "Titanium & Zirconium Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Titanium and Zirconium Producers",
@@ -459,43 +582,55 @@
     "ogTitle": "Titanium & Zirconium Market Cap",
     "ogDescription": "Total market cap of titanium and zirconium companies.",
     "ogImage": "titanium-zirconium.png",
-    "canonical": "https://commoditysupercycle.com/charts/titanium-zirconium"
+    "canonical": "https://commoditysupercycle.com/charts/titanium-zirconium",
+    
+    "svgTitle": "Global Titanium & Zirconium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of titanium and zirconium mining companies."
   },
   "silicon": {
-    "title": "Silicon Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global silicon companies. Semiconductor and solar grade silicon sector.",
+    "title": "Global Silicon Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global silicon companies.",
     "h1": "Silicon Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Silicon Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Silicon Companies Market Cap",
     "ogDescription": "Total market capitalization of global silicon companies.",
     "ogImage": "silicon.png",
-    "canonical": "https://commoditysupercycle.com/charts/silicon"
+    "canonical": "https://commoditysupercycle.com/charts/silicon",
+    
+    "svgTitle": "Global Silicon Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global silicon companies."
   },
   "vanadium": {
-    "title": "Vanadium Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global vanadium mining companies. Steel alloy and battery applications.",
-    "h1": "Vanadium Mining Companies - Total Sector Market Cap",
+    "title": "Global Vanadium Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global vanadium mining companies.",
+    "h1": "Vanadium Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Vanadium Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Vanadium Mining Market Cap",
-    "ogDescription": "Total market cap of global vanadium mining companies.",
+    "ogTitle": "Vanadium Companies Market Cap",
+    "ogDescription": "Total market capitalization of global vanadium mining companies.",
     "ogImage": "vanadium.png",
-    "canonical": "https://commoditysupercycle.com/charts/vanadium"
+    "canonical": "https://commoditysupercycle.com/charts/vanadium",
+    
+    "svgTitle": "Global Vanadium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global vanadium mining companies."
   },
   "base-metals": {
-    "title": "CommoditySuperCycle Base Metals Index | Market Cap",
-    "metaDescription": "Official CommoditySuperCycle Base Metals Index. Total market capitalization of copper, nickel, aluminum and other base metals.",
-    "h1": "CommoditySuperCycle Base Metals Index - Total Sector Market Cap",
+    "title": "CSC Base Metals Index | Market Cap",
+    "metaDescription": "The official CSC Base Metals Index. Total market capitalization of copper, nickel, aluminum and other base metals.",
+    "h1": "CSC Base Metals Index - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Major Base Metals",
     "h3": "Official CSC Index for Base Metals",
-    "ogTitle": "CommoditySuperCycle Base Metals Index",
-    "ogDescription": "The official CSC Index for the global base metals sector.",
+    "ogTitle": "CSC Base Metals Index",
+    "ogDescription": "The official CommoditySuperCycle Base Metals Index.",
     "ogImage": "base-metals.png",
-    "canonical": "https://commoditysupercycle.com/charts/csc-base-metals"
+    "canonical": "https://commoditysupercycle.com/charts/base-metals",
+    
+    "svgTitle": "CSC Base Metals Index",
+    "svgDesc": "Official CommoditySuperCycle Base Metals Index - Historical total market capitalization of copper, nickel, aluminum and other base metals."
   },
   "diversified": {
-    "title": "Diversified Mining Market Cap | CommoditySuperCycle",
+    "title": "Global Diversified Mining Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of diversified mining companies operating across multiple commodities.",
     "h1": "Diversified Mining Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Diversified Resource Companies",
@@ -503,54 +638,69 @@
     "ogTitle": "Diversified Mining Market Cap",
     "ogDescription": "Total market cap of diversified global mining companies.",
     "ogImage": "diversified.png",
-    "canonical": "https://commoditysupercycle.com/charts/diversified"
+    "canonical": "https://commoditysupercycle.com/charts/diversified",
+    
+    "svgTitle": "Global Diversified Mining Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of diversified mining companies operating across multiple commodities."
   },
   "hydrogen": {
-    "title": "Hydrogen Companies Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global hydrogen and green ammonia companies. Clean energy transition sector.",
+    "title": "Global Hydrogen Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global hydrogen and green energy companies.",
     "h1": "Hydrogen Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Hydrogen and Ammonia Producers",
+    "h2": "Aggregate Market Capitalization of Hydrogen Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Hydrogen Companies Market Cap",
     "ogDescription": "Total market cap of global hydrogen companies.",
     "ogImage": "hydrogen.png",
-    "canonical": "https://commoditysupercycle.com/charts/hydrogen"
+    "canonical": "https://commoditysupercycle.com/charts/hydrogen",
+    
+    "svgTitle": "Global Hydrogen Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global hydrogen and green energy companies."
   },
   "helium": {
-    "title": "Helium Companies Market Cap | CommoditySuperCycle",
+    "title": "Global Helium Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of global helium exploration and production companies.",
     "h1": "Helium Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Helium Explorers and Producers",
+    "h2": "Aggregate Market Capitalization of Helium Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Helium Companies Market Cap",
     "ogDescription": "Total market capitalization of global helium companies.",
     "ogImage": "helium.png",
-    "canonical": "https://commoditysupercycle.com/charts/helium"
+    "canonical": "https://commoditysupercycle.com/charts/helium",
+    
+    "svgTitle": "Global Helium Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global helium exploration and production companies."
   },
   "coal": {
-    "title": "Coal Mining Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of global coal mining companies. Thermal and metallurgical coal sector.",
-    "h1": "Coal Mining Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Thermal and Metallurgical Coal Producers",
+    "title": "Global Coal Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of global coal mining companies.",
+    "h1": "Coal Companies - Total Sector Market Cap",
+    "h2": "Aggregate Market Capitalization of Coal Producers",
     "h3": "Sector-wide market cap performance",
-    "ogTitle": "Coal Mining Market Cap",
-    "ogDescription": "Total market cap of global coal mining companies.",
+    "ogTitle": "Coal Companies Market Cap",
+    "ogDescription": "Total market capitalization of global coal mining companies.",
     "ogImage": "coal.png",
-    "canonical": "https://commoditysupercycle.com/charts/coal"
+    "canonical": "https://commoditysupercycle.com/charts/coal",
+    
+    "svgTitle": "Global Coal Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global coal mining companies."
   },
   "graphite-graphene": {
-    "title": "Graphite & Graphene Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of graphite and graphene companies. Battery anode and advanced materials sector.",
+    "title": "Global Graphite & Graphene Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of graphite and graphene companies.",
     "h1": "Graphite & Graphene Companies - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Graphite and Advanced Carbon Companies",
+    "h2": "Aggregate Market Capitalization of Graphite and Graphene Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Graphite & Graphene Market Cap",
-    "ogDescription": "Total market cap of graphite and graphene companies.",
+    "ogDescription": "Total market capitalization of graphite and graphene companies.",
     "ogImage": "graphite-graphene.png",
-    "canonical": "https://commoditysupercycle.com/charts/graphite-graphene"
+    "canonical": "https://commoditysupercycle.com/charts/graphite-graphene",
+    
+    "svgTitle": "Global Graphite & Graphene Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of graphite and graphene companies. Battery and advanced materials sector."
   },
   "diamonds-gems": {
-    "title": "Diamonds & Gems Market Cap | CommoditySuperCycle",
+    "title": "Global Diamonds & Gems Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of diamond and gemstone mining companies.",
     "h1": "Diamonds & Gems Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Diamond and Gemstone Producers",
@@ -558,21 +708,27 @@
     "ogTitle": "Diamonds & Gems Market Cap",
     "ogDescription": "Total market capitalization of diamond and gemstone companies.",
     "ogImage": "diamonds-gems.png",
-    "canonical": "https://commoditysupercycle.com/charts/diamonds-gems"
+    "canonical": "https://commoditysupercycle.com/charts/diamonds-gems",
+    
+    "svgTitle": "Global Diamonds & Gems Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of diamond and gemstone mining companies."
   },
   "fertilizers-salt": {
-    "title": "Fertilizers & Salt Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of fertilizer and salt mining companies. Agricultural inputs sector.",
+    "title": "Global Fertilizers & Salt Companies Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of fertilizer and salt mining companies.",
     "h1": "Fertilizers & Salt Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Fertilizer and Salt Producers",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Fertilizers & Salt Market Cap",
-    "ogDescription": "Total market cap of global fertilizer and salt companies.",
+    "ogDescription": "Total market capitalization of fertilizer and salt companies.",
     "ogImage": "fertilizers-salt.png",
-    "canonical": "https://commoditysupercycle.com/charts/fertilizers-salt"
+    "canonical": "https://commoditysupercycle.com/charts/fertilizers-salt",
+    
+    "svgTitle": "Global Fertilizers & Salt Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of fertilizer and salt mining companies."
   },
   "industrial-minerals": {
-    "title": "Industrial Minerals Market Cap | CommoditySuperCycle",
+    "title": "Global Industrial Minerals Companies Market Cap | CommoditySuperCycle",
     "metaDescription": "Total market capitalization of industrial minerals companies worldwide.",
     "h1": "Industrial Minerals Companies - Total Sector Market Cap",
     "h2": "Aggregate Market Capitalization of Industrial Minerals Producers",
@@ -580,28 +736,37 @@
     "ogTitle": "Industrial Minerals Market Cap",
     "ogDescription": "Total market capitalization of industrial minerals companies.",
     "ogImage": "industrial-minerals.png",
-    "canonical": "https://commoditysupercycle.com/charts/industrial-minerals"
+    "canonical": "https://commoditysupercycle.com/charts/industrial-minerals",
+    
+    "svgTitle": "Global Industrial Minerals Companies Market Cap",
+    "svgDesc": "Historical total market capitalization of global industrial minerals companies."
   },
   "mining-equipment-services": {
-    "title": "Mining Equipment & Services Market Cap | CommoditySuperCycle",
-    "metaDescription": "Total market capitalization of mining equipment manufacturers and service providers worldwide.",
+    "title": "Global Mining Equipment & Services Market Cap | CommoditySuperCycle",
+    "metaDescription": "Total market capitalization of mining equipment manufacturers and service providers.",
     "h1": "Mining Equipment & Services - Total Sector Market Cap",
-    "h2": "Aggregate Market Capitalization of Mining Equipment and Service Providers",
+    "h2": "Aggregate Market Capitalization of Mining Equipment and Services Companies",
     "h3": "Sector-wide market cap performance",
     "ogTitle": "Mining Equipment & Services Market Cap",
     "ogDescription": "Total market cap of global mining equipment and services companies.",
     "ogImage": "mining-equipment-services.png",
-    "canonical": "https://commoditysupercycle.com/charts/mining-equipment-services"
+    "canonical": "https://commoditysupercycle.com/charts/mining-equipment-services",
+    
+    "svgTitle": "Global Mining Equipment & Services Market Cap",
+    "svgDesc": "Historical total market capitalization of global mining equipment manufacturers and service providers."
   },
   "csc-index": {
-    "title": "CommoditySuperCycle Index | Global Market Cap",
-    "metaDescription": "The official CommoditySuperCycle Index (CSC). Total combined market capitalization across all major commodity sectors.",
-    "h1": "CommoditySuperCycle Index - Global Total Market Cap",
-    "h2": "Combined Market Capitalization of Major Commodity Sectors",
+    "title": "CSC Total Index | Global Market Cap",
+    "metaDescription": "The official CommoditySuperCycle Total Index. Combined market capitalization across all major commodity sectors.",
+    "h1": "CSC Total Index - Global Market Cap",
+    "h2": "Combined Market Capitalization Across All Commodity Sectors",
     "h3": "The official global CommoditySuperCycle Index",
-    "ogTitle": "CommoditySuperCycle Index (CSC)",
-    "ogDescription": "The official CSC Index showing total market capitalization across major commodity sectors.",
-    "ogImage": "total-csc.png",
-    "canonical": "https://commoditysupercycle.com/charts/csc-index"
+    "ogTitle": "CSC Total Index",
+    "ogDescription": "The official global CommoditySuperCycle Total Index.",
+    "ogImage": "csc-index.png",
+    "canonical": "https://commoditysupercycle.com/charts/csc-index",
+    
+    "svgTitle": "CSC Total Index",
+    "svgDesc": "Official CommoditySuperCycle Total Index - Combined historical market capitalization across all major commodity sectors worldwide."
   }
 }
