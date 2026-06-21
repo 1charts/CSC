@@ -109,7 +109,7 @@ function createPage(chart) {
 
   html += `<script type="application/ld+json">${JSON.stringify(jsonLd, null, 2)}</script>\n`;
 
-  // ====================== BODY - Immagine con FIGURE (SEO) ======================
+  // BODY
   let bodyHtml = template.htmlBody.replace('{{TITLE}}', pageTitle);
 
   bodyHtml = bodyHtml.replace(
