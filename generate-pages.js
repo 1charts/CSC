@@ -36,12 +36,13 @@ const chartsData = chartOrder
       name,
       title: chartConfig.title,
       svgFile: `${name}.svg`,
-      pngFile: `${name}.png`
+      pngFile: `${name}.png`,
+      sources: chartConfig.sources || []
     };
   });
 
 function createPage(chart) {
-  const { name, svgFile, pngFile, title: pageTitle } = chart;
+  const { name, svgFile, pngFile, title: pageTitle, sources } = chart;
   const seo = seoConfig[name] || {};
 
   const metaDescription = seo.metaDescription || `Historical market capitalization of ${name.replace(/-/g, ' ')} companies.`;
@@ -108,18 +109,20 @@ function createPage(chart) {
 
   html += `<script type="application/ld+json">${JSON.stringify(jsonLd, null, 2)}</script>\n`;
 
-  // ====================== BODY ======================
+  // ====================== BODY - Immagine con FIGURE (SEO) ======================
   let bodyHtml = template.htmlBody.replace('{{TITLE}}', pageTitle);
 
-  // Immagine principale con eager + high priority
   bodyHtml = bodyHtml.replace(
     /<img[^>]*id=["']chart-image["'][^>]*>/i,
-    `<img id="chart-image" 
-          src="SVG-PNG/${svgFile}" 
-          alt="${seo.svgTitle || pageTitle}" 
-          loading="eager" 
-          fetchpriority="high"
-          decoding="async">`
+    `<figure style="margin:0; padding:0; width:100%; height:100%; display:flex; justify-content:center; align-items:center;">
+        <img id="chart-image" 
+             src="SVG-PNG/${svgFile}" 
+             alt="${seo.svgTitle || pageTitle} - Historical Market Capitalization Chart" 
+             loading="eager" 
+             fetchpriority="high"
+             decoding="async">
+        <figcaption class="sr-only">${seo.svgDesc || metaDescription}</figcaption>
+      </figure>`
   );
 
   // LINK SEO PREV / NEXT

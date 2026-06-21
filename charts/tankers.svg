@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="5600" height="2800" viewBox="0 0 5600 2800">
   <title>Global Oil Tankers Market Cap</title>
-  <desc>Historical total market capitalization of global oil tanker companies. Crude oil and product shipping sector performance.</desc>
+  <desc>Historical total market capitalization of global oil tanker and crude shipping companies. Crude oil and product shipping sector performance.</desc>
 
   <metadata>
     <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
       <rdf:Description rdf:about="">
         <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Global Oil Tankers Market Cap</dc:title>
-        <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Historical total market capitalization of global oil tanker companies. Crude oil and product shipping sector performance.</dc:description>
+        <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">Historical total market capitalization of global oil tanker and crude shipping companies. Crude oil and product shipping sector performance.</dc:description>
         <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">market capitalization, tankers, global oil tankers market cap, commodity supercycle, energy sector, mining sector</dc:subject>
         <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/">Dataset</dc:type>
         <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
