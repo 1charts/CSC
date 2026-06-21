@@ -826,6 +826,7 @@
       }
     };
 
+    // ====================== SCREENSHOT CON TESTO ALLINEATO + TOAST DARK ======================
     function takeScreenshot() {
       const c = chartsData[currentIndex];
       const validSources = (c.sources || []).filter(s => s.text && s.text.trim() !== '');
@@ -840,15 +841,17 @@
         const ctx = canvas.getContext('2d');
         
         const WIDTH = 1450;
-        const PADDING_X = 60;
-        const PADDING_TOP = 80;
-        const PADDING_BOTTOM = 100;
-        const TITLE_HEIGHT = 85;
-        const SUBTITLE_HEIGHT = 45;
-        const SOURCES_HEIGHT = validSources.length ? 55 : 0;
+        const PADDING_X = 45;           // ridotto per allineare meglio a sinistra
+        const PADDING_TOP = 55;
+        const PADDING_BOTTOM = 70;
+        const TITLE_HEIGHT = 78;
+        const SUBTITLE_HEIGHT = 38;
+        const SOURCES_HEIGHT = validSources.length ? 48 : 0;
 
         canvas.width = WIDTH;
-        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT + preload.height * (WIDTH - 2 * PADDING_X) / preload.width + PADDING_BOTTOM;
+        canvas.height = PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + SOURCES_HEIGHT 
+                        + preload.height * (WIDTH - 2 * PADDING_X) / preload.width 
+                        + PADDING_BOTTOM;
 
         ctx.fillStyle = '#1E1E1E';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -856,20 +859,20 @@
         ctx.fillStyle = '#f8fafc';
         ctx.font = '700 42px Inter';
         ctx.textAlign = 'left';
-        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 52);
+        ctx.fillText(c.title, PADDING_X, PADDING_TOP + 48);
 
         ctx.fillStyle = '#67e8f9';
-        ctx.font = '600 32px Inter';
-        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 28);
+        ctx.font = '600 30px Inter';
+        ctx.fillText('commoditysupercycle.com', PADDING_X, PADDING_TOP + TITLE_HEIGHT + 26);
 
         if (validSources.length) {
           ctx.fillStyle = '#f8fafc';
           ctx.font = '500 22px Inter';
-          ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+          ctx.fillText('Sources:', PADDING_X, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 28);
 
           ctx.fillStyle = '#94a3b8';
           ctx.font = '500 22px Inter';
-          ctx.fillText(validSources.map(s => s.text).join(' · '), PADDING_X + 100, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 30);
+          ctx.fillText(validSources.map(s => s.text).join(' · '), PADDING_X + 95, PADDING_TOP + TITLE_HEIGHT + SUBTITLE_HEIGHT + 28);
         }
 
         const imgX = PADDING_X;
@@ -884,7 +887,34 @@
         link.download = c.name + '_CSC.png';
         link.href = dataUrl;
         link.click();
+
+        showDownloadToast(c.name);
       };
+    }
+
+    // Toast scuro coerente con il tema del sito
+    function showDownloadToast(chartName) {
+      let toast = document.getElementById('download-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'download-toast';
+        toast.style.cssText = `
+          position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+          background: #1f2937; color: #e0f2fe; padding: 14px 24px; border-radius: 12px;
+          font-family: 'Inter', sans-serif; font-size: 15px; z-index: 10000;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.5); white-space: nowrap; border: 1px solid #334155;
+        `;
+        document.body.appendChild(toast);
+      }
+
+      toast.textContent = `✅ Screenshot "${chartName}" salvato nella cartella Download`;
+      toast.style.opacity = '1';
+
+      setTimeout(() => {
+        toast.style.transition = 'opacity 0.4s ease';
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 600);
+      }, 2800);
     }
   </script>
 </body>
